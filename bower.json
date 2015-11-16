@@ -1,0 +1,28 @@
+{
+  "name": "webService",
+  "description": "this is coco...",
+  "main": "app.js",
+  "authors": [
+    "andSyste"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "jquery": "~2.1.4",
+    "font-awesome": "~4.4.0",
+    "angular-bootstrap": "~0.14.3",
+    "bootstrap": "~3.3.5"
+  }
+}
