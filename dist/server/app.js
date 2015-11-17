@@ -23,5 +23,7 @@
 
 // Listen server
     app.listen(config.port);
-    module.exports = app;
     console.log('coco server listen... with port: 5555');
+
+// make Object
+    module.exports = app;
