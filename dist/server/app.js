@@ -18,7 +18,7 @@
     var app = express();
 
 // MiddleWare
-    app.use(express.static(path.join('./../client')));
+    app.use(express.static(path.join(__dirname + './../client')));
     app.use(morgan('dev'));
 
 // Listen server
