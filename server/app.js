@@ -13,12 +13,11 @@
 
 // Own Objects
     var config = require('./config/environment');
-
 // create WebServer
     var app = express();
 
 // MiddleWare
-    app.use(express.static(path.join(__dirname + './../client')));
+    app.use(express.static('client'));
     app.use(morgan('dev'));
 
 // Listen server
