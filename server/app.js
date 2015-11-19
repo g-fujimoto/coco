@@ -12,13 +12,31 @@
     var session       = require('express-session');
 
 // Own Objects
-    var config = require('./config/environment');
+    var config        = require('./config/environment');
+    var items         = require('./api/items');
 // create WebServer
     var app = express();
+
+// connect MongoDB
+var connect = mongoose.connect(config.mongo.uri);
+
+autoIncrement.initialize(connect);
+
+// create DBModule
+var db = connect.connection;
+db.on('error', console.error.bind(console, 'DB Connection Error!!'));
+
+db.once('open', function(callback) {
+    console.log('MongoDB Connectioned!!');
+});
 
 // MiddleWare
     app.use(express.static('client'));
     app.use(morgan('dev'));
+
+// Routes
+    app.use('/api/admin/items', items);
+
 
 // Listen server
     app.listen(config.port);

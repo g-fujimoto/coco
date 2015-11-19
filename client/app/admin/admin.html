@@ -12,7 +12,7 @@
              </div>
              <div class="collapse navbar-collapse" id="xsMenu">
                <ul class="nav navbar-nav navbar-right">
-                     <li><a ui-sref="members" class="navList">店舗一覧</a></li>
+                     <li><a ui-sref=".items">店舗一覧</a></li>
                </ul>
              </div>
          </div>
@@ -20,4 +20,5 @@
      <div class="container-fluid">
          <!-- テンプレートHTMLを出力 -->
          <div ui-view class="animate"></div>
+         <div ui-view="index" class="animate"></div>
      </div>

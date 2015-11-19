@@ -1,0 +1,86 @@
+<h1 class="page-header">店舗一覧</h1>
+<!-- アラート -->
+<br>
+<div class="row">
+    <div class="container-fluid">
+        <div class="col-sm-4 col-sm-offset-4">
+            <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="animate alertMsg">{{alert.msg}}</uib-alert>
+        </div>
+    </div>
+</div>
+<!-- テーブル -->
+<br>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr class="warning">
+            <th>
+                ID
+            </th>
+            <th>
+                店舗名
+            </th>
+            <th>
+                支店名
+            </th>
+            <th>
+                電話番号
+            </th>
+            <th>
+                登録日
+            </th>
+            <th>
+                更新日
+            </th>
+            <th>
+                シーン
+            </th>
+            <th>
+                ジャンル
+            </th>
+            <th>
+                タグ
+            </th>
+            <th>
+                編集
+            </th>
+            <th>
+                削除
+            </th>
+        </tr>
+        <tr ng-repeat="imte in items">
+            <td>
+                {{item._id}}
+            </td>
+            <td>
+                {{item.itemName}}
+            </td>
+            <td>
+                {{item.itemBranch}}
+            </td>
+            <td>
+                {{item.itemTel}}
+            </td>
+            <td>
+                {{item.created}}
+            </td>
+            <td>
+                {{item.modified}}
+            </td>
+            <td>
+                <button name="scenesBtn" value="シーン詳細" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showModalScenes($index)"></button>
+            </td>
+            <td>
+                <button name="genresBtn" value="ジャンル詳細" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showModalGenres($index)"></button>
+            </td>
+            <td>
+                <button name="tagsBtn" value="タグ詳細" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showModalTags($index)"></button>
+            </td>
+            <td>
+                <button name="editBtn" value="編集" class="btn btn-xs btn-success rowNo-{{$index}}" ng-click="showModalEdit($index)"></button>
+            </td>
+            <td>
+                <button name="deleteBtn" value="削除" class="btn btn-xs btn-warning rowNo-{{$index}}" ng-click="showModalDelete($index)"></button>
+            </td>
+        </tr>
+    </table>
+</div>

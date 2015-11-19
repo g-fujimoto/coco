@@ -1,8 +1,8 @@
 // Create Application
 var app = angular.module('webApp', [
-    'ui.router'
+    'ui.router',
     // 'ngMessages',
-    // 'ui.bootstrap',
+    'ui.bootstrap'
     // 'ngAnimate',
     // 'ngFileUpload',
     // 'ngCookies'
@@ -29,7 +29,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
         })
         .state('admin.items', {
-            url: '/admin/items',
+            url: '/items',
             views: {
                 '': {
                     templateUrl: './app/admin/items/items.html',
@@ -37,5 +37,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                 }
             }
         });
+
     $urlRouterProvider.otherwise('/');
 }]);
