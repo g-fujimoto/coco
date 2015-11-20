@@ -1,24 +1,20 @@
-     <nav class="navbar navbar-default" role="navigation">
-         <div class="container-fluid">
-             <div class="navbar-header">
-                 <a ui-sref="members" class="navbar-brand">COCO社長</a>
-                 <div>
-                     <button type="button" name="button" class="navbar-toggle" data-toggle="collapse" data-target="#xsMenu" id="xsBtn">
-                       <span class="icon-bar"></span>
-                       <span class="icon-bar"></span>
-                       <span class="icon-bar"></span>
-                     </button>
-                 </div>
-             </div>
-             <div class="collapse navbar-collapse" id="xsMenu">
-               <ul class="nav navbar-nav navbar-right">
-                     <li><a ui-sref=".items">店舗一覧</a></li>
-               </ul>
+
+ <nav class="navbar navbar-default" role="navigation">
+     <div class="container-fluid">
+         <div class="navbar-header">
+             <a ui-sref="members" class="navbar-brand">COCO社長</a>
+             <div>
+                 <button type="button" name="button" class="navbar-toggle" data-toggle="collapse" data-target="#xsMenu" id="xsBtn">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                 </button>
              </div>
          </div>
-     </nav>
-     <div class="container-fluid">
-         <!-- テンプレートHTMLを出力 -->
-         <div ui-view class="animate"></div>
-         <div ui-view="index" class="animate"></div>
+         <div class="collapse navbar-collapse" id="xsMenu">
+           <ul class="nav navbar-nav navbar-right">
+                 <li><a ui-sref=".items">店舗一覧</a></li>
+           </ul>
+         </div>
      </div>
+ </nav>

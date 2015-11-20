@@ -13,7 +13,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('main', {
             url: '/',
             views: {
-                '': {
+                'pages': {
                     templateUrl: './app/main/main.html',
                     controller: 'MainController'
                 }
@@ -22,18 +22,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('admin', {
             url: '/admin',
             views: {
-                '': {
+                'pages': {
                     templateUrl: './app/admin/admin.html',
                     controller: 'AdminController'
+                },
+                'adminPages': {
+                    templateUrl: './app/admin/items/items.html',
+                    controller:  'ItemsController'
                 }
             }
         })
         .state('admin.items', {
             url: '/items',
             views: {
-                '': {
-                    templateUrl: './app/admin/items/items.html',
-                    controller:  'ItemsController'
+                'pages': {
+                    templateUrl: './app/admin/items/items.html'
                 }
             }
         });

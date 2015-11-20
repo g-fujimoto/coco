@@ -11,26 +11,25 @@ var Items = require('./items.model');
 
 //index
 exports.index = function(req, res) {
-    Items.find()
-        .populate('itemWants')
-        .exec(function(err, data) {
-            if(err) {
-                res.send('error');
-            } else {
-                res.json(data);
-            }
-        });
+    Items.find({}, function(err, data) {
+        console.log(data);
+        console.log(err);
+        res.json(data);
+    });
 };
 
 //create
 exports.create = function(req, res) {
-    var newItems = new Items(req.body);
-    newItems.itemFavorites.push(req.body.itemName);
-    newItems.save(function(err) {
+    var newItem = new Items({
+        itemName: '八百屋',
+        itemTel: '66-6666-6666'
+    });
+    console.log(newItem);
+    newItem.save(function(err) {
         if(err) {
             res.send('error');
         } else {
-            res.json(newItems);
+            res.json(newItem);
         }
     });
 };

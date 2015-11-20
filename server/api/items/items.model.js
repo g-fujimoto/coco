@@ -5,6 +5,7 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose);
 
 var ItemsSchema = mongoose.Schema({
+    _id             : Number,
     itemName        : String,
     itemKana        : String,
     itemBranch      : String,
