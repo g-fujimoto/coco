@@ -59,19 +59,19 @@
                 {{item.modified}}
             </td>
             <td>
-                <button name="scenesBtn" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showModalScenes($index)">シーン詳細</button>
+                <button name="scenesBtn" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showScencesModal($index)">シーン詳細</button>
             </td>
             <td>
-                <button name="genresBtn" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showModalGenres($index)">ジャンル詳細</button>
+                <button name="genresBtn" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showGenresModal($index)">ジャンル詳細</button>
             </td>
             <td>
-                <button name="tagsBtn" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showModalTags($index)">タグ詳細</button>
+                <button name="tagsBtn" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showTagsModal($index)">タグ詳細</button>
             </td>
             <td>
-                <button name="editBtn" class="btn btn-xs btn-success rowNo-{{$index}}" ng-click="showModalEdit($index)">編集</button>
+                <button name="editBtn" class="btn btn-xs btn-success rowNo-{{$index}}" ng-click="showEditModal($index)">編集</button>
             </td>
             <td>
-                <button name="deleteBtn" class="btn btn-xs btn-danger rowNo-{{$index}}" ng-click="showModalDelete($index)">削除</button>
+                <button name="deleteBtn" class="btn btn-xs btn-danger rowNo-{{$index}}" ng-click="showDeleteModal($index)">削除</button>
             </td>
         </tr>
     </table>
