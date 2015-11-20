@@ -26,7 +26,7 @@ var ItemsSchema = mongoose.Schema({
     itemLikes       : [String],
     created         : Date,
     modified        : Date,
-    deleteFlg       : Number,
+    deleteFlg       : Number
 });
 
 ItemsSchema.plugin(autoIncrement.plugin, {model: 'Items', field: '_id'});
