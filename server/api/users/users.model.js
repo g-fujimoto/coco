@@ -34,6 +34,8 @@ var UsersSchema = mongoose.Schema({
     images          : [Object],
     other           : [Object],
     aboutWork       : [Object],
+    itemWant        : [Object],
+    itemFavorites   : [Object],
     created         : String,
     modified        : String,
     deleted         : String
