@@ -14,6 +14,7 @@
 // Own Objects
     var config        = require('./config/environment');
     var items         = require('./api/items');
+    var itemComments  = require('./api/itemComments');
 // create WebServer
     var app = express();
 
@@ -37,6 +38,7 @@ db.once('open', function(callback) {
 // Routes
     app.use('/api/admin/items', items);
     app.use('/api/items', items);
+    app.use('/api/itemComments', itemComments);
 
 // Listen server
     app.listen(config.port);

@@ -46,7 +46,7 @@
             <div class="right_box">
                 <h2>{{item.itemName}}</h2>
                 <ul class="category_list">
-                    <li>（心斎橋）</li>
+                    <li>（{{item.itemArea}}）</li>
                 </ul>
                 <hr />
                 <div class="button_box">
@@ -73,28 +73,28 @@
                 </div>
 
                 <div class="text_box">
-<!--
-                    <div class="left">
-                        <div class="img_box"><img src="./assets/./images/main/top/test04.jpg" /></div>
-                        <p>やまだやまお</p>
-                    </div>
-                    <div class="right">
-                        <h6>最新コメント</h6>
-                        <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
-                        <a href="">もっと詳しく見る</a>
-                    </div>
--->
-                    <div class="sk-three-bounce">
-                        <div class="sk-child sk-bounce1"></div>
-                        <div class="sk-child sk-bounce2"></div>
-                        <div class="sk-child sk-bounce3"></div>
-                    </div>
+
+                  <div class="sk-three-bounce" ng-show="show_loading">
+                      <div class="sk-child sk-bounce1"></div>
+                      <div class="sk-child sk-bounce2"></div>
+                      <div class="sk-child sk-bounce3"></div>
+                  </div>
+
+                  <div class="left">
+                      <div class="img_box"><img src="./assets/./images/main/top/test04.jpg" /></div>
+                      <p>やまだやまお</p>
+                  </div>
+                  <div class="right">
+                      <h6>最新コメント</h6>
+                      <p>{{item_comments[item._id]}}</p>
+                      <a href="">もっと詳しく見る</a>
+                  </div>
 
                 </div>
 
                 <div class="footer_box">
                     <ul>
-                        <li><h5>○人が推薦しています</h5><h6>{{item.itemLikes.lengt}}人がいいねといっています</h6></li>
+                        <li><h5>{{item.itemLikes.length}}人が推薦しています</h5><h6>{{item.itemLikes.length}}人がいいねといっています</h6></li>
                         <li><a href=""><img src="./assets/./images/main/parts/star_button.svg" alt="" /></a><a href=""><img src="./assets/./images/main/parts/point_button.svg" alt="" /></a></li>
                     </ul>
                 </div>
