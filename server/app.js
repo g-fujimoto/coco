@@ -36,7 +36,7 @@ db.once('open', function(callback) {
 
 // Routes
     app.use('/api/admin/items', items);
-
+    app.use('/api/items', items);
 
 // Listen server
     app.listen(config.port);
