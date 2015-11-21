@@ -1,0 +1,184 @@
+<ng-navbar></ng-navbar>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="container-fluid">
+            <h1 class="page-header margin-top-sm">新規登録</h1>
+        </div>
+    </div><!-- /.row1 -->
+    <div class="row">
+        <div class="container">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="itemName" class="control-label">店舗名</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="itemName" value="" ng-model="itemName" id="itemName" class="form-control" placeholder="店舗名">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="itemKana" class="control-label">店舗名(カナ)</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="itemKana" value="" ng-model="itemKana" id="itemKana" class="form-control" placeholder="店舗名(カナ)">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="itemBranch" class="control-label">支店名</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="itemBranch" value="" ng-model="itemBranch" id="itemBranch" class="form-control" placeholder="支店名">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="itemOtherName" class="control-label">店舗名(別称)</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="itemOtherName" value="" ng-model="itemOtherName" id="itemOtherName" class="form-control" placeholder="店舗名(別称)">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="itemTel" class="control-label">電話番号</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="itemTel" value="" ng-model="itemTel" id="itemTel" class="form-control" placeholder="電話番号">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="itemIntroduction" class="control-label">紹介文</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <textarea type="text" name="itemIntroduction" value="" ng-model="itemIntroduction" id="itemIntroduction" class="form-control" placeholder="紹介文"></textarea>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="address.postalCode" class="control-label">郵便番号</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="address.postalCode" value="" ng-model="address.postalCode" id="address.postalCode" class="form-control" placeholder="郵便番号">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="address.pref" class="control-label">都道府県</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="address.pref" value="" ng-model="address.pref" id="address.pref" class="form-control" placeholder="都道府県">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="address.city" class="control-label">市区町村</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="address.city" value="" ng-model="address.city" id="address.city" class="form-control" placeholder="市区町村">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="address.town" class="control-label">町番地</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="address.town" value="" ng-model="address.town" id="address.town" class="form-control" placeholder="町番地">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="address.building" class="control-label">ビル名</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="address.building" value="" ng-model="address.building" id="address.building" class="form-control" placeholder="ビル名">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="scenes" class="control-label">シーン</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="scenes1" value="" ng-model="scenes.name1" id="scenes" class="form-control" placeholder="シーン名1">
+
+                    </div>
+                    <br class="visible-xs">
+                    <div class="col-sm-4">
+                        <input type="text" name="scenes1" value="" ng-model="scenes.rate1" id="scenes" class="form-control" placeholder="レート1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <input type="text" name="scenes2" value="" ng-model="scenes.name2" id="scenes" class="form-control" placeholder="シーン名2">
+                    </div>
+                    <br class="visible-xs">
+                    <div class="col-sm-4">
+                        <input type="text" name="scenes2" value="" ng-model="scenes.rate2" id="scenes" class="form-control" placeholder="レート2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <input type="text" name="scenes3" value="" ng-model="scenes.name3" id="scenes" class="form-control" placeholder="シーン名3">
+                    </div>
+                    <br class="visible-xs">
+                    <div class="col-sm-4">
+                        <input type="text" name="scenes3" value="" ng-model="scenes.rate3" id="scenes" class="form-control" placeholder="レート3">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="genres" class="control-label">ジャンル</label>
+                    </div>
+                    <br class="visible-xs">
+                    <div class="col-sm-4">
+                        <input type="text" name="genres1" value="" ng-model="genres.name1" id="genres" class="form-control" placeholder="ジャンル名1">
+
+                    </div>
+                    <br class="visible-xs">
+                    <div class="col-sm-4">
+                        <input type="text" name="genres1" value="" ng-model="genres.rate1" id="genres" class="form-control" placeholder="レート1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <input type="text" name="genres2" value="" ng-model="genres.name2" id="genres" class="form-control" placeholder="ジャンル名2">
+                    </div>
+                    <br class="visible-xs">
+                    <div class="col-sm-4">
+                        <input type="text" name="genres2" value="" ng-model="genres.rate2" id="genres" class="form-control" placeholder="レート2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <input type="text" name="genres3" value="" ng-model="genres.rate3" id="genres" class="form-control" placeholder="ジャンル名3">
+                    </div>
+                    <br class="visible-xs">
+                    <div class="col-sm-4">
+                        <input type="text" name="genres3" value="" ng-model="genres.rate3" id="genres" class="form-control" placeholder="レート3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 col-sm-offset-2">
+                        <button type="button" class="btn btn-warning btn-lg" ng-click="registerItem()">登録</button>
+                        <button type="button" class="btn btn-default btn-lg" ui-sref="items">戻る</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.row2 -->
+</div><!-- /.firstContainer -->

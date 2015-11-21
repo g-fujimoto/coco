@@ -1,5 +1,6 @@
 angular.module('webApp')
-    .controller('ItemsController', ['$scope', '$http', '$uibModal', 'modalService', function($scope, $http, $uibModal, modalService) {
+    .controller('ItemsController', ['$scope', '$http', '$uibModal', 'modalService', '$state',
+            function($scope, $http, $uibModal, modalService, $state) {
 
                 //アラート用の空の配列を作成
                 $scope.alerts = [];
@@ -11,32 +12,69 @@ angular.module('webApp')
                         $scope.items = data;
                     });
 
+                //新規登録
+                $scope.registerItem = function() {
+                    $http.post('/api/admin/items', {
+
+                    })
+                    .success(function(data) {
+                        if(data === 'error') {
+                            console.log('エラーだよ');
+                        } else {
+                            $scope.items.push(data);
+                            $alerts.push('success')
+                            console.log($alerts);
+                            $state.go('items')
+                        }
+                    });
+                };
+
+
+// ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
+
                 //シーンモーダル呼び出し
                 $scope.showScencesModal = function() {
-                    var data = 'hello';
-                    modalService.open($scope, './components/modal/modal.register.html', data);
+                    modalService.open({
+                        scope: $scope,
+                        modalUrl: './components/modal/modal.register.html',
+                        title: 'シーン',
+                        titleEng: 'scenes'
+                    });
                 };
+
                 //ジャンルモーダル呼び出し
                 $scope.showGenresModal = function() {
-                    var data = 'ジャンル';
-                    modalService.open($scope, './components/modal/modal.register.html', data);
-
+                    modalService.open({
+                        scope: $scope,
+                        modalUrl: './components/modal/modal.register.html',
+                        title: 'ジャンル',
+                        titleEng: 'genres'
+                    });
                 };
+
                 //タグモーダル呼び出し
                 $scope.showTagsModal = function() {
-                    var data = 'hello';
-                    modalService.open($scope, './components/modal/modal.tags.html', data);
+                    modalService.open({
+                        scope: $scope,
+                        modalUrl: './components/modal/modal.tags.html',
+                        title: 'タグ',
+                        titleEng: 'tags'
+                    });
                 };
 
                 //編集モーダル呼び出し
                 $scope.showEditModal = function() {
-                    var data = 'hello';
-                    modalService.open($scope, './components/modal/modal.edit.html', data);
+                    modalService.open({
+                        scope: $scope,
+                        modalUrl: './components/modal/modal.edit.html'
+                    });
                 };
-
 
                 //削除モーダル呼び出し
                 $scope.showDeleteModal = function() {
-                    modalService.open($scope, './components/modal/modal.delete.html');
+                    modalService.open({
+                        scope, $scipe,
+                        modalUrl: './components/modal/modal.delete.html'
+                    });
                 };
     }]);

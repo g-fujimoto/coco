@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="./bower/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./bower/font-awesome/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./app/app.css" media="screen" title="no title" charset="utf-8">
-
     <link rel="stylesheet" href="./assets/css/reset.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./assets/css/spinkit.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./components/modal/modal.css" media="screen" title="no title" charset="utf-8">
@@ -32,13 +31,14 @@
 
     <!-- AngularController -->
     <script src="./app/main/main.controller.js" charset="utf-8"></script>
-    <script src="./app/admin/admin.controller.js" charset="utf-8"></script>
+    <script src="./app/admin/login/login.controller.js" charset="utf-8"></script>
     <script src="./app/admin/items/items.controller.js" charset="utf-8"></script>
     <script src="./components/modal/modal.controller.js" charset="utf-8"></script>
 
     <!-- AngualrDirective -->
     <script src="./components/header/header.directive.js" charset="utf-8"></script>
     <script src="./components/footer/footer.directive.js" charset="utf-8"></script>
+    <script src="./components/adminNavbar/adminNavbar.directive.js" charset="utf-8"></script>
 
     <!-- AngularService -->
     <script src="./components/modal/modal.service.js" charset="utf-8"></script>
@@ -51,15 +51,6 @@
     <![endif]-->
 </head>
 <body class="home">
-    <div class="container-fluid">
-        <div class="row">
-                <div ui-view="pages" class="animate"></div>
-        </div>
-        <div class="row">
-            <div class="container-fluid">
-                <div ui-view="adminPages" class="animate"></div>
-            </div>
-        </div>
-    </div>
+    <div ui-view class="animate"></div>
 </body>
 </html>

@@ -8,29 +8,21 @@ app.service('modalService', ['$uibModal', '$http', function($uibModal, $http) {
      * @param  {$scope} scope       呼び出し元スコープ
      * @param  {string} templateUrl モーダルテンプレート
      */
-    this.open = function(scope, templateUrl, data) {
-        scope.title = 'ジャンル';
-        scope.titleEng = 'genre';
+    this.open = function(obj) {
+        obj.scope.title = obj.title;
+        obj.scope.titleEng = obj.titleEng;
         $uibModal.open({
-            templateUrl: templateUrl,
-            scope: scope,
+            templateUrl: obj.modalUrl,
+            scope: obj.scope,
             controller: 'ModalController',
             backdrop: 'static'
         });
     };
 
-    /**
-     * モダール内削除処理
-     * @author t.fujimoto
-     * @param  {string} id       削除対象レコードの_id
-     * @param  {string} dataName 削除するデータが入っている配列の名称
-     * @param  {$scope} scope    呼び出し元スコープ
-     * @param  {string} apiUrl   サーバーapiUrl
-     */
-    this.delete = function(id, dataName, scope, apiUrl) {
-        var _id = id;
+    this.delete = function(obj) {
+        var _id = obj.id;
 
-        $http.delete(apiUrl + '/' + _id)
+        $http.delete(obj.apiUrl + '/' + _id)
             .success(function(data) {
                 $uibModal.dismiss();
                 $scope.dataName.splice(id, 1);
