@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <h4 class="modal-title">編集</h4>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label for="_id" class="control-label">ID</label>
+            <input type="text" name="_id" value="" id="_id" ng-model="_id" class="form-control modalClass" disabled>
+    </div>
+    <div class="form-group">
+        <label for="itemName" class="control-label">店舗名</label>
+            <input type="text" name="itemName" value="" id="itemName" ng-model="itemName" class="form-control modalClass">
+    </div>
+    <div class="form-group">
+        <label for="itemKana" class="control-label">店舗名(カナ)</label>
+            <input type="text" name="itemKana" value="" id="itemKana" ng-model="itemKana" class="form-control modalClass">
+    </div>
+    <div class="form-group">
+        <label for="itemOtherName" class="control-label">店舗名(別名)</label>
+            <input type="text" name="itemOtherName" value="" id="itemOtherName" ng-model="itemOtherName" class="form-control modalClass">
+    </div>
+    <div class="form-group">
+        <label for="itemBranch" class="control-label">支店名</label>
+            <input type="text" name="itemBranch" value="" id="itemBranch" ng-model="itemBranch" class="form-control modalClass">
+    </div>
+    <div class="form-group">
+        <label for="itemTel" class="control-label">電話番号</label>
+            <input type="text" name="itemTel" value="" id="itemTel" ng-model="itemTel" class="form-control modalClass">
+    </div>
+    <div class="form-group">
+        <label for="itemIntroduction" class="control-label">紹介文</label>
+            <textarea name="itemIntroduction" value="" id="itemIntroduction" ng-model="itemIntroduction" class="form-control modalClass"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="itemLink" class="control-label">店舗リンク</label>
+            <input type="text" name="itemLink" value="" id="itemLink" ng-model="itemLink" class="form-control modalClass">
+    </div>
+    <div class="form-group">
+        <label for="itemArea" class="control-label">店舗エリア</label>
+            <input type="text" name="itemArea" value="" id="itemArea" ng-model="itemArea" class="form-control modalClass">
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="update()">更新</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">キャンセル</button>
+</div>
