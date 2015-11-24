@@ -11,7 +11,14 @@ var Items = require('./items.model');
 
 //index
 exports.index = function(req, res) {
-    Items.find({}, function(err, data) {
+
+console.log(req.body);
+
+    if (req.body.itemName) {
+        req.body.itemName = new RegExp('^' + req.body.itemName);
+    }
+
+    Items.find(req.body, function(err, data) {
         res.json(data);
     });
 };

@@ -1,16 +1,34 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', function($scope, $http) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', function($scope, $http, $$Scenes, $$Genres) {
 
     $scope.mainPage = true;
     $scope.pages = [];
 
+    $scope.scenelists = $$Scenes;
+    $scope.genrelists = $$Genres;
+
     $scope.getItem = function() {
-        $http.get('/api/items')
+
+        var data = {};
+        if ($scope.word) data.itemName = $scope.word;
+        if ($scope.scene) data.scene = $scope.scene;
+        if ($scope.genre) data.genre = $scope.genre;
+        if ($scope.scene) data.scene = $scope.scene;
+
+        $http.post('/api/items/find', JSON.stringify(data))
         .success(function(data) {
             $scope.items = data;
+            $scope.getComments();
+
+            $scope.currentPage = 1;
+            $scope.pages = [];
+            for(var i = Math.ceil(data.length/10) + 1;--i;) {
+                $scope.pages.unshift(i);
+            }
+
         });
-    }
+    };
 
     $scope.getComments = function() {
         $http.get('/api/itemComments')
@@ -18,15 +36,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
             $scope.item_comments = data;
         });
     };
-
-    $scope.$watch('items', function(newValue, oldValue) {
-        if (!newValue) return;
-        $scope.pages = [];
-        for(var i = Math.ceil(newValue.length/10) + 1;--i;) {
-            $scope.pages.unshift(i);
-        }
-        $scope.getComments();
-    });
 
     $scope.$watch('item_comments', function(newValue, oldValue) {
         if (!newValue) return;
@@ -61,10 +70,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
     });
 
     $scope.$watch('word', function(newValue, oldValue) {
-      console.log(newValue);
-
-        if (!newValue) return;
-        console.log(newValue);
+        if (!newValue && !oldValue) return;
         $scope.getItem();
     });
 
