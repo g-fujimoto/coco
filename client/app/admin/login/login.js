@@ -1,11 +1,11 @@
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('main', {
-            url: '/',
+        .state('admin', {
+            url: '/admin',
             views: {
                 '': {
-                    templateUrl: './app/main/main.html',
-                    controller: 'MainController'
+                    templateUrl: './app/admin/login/login.html',
+                    controller: 'LoginController'
                 }
             }
         });

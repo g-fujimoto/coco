@@ -34,6 +34,9 @@ db.once('open', function(callback) {
 // MiddleWare
     app.use(express.static('client'));
     app.use(morgan('dev'));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(cookieParser());
 
 // Routes
     app.use('/api/admin/items', items);

@@ -12,8 +12,6 @@ var Items = require('./items.model');
 //index
 exports.index = function(req, res) {
     Items.find({}, function(err, data) {
-        console.log(data);
-        console.log(err);
         res.json(data);
     });
 };
@@ -21,10 +19,19 @@ exports.index = function(req, res) {
 //create
 exports.create = function(req, res) {
     var newItem = new Items({
-        itemName: '八百屋',
-        itemTel: '66-6666-6666'
+        itemName        : req.body.itemName,
+        itemKana        : req.body.itemKana,
+        itemBranch      : req.body.itemBranch,
+        itemOtherName   : req.body.itemOtherName,
+        itemTel         : req.body.itemTel,
+        itemIntroduction: req.body.itemIntroduction,
+        address         : req.body.address
     });
+
+
+
     console.log(newItem);
+
     newItem.save(function(err) {
         if(err) {
             res.send('error');
