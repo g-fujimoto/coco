@@ -18,27 +18,28 @@ exports.index = function(req, res) {
 
 //create
 exports.create = function(req, res) {
-    var newItem = new Items({
-        itemName        : req.body.itemName,
-        itemKana        : req.body.itemKana,
-        itemBranch      : req.body.itemBranch,
-        itemOtherName   : req.body.itemOtherName,
-        itemTel         : req.body.itemTel,
-        itemIntroduction: req.body.itemIntroduction,
-        address         : req.body.address
-    });
 
+    console.log(req.body.scene);
+    console.log(req.body.genre);
 
-
-    console.log(newItem);
-
-    newItem.save(function(err) {
-        if(err) {
-            res.send('error');
-        } else {
-            res.json(newItem);
-        }
-    });
+    // var newItem = new Items({
+    //     itemName        : req.body.itemName,
+    //     itemKana        : req.body.itemKana,
+    //     itemBranch      : req.body.itemBranch,
+    //     itemOtherName   : req.body.itemOtherName,
+    //     itemTel         : req.body.itemTel,
+    //     itemIntroduction: req.body.itemIntroduction,
+    //     address         : req.body.address
+    // });
+    //
+    //
+    // newItem.save(function(err) {
+    //     if(err) {
+    //         res.send('error');
+    //     } else {
+    //         res.json(newItem);
+    //     }
+    // });
 };
 
 //update

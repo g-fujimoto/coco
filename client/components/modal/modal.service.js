@@ -1,6 +1,6 @@
 var app = angular.module('webApp');
 
-app.service('modalService', ['$uibModal', '$http', function($uibModal, $http) {
+app.service('$modalService', ['$uibModal', '$http', function($uibModal, $http) {
 
     /**
      * モーダルオープン
@@ -13,9 +13,9 @@ app.service('modalService', ['$uibModal', '$http', function($uibModal, $http) {
         obj.scope.titleEng = obj.titleEng;
         $uibModal.open({
             templateUrl: obj.modalUrl,
-            scope: obj.scope,
-            controller: 'ModalController',
-            backdrop: 'static'
+            scope      : obj.scope,
+            controller : 'ModalController',
+            backdrop   : 'static'
         });
     };
 

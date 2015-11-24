@@ -1,5 +1,5 @@
 angular.module('webApp')
-    .controller('ModalController', ['$http', '$scope', '$uibModalInstance', 'modalService', function($http, $scope, $uibModalInstance, modalService) {
+    .controller('ModalController', ['$http', '$scope', '$uibModalInstance', '$modalService', function($http, $scope, $uibModalInstance, $modalService) {
 
 
         //削除処理
