@@ -9,6 +9,7 @@ angular.module('webApp')
                 $scope.scenes = $$Scene;
                 $scope.genres = $$Genres;
 
+
                     $scope.$watch('genre', function(newValue, oldValue) {
                         if (newValue) {
                             $scope.selectGenre = true;
@@ -42,7 +43,7 @@ angular.module('webApp')
                         genre           : {
                             name           : $scope.genre.name,
                             tasteRate      : $scope.tasteRate.rating,
-                            beautifuleRate : $scope.beautifuleRate.rating,
+                            beautifuleRate : $scope.beautifulRate.rating,
                             qualityRate    : $scope.qualityRate.rating,
                             originalityRate: $scope.originalityRate.rating,
                             senseRate      : $scope.senseRate.rating
@@ -56,6 +57,8 @@ angular.module('webApp')
                             value5: $scope.value5.rating
                         }
                     };
+
+
                     $ItemsService.save($scope, postData);
                 };
 
@@ -95,7 +98,20 @@ angular.module('webApp')
                 };
 
                 //編集モーダル呼び出し
-                $scope.showEditModal = function() {
+                $scope.showEditModal = function($index) {
+                    var row = $scope.items[$index];
+
+                    $scope.id               = row._id;
+                    $scope.itemName         = row.itemName;
+                    $scope.itemKana         = row.itemKana;
+                    $scope.itemOtherName    = row.itemOtherName;
+                    $scope.itemBranch       = row.itemBranch;
+                    $scope.itemTel          = row.itemTel;
+                    $scope.itemIntroduction = row.itemIntroduction;
+                    $scope.itemLink         = row.itemLink;
+                    $scope.itemArea         = row.itemArea;
+                    $scope.index            = $index;
+
                     $modalService.open({
                         scope   : $scope,
                         modalUrl: './components/modal/modal.edit.html'
@@ -103,7 +119,9 @@ angular.module('webApp')
                 };
 
                 //削除モーダル呼び出し
-                $scope.showDeleteModal = function() {
+                $scope.showDeleteModal = function($index) {
+                    $scope.id = $scope.items[$index]._id;
+                    $scope.index = $index;
                     $modalService.open({
                         scope   : $scope,
                         modalUrl: './components/modal/modal.delete.html'

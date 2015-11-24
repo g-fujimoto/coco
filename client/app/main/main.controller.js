@@ -1,6 +1,6 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', function($scope, $http) {
+app.controller('MainController', ['$scope', '$http', '$modalService',  function($scope, $http, $ModalService) {
 
     $scope.mainPage = true;
     $scope.pages = [];
@@ -10,7 +10,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
         .success(function(data) {
             $scope.items = data;
         });
-    }
+    };
 
     $scope.getComments = function() {
         $http.get('/api/itemComments')
@@ -61,7 +61,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
     });
 
     $scope.$watch('word', function(newValue, oldValue) {
-      console.log(newValue);
 
         if (!newValue) return;
         console.log(newValue);
@@ -69,5 +68,19 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
     });
 
     $scope.getItem();
+
+
+// ------------------------------- Modal ------------------------------ //
+    $scope.showModal = function() {
+
+        var modalOption = {
+            title: 'やまっち',
+            titleEng: 'yamacchi',
+            modalUrl: './components/modal/modal.wantGo.html',
+            scope: $scope
+        };
+
+        $ModalService.open(modalOption);
+    };
 
 }]);

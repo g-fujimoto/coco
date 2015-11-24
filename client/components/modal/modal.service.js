@@ -8,26 +8,14 @@ app.service('$modalService', ['$uibModal', '$http', function($uibModal, $http) {
      * @param  {$scope} scope       呼び出し元スコープ
      * @param  {string} templateUrl モーダルテンプレート
      */
-    this.open = function(obj) {
-        obj.scope.title = obj.title;
-        obj.scope.titleEng = obj.titleEng;
+    this.open = function(modalOption) {
+        console.log(modalOption);
         $uibModal.open({
-            templateUrl: obj.modalUrl,
-            scope      : obj.scope,
+            templateUrl: modalOption.modalUrl,
+            scope      : modalOption.scope,
             controller : 'ModalController',
-            backdrop   : 'static'
+            backdrop   : true
         });
     };
-
-    this.delete = function(obj) {
-        var _id = obj.id;
-
-        $http.delete(obj.apiUrl + '/' + _id)
-            .success(function(data) {
-                $uibModal.dismiss();
-                $scope.dataName.splice(id, 1);
-            });
-    };
-
 
 }]);

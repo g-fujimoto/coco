@@ -21,8 +21,8 @@ var ItemsSchema = mongoose.Schema({
             town        : String,
             building    : String
     },
-    scenes          : [Object],
-    genres          : [Object],
+    scene           : Object,
+    genre           : Object,
     tags            : [Object],
     itemLikes       : [String],
     created         : Date,

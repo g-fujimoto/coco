@@ -59,10 +59,10 @@
                 {{item.itemTel}}
             </td>
             <td>
-                {{item.created}}
+                {{item.created | date: 'yyyy-MM-dd'}}
             </td>
             <td>
-                {{item.modified}}
+                {{item.modified | date: 'yyyy-MM-dd'}}
             </td>
             <td>
                 <button name="scenesBtn" class="btn btn-xs btn-info rowNo-{{$index}}" ng-click="showScencesModal($index)">シーン詳細</button>
