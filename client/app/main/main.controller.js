@@ -33,6 +33,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
         $scope.show_loading = false;
     });
 
+    // ページャー処理
     $scope.$watch('currentPage', function(newValue, oldValue) {
         if (!newValue) {
             $scope.currentPage = 1;
@@ -43,8 +44,27 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
         }
     });
 
-    $scope.$watch('findArea', function(newValue, oldValue) {
+    // 検索
+    $scope.$watch('area', function(newValue, oldValue) {
         if (!newValue) return;
+        $scope.getItem();
+    });
+
+    $scope.$watch('scene', function(newValue, oldValue) {
+        if (!newValue) return;
+        $scope.getItem();
+    });
+
+    $scope.$watch('genre', function(newValue, oldValue) {
+        if (!newValue) return;
+        $scope.getItem();
+    });
+
+    $scope.$watch('word', function(newValue, oldValue) {
+      console.log(newValue);
+
+        if (!newValue) return;
+        console.log(newValue);
         $scope.getItem();
     });
 

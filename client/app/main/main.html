@@ -12,8 +12,8 @@
         <div class="main_search_box_header">
             <ul>
                 <li><h6>フリーワードで絞り込む</h6></li>
-                <li><input type="text" value="Freeword" /></li>
-                <li><a href=""><img src="./assets/./images/main/parts/search.svg" alt="" /></a></li>
+                <li><input type="text" value="Freeword" ng-model="word" ng-model-options="{debounce: 750}"/></li>
+                <!--<li><a href=""><img src="./assets/./images/main/parts/search.svg" alt="" /></a></li>-->
             </ul>
         </div>
 
@@ -31,123 +31,121 @@
 
     <div id="main_side_wrap">
 
-    <div id="main_contents" >
+          <div id="main_contents" >
 
-      <div class="loop_contents_box" ng-repeat="item in items | limitTo:10:(currentPage-1)*10">
+            <div class="loop_contents_box" ng-repeat="item in items | limitTo:10:(currentPage-1)*10">
 
-            <div class="left_box">
-                <ul>
-                    <li><img src="./assets/./images/main/top/test01.jpg" /></li>
-                    <li><img src="./assets/./images/main/top/test02.jpg" /></li>
-                    <li><img src="./assets/./images/main/top/test03.jpg" /></li>
-                </ul>
-            </div>
-
-            <div class="right_box">
-                <h2>{{item.itemName}}</h2>
-                <ul class="category_list">
-                    <li>（{{item.itemArea}}）</li>
-                </ul>
-                <hr />
-                <div class="button_box">
-                    <div class="left">
-                        <div class="box_header">
-                           <ul>
-                                <li><h3><b>ジャンル</b>3.5</h3></li>
-                                <li><h3><b>シーン</b>3.0</h3></li>
-                            </ul>
-                        </div>
-                        <div class="box_main">
-                            <ul>
-                                <li><span>味</span>0.0</li>
-                                <li><span>盛付</span>0.0</li>
-                                <li><span>品質</span>0.0</li>
-                                <li><span>創作</span>0.0</li>
-                                <li><span>ドリンク</span>0.0</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <a href=""><img src="./assets/./images/main/parts/detail_button.svg" /></a>
-                    </div>
-                </div>
-
-                <div class="text_box" ng-init="$parent.show_loading=true;">
-
-                  <div class="sk-three-bounce" ng-show="show_loading">
-                      <div class="sk-child sk-bounce1"></div>
-                      <div class="sk-child sk-bounce2"></div>
-                      <div class="sk-child sk-bounce3"></div>
-                  </div>
-
-                  <div class="left">
-                      <div class="img_box"><img src="./assets/./images/main/top/test04.jpg" /></div>
-                      <p>やまだやまお</p>
-                  </div>
-                  <div class="right">
-                      <h6>最新コメント</h6>
-                      <p>{{item_comments[item._id]}}</p>
-                      <a href="">もっと詳しく見る</a>
-                  </div>
-
-                </div>
-
-                <div class="footer_box">
+                <div class="left_box">
                     <ul>
-                        <li><h5>{{item.itemLikes.length}}人が推薦しています</h5><h6>{{item.itemLikes.length}}人がいいねといっています</h6></li>
-                        <li><a href=""><img src="./assets/./images/main/parts/star_button.svg" alt="" /></a><a href=""><img src="./assets/./images/main/parts/point_button.svg" alt="" /></a></li>
+                        <li><img src="./assets/./images/main/top/test01.jpg" /></li>
+                        <li><img src="./assets/./images/main/top/test02.jpg" /></li>
+                        <li><img src="./assets/./images/main/top/test03.jpg" /></li>
                     </ul>
                 </div>
 
-            </div>
+                <div class="right_box">
+                    <h2>{{item.itemName}}</h2>
+                    <ul class="category_list">
+                        <li>（{{item.itemArea}}）</li>
+                    </ul>
+                    <hr />
+                    <div class="button_box">
+                        <div class="left">
+                            <div class="box_header">
+                               <ul>
+                                    <li><h3><b>ジャンル</b>3.5</h3></li>
+                                    <li><h3><b>シーン</b>3.0</h3></li>
+                                </ul>
+                            </div>
+                            <div class="box_main">
+                                <ul>
+                                    <li><span>味</span>0.0</li>
+                                    <li><span>盛付</span>0.0</li>
+                                    <li><span>品質</span>0.0</li>
+                                    <li><span>創作</span>0.0</li>
+                                    <li><span>ドリンク</span>0.0</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <a href=""><img src="./assets/./images/main/parts/detail_button.svg" /></a>
+                        </div>
+                    </div>
 
+                    <div class="text_box" ng-init="$parent.show_loading=true;">
 
-        </div>
-        <!--------->
+                      <div class="sk-three-bounce" ng-show="show_loading">
+                          <div class="sk-child sk-bounce1"></div>
+                          <div class="sk-child sk-bounce2"></div>
+                          <div class="sk-child sk-bounce3"></div>
+                      </div>
 
-    </div>
+                      <div class="left">
+                          <div class="img_box"><img src="./assets/./images/main/top/test04.jpg" /></div>
+                          <p>やまだやまお</p>
+                      </div>
+                      <div class="right">
+                          <h6>最新コメント</h6>
+                          <p>{{item_comments[item._id]}}</p>
+                          <a href="">もっと詳しく見る</a>
+                      </div>
 
+                    </div>
+
+                    <div class="footer_box">
+                        <ul>
+                            <li><h5>{{item.itemLikes.length}}人が推薦しています</h5><h6>{{item.itemLikes.length}}人がいいねといっています</h6></li>
+                            <li><a href=""><img src="./assets/./images/main/parts/star_button.svg" alt="" /></a><a href=""><img src="./assets/./images/main/parts/point_button.svg" alt="" /></a></li>
+                        </ul>
+                    </div>
+
+                  </div>
+
+              </div>
+              <!--------->
+
+          </div>
 
     <div id="sidemenu">
 
         <div class="sidemenu_box">
             <h3>エリアから探す</h3>
             <ul>
-                <li ng-class="{current:findArea=='umeda'}" ng-click="findArea='umeda'" ui-sref="main.umeda"><a href="">梅田・北新地</a></li>
-                <li ng-class="{current:findArea=='minami'}"><a href="">難波・道頓堀</a></li>
-                <li ng-class="{current:findArea=='sinsai'}"><a href="">心斎橋</a></li>
-                <li ng-class="{current:findArea=='yodoya'}"><a href="">淀屋橋・本町・北浜</a></li>
+                <li ng-class="{current:area=='umeda'}"><a href="" ng-click="area='umeda'">梅田・北新地</a></li>
+                <li ng-class="{current:area=='namba'}"><a href="" ng-click="area='namba'">難波・道頓堀</a></li>
+                <li ng-class="{current:area=='shinsaibashi'}"><a href="" ng-click="area='shinsaibashi'">心斎橋</a></li>
+                <li ng-class="{current:area=='yodoyabashi'}"><a href="" ng-click="area='yodoyabashi'">淀屋橋・本町・北浜</a></li>
             </ul>
         </div>
 
         <div class="sidemenu_box">
             <h3>利用用途から探す</h3>
             <ul>
-                <li><a href="">高級接待</a></li>
-                <li><a href="">通常接待</a></li>
-                <li><a href="">社内利用</a></li>
-                <li><a href="">家族利用</a></li>
-                <li><a href="">物品販売のみ</a></li>
-                <li><a href="">一人利用</a></li>
-                <li><a href="">デート利用</a></li>
+                <li ng-class="{current:scene=='scene01'}"><a href="" ng-click="scene=''">高級接待</a></li>
+                <li ng-class="{current:scene=='scene02'}"><a href="" ng-click="scene=''">通常接待</a></li>
+                <li ng-class="{current:scene=='scene03'}"><a href="" ng-click="scene=''">社内利用</a></li>
+                <li ng-class="{current:scene=='scene04'}"><a href="" ng-click="scene=''">家族利用</a></li>
+                <li ng-class="{current:scene==''}"><a href="" ng-click="scene=''">物品販売のみ</a></li>
+                <li ng-class="{current:scene==''}"><a href="" ng-click="scene=''">一人利用</a></li>
+                <li ng-class="{current:scene==''}"><a href="" ng-click="scene=''">デート利用</a></li>
             </ul>
         </div>
 
         <div class="sidemenu_box">
             <h3>ジャンルから探す</h3>
             <ul>
-                <li><a href="">和食</a></li>
-                <li><a href="">魚介・海鮮料理</a></li>
-                <li><a href="">焼肉・ホルモン・鉄板焼き</a></li>
-                <li><a href="">イタリアン・フレンチ</a></li>
-                <li><a href="">中華・アジア・エスニック料理</a></li>
-                <li><a href="">居酒屋</a></li>
-                <li><a href="">バー</a></li>
-                <li><a href="">ラーメン</a></li>
-                <li><a href="">カレー</a></li>
-                <li><a href="">B級グルメ</a></li>
-                <li><a href="">カフェ・スイーツ</a></li>
-                <li><a href="">その他</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">和食</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">魚介・海鮮料理</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">焼肉・ホルモン・鉄板焼き</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">イタリアン・フレンチ</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">中華・アジア・エスニック料理</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">居酒屋</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">バー</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">ラーメン</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">カレー</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">B級グルメ</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">カフェ・スイーツ</a></li>
+                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">その他</a></li>
             </ul>
         </div>
 
