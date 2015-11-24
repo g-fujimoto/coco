@@ -1,6 +1,6 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', function($scope, $http, $$Scenes, $$Genres) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$ModalService', function($scope, $http, $$Scenes, $$Genres, $ModalService) {
 
     $scope.mainPage = true;
     $scope.pages = [];
