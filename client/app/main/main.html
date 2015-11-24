@@ -121,31 +121,14 @@
         <div class="sidemenu_box">
             <h3>利用用途から探す</h3>
             <ul>
-                <li ng-class="{current:scene=='scene01'}"><a href="" ng-click="scene=''">高級接待</a></li>
-                <li ng-class="{current:scene=='scene02'}"><a href="" ng-click="scene=''">通常接待</a></li>
-                <li ng-class="{current:scene=='scene03'}"><a href="" ng-click="scene=''">社内利用</a></li>
-                <li ng-class="{current:scene=='scene04'}"><a href="" ng-click="scene=''">家族利用</a></li>
-                <li ng-class="{current:scene==''}"><a href="" ng-click="scene=''">物品販売のみ</a></li>
-                <li ng-class="{current:scene==''}"><a href="" ng-click="scene=''">一人利用</a></li>
-                <li ng-class="{current:scene==''}"><a href="" ng-click="scene=''">デート利用</a></li>
+                <li ng-repeat="scenelist in scenelists" ng-class="{current:$parent.scene==scenelist.name}"><a href="" ng-click="$parent.scene=scenelist.name">{{scenelist.name}}</a></li>
             </ul>
         </div>
 
         <div class="sidemenu_box">
             <h3>ジャンルから探す</h3>
             <ul>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">和食</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">魚介・海鮮料理</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">焼肉・ホルモン・鉄板焼き</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">イタリアン・フレンチ</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">中華・アジア・エスニック料理</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">居酒屋</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">バー</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">ラーメン</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">カレー</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">B級グルメ</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">カフェ・スイーツ</a></li>
-                <li ng-class="{current:genre==''}"><a href="" ng-click="genre=''">その他</a></li>
+                <li ng-repeat="genrelist in genrelists" ng-class="{current:$parent.genre==genrelist.name}"><a href="" ng-click="$parent.genre=genrelist.name">{{genrelist.name}}</a></li>
             </ul>
         </div>
 

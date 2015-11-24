@@ -97,7 +97,7 @@ angular.module('webApp')
             sense      : '五感への刺激(シズル感)'
         },
     ])
-    .value('$$Scene', [
+    .value('$$Scenes', [
         {
             name   : '高級接待',
             value1 : '空間の高級感',
