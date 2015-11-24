@@ -1,6 +1,6 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$ModalService', function($scope, $http, $$Scenes, $$Genres, $ModalService) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$modalService', function($scope, $http, $$Scenes, $$Genres, $modalService) {
 
     $scope.mainPage = true;
     $scope.pages = [];
@@ -88,7 +88,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$M
             scope: $scope
         };
 
-        $ModalService.open(modalOption);
+        $modalService.open(modalOption);
     };
 
 }]);

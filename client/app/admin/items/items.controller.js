@@ -1,5 +1,5 @@
 angular.module('webApp')
-    .controller('ItemsController', ['$scope', '$modalService', '$ItemsService', '$$Genres', '$$Rate', '$$Scene',
+    .controller('ItemsController', ['$scope', '$modalService', '$ItemsService', '$$Genres', '$$Rate', '$$Scenes',
             function($scope, $modalService,  $ItemsService, $$Genres, $$Rate, $$Scene) {
                 //Items全件出力
                 $ItemsService.findAll($scope);
