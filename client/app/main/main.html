@@ -33,7 +33,7 @@
 
     <div id="main_contents" >
 
-      <div class="loop_contents_box" ng-repeat="item in items">
+      <div class="loop_contents_box" ng-repeat="item in items | limitTo:10:(currentPage-1)*10">
 
             <div class="left_box">
                 <ul>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <div class="text_box">
+                <div class="text_box" ng-init="$parent.show_loading=true;">
 
                   <div class="sk-three-bounce" ng-show="show_loading">
                       <div class="sk-child sk-bounce1"></div>
@@ -113,10 +113,10 @@
         <div class="sidemenu_box">
             <h3>エリアから探す</h3>
             <ul>
-                <li><a href="">梅田・北新地</a></li>
-                <li><a href="">難波・道頓堀</a></li>
-                <li><a href="">心斎橋</a></li>
-                <li><a href="">淀屋橋・本町・北浜</a></li>
+                <li ng-class="{current:findArea=='umeda'}" ng-click="findArea='umeda'"><a href="">梅田・北新地</a></li>
+                <li ng-class="{current:findArea=='minami'}"><a href="">難波・道頓堀</a></li>
+                <li ng-class="{current:findArea=='sinsai'}"><a href="">心斎橋</a></li>
+                <li ng-class="{current:findArea=='yodoya'}"><a href="">淀屋橋・本町・北浜</a></li>
             </ul>
         </div>
 
@@ -153,20 +153,13 @@
 
     </div>
 
-
-
     </div>
-
 
         <div class="pager_box">
             <ul>
-                <li><a href=""><</a></li>
-                <li class="current"><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">5</a></li>
-                <li><a href="">></a></li>
+                <li><a href="" ng-click="currentPage=currentPage-1"><</a></li>
+                <li ng-repeat="page in pages" ng-class="{current:$parent.currentPage==page}"><a href="" ng-click="$parent.currentPage=page">{{page}}</a></li>
+                <li><a href="" ng-click="currentPage=currentPage+1">></a></li>
             </ul>
         </div>
 
