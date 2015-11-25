@@ -1,5 +1,5 @@
 #header { width: 100%; }
-#header #mainmenu { padding-top: 45px; width: 1000px; margin: 0px auto; }
+#header #mainmenu { padding-top: 45px; width: 1000px; margin: 0px auto; margin-bottom: 50px;}
 #header #mainmenu .mainmenu_header { width: 1000px; height: 95px; margin: 0px auto; position: relative; }
 #header #mainmenu .mainmenu_header h2 { width: 228px; height: 65px; padding-left: 12px; }
 #header #mainmenu .mainmenu_header h2 a { display: block; }
@@ -13,7 +13,7 @@
 #header #mainmenu .mainmenu_header #login_box ul li a img { display: block; }
 #header #mainmenu .mainmenu_main ul { width: 924px; margin: 0px auto; border-right: 1px solid #aaa; overflow: hidden; }
 #header #mainmenu .mainmenu_main ul li { width: 230px; height: 60px; border-left: 1px solid #aaa; float: left; }
-#header #mainmenu .mainmenu_main ul li a { text-indent: -9999px; width: 230px; height: 60px; display: block; background-image: url(../assets/images/header/mainmenu.svg); background-repeat: no-repeat; background-position: 0px 0px; position: relative; }
+#header #mainmenu .mainmenu_main ul li a { text-indent: -9999px; width: 230px; height: 60px; display: block; background-image: url(../images/header/mainmenu.svg); background-repeat: no-repeat; background-position: 0px 0px; position: relative; }
 #header #mainmenu .mainmenu_main ul li a.current::after, #header #mainmenu .mainmenu_main ul li a:hover::after { content: ''; position: absolute; bottom: 3px; left: 35px; width: 160px; height: 5px; /*                                        transform: scaleX(1); -webkit-transform:scale(1);*/ background-color: #ccc; transition: all .3s ease; }
 #header #mainmenu .mainmenu_main ul li:nth-child(2) a { background-position: -230px 0px; }
 #header #mainmenu .mainmenu_main ul li:nth-child(3) a { background-position: -460px 0px; }
@@ -21,9 +21,9 @@
 #header #mainmenu .mainmenu_footer { height: 586px; width: 1000px; margin: 0px auto; overflow: hidden; }
 #header #mainmenu .mainmenu_footer h2 { margin-top: 156px; margin-left: 9px; width: 548px; height: 220px; }
 
-body.home #header { background-image: url(../assets/images/header/top_background.jpg); background-repeat: no-repeat; background-position: center bottom; }
+body.home #header { background-image: url(../images/header/top_background.jpg); background-repeat: no-repeat; background-position: center bottom; margin-bottom: -50px;}
 
-#main { width: 1028px; padding: 35px 35px; margin: 0px auto 94px; background-color: #e8f0ed; overflow: hidden; }
+#main { width: 930px; padding: 35px 35px; margin: 0px auto 94px; background-color: #e8f0ed; overflow: hidden; }
 #main #main_header { height: 69px; overflow: hidden; }
 #main #main_header h2 { margin: 16px 0px 0px 13px; float: left; width: 242px; height: 24px; }
 #main #main_header h2 img { display: block; }
@@ -44,15 +44,15 @@ body.home #header { background-image: url(../assets/images/header/top_background
 #main #main_search_box .main_search_box_main ul li h5 { padding-top: 10px; color: #fff; font-weight: bold; font-size: 19px; line-height: 1.0em; }
 #main #main_search_box .main_search_box_main ul li.right { float: right; }
 #main #main_side_wrap { overflow: hidden; }
-#main #main_side_wrap #main_contents { float: right; width: 760px; padding-top: 15px; }
-#main #main_side_wrap #main_contents .loop_contents_box { width: 760px; padding: 20px; background-color: #fff; overflow: hidden; margin-bottom: 20px; }
+#main #main_contents { float: right; width: 730px; padding-top: 15px; }
+#main #main_side_wrap #main_contents .loop_contents_box { width: 690px; padding: 20px; background-color: #fff; overflow: hidden; margin-bottom: 20px; }
 #main #main_side_wrap #main_contents .loop_contents_box .left_box { width: 180px; float: left; }
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul { overflow: hidden; }
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul li { float: left; margin-bottom: 0px; margin-right: 10px; }
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul li img { display: block; }
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul li:first-child { margin-bottom: 10px; margin-right: 0px; }
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul li:last-child { margin: 0px; }
-#main #main_side_wrap #main_contents .loop_contents_box .right_box { width: 520px; float: right; }
+#main #main_side_wrap #main_contents .loop_contents_box .right_box { width: 490px; float: right; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box h2 { font-size: 22px; font-weight: bold; line-height: 30px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box ul.category_list { overflow: hidden; height: 26px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box ul.category_list li { padding-top: 5px; font-size: 12px; line-height: 1.0em; float: left; }
@@ -72,36 +72,113 @@ body.home #header { background-image: url(../assets/images/header/top_background
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box { overflow: hidden; border: 1px solid #c9c9c9; height: 97px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .left { width: 85px; float: left; padding-top: 13px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .left img { display: block; width: 50px; margin: 0px auto 4px; }
-#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .left p { font-size: 10px; width: 60px; margin: 0px auto; text-align: center;}
-#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right { padding-top: 13px; width: 430px; float: right; }
+#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .left p { font-size: 10px; width: 50px; margin: 0px auto; }
+#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right { padding-top: 13px; width: 403px; float: right; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right h6 { font-size: 12px; line-height: 1.0em; margin-bottom: 4px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right p { height: 35px; overflow: hidden; font-size: 12px; line-height: 17px; padding-right: 13px; text-align: justify; margin-bottom: 5px; }
-#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right a { width: 130px; float: right; padding: 3px 0px 0px 20px; display: block; color: #1d2087; text-align: left; font-size: 12px; line-height: 1.0em; text-decoration: none; background-image: url(../assets/images/main/parts/arrow_2.svg); background-repeat: no-repeat; background-position: left bottom; }
+#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right a { width: 110px; float: right; padding: 3px 0px 0px 20px; display: block; color: #1d2087; text-align: left; font-size: 12px; line-height: 1.0em; text-decoration: none; background-image: url(../images/main/parts/arrow_2.svg); background-repeat: no-repeat; background-position: left bottom; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box { height: 46px; border: 1px solid #c9c9c9; border-top: 0px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li { float: left; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li:nth-child(2) { float: right; padding-right: 5px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li h5 { font-size: 12px; line-height: 1.0em; padding-left: 13px; padding-top: 9px; height: 17px; border-bottom: 1px solid transparent; }
-#main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li h6 { font-size: 12px; line-height: 1.0em; padding-left: 13px; padding-top: 9px;}
+#main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li h6 { font-size: 12px; line-height: 1.0em; padding-left: 13px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li a { margin-top: 10px; margin-right: 10px; display: inline-block; width: 100px; height: 24px; background-color: #000000; /*border: 1px solid #eeeeee;*/ -moz-box-shadow: 1px 1px 2px 1px #999999; -webkit-box-shadow: 1px 1px 2px 1px #999999; box-shadow: 1px 1px 2px 1px #999999; filter: progid:DXImageTransform.Microsoft.Shadow(strength = 1, direction = 135, color = '#999999'); -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(strength = 1, Direction = 135, Color = '#999999')"; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#bdbdbd'); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#bdbdbd')"; background-image: -moz-linear-gradient(top, #ffffff, #bdbdbd); background-image: -ms-linear-gradient(top, #ffffff, #bdbdbd); background-image: -o-linear-gradient(top, #ffffff, #bdbdbd); background-image: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#bdbdbd)); background-image: -webkit-linear-gradient(top, #ffffff, #bdbdbd); background-image: linear-gradient(top, #ffffff, #bdbdbd); }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li a img { display: block; }
-#main #main_side_wrap #sidemenu { float: left; width: 180px; padding-top: 15px; }
-#main #main_side_wrap #sidemenu .sidemenu_box { margin-bottom: 25px; }
-#main #main_side_wrap #sidemenu .sidemenu_box h3 { font-weight: bold; width: 180px; height: 40px; line-height: 40px; color: #fff; font-size: 14px; text-align: center; background-color: #000; }
-#main #main_side_wrap #sidemenu .sidemenu_box ul li a { display: block; text-decoration: none; width: 180px; height: 35px; line-height: 35px; color: #000; font-size: 12px; text-align: center; background-color: #fff; border-top: 1px solid #aaa; }
-#main #main_side_wrap #sidemenu .sidemenu_box ul li:first-child a { border: 0px; }
-#main #main_side_wrap #sidemenu .sidemenu_box ul li.current a { background-color: #FAEBD7;font-weight: bold;}
+#main #sidemenu { float: left; width: 180px; padding-top: 15px; }
+#main #sidemenu .sidemenu_box { margin-bottom: 25px; }
+#main #sidemenu .sidemenu_box h3 { font-weight: bold; width: 180px; height: 40px; line-height: 40px; color: #fff; font-size: 14px; text-align: center; background-color: #000; }
+#main #sidemenu .sidemenu_box ul li a { display: block; text-decoration: none; width: 180px; height: 35px; line-height: 35px; color: #000; font-size: 12px; text-align: center; background-color: #fff; border-top: 1px solid #aaa; }
+#main #sidemenu .sidemenu_box ul li:first-child a { border: 0px; }
 #main .pager_box ul { text-align: center; padding: 30px 0px; }
 #main .pager_box ul li { display: inline-block; }
 #main .pager_box ul li a { text-align: center; display: block; text-decoration: none; color: #1d2087; font-size: 16px; width: 31px; height: 17px; }
-#main .pager_box ul li:first-child a { width: 9px; background-image: url(../assets/images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: 0px 0px; text-indent: -9999px; margin-right: 10px; }
-#main .pager_box ul li:last-child a { width: 9px; background-image: url(../assets/images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: -9px 0px; text-indent: -9999px; margin-left: 10px; }
+#main .pager_box ul li:first-child a { width: 9px; background-image: url(../images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: 0px 0px; text-indent: -9999px; margin-right: 10px; }
+#main .pager_box ul li:last-child a { width: 9px; background-image: url(../images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: -9px 0px; text-indent: -9999px; margin-left: 10px; }
 #main .pager_box ul li.current a { font-weight: bold; }
+
+/****     reviews.htmlでの変更追加     ****/
+/**** top ****/
+#main #main_top { background-color: #fff; margin: 0 -35px; padding: 20px 50px 0px 50px; overflow: hidden; }
+#main_top h3 { font-size: 30px; font-weight: 800; border-bottom: 1px solid #000; padding-bottom: 15px; padding-left: 10px; margin-bottom: 15px; }
+#main #main_top .header_list li { width: 80px; float: left; font-size: 12px; text-align: center; padding: 4px 0;}
+#main #main_top .header_list .narrowing_title { box-shadow: 3px 3px 3px rgba(0,0,0,0.4); border: 1px solid #ccc;}
+#main #main_top .box_header ul li {  width: 150px; float: left;  }
+#main #main_top .box_header ul li h4 { color: #1d2087; font-size: 25px; font-weight: bold; line-height: 44px; }
+#main #main_top .box_header ul li h4 b { padding-right: 4px; font-size: 14px; font-weight: normal; }
+/**** サブのナビゲーション ****/
+#main #main_contents_main { overflow: hidden; width: 805px; margin: 0 auto; margin-top: 30px; }
+#main #main_contents_main li { width: 200px; text-align: center; float: left; border-left: 1px solid #000;}
+#main #main_contents_main li:last-child{ border-right: 1px solid #000; margin-bottom: 3px;}
+#main #main_contents_main a { text-decoration: none; color: #000; font-size: 14px;}
+#main #main_contents_main .current_sub_now { display: block; margin: 0 auto; background-color: #ccc; height: 100%; width: 190px; padding: 10px 0;}
+#main #main_contents_main .current_sub{ display: block; margin: 0 auto; height: 100%; width: 190px; padding: 10px 0;}
+/**** 空白のdivにbackground-color ****/
+#main #bg_black{ background-color: #000; width: 950px; height: 10px; margin-left: -10px;}
+/**** レビューひとつひとつの外枠 ****/
+#main #reviews_list { background-color: #fff; padding: 20px 100px;}
+#main #reviews_list .go_button {  width: 200px; float: left;}
+#main #reviews_list .nice_button {  width: 200px; float: right; text-align: right; padding-right: 20px; line-height: 27px;}
+#main .reviews_list_blue{ background-color: #335ad0; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);}
+#main .reviews_list_gray{ background-color: #ccc; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);}
+#main .reviews_list_main{ background-color: #fff; padding: 30px 50px;}
+#main .reviews_list_footer_blue{ overflow: hidden; background-color: #335ad0; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);  margin-top: -2px; border-top: 1px solid rgba(0, 0, 0, 0.2); margin-bottom: 50px;}
+#main .reviews_list_footer_gray{ overflow: hidden; background-color: #ccc; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);  margin-top: -2px; border-top: 1px solid rgba(0, 0, 0, 0.2);}
+/**** レビューひとつひとつの内容  ****/
+#main #reviews_list .reviews_top { width: 620px; overflow: hidden; padding-bottom: 3px;}
+#main #reviews_list .reviews_title { width: 490px; font-size: 22px; float: left; font-weight: 800;}
+#main #reviews_list .reviews_date { width: 130px; font-size: 14px; float: right; text-align: right;}
+#main #reviews_list .gradation_thick_border:before,.gradation_thick_border:after{ content:"";display:block; height:1.5px; background: linear-gradient(to right, #fff 0%,#ccc 48%,#fff 100%); }
+#main #reviews_list .thumbnail { width: 50px; height: 60px; background-color: #ccc; box-shadow: 1px 1px 1px rgba(0,0,0,0.4); margin: 10px 20px; float: left;}
+#main #reviews_list .person_info { width: 500px; float: left; margin: 10px 0;}
+#main #reviews_list .person_name { padding: 10px 0; font-size: 12px;}
+#main #reviews_list .person_state { width: 80px; text-align: center; background-color: #ccc; color:#fff; padding: 5px 0; font-size: 11px; font-weight: 800;}
+#main #reviews_list .gradation_thin_border:before,.gradation_thin_border:after{ content:"";display:block; height:0.5px; background: linear-gradient(to right, #fff 0%,#ccc 48%,#fff 100%); clear: both;}
+#main #reviews_list .reviews_list_blue h5 { font-size: 15px; font-weight: 800; padding-top: 10px;}
+#main #reviews_list .reviews_list_gray h5 { font-size: 15px; font-weight: 800; padding-top: 10px;}
+#main #reviews_list .box_header ul li {  width: 150px; float: left;  }
+#main #reviews_list .box_header ul li h4 { color: #1d2087; font-size: 25px; font-weight: bold; line-height: 44px; }
+#main #reviews_list .box_header ul li h4 b { padding-right: 4px; font-size: 14px; font-weight: normal; }
+#main #reviews_list .impressions { line-height: 20px; font-size: 12px; padding: 10px 0;}
+#main #reviews_list .see_more a { text-decoration: none; color: #335ad0; font-size: 12px; font-weight: 900; }
+#main #reviews_list .reviews_img { width: 620px; overflow: hidden; margin-top: 15px;}
+#main #reviews_list .reviews_img li { width: 100px; margin-right: 30px; height: 100px; float: left; background-color: #ccc;}
+#main #reviews_list .reviews_img li:last-child { margin-right: 0;}
+/*****************************************/
+
+/****     want_go_store.htmlでの変更追加     ****/
+#main .main_title { font-size: 28px; padding-bottom: 20px; padding-left: 10px;}
+#main .main_title .customer_info { font-size: 16px; padding-left: 20px;}
+#main #customer_state_frame { background-color: #1d2087; color: #fff; overflow: hidden; padding: 10px 0 15px 0;}
+#main #customer_state_frame .customer_state { padding-bottom: 10px; border-bottom: 3px solid #fff; overflow: hidden; padding: 10px 40px; }
+#main #customer_state_frame .customer_state h3 { width: 550px; float: left; font-size: 28px;}
+#main #customer_state_frame .customer_state h4 { width: 300px; float: left; text-align: right; font-size: 16px;}
+#main #customer_state_frame .customer_state .customer_company { font-size: 14px; padding-left: 20px;}
+#main #customer_state_frame .customer_state .customer_position { font-size: 14px; padding-left: 20px;}
+#main #customer_state_frame .customer_state .stores_number { font-size: 28px; }
+#main #main_contents .want_go_store_list { background-color: #fff; overflow: hidden; padding: 20px 30px;}
+#main #main_contents .want_go_store_list .store_img { height: 160px; width: 160px; background-color: #ccc; float: left;}
+#main #main_contents .want_go_store_list .store_info { width: 485px; float: left; margin-left: 25px;}
+#main #main_contents .want_go_store_list .store_info h5 { font-size: 22px; font-weight: 800; width: 100px; float: left; padding-bottom: 5px;}
+#main #main_contents .want_go_store_list .store_info .store_attribute { width: 385px; float: right; font-size: 13px; text-align: right; padding-top: 5px;}
+#main #main_contents .gradation_thin_border:before,.gradation_thin_border:after{ content:"";display:block; height:1px; background: linear-gradient(to right, #ccc 0%,#ccc 48%,#fff 100%); clear: both;}
+#main #main_contents .want_go_store_list .store_info .impressions { font-size: 12px; padding: 10px 0 0 10px; line-height: 20px; padding-bottom: 50px;
+}
+#main #main_contents .want_go_store_list .store_info .see_store_info a { display: block; text-align: center; text-decoration: none; color: #fff; float: right; background-color: #333; padding: 8px 20px; font-size: 14px;
+    background-image: -moz-linear-gradient(top, #777, #000);
+    background-image: -ms-linear-gradient(top, #777, #000);
+    background-image: -webkit-linear-gradient(top, #777, #000);
+    background-image: linear-gradient(top, #777, #000);
+    background-clip: padding-box;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+}
+#main #main_contents .want_go_store_list .store_info .edit { width: 200px; float: right; }
+/*****************************************1317a1*/
 
 body.home #main { margin: -50px auto 94px; }
 
 #sidemenu { float: left; width: 180px; }
 
-#footer { background-image: url(../assets/images/footer/border.gif); background-repeat: repeat-x; background-position: top; min-height: 170px; }
+#footer { background-image: url(../images/footer/border.gif); background-repeat: repeat-x; background-position: top; min-height: 170px; }
 #footer .footer_box { width: 1000px; margin: 0px auto; padding-top: 30px; position: relative; }
 #footer .footer_box h3 { width: 192px; height: 55px; padding-right: 21px; }
 #footer .footer_box h3 img { width: 192px; display: block; }
@@ -109,8 +186,6 @@ body.home #main { margin: -50px auto 94px; }
 #footer .footer_main ul { border-right: 1px solid #3f220e; overflow: hidden; }
 #footer .footer_main ul li { display: block; border-left: 1px solid #3f220e; width: 152px; float: left; }
 #footer .footer_main ul li a { text-align: center; text-decoration: none; display: block; color: #3f220e; font-size: 11px; width: 152px; line-height: 25px; }
-
-
 /* -------------------------------- margin-top -------------------------------- */
 
 .margin-top-xs {
