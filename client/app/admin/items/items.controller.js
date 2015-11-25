@@ -107,8 +107,8 @@ angular.module('webApp')
 
                 //編集モーダル呼び出し
                 $scope.showEditModal = function($index) {
-                    $scope.selectRow = $scope.items[$index];
                     $scope.index = $index;
+                    $scope.selectRow = $scope.items[$index];
 
                     $uibModal.open({
                         templateUrl: './components/modal/modal.edit.html',
