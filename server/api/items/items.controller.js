@@ -213,15 +213,15 @@ exports.update = function(req, res) {
         data.modified = new Date();
 
         data.save(function(err, data) {
-            res.json(data);            
+            res.json(data);
         });
 
     });
 };
 
-//destroy
+// delete
 exports.delete = function(req, res) {
-    Items.remove({_id: req.params.id}, function(err) {
+    Items.remove({_id: req.params._id}, function(err) {
         if(err) {
             console.log('error');
         }

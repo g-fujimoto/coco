@@ -30,9 +30,9 @@ angular.module('webApp')
          * Items 削除処理
          */
         this.delete = function(scope, apiUrl) {
-            $http.delete(apiUrl + scope.id)
+            console.log(scope._id);
+            $http.delete(apiUrl + scope._id)
                 .success(function(data) {
-                    console.log(scope);
                     scope.$dismiss();
                     scope.items.splice(scope.index, 1);
                 });
@@ -44,7 +44,6 @@ angular.module('webApp')
         this.update = function(scope, apiUrl) {
             $http.put(apiUrl + scope.selectRow._id, scope.selectRow)
                 .success(function(data) {
-                    console.log(data);
                     $timeout(function() {
                         scope.items[scope.index] = data;
                     });

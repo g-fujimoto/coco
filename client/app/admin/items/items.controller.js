@@ -111,7 +111,7 @@ angular.module('webApp')
 
                 //削除モーダル呼び出し
                 $scope.showDeleteModal = function($index) {
-                    $scope.id = $scope.items[$index]._id;
+                    $scope._id = $scope.items[$index]._id;
                     $scope.index = $index;
                     $uibModal.open({
                         controller: 'ModalController',
