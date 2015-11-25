@@ -3,15 +3,16 @@ angular.module('webApp')
 
         //ジャンル・シーン編集時、selectRow.genre.nameを監視
         $scope.$watch('selectRow.genre.name', function(newValue, oldValue) {
-            if(!angular.isUndefined($scope.selectRow.genre.name)) {
+            if(!angular.isUndefined($scope.selectRow)) {
                 $scope.selectGenre = true;
             } else {
                 $scope.selectGenre = false;
             }
         });
-        //ジャンル・シーン編集時、selectRow.genre.nameを監視
+
+        //ジャンル・シーン編集時、selectRow.scene.nameを監視
         $scope.$watch('selectRow.scene.name', function(newValue, oldValue) {
-            if(!angular.isUndefined($scope.selectRow.scene.name)) {
+            if(!angular.isUndefined($scope.selectRow)) {
                 $scope.selectScene = true;
             } else {
                 $scope.selectScene = false;

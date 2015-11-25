@@ -2,8 +2,8 @@
 var app = angular.module('webApp', [
     'ui.router',
     // 'ngMessages',
-    'ui.bootstrap'
-    // 'ngAnimate',
+    'ui.bootstrap',
+    'ngAnimate',
     // 'ngFileUpload',
     // 'ngCookies'
 ]);

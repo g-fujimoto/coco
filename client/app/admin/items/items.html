@@ -4,7 +4,16 @@
 <!-- BODY -->
 <ng-navbar></ng-navbar>
 <div class="container-fluid">
-    <h1 class="page-header">店舗一覧</h1>
+    <h1 class="page-header margin-top-sm">店舗一覧</h1>
+<div class="row">
+    <div ng-controller="AlertController">
+        <div class="container-fluid">
+            <div class="col-sm-offset-4 col-sm-4">
+                <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="alert">{{alert.msg}}</uib-alert>
+            </div>
+        </div>        
+    </div>
+</div>
 <div class="row">
     <div class="container-fluid">
         <button type="button" ui-sref="newItem" class="btn btn-warning">新規登録</button>
@@ -60,10 +69,10 @@
                 {{item.itemTel}}
             </td>
             <td>
-                {{item.created | date: 'yyyy-MM-dd hh:mm:dd'}}
+                {{item.created | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
-                {{item.modified | date: 'yyyy-MM-dd hh:mm:dd'}}
+                {{item.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
                 <button name="genresBtn" class="btn btn-xs btn-info rowNo-{{$index}} width-lg" ng-click="showGenresModal($index)">ジャンル</button>

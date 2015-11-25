@@ -7,60 +7,60 @@
             <form class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-2 text-left">
-                        <label for="scene" class="control-label">ジャンル</label>
+                        <label for="scene" class="control-label">シーン</label>
                     </div>
                     <div class="col-sm-4">
                         <select class="form-control" id="scene" ng-model="selectRow.scene.name" ng-options="scene.name as scene.name for scene in scenes" required>
-                            <option value="">ジャンルを選択して下さい</option>
+                            <option value="">シーンを選択して下さい</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group" ng-show="selectScene">
                     <div class="col-sm-offset-1 col-sm-5 text-right">
-                        <label for="scene" class="control-label" ng-bind="scenes[0].taste"></label>
+                        <label for="scene" class="control-label" ng-bind="sceneMessages.value1"></label>
                     </div>
                     <div class="col-sm-4">
-                        <select class="form-control" ng-model="selectRow.scene.tasteRate" ng-options="rate.rating as rate.rating for rate in rates" required>
+                        <select class="form-control" ng-model="selectRow.scene.value1" ng-options="rate.rating as rate.rating for rate in rates" required>
                             <option value="">レートを選んで下さい</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group" ng-show="selectScene">
                     <div class="col-sm-offset-1 col-sm-5 text-right">
-                        <label for="scene" class="control-label" ng-bind="scenes[0].beautiful"></label>
+                        <label for="scene" class="control-label" ng-bind="sceneMessages.value2"></label>
                     </div>
                     <div class="col-sm-4">
-                        <select class="form-control" ng-model="selectRow.scene.beautifuleRate" ng-options="rate.rating as rate.rating for rate in rates" required>
+                        <select class="form-control" ng-model="selectRow.scene.value2" ng-options="rate.rating as rate.rating for rate in rates" required>
                             <option value="">レートを選んで下さい</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group" ng-show="selectScene">
                     <div class="col-sm-offset-1 col-sm-5 text-right">
-                        <label for="scene" class="control-label" ng-bind="scenes[0].quality"></label>
+                        <label for="scene" class="control-label" ng-bind="sceneMessages.value3"></label>
                     </div>
                     <div class="col-sm-4">
-                        <select class="form-control" ng-model="selectRow.scene.qualityRate" ng-options="rate.rating as rate.rating for rate in rates" required>
+                        <select class="form-control" ng-model="selectRow.scene.value3" ng-options="rate.rating as rate.rating for rate in rates" required>
                             <option value="">レートを選んで下さい</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group" ng-show="selectScene">
                     <div class="col-sm-offset-1 col-sm-5 text-right">
-                        <label for="scene" class="control-label" ng-bind="scenes[0].originality"></label>
+                        <label for="scene" class="control-label" ng-bind="sceneMessages.value4"></label>
                     </div>
                     <div class="col-sm-4">
-                        <select class="form-control" ng-model="selectRow.scene.originalityRate" ng-options="rate.rating as rate.rating for rate in rates" required>
+                        <select class="form-control" ng-model="selectRow.scene.value4" ng-options="rate.rating as rate.rating for rate in rates" required>
                             <option value="">レートを選んで下さい</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group" ng-show="selectScene">
                     <div class="col-sm-offset-1 col-sm-5 text-right">
-                        <label for="scene" class="control-label" ng-bind="scenes[0].sense"></label>
+                        <label for="scene" class="control-label" ng-bind="sceneMessages.value5"></label>
                     </div>
                     <div class="col-sm-4">
-                        <select class="form-control" ng-model="selectRow.scene.senseRate" ng-options="rate.rating as rate.rating for rate in rates" required>
+                        <select class="form-control" ng-model="selectRow.scene.value5" ng-options="rate.rating as rate.rating for rate in rates" required>
                             <option value="">レートを選んで下さい</option>
                         </select>
                     </div>

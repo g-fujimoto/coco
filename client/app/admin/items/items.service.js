@@ -1,5 +1,5 @@
 angular.module('webApp')
-    .service('$ItemsService', ['$http', '$state', '$timeout', function($http, $state, $timeout) {
+    .service('$ItemsService', ['$http', '$state', '$timeout', '$$Alert', function($http, $state, $timeout, $$Alert) {
 
         /**
          * Items データ全件出力
@@ -22,6 +22,10 @@ angular.module('webApp')
                     } else {
                         console.log(data);
                         scope.items.push(data);
+                        scope.alerts.push($$Alert.successRegister);
+                        $timeout(function() {
+                            scope.alerts.splice(0, 1);
+                        }, 1800);
                         $state.go('items');
                     }
                 });
@@ -31,11 +35,14 @@ angular.module('webApp')
          * Items 削除処理
          */
         this.delete = function(scope, apiUrl) {
-            console.log(scope._id);
             $http.delete(apiUrl + scope._id)
                 .success(function(data) {
                     scope.$dismiss();
                     scope.items.splice(scope.index, 1);
+                    scope.alerts.push($$Alert.successDelete);
+                    $timeout(function() {
+                        scope.alerts.splice(0, 1);
+                    }, 1800);
                 });
         };
 
@@ -45,11 +52,13 @@ angular.module('webApp')
         this.update = function(scope, apiUrl) {
             $http.put(apiUrl + scope.selectRow._id, scope.selectRow)
                 .success(function(data) {
-                    $timeout(function() {
-                        scope.items[scope.index] = data;
-                    });
-
+                    scope.items[scope.index] = data;
                     scope.$dismiss();
+                    scope.alerts.push($$Alert.successUpdate);
+                    $timeout(function() {
+                        scope.alerts.splice(0, 1);
+                    }, 1800);
+
                 });
         };
 }]);

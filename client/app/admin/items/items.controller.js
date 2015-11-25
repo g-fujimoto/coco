@@ -3,7 +3,6 @@ angular.module('webApp')
             function($scope, $uibModal,  $ItemsService, $$Genres, $$Rate, $$Scene) {
                 //Items全件出力
                 $ItemsService.findAll($scope);
-
                 $scope.alerts = [];
                 $scope.rates  = $$Rate;
                 $scope.scenes = $$Scene;
@@ -25,10 +24,6 @@ angular.module('webApp')
                             $scope.selectScene = false;
                         }
                     });
-
-                    $scope.myFilter = function(value, index) {
-
-                    };
 
                 //Itemsデータ登録(Bad Practice)
                 $scope.registerItem = function() {
@@ -93,7 +88,73 @@ angular.module('webApp')
                     $scope.index = $index;
                     $scope.selectRow = $scope.items[$index];
 
-
+                    switch($scope.selectRow.scene.name) {
+                        case '高級接待' :
+                            $scope.sceneMessages = {
+                                value1: $scope.scenes[0].value1,
+                                value2: $scope.scenes[0].value2,
+                                value3: $scope.scenes[0].value3,
+                                value4: $scope.scenes[0].value4,
+                                value5: $scope.scenes[0].value5
+                            };
+                            break;
+                        case '通常接待' :
+                            $scope.sceneMessages = {
+                                value1: $scope.scenes[1].value1,
+                                value2: $scope.scenes[1].value2,
+                                value3: $scope.scenes[1].value3,
+                                value4: $scope.scenes[1].value4,
+                                value5: $scope.scenes[1].value5
+                            };
+                            break;
+                        case '社内利用' :
+                            $scope.sceneMessages = {
+                                value1: $scope.scenes[2].value1,
+                                value2: $scope.scenes[2].value2,
+                                value3: $scope.scenes[2].value3,
+                                value4: $scope.scenes[2].value4,
+                                value5: $scope.scenes[2].value5
+                            };
+                            break;
+                        case '家族利用' :
+                            $scope.sceneMessages = {
+                                value1: $scope.scenes[3].value1,
+                                value2: $scope.scenes[3].value2,
+                                value3: $scope.scenes[3].value3,
+                                value4: $scope.scenes[3].value4,
+                                value5: $scope.scenes[3].value5
+                            };
+                            break;
+                        case 'お土産利用' :
+                            $scope.sceneMessages = {
+                                value1: $scope.scenes[4].value1,
+                                value2: $scope.scenes[4].value2,
+                                value3: $scope.scenes[4].value3,
+                                value4: $scope.scenes[4].value4,
+                                value5: $scope.scenes[4].value5
+                            };
+                            break;
+                        case '一人利用' :
+                            $scope.sceneMessages = {
+                                value1: $scope.scenes[5].value1,
+                                value2: $scope.scenes[5].value2,
+                                value3: $scope.scenes[5].value3,
+                                value4: $scope.scenes[5].value4,
+                                value5: $scope.scenes[5].value5
+                            };
+                            break;
+                        case 'デート利用' :
+                            $scope.sceneMessages = {
+                                value1: $scope.scenes[6].value1,
+                                value2: $scope.scenes[6].value2,
+                                value3: $scope.scenes[6].value3,
+                                value4: $scope.scenes[6].value4,
+                                value5: $scope.scenes[6].value5
+                            };
+                            break;
+                        default:
+                            break;
+                    }
 
                     console.log($scope);
 

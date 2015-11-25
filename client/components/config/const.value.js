@@ -171,4 +171,30 @@ angular.module('webApp')
             {
                 rating: 5
             }
-    ]);
+    ])
+    .value('$$Alert', {
+            successRegister: {
+                msg: '登録が完了しました。',
+                type: 'info'
+            },
+            successUpdate: {
+                msg: '更新が完了しました。',
+                type: 'success'
+            },
+            successDelete: {
+                msg: 'データを削除しました。',
+                type: 'danger'
+            },
+            failureRegister: {
+                msg: '登録に失敗しました',
+                type: 'warning'
+            },
+            failureUpdate: {
+                msg: '更新に失敗しました',
+                type: 'warning'
+            },
+            failureDelete: {
+                msg: '削除に失敗しました',
+                type: 'warning'
+            }
+    });
