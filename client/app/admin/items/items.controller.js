@@ -78,7 +78,7 @@ angular.module('webApp')
                         scope   : $scope,
                         templateUrl: './components/modal/modal.genre.html',
                         controller : 'ModalController',
-                        backdrop   : true
+                        backdrop   : 'static'
                     });
                 };
 
@@ -92,23 +92,20 @@ angular.module('webApp')
                         scope   : $scope,
                         templateUrl: './components/modal/modal.genre.html',
                         controller : 'ModalController',
-                        backdrop   : true
+                        backdrop   : 'static'
                     });
                 };
 
                 //編集モーダル呼び出し
                 $scope.showEditModal = function($index) {
-                    var selectRow = $scope.items[$index];
-
-                    $scope.selectRow = selectRow;
-                    $scope.selectRow.index = $index;
-                    console.log(selectRow);
+                    $scope.selectRow = $scope.items[$index];
+                    $scope.index = $index;
 
                     $uibModal.open({
                         templateUrl: './components/modal/modal.edit.html',
                         scope      : $scope,
                         controller : 'ModalController',
-                        backdrop   : true
+                        backdrop   : 'static'
                     });
                 };
 
@@ -116,9 +113,11 @@ angular.module('webApp')
                 $scope.showDeleteModal = function($index) {
                     $scope.id = $scope.items[$index]._id;
                     $scope.index = $index;
-                    $modalService.open({
+                    $uibModal.open({
+                        controller: 'ModalController',
+                        backdrop: 'static',
                         scope   : $scope,
-                        modalUrl: './components/modal/modal.delete.html'
+                        templateUrl: './components/modal/modal.delete.html'
                     });
                 };
     }]);

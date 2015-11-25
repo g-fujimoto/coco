@@ -44,7 +44,11 @@ angular.module('webApp')
         this.update = function(scope, apiUrl) {
             $http.put(apiUrl + scope.selectRow._id, scope.selectRow)
                 .success(function(data) {
-                    scope.items[scope.index] = data;
+                    console.log(data);
+                    $timeout(function() {
+                        scope.items[scope.index] = data;
+                    });
+
                     scope.$dismiss();
                 });
         };
