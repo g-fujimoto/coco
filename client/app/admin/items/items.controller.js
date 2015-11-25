@@ -30,7 +30,7 @@ angular.module('webApp')
 
                     };
 
-                //Itemsデータ登録
+                //Itemsデータ登録(Bad Practice)
                 $scope.registerItem = function() {
                     var postData = {
                         itemName        : $scope.itemName,

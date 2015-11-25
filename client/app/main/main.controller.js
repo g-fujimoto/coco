@@ -1,6 +1,6 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$modalService', function($scope, $http, $$Scenes, $$Genres, $modalService) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', function($scope, $http, $$Scenes, $$Genres, $uibModal) {
 
     $scope.mainPage = true;
     $scope.pages = [];
@@ -80,15 +80,19 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$m
 
 // ------------------------------- Modal ------------------------------ //
     $scope.showModal = function() {
-
-        var modalOption = {
+        $scope.modalOption = {
             title: 'やまっち',
             titleEng: 'yamacchi',
             modalUrl: './components/modal/modal.wantGo.html',
             scope: $scope
         };
 
-        $modalService.open(modalOption);
+        $uibModal.open({
+            controller: 'ModalController',
+            backdrop: 'static',
+            scope   : $scope,
+            templateUrl: './components/modal/modal.delete.html'
+        });
     };
 
 }]);
