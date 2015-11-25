@@ -1,6 +1,5 @@
 angular.module('webApp')
     .controller('ModalController', ['$http', '$scope', '$uibModalInstance', '$ItemsService', function($http, $scope, $uibModalInstance, $ItemsService) {
-        console.log($scope);
 
         //ジャンル・シーン編集時、selectRow.genre.nameを監視
         $scope.$watch('selectRow.genre.name', function(newValue, oldValue) {
@@ -8,6 +7,14 @@ angular.module('webApp')
                 $scope.selectGenre = true;
             } else {
                 $scope.selectGenre = false;
+            }
+        });
+        //ジャンル・シーン編集時、selectRow.genre.nameを監視
+        $scope.$watch('selectRow.scene.name', function(newValue, oldValue) {
+            if(!angular.isUndefined($scope.selectRow.scene.name)) {
+                $scope.selectScene = true;
+            } else {
+                $scope.selectScene = false;
             }
         });
 

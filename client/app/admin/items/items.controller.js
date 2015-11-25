@@ -58,7 +58,6 @@ angular.module('webApp')
                         }
                     };
 
-
                     $ItemsService.save($scope, postData);
                 };
 
@@ -86,14 +85,21 @@ angular.module('webApp')
                 };
 
                 //シーンモーダル呼び出し
-                $scope.showScencesModal = function() {
+                $scope.showScencesModal = function($index) {
                     $scope.data = {
                         title: 'シーン',
                         titleEng: 'scene'
                     };
+                    $scope.index = $index;
+                    $scope.selectRow = $scope.items[$index];
+
+
+
+                    console.log($scope);
+
                     $uibModal.open({
                         scope   : $scope,
-                        templateUrl: './components/modal/modal.genre.html',
+                        templateUrl: './components/modal/modal.scene.html',
                         controller : 'ModalController',
                         backdrop   : 'static'
                     });
