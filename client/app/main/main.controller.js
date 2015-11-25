@@ -2,8 +2,8 @@ var app = angular.module('webApp');
 
 app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', function($scope, $http, $$Scenes, $$Genres, $uibModal) {
 
-    $scope.mainPage = true;
-    $scope.pages = [];
+    $scope.mainPage   = true;
+    $scope.pages      = [];
 
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
@@ -12,9 +12,9 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         var data = {};
         if ($scope.word) data.itemName = $scope.word;
-        if ($scope.scene) data.scene = $scope.scene;
-        if ($scope.genre) data.genre = $scope.genre;
-        if ($scope.scene) data.scene = $scope.scene;
+        if ($scope.scene) data.scene   = $scope.scene;
+        if ($scope.genre) data.genre   = $scope.genre;
+        if ($scope.scene) data.scene   = $scope.scene;
 
         $http.post('/api/items/find', JSON.stringify(data))
         .success(function(data) {
@@ -22,7 +22,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             $scope.getComments();
 
             $scope.currentPage = 1;
-            $scope.pages = [];
+            $scope.pages       = [];
             for(var i = Math.ceil(data.length/10) + 1;--i;) {
                 $scope.pages.unshift(i);
             }
@@ -81,17 +81,17 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 // ------------------------------- Modal ------------------------------ //
     $scope.showModal = function() {
         $scope.modalOption = {
-            title: 'やまっち',
-            titleEng: 'yamacchi',
-            modalUrl: './components/modal/modal.wantGo.html',
-            scope: $scope
+            title    : 'やまっち',
+            titleEng : 'yamacchi',
+            modalUrl : './components/modal/modal.wantGo.html',
+            scope    : $scope
         };
 
         $uibModal.open({
-            controller: 'ModalController',
-            backdrop: 'static',
-            scope   : $scope,
-            templateUrl: './components/modal/modal.delete.html'
+            controller  : 'ModalController',
+            backdrop    : 'static',
+            scope       : $scope,
+            templateUrl : './components/modal/modal.went.html'
         });
     };
 

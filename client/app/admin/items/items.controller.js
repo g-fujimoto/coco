@@ -69,11 +69,14 @@ angular.module('webApp')
 
 
                 //ジャンルモーダル呼び出し
-                $scope.showGenresModal = function() {
+                $scope.showGenresModal = function($index) {
                     $scope.data = {
                         title: 'ジャンル',
                         titleEng: 'genre'
                     };
+                    $scope.index = $index;
+                    $scope.selectRow = $scope.items[$index];
+
                     $uibModal.open({
                         scope   : $scope,
                         templateUrl: './components/modal/modal.genre.html',

@@ -20,6 +20,7 @@ angular.module('webApp')
                     if(data === 'error') {
                         console.log('エラーだよ');
                     } else {
+                        console.log(data);
                         scope.items.push(data);
                         $state.go('items');
                     }
