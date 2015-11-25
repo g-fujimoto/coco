@@ -9,7 +9,6 @@ app.service('$modalService', ['$uibModal', '$http', function($uibModal, $http) {
      * @param  {string} templateUrl モーダルテンプレート
      */
     this.open = function(modalOption) {
-        console.log(modalOption);
         $uibModal.open({
             templateUrl: modalOption.modalUrl,
             scope      : modalOption.scope,

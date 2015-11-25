@@ -1,6 +1,6 @@
 angular.module('webApp')
-    .controller('ItemsController', ['$scope', '$modalService', '$ItemsService', '$$Genres', '$$Rate', '$$Scenes',
-            function($scope, $modalService,  $ItemsService, $$Genres, $$Rate, $$Scene) {
+    .controller('ItemsController', ['$scope', '$uibModal', '$ItemsService', '$$Genres', '$$Rate', '$$Scenes',
+            function($scope, $uibModal,  $ItemsService, $$Genres, $$Rate, $$Scene) {
                 //Items全件出力
                 $ItemsService.findAll($scope);
 
@@ -67,54 +67,48 @@ angular.module('webApp')
 
 // ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
 
-                //シーンモーダル呼び出し
-                $scope.showScencesModal = function() {
-                    $modalService.open({
-                        scope   : $scope,
-                        modalUrl: './components/modal/modal.register.html',
-                        title   : 'シーン',
-                        titleEng: 'scenes'
-                    });
-                };
 
                 //ジャンルモーダル呼び出し
                 $scope.showGenresModal = function() {
-                    $modalService.open({
+                    $scope.data = {
+                        title: 'ジャンル',
+                        titleEng: 'genre'
+                    };
+                    $uibModal.open({
                         scope   : $scope,
-                        modalUrl: './components/modal/modal.register.html',
-                        title   : 'ジャンル',
-                        titleEng: 'genres'
+                        templateUrl: './components/modal/modal.genre.html',
+                        controller : 'ModalController',
+                        backdrop   : true
                     });
                 };
 
-                //タグモーダル呼び出し
-                $scope.showTagsModal = function() {
-                    $modalService.open({
+                //シーンモーダル呼び出し
+                $scope.showScencesModal = function() {
+                    $scope.data = {
+                        title: 'シーン',
+                        titleEng: 'scene'
+                    };
+                    $uibModal.open({
                         scope   : $scope,
-                        modalUrl: './components/modal/modal.tags.html',
-                        title   : 'タグ',
-                        titleEng: 'tags'
+                        templateUrl: './components/modal/modal.genre.html',
+                        controller : 'ModalController',
+                        backdrop   : true
                     });
                 };
 
                 //編集モーダル呼び出し
                 $scope.showEditModal = function($index) {
-                    var row = $scope.items[$index];
+                    var selectRow = $scope.items[$index];
 
-                    $scope.id               = row._id;
-                    $scope.itemName         = row.itemName;
-                    $scope.itemKana         = row.itemKana;
-                    $scope.itemOtherName    = row.itemOtherName;
-                    $scope.itemBranch       = row.itemBranch;
-                    $scope.itemTel          = row.itemTel;
-                    $scope.itemIntroduction = row.itemIntroduction;
-                    $scope.itemLink         = row.itemLink;
-                    $scope.itemArea         = row.itemArea;
-                    $scope.index            = $index;
+                    $scope.selectRow = selectRow;
+                    $scope.selectRow.index = $index;
+                    console.log(selectRow);
 
-                    $modalService.open({
-                        scope   : $scope,
-                        modalUrl: './components/modal/modal.edit.html'
+                    $uibModal.open({
+                        templateUrl: './components/modal/modal.edit.html',
+                        scope      : $scope,
+                        controller : 'ModalController',
+                        backdrop   : true
                     });
                 };
 

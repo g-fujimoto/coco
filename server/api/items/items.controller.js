@@ -8,7 +8,7 @@
 
 // Dependences Modules
 var Items = require('./items.model');
-
+var _ = require('lodash');
 //index
 exports.index = function(req, res) {
 
@@ -130,10 +130,11 @@ exports.create = function(req, res) {
 
 //update
 exports.update = function(req, res) {
-    Items.findOne({_id: req.params.id}, function(err, data) {
-        data.itemName = req.body.itemName;
+    Items.findOne({_id: req.params._id}, function(err, data) {
+        _.merge(data, req.body);
         data.save();
         res.json(data);
+
     });
 };
 

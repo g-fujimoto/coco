@@ -181,3 +181,14 @@ body.home #main { margin: -50px auto 94px; }
 .text-lg {
     font-size: 20px;
 }
+
+/* -------------------------------- width -------------------------------- */
+
+.width-md {
+    width:80%;
+    text-align: center;
+}
+
+.width-lg {
+    width: 100%;
+}
