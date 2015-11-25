@@ -130,6 +130,30 @@ angular.module('webApp')
             value4 : '子供への配慮',
             value5 : '高齢者への配慮'
         },
+        {
+            name   : 'お土産利用',
+            value1 : '費用対効果',
+            value2 : '新規性（めずらしい）',
+            value3 : 'こだわり度',
+            value4 : 'パッケージ',
+            value5 : '入手難易度'
+        },
+        {
+            name   : '一人利用',
+            value1 : '味（本物志向度）',
+            value2 : '１人客への配慮',
+            value3 : 'メニューの豊富さ（変化）',
+            value4 : '利便性',
+            value5 : 'こだわり'
+        },
+        {
+            name   : 'デート利用',
+            value1 : 'インテリア',
+            value2 : '雰囲気',
+            value3 : 'スタッフの対応力',
+            value4 : 'プライバシーへの配慮',
+            value5 : '眺望の良さ'
+        },
     ])
     .value('$$Rate', [
             {
