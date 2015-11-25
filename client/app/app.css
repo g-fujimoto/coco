@@ -270,6 +270,7 @@ body.home #main { margin: -50px auto 94px; }
 
 /* -------------------------------- ngAnimate -------------------------------- */
 
+/* ---------------- All ----------------- */
 /*全体の移動スピード*/
 .animate.ng-enter,
 .animate.ng-leave,
@@ -301,4 +302,9 @@ body.home #main { margin: -50px auto 94px; }
 }
 .animate.ng-move.ng-move-active {
   opacity: 1;
+}
+
+/* ---------------- Alert ----------------- */
+.alertAnimate.ng-leave {
+    opacity: 0.5
 }

@@ -23,7 +23,7 @@
                     <h6>検索中の条件：新着順</h6>
                     <p>1~10件を表示/全{{items.length}}件</p>
                 </li>
-                <li class="right"><h5>{{items.length}}件　お店が見つかりました</h5></li>
+                <li class="right"><h5>{{items.length}}件 お店が見つかりました</h5></li>
             </ul>
         </div>
 
@@ -46,15 +46,17 @@
                 <div class="right_box">
                     <h2>{{item.itemName}}</h2>
                     <ul class="category_list">
+                        <li>（{{item.genre.name}}）</li>
                         <li>（{{item.itemArea}}）</li>
+                        <li>（{{item.scene.name}}）</li>
                     </ul>
                     <hr />
                     <div class="button_box">
                         <div class="left">
                             <div class="box_header">
                                <ul>
-                                    <li><h3><b>ジャンル</b>3.5</h3></li>
-                                    <li><h3><b>シーン</b>3.0</h3></li>
+                                    <li><h3><b>ジャンル</b>{{(item.genre.beautifuleRate + item.genre.originalityRate + item.genre.qualityRate + item.genre.senseRate + item.genre.tasteRate) / 5 | number: 1}}</h3></li>
+                                    <li><h3><b>シーン</b>{{(item.scene.value1 + item.scene.value2 + item.scene.value3 + item.scene.value4 + item.scene.value5) / 5 | number: 1}}</h3></li>
                                 </ul>
                             </div>
                             <div class="box_main">

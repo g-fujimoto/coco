@@ -9,9 +9,9 @@
     <div ng-controller="AlertController">
         <div class="container-fluid">
             <div class="col-sm-offset-4 col-sm-4">
-                <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="alert">{{alert.msg}}</uib-alert>
+                <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="alert animate alertAnimate">{{alert.msg}}</uib-alert>
             </div>
-        </div>        
+        </div>
     </div>
 </div>
 <div class="row">

@@ -1,6 +1,6 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', function($scope, $http, $$Scenes, $$Genres, $uibModal) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout) {
 
     $scope.mainPage   = true;
     $scope.pages      = [];
@@ -16,6 +16,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         if ($scope.genre) data.genre   = $scope.genre;
         if ($scope.scene) data.scene   = $scope.scene;
 
+        //豊田さんPHP症候群
         $http.post('/api/items/find', JSON.stringify(data))
         .success(function(data) {
             $scope.items = data;
@@ -26,9 +27,12 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             for(var i = Math.ceil(data.length/10) + 1;--i;) {
                 $scope.pages.unshift(i);
             }
-
+            $timeout(function() {
+                console.log($scope);
+            }, 1000);
         });
     };
+
 
     $scope.getComments = function() {
         $http.get('/api/itemComments')

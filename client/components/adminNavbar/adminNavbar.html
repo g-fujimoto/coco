@@ -2,12 +2,25 @@
 <link rel="stylesheet" href="./bower/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
 
 <!-- Navbar -->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="navbar-brand">
-                COCO社長
+<div ng-controller="LoginController">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a ui-sref="members" class="navbar-brand">COCO社長</a>
+                <div ng-hide="loginState">
+                    <button type="button" name="button" class="navbar-toggle" data-toggle="collapse" data-target="#xsMenu" id="xsBtn">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="xsMenu">
+              <ul class="nav navbar-nav navbar-right">
+                    <li ng-hide="loginState"><a ui-sref="items" class="navList">Stores</a></li>
+                    <li ng-hide="loginState"><a ui-sref="users" class="navList">Users</a></li>
+              </ul>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
