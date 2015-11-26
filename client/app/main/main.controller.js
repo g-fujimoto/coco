@@ -13,6 +13,8 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         if ($scope.genreName) data.genreName   = $scope.genreName;
         if ($scope.area) data.area   = $scope.area;
 
+console.log(data.scene);
+console.log(data.genreName);
         $http.post('/api/items/find', JSON.stringify(data))
         .success(function(data) {
             $scope.items = data;
@@ -66,7 +68,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     };
 
     $scope.findAddGenreName = function(value) {
-        $scope.GenreName = ($scope.GenreName == value) ? null : value;
+        $scope.genreName = ($scope.genreName == value) ? null : value;
         $scope.getItem();
     };
 
