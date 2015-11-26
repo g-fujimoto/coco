@@ -7,9 +7,9 @@ autoIncrement.initialize(mongoose);
 var NewsSchema = mongoose.Schema({
     title           : String,
     body            : String,
-    created         : String,
-    modified        : String,
-    deleteFlg       : String
+    created         : Date,
+    modified        : Date,
+    deleteFlg       : Number
 });
 
 NewsSchema.plugin(autoIncrement.plugin, {model: 'News', field: '_id'});

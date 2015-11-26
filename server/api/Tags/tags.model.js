@@ -5,10 +5,10 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose);
 
 var TagsSchema = mongoose.Schema({
-    tagName         : String,
-    created         : String,
-    modified        : String,
-    deleteFlg       : String
+    name            : String,
+    created         : Date,
+    modified        : Date,
+    deleteFlg       : Number
 });
 
 TagsSchema.plugin(autoIncrement.plugin, {model: 'Tags', field: '_id'});

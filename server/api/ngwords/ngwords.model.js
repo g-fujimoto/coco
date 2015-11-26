@@ -6,9 +6,9 @@ autoIncrement.initialize(mongoose);
 
 var NgWordsSchema = mongoose.Schema({
     word            : String,
-    created         : String,
-    modified        : String,
-    deleteFlg       : String
+    created         : Date,
+    modified        : Date,
+    deleteFlg       : Number
 });
 
 NgWordsSchema.plugin(autoIncrement.plugin, {model: 'NgWords', field: '_id'});

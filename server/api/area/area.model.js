@@ -5,10 +5,10 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose);
 
 var AreaSchema = mongoose.Schema({
-    areaName : String,
-    created  : Date,
-    modified : Date,
-    deleted  : Number
+    name      : String,
+    created   : Date,
+    modified  : Date,
+    deleteFlg : Number
 });
 
 AreaSchema.plugin(autoIncrement.plugin, {model: 'Area', field: '_id'});
