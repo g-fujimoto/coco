@@ -113,7 +113,7 @@
         <div class="sidemenu_box">
             <h3>エリアから探す</h3>
             <ul>
-                <li ng-repeat="scenelist in arealists" ng-class="{current:$parent.scene==arealist.name}"><a href="" ng-click="$parent.area=arealist.name">{{arealist.name}}</a></li>
+                <li ng-repeat="arealist in arealists" ng-class="{current:$parent.scene==arealist.name}"><a href="" ng-click="$parent.area=arealist.name">{{arealist.name}}</a></li>
             </ul>
         </div>
 

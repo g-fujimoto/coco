@@ -13,7 +13,7 @@ var _ = require('lodash');
 //index
 exports.index = function(req, res) {
 
-    Area.find({}, function(err, data) {
+    Area.find({req.body}, function(err, data) {
         res.json(data);
     });
 };

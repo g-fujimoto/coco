@@ -30,7 +30,11 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     };
 
     $scope.getArea= function() {
-        $http.get('/api/area')
+
+        var data = {};
+        data.deleteFlg = 0;
+
+        $http.get('/api/area', JSON.stringify(data))
         .success(function(data) {
             $scope.arealists = data;
         });
