@@ -10,11 +10,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                 }
             }
         })
-        .state('newItem', {
-            url: '/admin/items/newItem',
+        .state('adminNewItem', {
+            url: '/admin/items/adminNewItem',
             views: {
                 '': {
-                    templateUrl: './app/admin/items/newItem.html',
+                    templateUrl: './app/admin/items/adminNewItem.html',
                     controller: 'ItemsController'
                 }
             }
