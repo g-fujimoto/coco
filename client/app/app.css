@@ -76,7 +76,7 @@ body.home #header { background-image: url(../assets/images/header/top_background
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right { padding-top: 13px; width: 403px; float: right; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right h6 { font-size: 12px; line-height: 1.0em; margin-bottom: 4px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right p { height: 35px; overflow: hidden; font-size: 12px; line-height: 17px; padding-right: 13px; text-align: justify; margin-bottom: 5px; }
-#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right a { width: 110px; float: right; padding: 3px 0px 0px 20px; display: block; color: #1d2087; text-align: left; font-size: 12px; line-height: 1.0em; text-decoration: none; background-image: url(../images/main/parts/arrow_2.svg); background-repeat: no-repeat; background-position: left bottom; }
+#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right a { width: 110px; float: right; padding: 3px 0px 0px 20px; display: block; color: #1d2087; text-align: left; font-size: 12px; line-height: 1.0em; text-decoration: none; background-image: url(../assets/images/main/parts/arrow_2.svg); background-repeat: no-repeat; background-position: left bottom; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box { height: 46px; border: 1px solid #c9c9c9; border-top: 0px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li { float: left; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li:nth-child(2) { float: right; padding-right: 5px; }
@@ -93,8 +93,8 @@ body.home #header { background-image: url(../assets/images/header/top_background
 #main .pager_box ul { text-align: center; padding: 30px 0px; }
 #main .pager_box ul li { display: inline-block; }
 #main .pager_box ul li a { text-align: center; display: block; text-decoration: none; color: #1d2087; font-size: 16px; width: 31px; height: 17px; }
-#main .pager_box ul li:first-child a { width: 9px; background-image: url(../images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: 0px 0px; text-indent: -9999px; margin-right: 10px; }
-#main .pager_box ul li:last-child a { width: 9px; background-image: url(../images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: -9px 0px; text-indent: -9999px; margin-left: 10px; }
+#main .pager_box ul li:first-child a { width: 9px; background-image: url(../assets/images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: 0px 0px; text-indent: -9999px; margin-right: 10px; }
+#main .pager_box ul li:last-child a { width: 9px; background-image: url(../assets/images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: -9px 0px; text-indent: -9999px; margin-left: 10px; }
 #main .pager_box ul li.current a { font-weight: bold; }
 
 /****     reviews.htmlでの変更追加     ****/
@@ -179,7 +179,7 @@ body.home #main { margin: -50px auto 94px; }
 
 #sidemenu { float: left; width: 180px; }
 
-#footer { background-image: url(../images/footer/border.gif); background-repeat: repeat-x; background-position: top; min-height: 170px; }
+#footer { background-image: url(../assets/images/footer/border.gif); background-repeat: repeat-x; background-position: top; min-height: 170px; }
 #footer .footer_box { width: 1000px; margin: 0px auto; padding-top: 30px; position: relative; }
 #footer .footer_box h3 { width: 192px; height: 55px; padding-right: 21px; }
 #footer .footer_box h3 img { width: 192px; display: block; }

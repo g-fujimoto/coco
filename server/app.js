@@ -12,19 +12,12 @@
     var session       = require('express-session');
 
 // Own Objects
-<<<<<<< HEAD
     var config       = require('./config/environment');
     var items        = require('./api/items');
     var itemComments = require('./api/itemComments');
     var area         = require('./api/area');
-    var users         = require('./api/users');
+    var users        = require('./api/users');
 
-=======
-    var config        = require('./config/environment');
-    var items         = require('./api/items');
-    var area         = require('./api/area');
-    var itemComments  = require('./api/itemComments');
->>>>>>> 7c9c3b70045532e63e46fb6716b8b8a4b1c9d2ea
 // create WebServer
 var app = express();
 
@@ -51,9 +44,8 @@ db.once('open', function(callback) {
 // Routes
     app.use('/api/items', items);
     app.use('/api/area', area);
-    app.use('/api/itemComments', itemComments);
-    app.use('/api/area', area);
     app.use('/api/users', users);
+    app.use('/api/itemComments', itemComments);
 
 // Listen server
     app.listen(config.port);
