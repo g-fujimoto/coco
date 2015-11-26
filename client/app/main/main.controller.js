@@ -10,12 +10,13 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         var data = {};
         if ($scope.word) data.itemName = $scope.word;
         if ($scope.scene) data.scene   = $scope.scene;
-        if ($scope.genre) data.genre   = $scope.genre;
-        if ($scope.scene) data.scene   = $scope.scene;
+        if ($scope.genreName) data.genreName   = $scope.genreName;
+        if ($scope.area) data.area   = $scope.area;
 
         $http.post('/api/items/find', JSON.stringify(data))
         .success(function(data) {
             $scope.items = data;
+
             $scope.getComments();
 
             $scope.currentPage = 1;
@@ -23,34 +24,51 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             for(var i = Math.ceil(data.length/10) + 1;--i;) {
                 $scope.pages.unshift(i);
             }
-            $timeout(function() {
-                console.log($scope);
-            }, 1000);
         });
     };
 
     $scope.getArea= function() {
 
-        var data = {};
-        data.deleteFlg = 0;
-
-        $http.get('/api/area', JSON.stringify(data))
+        $http.get('/api/area')
         .success(function(data) {
             $scope.arealists = data;
         });
     };
 
     $scope.getComments = function() {
-        $http.get('/api/itemComments')
+
+        data = {};
+        for (var i in $scope.items) {
+            angular.merge(data, {_id : $scope.items[i]._id});
+        }
+
+        $http.get('/api/itemComments', JSON.stringify(data))
         .success(function(data) {
+
             $scope.item_comments = data;
+
+            $scope.item_comments = [];
+            $scope.item_comments[13] = {comment : 'ふつう', name : 'ふじもとたろう'};
+            $scope.item_comments[13] = {comment : 'おいしい', name : 'ふじもとはなこ'};
+
+            $scope.show_loading = false;
         });
     };
 
-    $scope.$watch('item_comments', function(newValue, oldValue) {
-        if (!newValue) return;
-        $scope.show_loading = false;
-    });
+    $scope.findAddArea = function(value) {
+        $scope.area = ($scope.area == value) ? null : value;
+        $scope.getItem();
+    };
+
+    $scope.findAddScene = function(value) {
+        $scope.scene = ($scope.scene == value) ? null : value;
+        $scope.getItem();
+    };
+
+    $scope.findAddGenreName = function(value) {
+        $scope.GenreName = ($scope.GenreName == value) ? null : value;
+        $scope.getItem();
+    };
 
     // ページャー処理
     $scope.$watch('currentPage', function(newValue, oldValue) {
@@ -63,24 +81,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         }
     });
 
-    // 検索
-    $scope.$watch('area', function(newValue, oldValue) {
-        if (!newValue) return;
-        $scope.getItem();
-    });
-
-    $scope.$watch('scene', function(newValue, oldValue) {
-        if (!newValue) return;
-        $scope.getItem();
-    });
-
-    $scope.$watch('genre', function(newValue, oldValue) {
-        if (!newValue) return;
-        $scope.getItem();
-    });
-
     $scope.$watch('word', function(newValue, oldValue) {
-
         if (!newValue && !oldValue) return;
         $scope.getItem();
     });
@@ -90,7 +91,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
     $scope.getArea();
     $scope.getItem();
-
 
 // ------------------------------- Modal ------------------------------ //
     $scope.showModal = function() {

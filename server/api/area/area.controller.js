@@ -13,9 +13,7 @@ var _ = require('lodash');
 //index
 exports.index = function(req, res) {
 
-    if (req.body.itemName) {
-        req.body.itemName = new RegExp('^' + req.body.itemName);
-    }
+    req.body.deleteFlg = 0;
 
     Area.find(req.body, function(err, data) {
         console.log(err);
