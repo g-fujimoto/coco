@@ -34,6 +34,9 @@
                 支店名
             </th>
             <th>
+                エリア
+            </th>
+            <th>
                 電話番号
             </th>
             <th>
@@ -41,12 +44,6 @@
             </th>
             <th>
                 更新日
-            </th>
-            <th>
-                ジャンル
-            </th>
-            <th>
-                シーン
             </th>
             <th>
                 編集
@@ -60,13 +57,16 @@
                 {{item._id}}
             </td>
             <td>
-                {{item.itemName}}
+                {{item.name}}
             </td>
             <td>
-                {{item.itemBranch}}
+                {{item.branch}}
             </td>
             <td>
-                {{item.itemTel}}
+                {{item.area}}
+            </td>
+            <td>
+                {{item.tel}}
             </td>
             <td>
                 {{item.created | date: 'yyyy-MM-dd HH:mm:dd'}}
@@ -75,16 +75,10 @@
                 {{item.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
-                <button name="genresBtn" class="btn btn-xs btn-info rowNo-{{$index}} width-lg" ng-click="showGenresModal($index)">ジャンル</button>
+                <button class="btn btn-xs btn-success width-lg" ng-click="showEditModal($index)">編集</button>
             </td>
             <td>
-                <button name="scenesBtn" class="btn btn-xs btn-primary rowNo-{{$index}} width-lg" ng-click="showScencesModal($index)">シーン</button>
-            </td>
-            <td>
-                <button name="editBtn" class="btn btn-xs btn-success rowNo-{{$index}} width-lg" ng-click="showEditModal($index)">編集</button>
-            </td>
-            <td>
-                <button name="deleteBtn" class="btn btn-xs btn-danger rowNo-{{$index}} width-lg" ng-click="showDeleteModal($index)">削除</button>
+                <button class="btn btn-xs btn-danger width-lg" ng-click="showDeleteModal($index)">削除</button>
             </td>
         </tr>
     </table>
