@@ -95,7 +95,7 @@ angular.module('webApp')
             quality    : '食材の品質',
             originality: '創意工夫さ',
             sense      : '五感への刺激(シズル感)'
-        },
+        }
     ])
     .value('$$Scenes', [
         {
@@ -153,7 +153,7 @@ angular.module('webApp')
             value3 : 'スタッフの対応力',
             value4 : 'プライバシーへの配慮',
             value5 : '眺望の良さ'
-        },
+        }
     ])
     .value('$$Rate', [
             {

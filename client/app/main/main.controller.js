@@ -10,7 +10,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
     $scope.getItem = function() {
 
-        let data = {};
+        var data = {};
         if ($scope.word) data.itemName = $scope.word;
         if ($scope.scene) data.scene   = $scope.scene;
         if ($scope.genre) data.genre   = $scope.genre;
@@ -40,7 +40,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         });
     };
 
-    $scope.$watch('item_comments', () => newValue, oldValue {
+    $scope.$watch('item_comments', function(newValue, oldValue) {
         if (!newValue) return;
         $scope.show_loading = false;
     });

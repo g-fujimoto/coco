@@ -34,7 +34,7 @@ exports.create = function(req, res) {
                 excitement: req.body.scene.value2,
                 staff     : req.body.scene.value3,
                 privacy   : req.body.scene.value4,
-                invalid   : req.body.scene.value5,
+                invalid   : req.body.scene.value5
             };
             break;
         case '通常接待':
@@ -44,7 +44,7 @@ exports.create = function(req, res) {
                 privacy     : req.body.scene.value2,
                 staff       : req.body.scene.value3,
                 originality : req.body.scene.value4,
-                cost        : req.body.scene.value5,
+                cost        : req.body.scene.value5
             };
             break;
         case '社内利用':
@@ -54,7 +54,7 @@ exports.create = function(req, res) {
             menu   : req.body.scene.value2,
             staff  : req.body.scene.value3,
             room   : req.body.scene.value4,
-            access : req.body.scene.value5,
+            access : req.body.scene.value5
         };
             break;
         case '家族利用':
@@ -64,7 +64,7 @@ exports.create = function(req, res) {
             menu     : req.body.scene.value2,
             staff    : req.body.scene.value3,
             children : req.body.scene.value4,
-            old      : req.body.scene.value5,
+            old      : req.body.scene.value5
         };
             break;
         case 'お土産利用':
@@ -74,7 +74,7 @@ exports.create = function(req, res) {
             rare       : req.body.scene.value2,
             goodDegree : req.body.scene.value3,
             package    : req.body.scene.value4,
-            difficulty : req.body.scene.value5,
+            difficulty : req.body.scene.value5
         };
             break;
         case '一人利用':
@@ -84,7 +84,7 @@ exports.create = function(req, res) {
             oneself    : req.body.scene.value2,
             menu       : req.body.scene.value3,
             utility    : req.body.scene.value4,
-            goodDegree : req.body.scene.value5,
+            goodDegree : req.body.scene.value5
         };
             break;
         case 'デート利用':
@@ -94,7 +94,7 @@ exports.create = function(req, res) {
             atmosphere: req.body.scene.value2,
             staff     : req.body.scene.value3,
             privacy   : req.body.scene.value4,
-            views     : req.body.scene.value5,
+            views     : req.body.scene.value5
         };
             break;
         default :
