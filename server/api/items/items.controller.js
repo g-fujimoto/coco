@@ -13,9 +13,9 @@ var _ = require('lodash');
 //index
 exports.index = function(req, res) {
 
-    // if (req.body.itemName) {
-    //     req.body.itemName = new RegExp('^' + req.body.itemName);
-    // }
+    if (req.body.itemName) {
+        req.body.itemName = new RegExp('^' + req.body.itemName);
+    }
 
     Items.find(req.body, function(err, data) {
         res.json(data);

@@ -1,0 +1,107 @@
+<!-- CSS -->
+<link rel="stylesheet" href="./bower/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+
+<!-- BODY -->
+<ng-navbar></ng-navbar>
+<div class="container-fluid">
+    <h1 class="page-header margin-top-sm">ユーザー一覧</h1>
+<div class="row">
+    <div ng-controller="AlertController">
+        <div class="container-fluid">
+            <div class="col-sm-offset-4 col-sm-4">
+                <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="alert animate alertAnimate">{{alert.msg}}</uib-alert>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="container-fluid">
+        <button type="button" ui-sref="adminNewUser" class="btn btn-info">新規登録</button>
+    </div>
+    <br>
+</div>
+<!-- テーブル -->
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr class="info">
+            <th>
+                ID
+            </th>
+            <th>
+                姓
+            </th>
+            <th>
+                名
+            </th>
+            <th>
+                eamil
+            </th>
+            <th>
+                会社名
+            </th>
+            <th>
+                行った店舗数
+            </th>
+            <th>
+                行きたい店舗数
+            </th>
+            <th>
+                推薦店舗数
+            </th>
+            <th>
+                更新日
+            </th>
+            <th>
+                最終ログイン日
+            </th>
+            <th>
+                編集
+            </th>
+            <th>
+                削除
+            </th>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td>
+                {{user._id}}
+            </td>
+            <td>
+                {{user.lastName}}
+            </td>
+            <td>
+                {{user.firstName}}
+            </td>
+            <td>
+                {{user.email}}
+            </td>
+            <td>
+                {{user.company.name}}
+            </td>
+            <td>
+                {{user.itemWent.length}} 店舗
+            </td>
+            <td>
+                {{user.itemWantGo.length}} 店舗
+            </td>
+            <td>
+                {{user.itemReccomend.length}} 店舗
+            </td>
+            <td>
+                {{user.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+            </td>
+            <td>
+                {{user.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
+            </td>
+            <td>
+                {{user.lastLogin | date: 'yyyy-MM-dd HH:mm:dd'}}
+            </td>
+            <td>
+                <button class="btn btn-xs btn-success width-lg" ng-click="showEditModal($index)">編集</button>
+            </td>
+            <td>
+                <button class="btn btn-xs btn-danger width-lg" ng-click="showDeleteModal($index)">削除</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>

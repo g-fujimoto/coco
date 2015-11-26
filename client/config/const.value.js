@@ -197,10 +197,4 @@ angular.module('webApp')
                 msg  : '削除に失敗しました',
                 type : 'warning'
             }
-    })
-    .value('$$Area', {
-        umeda        : '梅田・北新地',
-        namba        : '難波・道頓堀',
-        shinsaibashi : '心斎橋',
-        yodoyabashi  : '淀屋橋・本町・北浜'
     });

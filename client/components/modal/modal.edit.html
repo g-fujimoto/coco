@@ -2,34 +2,72 @@
     <h4 class="modal-title">編集</h4>
 </div>
 <div class="modal-body">
+
     <div class="form-group">
-        <label for="_id" class="control-label">ID</label>
-            <input type="text" name="_id" value="" id="_id" ng-model="selectRow._id" class="form-control modalClass" disabled>
+        <label for="editItem._id" class="control-label">ID</label>
+        <input type="text" name="editItem._id" value="" id="editItem._id" ng-model="editItem._id" class="form-control modalClass" disabled>
     </div>
+
     <div class="form-group">
-        <label for="itemName" class="control-label">店舗名</label>
-            <input type="text" name="itemName" value="" id="itemName" ng-model="selectRow.itemName" class="form-control modalClass">
+        <label for="editItem.name" class="control-label">店舗名</label>
+        <input type="text" name="editItem.name" value="" id="editItem.name" ng-model="editItem.name" class="form-control modalClass">
     </div>
+
     <div class="form-group">
-        <label for="itemKana" class="control-label">店舗名(カナ)</label>
-            <input type="text" name="itemKana" value="" id="itemKana" ng-model="selectRow.itemKana" class="form-control modalClass">
+        <label for="editItem.branch" class="control-label">支店名</label>
+        <input type="text" name="editItem.branch" value="" id="editItem.branch" ng-model="editItem.branch" class="form-control modalClass">
     </div>
+
     <div class="form-group">
-        <label for="itemOtherName" class="control-label">店舗名(別名)</label>
-            <input type="text" name="itemOtherName" value="" id="itemOtherName" ng-model="selectRow.itemOtherName" class="form-control modalClass">
+        <label for="editItem.area" class="control-label">エリア</label>
+        <input type="text" name="editItem.area" value="" id="editItem.area" ng-model="editItem.area" class="form-control modalClass">
     </div>
+
     <div class="form-group">
-        <label for="itemBranch" class="control-label">支店名</label>
-            <input type="text" name="itemBranch" value="" id="itemBranch" ng-model="selectRow.itemBranch" class="form-control modalClass">
+        <label for="editItem.kana" class="control-label">店舗名(カナ)</label>
+        <input type="text" name="editItem.kana" value="" id="editItem.kana" ng-model="editItem.kana" class="form-control modalClass">
     </div>
+
     <div class="form-group">
-        <label for="itemTel" class="control-label">電話番号</label>
-            <input type="text" name="itemTel" value="" id="itemTel" ng-model="selectRow.itemTel" class="form-control modalClass">
+        <label for="editItem.otherName" class="control-label">店舗名(別名)</label>
+        <input type="text" name="editItem.otherName" value="" id="editItem.otherName" ng-model="editItem.otherName" class="form-control modalClass">
     </div>
+
     <div class="form-group">
-        <label for="itemIntroduction" class="control-label">紹介文</label>
-            <textarea name="itemIntroduction" value="" id="itemIntroduction" ng-model="selectRow.itemIntroduction" class="form-control modalClass"></textarea>
+        <label for="editItem.tel" class="control-label">電話番号</label>
+        <input type="text" name="editItem.tel" value="" id="editItem.tel" ng-model="editItem.tel" class="form-control modalClass">
     </div>
+
+
+    <div class="form-group">
+        <label for="editItem.address.postalCode" class="control-label">郵便番号</label>
+        <input type="text" name="editItem.address.postalCode" value="" id="editItem.address.postalCode" ng-model="editItem.address.postalCode" class="form-control modalClass">
+    </div>
+
+
+    <div class="form-group">
+        <label for="editItem.address.pref" class="control-label">都道府県</label>
+        <input type="text" name="editItem.address.pref" value="" id="editItem.address.pref" ng-model="editItem.address.pref" class="form-control modalClass">
+    </div>
+
+
+    <div class="form-group">
+        <label for="editItem.address.city" class="control-label">市区町村</label>
+        <input type="text" name="editItem.address.city" value="" id="editItem.address.city" ng-model="editItem.address.city" class="form-control modalClass">
+    </div>
+
+
+    <div class="form-group">
+        <label for="editItem.address.town" class="control-label">町番地</label>
+        <input type="text" name="editItem.address.town" value="" id="editItem.address.town" ng-model="editItem.address.town" class="form-control modalClass">
+    </div>
+
+
+    <div class="form-group">
+        <label for="editItem.address.building" class="control-label">ビル名</label>
+        <input type="text" name="editItem.address.building" value="" id="editItem.address.building" ng-model="editItem.address.building" class="form-control modalClass">
+    </div>
+
 </div>
 <div class="modal-footer">
     <button class="btn btn-success" type="button" ng-click="update()">更新</button>

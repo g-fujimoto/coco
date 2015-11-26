@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             views: {
                 '': {
                     templateUrl: './app/admin/users/users.html',
-                    controller: 'usersController'
+                    controller: 'UsersController'
                 }
             }
         })
@@ -15,7 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             views: {
                 '': {
                     templateUrl: './app/admin/users/newUser.html',
-                    controller: 'usersController'
+                    controller: 'UsersController'
                 }
             }
     });

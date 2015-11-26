@@ -1,25 +1,45 @@
 angular.module('webApp')
-    .controller('ItemsController', ['$scope', '$uibModal', '$ItemsService',
-            function($scope, $uibModal,  $ItemsService, $$Genres) {
+    .controller('ItemsController', ['$scope', '$uibModal', '$ItemsService', '$AreaService',
+            function($scope, $uibModal,  $ItemsService, $AreaService) {
 
                 //$scope宣言
                 $scope.alerts = [];
-                $scope.genres = $$Genres;
 
                 //Items全件出力
                 $ItemsService.findAll($scope);
 
+                //Area情報取得
+                $AreaService.findAll($scope);
+                console.log($scope);
+
                 //Itemsデータ登録
                 $scope.registerItem = function() {
-                    $ItemsService.save($scope, $scope.newItem);
+                    $scope.items.push($ItemsService.save($scope.newItem));
                 };
 
 // ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
 
                 //編集モーダル呼び出し
                 $scope.showEditModal = function($index) {
-                    $scope.index     = $index;
-                    $scope.selectRow = $scope.items[$index];
+                    $scope.index      = $index;
+                    $scope.selectItem = $scope.items[$index];
+
+                    $scope.editItem   = {
+                        _id : $scope.selectItem._id,
+                        name: $scope.selectItem.name,
+                        branch: $scope.selectItem.branch,
+                        area  : $scope.selectItem.area,
+                        kana  : $scope.selectItem.kana,
+                        otherName: $scope.selectItem.otherName,
+                        tel: $scope.selectItem.tel,
+                        address: {
+                            postalCode: $scope.selectItem.address.postalCode,
+                            pref: $scope.selectItem.address.pref,
+                            city: $scope.selectItem.address.city,
+                            town: $scope.selectItem.address.town,
+                            building: $scope.selectItem.address.building
+                        }
+                    };
 
                     $uibModal.open({
                         templateUrl : './components/modal/modal.edit.html',

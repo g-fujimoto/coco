@@ -12,11 +12,14 @@
     var session       = require('express-session');
 
 // Own Objects
-    var config        = require('./config/environment');
-    var items         = require('./api/items');
-    var itemComments  = require('./api/itemComments');
+    var config       = require('./config/environment');
+    var items        = require('./api/items');
+    var itemComments = require('./api/itemComments');
+    var area         = require('./api/area');
+    var users         = require('./api/users');
+
 // create WebServer
-    var app = express();
+var app = express();
 
 // connect MongoDB
 var connect = mongoose.connect(config.mongo.uri);
@@ -39,9 +42,10 @@ db.once('open', function(callback) {
     app.use(cookieParser());
 
 // Routes
-    app.use('/api/admin/items', items);
     app.use('/api/items', items);
     app.use('/api/itemComments', itemComments);
+    app.use('/api/area', area);
+    app.use('/api/users', users);
 
 // Listen server
     app.listen(config.port);
