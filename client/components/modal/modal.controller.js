@@ -3,12 +3,12 @@ angular.module('webApp')
 
         //更新ボタン 処理
         $scope.update = function() {
-            $ItemsService.update($scope, 'api/admin/items/');
+            $ItemsService.update($scope, 'api/items/');
         };
 
         //削除ボタン 処理
         $scope.delete = function() {
-            $ItemsService.delete($scope, 'api/admin/items/');
+            $ItemsService.delete($scope, 'api/items/');
         };
 
         //キャンセルボタン 処理

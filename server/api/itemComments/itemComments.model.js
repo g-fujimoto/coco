@@ -5,49 +5,51 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose);
 
 var ItemCommentsSchema = mongoose.Schema({
-    userId          : Number,
-    itemId          : Number,
-    title           : String,
-    body            : String,
-    genre           : {
+    userId : Number,
+    itemId : Number,
+    title  : String,
+    body   : String,
+    genre  : {
         name            : String,
-        tasteRate       : Number,
-        beautifulRate   : Number,
-        qualityRate     : Number,
-        originalityRate : Number,
-        senseRate       : Number,
-        created         : Date,
-        modified        : Date,
-        deleteFlg       : Number
+        tasteRate       : {type: Number, default: 0},
+        beautifulRate   : {type: Number, default: 0},
+        qualityRate     : {type: Number, default: 0},
+        originalityRate : {type: Number, default: 0},
+        senseRate       : {type: Number, default: 0},
+        created         : {type: Date, default: Date.now()},
+        modified        : {type: Date, default: Date.now()},
+        deleteFlg       : {type: Number, default: 0}
     },
-    scene           : [
+    genreAve : {type: Number, default: 0},
+    scene : [
         {
-            name            : String,
-            valueRate1      : Number,
-            valueRate2      : Number,
-            valueRate3      : Number,
-            valueRate4      : Number,
-            valueRate5      : Number,
-            created         : Date,
-            modified        : Date,
-            deleteFlg       : Number
+            name       : String,
+            valueRate1 : {type: Number, default: 0},
+            valueRate2 : {type: Number, default: 0},
+            valueRate3 : {type: Number, default: 0},
+            valueRate4 : {type: Number, default: 0},
+            valueRate5 : {type: Number, default: 0},
+            created    : {type: Date, default: Date.now()},
+            modified   : {type: Date, default: Date.now()},
+            deleteFlg  : {type: Number, default: 0}
         }
     ],
-    itemLikes       : {
-        count           : Number
+    sceneAve : {type: Number, default: 0},
+    itemLikes : {
+        count : {type: Number, default: 0}
     },
-    images          : [
+    images : [
         {
-            path            : String,
-            sortNo          : Number,
-            created         : Date,
-            modified        : Date,
-            deleteFlg       : Number
+            path      : String,
+            sortNo    : {type: Number, default: 0},
+            created   : {type: Date, default: Date.now()},
+            modified  : {type: Date, default: Date.now()},
+            deleteFlg : {type: Number, default: 0}
         }
     ],
-    created         : Date,
-    modified        : Date,
-    deleteFlg       : Number
+    created   : {type : Date, default   : Date.now()},
+    modified  : {type : Date, default   : Date.now()},
+    deleteFlg : {type : Number, default : 0}
 });
 
 ItemCommentsSchema.plugin(autoIncrement.plugin, {model: 'ItemComments', field: '_id'});

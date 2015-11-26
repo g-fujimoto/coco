@@ -25,17 +25,13 @@ exports.index = function(req, res) {
 //create
 exports.create = function(req, res) {
 
-    var date = {
-        created  : new Date(),
-        modified : new Date()
-    };
 
-    var sendData = _.merge(req.body, date);
+    var newItem = new Items(req.body);
 
-    var newItem = new Items(sendData);
 
     newItem.save(function(err) {
         if(err) {
+            console.log(err);
             var errData = {
                 type    : err.type,
                 message : err.message
@@ -44,7 +40,7 @@ exports.create = function(req, res) {
             res.json(errData);
 
         } else {
-
+            console.log(newItem);
             res.json(newItem);
 
         }

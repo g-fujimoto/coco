@@ -38,6 +38,13 @@
         <input type="text" name="editItem.tel" value="" id="editItem.tel" ng-model="editItem.tel" class="form-control modalClass">
     </div>
 
+    <div class="form-group">
+        <label for="editItem.genreName" class="control-label">ジャンル</label>
+        <select name="" class="form-control" ng-model="editItem.genreName" ng-options="genre for genre in genres">
+            <option value="">以下のジャンルから選択して下さい</option>
+        </select>
+    </div>
+
 
     <div class="form-group">
         <label for="editItem.address.postalCode" class="control-label">郵便番号</label>
