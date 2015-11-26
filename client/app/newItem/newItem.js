@@ -6,7 +6,7 @@ angular.module('webApp')
             views: {
                 '': {
                     templateUrl: './app/newItem/newItem.html',
-                    controller: 'MainController'
+                    controller: 'NewItemController'
                 }
             }
         });

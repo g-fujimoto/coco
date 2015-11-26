@@ -1,8 +1,8 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout) {
+app.controller('NewItemController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout) {
 
-    $scope.mainPage   = true;
+    $scope.global_menu = 'newItem';
     $scope.pages      = [];
 
     $scope.scenelists = $$Scenes;

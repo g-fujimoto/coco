@@ -1,8 +1,8 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout) {
+app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout) {
 
-    $scope.mainPage   = true;
+    $scope.global_menu = 'myPage';
     $scope.pages      = [];
 
     $scope.scenelists = $$Scenes;
@@ -31,7 +31,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             }, 1000);
         });
     };
-
 
     $scope.getComments = function() {
         $http.get('/api/itemComments')

@@ -6,7 +6,7 @@ angular.module('webApp')
             views: {
                 '': {
                     templateUrl: './app/search/search.html',
-                    controller: 'MainController'
+                    controller: 'SearchController'
                 }
             }
         });

@@ -1,9 +1,17 @@
 /**
+<<<<<<< HEAD
  * GET     /api/Area              ->  index
  * POST    /api/Area              ->  create
  * GET     /api/Area/:id          ->  show
  * PUT     /api/Area/:id          ->  update
  * DELETE  /api/Area/:id          ->  delete
+=======
+ * GET     /api/area              ->  index
+ * POST    /api/area              ->  create
+ * GET     /api/area/:id          ->  show
+ * PUT     /api/area/:id          ->  update
+ * DELETE  /api/area/:id          ->  delete
+>>>>>>> 7c9c3b70045532e63e46fb6716b8b8a4b1c9d2ea
  */
 
 // Dependences Modules
@@ -34,9 +42,9 @@ exports.create = function(req, res) {
 
     var sendData = _.merge(req.body, date);
 
-    var newItem = new Area(sendData);
+    var newArea = new Area(sendData);
 
-    newItem.save(function(err) {
+    newArea.save(function(err) {
         if(err) {
             var errData = {
                 type    : err.type,
@@ -47,7 +55,7 @@ exports.create = function(req, res) {
 
         } else {
 
-            res.json(newItem);
+            res.json(newArea);
 
         }
     });

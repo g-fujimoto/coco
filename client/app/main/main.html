@@ -113,10 +113,7 @@
         <div class="sidemenu_box">
             <h3>エリアから探す</h3>
             <ul>
-                <li ng-class="{current:area=='umeda'}"><a href="" ng-click="area='umeda'">梅田・北新地</a></li>
-                <li ng-class="{current:area=='namba'}"><a href="" ng-click="area='namba'">難波・道頓堀</a></li>
-                <li ng-class="{current:area=='shinsaibashi'}"><a href="" ng-click="area='shinsaibashi'">心斎橋</a></li>
-                <li ng-class="{current:area=='yodoyabashi'}"><a href="" ng-click="area='yodoyabashi'">淀屋橋・本町・北浜</a></li>
+                <li ng-repeat="arealist in arealists" ng-class="{current:$parent.scene==arealist.name}"><a href="" ng-click="$parent.area=arealist.name">{{arealist.name}}</a></li>
             </ul>
         </div>
 
