@@ -1,5 +1,5 @@
 var app = angular.module('webApp');
-app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
     $stateProvider
         .state('users', {
             url: '/admin/users',
@@ -10,11 +10,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                 }
             }
         })
-        .state('newUser', {
-            url: '/admin/users/newUser',
+        .state('adminNewUser', {
+            url: '/admin/users/adminNewUser',
             views: {
                 '': {
-                    templateUrl: './app/admin/users/newUser.html',
+                    templateUrl: './app/admin/users/adminNewUser.html',
                     controller: 'UsersController'
                 }
             }

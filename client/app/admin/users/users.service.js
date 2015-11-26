@@ -2,7 +2,7 @@ angular.module('webApp')
     .service('$UsersService', ['$http', '$state', '$timeout', '$$Alert', function($http, $state, $timeout, $$Alert) {
 
         /**
-         * Users データ全件出力
+         * users データ全件出力
          */
         this.findAll = function(scope) {
 
@@ -13,7 +13,7 @@ angular.module('webApp')
         };
 
         /**
-         * Users 新規登録処理
+         * users 新規登録処理
          */
         this.save = function(scope, postData) {
             $http.post('/api/users', postData)
@@ -42,11 +42,11 @@ angular.module('webApp')
         };
 
         /**
-         * Users 編集処理
+         * users 編集処理
          */
         this.update = function(scope) {
 
-            $http.put('/api/users/' + scope.editItem._id, scope.editItem)
+            $http.put('/api/users/' + scope.editUser._id, scope.editUser)
                 .success(function(data) {
 
                     scope.users[scope.index] = data;
@@ -60,7 +60,7 @@ angular.module('webApp')
         };
 
         /**
-         * Users 削除処理
+         * users 削除処理
          */
         this.delete = function(scope) {
             $http.delete('/api/users/' + scope._id)
