@@ -37,6 +37,9 @@
 
                 <div class="left_box">
                     <ul>
+<!-- TODO データが入ってから確認
+                        <li ng-repeat="image in images | filter : {'deleteFlg': 0} | orderBy : 'sortNo'"><img src="{{image.path}}" /></li>
+-->
                         <li><img src="./assets/./images/main/top/test01.jpg" /></li>
                         <li><img src="./assets/./images/main/top/test02.jpg" /></li>
                         <li><img src="./assets/./images/main/top/test03.jpg" /></li>
@@ -44,22 +47,22 @@
                 </div>
 
                 <div class="right_box">
-                    <h2>{{item.itemName}}</h2>
+                    <h2>{{item.name}}</h2>
                     <ul class="category_list">
-                        <li>（{{item.genre.name}}）</li>
-                        <li>（{{item.itemArea}}）</li>
-                        <li>（{{item.scene.name}}）</li>
+                        <li>（{{item.genreName}}）</li>
+                        <li>（{{item.area}}）</li>
+                        <li>（<span ng-repeat="sceneName in item.sceneNames">{{item.sceneNames}} </span>）</li>
                     </ul>
                     <hr />
                     <div class="button_box">
                         <div class="left">
                             <div class="box_header">
                                <ul>
-                                    <li><h3><b>ジャンル</b>{{(item.genre.beautifuleRate + item.genre.originalityRate + item.genre.qualityRate + item.genre.senseRate + item.genre.tasteRate) / 5 | number: 1}}</h3></li>
-                                    <li><h3><b>シーン</b>{{(item.scene.value1 + item.scene.value2 + item.scene.value3 + item.scene.value4 + item.scene.value5) / 5 | number: 1}}</h3></li>
+                                    <li><h3><b>ジャンル</b></h3></li>
+                                    <li><h3><b>シーン</b></h3></li>
                                 </ul>
                             </div>
-                            <div class="box_main">
+                            <div class="box_main" ng-show="debug">
                                 <ul>
                                     <li><span>味</span>0.0</li>
                                     <li><span>盛付</span>0.0</li>
@@ -84,11 +87,11 @@
 
                       <div class="left">
                           <div class="img_box"><img src="./assets/./images/main/top/test04.jpg" /></div>
-                          <p>やまだやまお</p>
+                          <p>{{item_comments[item._id].name}}</p>
                       </div>
                       <div class="right">
                           <h6>最新コメント</h6>
-                          <p>{{item_comments[item._id]}}</p>
+                          <p>{{item_comments[item._id].comment}}</p>
                           <a href="">もっと詳しく見る</a>
                       </div>
 
@@ -96,7 +99,7 @@
 
                     <div class="footer_box">
                         <ul>
-                            <li><h5>{{item.itemLikes.length}}人が推薦しています</h5><h6>{{item.itemLikes.length}}人がいいねといっています</h6></li>
+                            <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikesCounter}}人がいいねといっています</h6></li>
                             <li><a href="#" ng-click="showModal()"><img src="./assets/./images/main/parts/star_button.svg" alt="" /></a><a href=""><img src="./assets/./images/main/parts/point_button.svg" alt="" /></a></li>
                         </ul>
                     </div>
@@ -105,7 +108,10 @@
 
               </div>
               <!--------->
-
+              <div ng-show="items.length==0">
+                  ご指定の条件に該当する店舗が見つかりませんでした。<br>
+                  お店の新規登録は<a ui-sref="newItem" ng-class="{current:global_menu=='newItem'}" ng-click="global_menu='newItem'">新規登録ページ</a>から行うことができます。
+              </div>
           </div>
 
     <div id="sidemenu">
@@ -113,21 +119,21 @@
         <div class="sidemenu_box">
             <h3>エリアから探す</h3>
             <ul>
-                <li ng-repeat="arealist in arealists" ng-class="{current:$parent.scene==arealist.name}"><a href="" ng-click="$parent.area=arealist.name">{{arealist.name}}</a></li>
+                <li ng-repeat="arealist in arealists" ng-class="{current:$parent.area==arealist.name}"><a href="" ng-click="findAddArea(arealist.name)">{{arealist.name}}</a></li>
             </ul>
         </div>
 
         <div class="sidemenu_box">
             <h3>利用用途から探す</h3>
             <ul>
-                <li ng-repeat="scenelist in scenelists" ng-class="{current:$parent.scene==scenelist.name}"><a href="" ng-click="$parent.scene=scenelist.name">{{scenelist.name}}</a></li>
+                <li ng-repeat="scenelist in scenelists" ng-class="{current:$parent.scene==scenelist.name}"><a href="" ng-click="findAddScene(scenelist.name)">{{scenelist.name}}</a></li>
             </ul>
         </div>
 
         <div class="sidemenu_box">
             <h3>ジャンルから探す</h3>
             <ul>
-                <li ng-repeat="genrelist in genrelists" ng-class="{current:$parent.genre==genrelist.name}"><a href="" ng-click="$parent.genre=genrelist.name">{{genrelist.name}}</a></li>
+                <li ng-repeat="genrelist in genrelists" ng-class="{current:$parent.genreName==genrelist.name}"><a href="" ng-click="findAddGenreName(genrelist.name)">{{genrelist.name}}</a></li>
             </ul>
         </div>
 
