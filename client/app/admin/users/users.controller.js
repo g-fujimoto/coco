@@ -5,12 +5,13 @@ angular.module('webApp')
                 //$scope宣言
                 $scope.alerts = [];
 
-                //users全件出力
+                //Users全件出力
                 $UsersService.findAll($scope);
 
-                //usersデータ登録
+                //Usersデータ登録
                 $scope.registerItem = function() {
-                    $scope.users.push($UsersService.save($scope.newUtem));
+                    // console.log($scope);
+                    $UsersService.save($scope, $scope.newItem);
                 };
 
 // ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
@@ -19,21 +20,21 @@ angular.module('webApp')
                 $scope.showEditModal = function($index) {
                     $scope.index      = $index;
                     $scope.selectUser = $scope.users[$index];
-
-                    $scope.editItem   = {
-                        _id : $scope.selectUser._id,
-                        name: $scope.selectUser.name,
-                        branch: $scope.selectUser.branch,
-                        area  : $scope.selectUser.area,
-                        kana  : $scope.selectUser.kana,
-                        otherName: $scope.selectUser.otherName,
-                        tel: $scope.selectUser.tel,
-                        address: {
-                            postalCode: $scope.selectUser.address.postalCode,
-                            pref: $scope.selectUser.address.pref,
-                            city: $scope.selectUser.address.city,
-                            town: $scope.selectUser.address.town,
-                            building: $scope.selectUser.address.building
+                    $scope.editUser   = {
+                        _id       : $scope.selectUser._id,
+                        name      : $scope.selectUser.name,
+                        branch    : $scope.selectUser.branch,
+                        area      : $scope.selectUser.area,
+                        kana      : $scope.selectUser.kana,
+                        otherName : $scope.selectUser.otherName,
+                        tel       : $scope.selectUser.tel,
+                        genreName : $scope.selectUser.genreName,
+                        address   : {
+                            postalCode : $scope.selectUser.address.postalCode,
+                            pref       : $scope.selectUser.address.pref,
+                            city       : $scope.selectUser.address.city,
+                            town       : $scope.selectUser.address.town,
+                            building   : $scope.selectUser.address.building
                         }
                     };
 
