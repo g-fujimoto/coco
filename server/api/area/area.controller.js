@@ -28,9 +28,9 @@ exports.create = function(req, res) {
 
     var sendData = _.merge(req.body, date);
 
-    var newItem = new Area(sendData);
+    var newArea = new Area(sendData);
 
-    newItem.save(function(err) {
+    newArea.save(function(err) {
         if(err) {
             var errData = {
                 type    : err.type,
@@ -41,7 +41,7 @@ exports.create = function(req, res) {
 
         } else {
 
-            res.json(newItem);
+            res.json(newArea);
 
         }
     });
