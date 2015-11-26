@@ -1,3 +1,4 @@
+
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('items', {
@@ -5,7 +6,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             views: {
                 '': {
                     templateUrl: './app/admin/items/items.html',
-                    controller: 'ItemsController'                    
+                    controller: 'ItemsController'
                 }
             }
         })

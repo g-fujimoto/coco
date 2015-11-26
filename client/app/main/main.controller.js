@@ -10,13 +10,12 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
     $scope.getItem = function() {
 
-        var data = {};
+        let data = {};
         if ($scope.word) data.itemName = $scope.word;
         if ($scope.scene) data.scene   = $scope.scene;
         if ($scope.genre) data.genre   = $scope.genre;
         if ($scope.scene) data.scene   = $scope.scene;
 
-        //豊田さんPHP症候群
         $http.post('/api/items/find', JSON.stringify(data))
         .success(function(data) {
             $scope.items = data;
@@ -41,7 +40,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         });
     };
 
-    $scope.$watch('item_comments', function(newValue, oldValue) {
+    $scope.$watch('item_comments', () => newValue, oldValue {
         if (!newValue) return;
         $scope.show_loading = false;
     });
