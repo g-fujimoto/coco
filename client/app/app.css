@@ -21,7 +21,7 @@
 #header #mainmenu .mainmenu_footer { height: 586px; width: 1000px; margin: 0px auto; overflow: hidden; }
 #header #mainmenu .mainmenu_footer h2 { margin-top: 156px; margin-left: 9px; width: 548px; height: 220px; }
 
-body.home #header { background-image: url(../assets/images/header/top_background.jpg); background-repeat: no-repeat; background-position: center bottom; margin-bottom: -50px;}
+body.home #header #header_bg { background-image: url(../assets/images/header/top_background.jpg); background-repeat: no-repeat; background-position: center; margin-bottom: -50px; overflow: hidden;}
 
 #main { width: 930px; padding: 35px 35px; margin: 0px auto 94px; background-color: #e8f0ed; overflow: hidden; }
 #main #main_header { height: 69px; overflow: hidden; }
