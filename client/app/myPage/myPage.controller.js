@@ -33,7 +33,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     };
 
     $scope.getComments = function() {
-        $http.get('/api/itemComments')
+        $http.get('/api/comments')
         .success(function(data) {
             $scope.item_comments = data;
         });

@@ -4,7 +4,7 @@ var autoIncrement = require('mongoose-auto-increment');
 
 autoIncrement.initialize(mongoose);
 
-var ItemCommentsSchema = mongoose.Schema({
+var CommentsSchema = mongoose.Schema({
     userId        : Number,
     userFirstName : String,
     userLastName  : String,
@@ -49,6 +49,6 @@ var ItemCommentsSchema = mongoose.Schema({
     deleteFlg : {type : Number, default : 0}
 });
 
-ItemCommentsSchema.plugin(autoIncrement.plugin, {model: 'ItemComments', field: '_id'});
+CommentsSchema.plugin(autoIncrement.plugin, {model: 'Comments', field: '_id'});
 
-module.exports = mongoose.model('ItemComments', ItemCommentsSchema);
+module.exports = mongoose.model('Comments', CommentsSchema);

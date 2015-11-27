@@ -15,7 +15,7 @@
 // Own Objects
     var config       = require('./config/environment');
     var items        = require('./api/items');
-    var itemComments = require('./api/itemComments');
+    var comments = require('./api/comments');
     var area         = require('./api/area');
     var users        = require('./api/users');
     var upload       = require('./api/upload');
@@ -48,7 +48,7 @@ db.once('open', function(callback) {
     app.use('/api/items', items);
     app.use('/api/area', area);
     app.use('/api/users', users);
-    app.use('/api/itemComments', itemComments);
+    app.use('/api/comments', comments);
 
     app.use('/api/upload', upload);
 
