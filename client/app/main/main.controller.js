@@ -39,7 +39,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         var item_ids = _.pluck($scope.items, '_id');
 
-        $http.get('/api/itemComments', JSON.stringify(item_ids))
+        $http.get('/api/comments', JSON.stringify(item_ids))
         .success(function(data) {
 
             // 店舗IDリスト作成
