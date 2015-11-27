@@ -10,16 +10,17 @@
   "author": "andSyste",
   "license": "ISC",
   "dependencies": {
-    "express": "~4.13.3",
     "body-parser": "~1.14.1",
     "cookie-parser": "~1.4.0",
-    "mongoose": "~4.2.5",
+    "express": "~4.13.3",
     "express-session": "~1.12.1",
-    "serve-favicon": "~2.3.0",
+    "lodash": "~3.10.1",
+    "mongoose": "~4.2.5",
+    "mongoose-auto-increment": "~5.0.1",
+    "multer": "^1.1.0",
     "passport": "~0.3.2",
     "passport-local": "~1.0.0",
-    "lodash": "~3.10.1",
-    "mongoose-auto-increment": "~5.0.1"
+    "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",
