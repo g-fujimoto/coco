@@ -21,7 +21,7 @@ var ItemCommentsSchema = mongoose.Schema({
         deleteFlg       : {type: Number, default: 0}
     },
     genreAve : {type: Number, default: 0},
-    scene : [
+    scenes : [
         {
             name       : String,
             valueRate1 : {type: Number, default: 0},

@@ -20,7 +20,9 @@
 
     <div class="form-group">
         <label for="editItem.area" class="control-label">エリア</label>
-        <input type="text" name="editItem.area" value="" id="editItem.area" ng-model="editItem.area" class="form-control modalClass">
+        <select name="" class="form-control" ng-model="editItem.area" ng-options=" area.name as area.name for area in areas">
+            <option value="">以下のジャンルから選択して下さい</option>
+        </select>
     </div>
 
     <div class="form-group">
@@ -40,7 +42,7 @@
 
     <div class="form-group">
         <label for="editItem.genreName" class="control-label">ジャンル</label>
-        <select name="" class="form-control" ng-model="editItem.genreName" ng-options="genre for genre in genres">
+        <select name="" class="form-control" ng-model="editItem.genreName" ng-options="genre.name as genre.name for genre in genres">
             <option value="">以下のジャンルから選択して下さい</option>
         </select>
     </div>
@@ -54,7 +56,9 @@
 
     <div class="form-group">
         <label for="editItem.address.pref" class="control-label">都道府県</label>
-        <input type="text" name="editItem.address.pref" value="" id="editItem.address.pref" ng-model="editItem.address.pref" class="form-control modalClass">
+        <select name="" class="form-control" ng-model="editItem.address.pref" ng-options="pref.label as pref.label for pref in prefs">
+            <option value="">以下のジャンルから選択して下さい</option>
+        </select>
     </div>
 
 

@@ -2,7 +2,7 @@ angular.module('webApp')
     .service('$UsersService', ['$http', '$state', '$timeout', '$$Alert', function($http, $state, $timeout, $$Alert) {
 
         /**
-         * users データ全件出力
+         * Users データ全件出力
          */
         this.findAll = function(scope) {
 
@@ -13,13 +13,12 @@ angular.module('webApp')
         };
 
         /**
-         * users 新規登録処理
+         * Users 新規登録処理
          */
         this.save = function(scope, postData) {
             $http.post('/api/users', postData)
                 .success(function(data) {
                     if(data.type) {
-
                         scope.alerts.push($$Alert.failureRegister);
 
                         console.log(data.type);
@@ -30,7 +29,6 @@ angular.module('webApp')
                         }, 1800);
 
                     } else {
-
                         $timeout(function() {
                             scope.alerts.splice(0, 1);
                         }, 1800);
@@ -42,7 +40,7 @@ angular.module('webApp')
         };
 
         /**
-         * users 編集処理
+         * Users 編集処理
          */
         this.update = function(scope) {
 
@@ -60,7 +58,7 @@ angular.module('webApp')
         };
 
         /**
-         * users 削除処理
+         * Users 削除処理
          */
         this.delete = function(scope) {
             $http.delete('/api/users/' + scope._id)

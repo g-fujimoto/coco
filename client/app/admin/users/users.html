@@ -52,9 +52,6 @@
                 更新日
             </th>
             <th>
-                最終ログイン日
-            </th>
-            <th>
                 編集
             </th>
             <th>
@@ -88,9 +85,6 @@
             </td>
             <td>
                 {{user.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
-            </td>
-            <td>
-                {{user.lastLogin | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
                 <button class="btn btn-xs btn-success width-lg" ng-click="showEditModal($index)">編集</button>

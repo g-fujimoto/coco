@@ -8,7 +8,7 @@ angular.module('webApp')
 
             $http.get('/api/area')
                 .success(function(data) {
-                    scope.area = data;
+                    scope.areas = data;
                 });
         };
 

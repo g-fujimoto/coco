@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="row">
-        <form class="form-horizontal" name="myForm">
+        <form class="form-horizontal" name="myForm" novalidate>
             <div class="col-sm-6">
                 <div class="row">
                     <div class="container-fluid">
@@ -47,7 +47,7 @@
                                 <label for="newUser.birthYear" class="control-label">誕生年</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser.birthYear" value="" ng-model="newUser.birthYear" id="newUser.birthYear" class="form-control" placeholder="誕生年" required>
+                                <input type="text" name="newUser.birthYear" value="" ng-model="newUser.birthYear" id="newUser.birthYear" class="form-control" placeholder="誕生年">
                             </div>
                         </div>
                         <div class="form-group">
@@ -55,7 +55,7 @@
                                 <label for="newUser.birthPref" class="control-label">生まれた都道府県</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser.birthPref" value="" ng-model="newUser.birthPref" id="newUser.birthPref" class="form-control" placeholder="生まれた都道府県" required>
+                                <input type="text" name="newUser.birthPref" value="" ng-model="newUser.birthPref" id="newUser.birthPref" class="form-control" placeholder="生まれた都道府県">
                             </div>
                         </div>
                         <div class="form-group">
@@ -63,7 +63,7 @@
                                 <label for="newUser.highSchoolYear" class="control-label">高校卒業年</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser.highSchoolYear" value="" ng-model="newUser.highSchoolYear" id="newUser.highSchoolYear" class="form-control" placeholder="高校卒業年" required>
+                                <input type="text" name="newUser.highSchoolYear" value="" ng-model="newUser.highSchoolYear" id="newUser.highSchoolYear" class="form-control" placeholder="高校卒業年">
                             </div>
                         </div>
                         <div class="form-group">
@@ -71,7 +71,7 @@
                                 <label for="newUser.highSchoolName" class="control-label">高校名</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser.highSchoolName" value="" ng-model="newUser.highSchoolName" id="newUser.highSchoolName" class="form-control" placeholder="高校名" required>
+                                <input type="text" name="newUser.highSchoolName" value="" ng-model="newUser.highSchoolName" id="newUser.highSchoolName" class="form-control" placeholder="高校名">
                             </div>
                         </div>
                         <div class="form-group">
@@ -79,7 +79,7 @@
                                 <label for="newUser.universityYear" class="control-label">大学卒業年</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser.universityYear" value="" ng-model="newUser.universityYear" id="newUser.universityYear" class="form-control" placeholder="大学卒業年" required>
+                                <input type="text" name="newUser.universityYear" value="" ng-model="newUser.universityYear" id="newUser.universityYear" class="form-control" placeholder="大学卒業年">
                             </div>
                         </div>
                         <div class="form-group">
@@ -87,87 +87,87 @@
                                 <label for="newUser.universityName" class="control-label">大学名</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser.universityName" value="" ng-model="newUser.universityName" id="newUser.universityName" class="form-control" placeholder="大学名" required>
+                                <input type="text" name="newUser.universityName" value="" ng-model="newUser.universityName" id="newUser.universityName" class="form-control" placeholder="大学名">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newUser" class="control-label">外部認証名</label>
+                                <label for="newUser.oAuthName" class="control-label">外部認証名</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser" value="" ng-model="newUser" id="newUser" class="form-control" placeholder="外部認証名" required>
+                                <input type="text" name="newUser.oAuthName" value="" ng-model="newUser.oAuthName" id="newUser.oAuthName" class="form-control" placeholder="外部認証名">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newUser" class="control-label">外部認証キー</label>
+                                <label for="newUser.oAuthKey" class="control-label">外部認証キー</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser" value="" ng-model="newUser" id="newUser" class="form-control" placeholder="外部認証キー" required>
+                                <input type="text" name="newUser.oAuthKey" value="" ng-model="newUser.oAuthKey" id="newUser.oAuthKey" class="form-control" placeholder="外部認証キー">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newUser" class="control-label">専門分野</label>
+                                <label for="newUser.specialized" class="control-label">専門分野</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser" value="" ng-model="newUser" id="newUser" class="form-control" placeholder="専門分野" required>
+                                <input type="text" name="newUser.specialized" value="" ng-model="newUser.specialized" id="newUser.specialized" class="form-control" placeholder="専門分野">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newUser" class="control-label">会社名</label>
+                                <label for="newUser.company.name" class="control-label">会社名</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="newUser" value="" ng-model="newUser" id="newUser" class="form-control" placeholder="会社名" required>
+                                <input type="text" name="newUser.company.name" value="" ng-model="newUser.company.name" id="newUser.company.name" class="form-control" placeholder="会社名" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-4 text-left">
-                                <label for="newUser" class="control-label">郵便番号(会社)</label>
+                                <label for="newUser.company.postalCode" class="control-label">郵便番号(会社)</label>
                             </div>
                             <div class="col-sm-7">
-                                <input type="text" name="newUser" value="" ng-model="newUser" id="newUser" class="form-control" placeholder="郵便番号(会社)" required>
+                                <input type="text" name="newUser.company.postalCode" value="" ng-model="newUser.company.postalCode" id="newUser.company.postalCode" class="form-control" placeholder="郵便番号(会社)" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-4 text-left">
-                                <label for="newUser" class="control-label">住所(会社)</label>
+                                <label for="newUser.company.address" class="control-label">住所(会社)</label>
                             </div>
                             <div class="col-sm-7">
-                                <input type="text" name="newUser" value="" ng-model="newUser" id="newUser" class="form-control" placeholder="住所(会社)" required>
+                                <input type="text" name="newUser.company.address" value="" ng-model="newUser.company.address" id="newUser.company.address" class="form-control" placeholder="住所(会社)" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-4 text-left">
-                                <label for="newUser" class="control-label">電話番号(会社)</label>
+                                <label for="newUser.company.tel" class="control-label">電話番号(会社)</label>
                             </div>
                             <div class="col-sm-7">
-                                <input type="text" name="newUser" value="" ng-model="newUser" id="newUser" class="form-control" placeholder="電話番号(会社)" required>
+                                <input type="text" name="newUser.company.tel" value="" ng-model="newUser.company.tel" id="newUser.company.tel" class="form-control" placeholder="電話番号(会社)" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-4 text-left">
-                                <label for="newItem.kana" class="control-label">FAX番号(会社)</label>
+                                <label for="newUser.company.fax" class="control-label">FAX番号(会社)</label>
                             </div>
                             <div class="col-sm-7">
-                                <input type="text" name="newItem.kana" value="" ng-model="newItem.kana" id="newItem.kana" class="form-control" placeholder="FAX番号(会社)" required>
+                                <input type="text" name="newUser.company.fax" value="" ng-model="newUser.company.fax" id="newUser.company.fax" class="form-control" placeholder="FAX番号(会社)">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-4 text-left">
-                                <label for="newItem.kana" class="control-label">ホームページ(会社)</label>
+                                <label for="newUser.company.url" class="control-label">ホームページ(会社)</label>
                             </div>
                             <div class="col-sm-7">
-                                <input type="text" name="newItem.kana" value="" ng-model="newItem.kana" id="newItem.kana" class="form-control" placeholder="ホームページ(会社)" required>
+                                <input type="text" name="newUser.company.url" value="" ng-model="newUser.company.url" id="newUser.company.url" class="form-control" placeholder="ホームページ(会社)">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-4 text-left">
-                                <label for="newItem.kana" class="control-label">E-mail(会社)</label>
+                                <label for="newUser.company.email" class="control-label">E-mail(会社)</label>
                             </div>
                             <div class="col-sm-7">
-                                <input type="text" name="newItem.kana" value="" ng-model="newItem.kana" id="newItem.kana" class="form-control" placeholder="E-mail(会社)" required>
+                                <input type="text" name="newUser.company.email" value="" ng-model="newUser.company.email" id="newUser.company.email" class="form-control" placeholder="E-mail(会社)">
                             </div>
                         </div>
                     </div>
@@ -178,22 +178,22 @@
                     <div class="container-fluid">
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newItem.kana" class="control-label">仕事について</label>
+                                <label for="newUser.aboutWork.title" class="control-label">仕事について</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="name" value="" class="form-control" ng-model="newItem.kana" placeholder="タイトル">
+                                <input type="text" name="newUser.aboutWork.title" value="" class="form-control" ng-model="newUser.aboutWork.title" placeholder="タイトル">
                                 <br>
-                                <textarea name="name" rows="8" cols="40" ng-model="newItem.kana" id="" class="form-control" placeholder="本文"></textarea>
+                                <textarea name="newUser.aboutWork.body" rows="8" cols="40" ng-model="newUser.aboutWork.body" id="" class="form-control" placeholder="本文"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newItem.kana" class="control-label">その他</label>
+                                <label for="newUser.other.title" class="control-label">その他</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="name" value="" class="form-control" ng-model="newItem.kana" placeholder="タイトル">
+                                <input type="text" name="newUser.other.title" value="" class="form-control" ng-model="newUser.other.title" placeholder="タイトル">
                                 <br>
-                                <textarea name="name" rows="8" cols="40" ng-model="newItem.kana" id="" class="form-control" placeholder="本文"></textarea>
+                                <textarea name="newUser.other.body" rows="8" cols="40" ng-model="newUser.other.body" id="" class="form-control" placeholder="本文"></textarea>
                             </div>
                         </div>
                     </div>

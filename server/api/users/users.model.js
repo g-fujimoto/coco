@@ -9,17 +9,17 @@ var UsersSchema = mongoose.Schema({
     password       : String,
     lastName       : String,
     firstName      : String,
-    birthYear      : String,
+    birthYear      : Number,
     birthPref      : String,
-    highSchoolYear : String,
+    highSchoolYear : Number,
     highSchoolName : String,
-    universityYear : String,
+    universityYear : Number,
     universityName : String,
     oAuthName      : String,
     oAuthKey       : String,
     specialized    : String,
-    lastLogin      : Date,
-    other          : [
+    lastLogin      : {type: Date, default: Date.now()},
+    others          : [
         {
             title     : String,
             body      : String,
@@ -28,7 +28,7 @@ var UsersSchema = mongoose.Schema({
             deleteFlg : {type: Number, default: 0}
         }
     ],
-    aboutWork : [
+    aboutWorks : [
         {
             title     : String,
             body      : String,
@@ -65,13 +65,13 @@ var UsersSchema = mongoose.Schema({
     itemRegisterCounter : {
         count : {type: Number, default: 0}
     },
-    itemWent      : [Number],
-    itemWantGo    : [Number],
-    itemReccomend : [Number],
-    created       : {type: Date, default: Date.now()},
-    modified      : {type: Date, default: Date.now()},
-    deleted       : Date,
-    deleteFlg     : {type: Number, default: 0}
+    wentItems      : [Number],
+    wantItems      : [Number],
+    recommendItems : [Number],
+    created        : {type: Date, default: Date.now()},
+    modified       : {type: Date, default: Date.now()},
+    deleted        : Date,
+    deleteFlg      : {type: Number, default: 0}
 });
 
 UsersSchema.plugin(autoIncrement.plugin, {model: 'Users', field: '_id'});
