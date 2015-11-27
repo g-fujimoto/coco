@@ -32,7 +32,7 @@ body.home #header { background-image: url(../assets/images/header/top_background
 #main #main_search_box .main_search_box_header ul { overflow: hidden; padding-left: 25px; }
 #main #main_search_box .main_search_box_header ul li { float: left; }
 #main #main_search_box .main_search_box_header ul li h6 { /*                        display:block;*/ padding-top: 5px; font-size: 16px; width: 198px; color: #fff; line-height: 1.0em; }
-#main #main_search_box .main_search_box_header ul li input[type=text] { width: 580px; height: 20px; border: 1px solid #ccc; margin-top: 1px; margin-right: 15px; color: #cacaca; }
+#main #main_search_box .main_search_box_header ul li input[type=text] { width: 680px; height: 20px; border: 1px solid #ccc; margin-top: 1px; margin-right: 15px; color: #cacaca; }
 #main #main_search_box .main_search_box_header ul li input[type=text]:focus { color: #000; }
 #main #main_search_box .main_search_box_header ul li a { display: block; width: 85px; height: 25px; background-color: #ebf0ed; }
 #main #main_search_box .main_search_box_header ul li a img { display: block; }

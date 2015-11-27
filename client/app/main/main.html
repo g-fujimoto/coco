@@ -58,8 +58,8 @@
                         <div class="left">
                             <div class="box_header">
                                <ul>
-                                    <li><h3><b>ジャンル</b></h3></li>
-                                    <li><h3><b>シーン</b></h3></li>
+                                    <li><h3><b>ジャンル</b>{{item_comments[item._id].genreAves | number:1}}</h3></li>
+                                    <li><h3><b>シーン</b>{{item_comments[item._id].sceneAves | number:1}}</h3></li>
                                 </ul>
                             </div>
                             <div class="box_main" ng-show="debug">
@@ -87,11 +87,11 @@
 
                       <div class="left">
                           <div class="img_box"><img src="./assets/./images/main/top/test04.jpg" /></div>
-                          <p>{{item_comments[item._id].name}}</p>
+                          <p>{{item_comments[item._id].topick.userFirsName}} {{item_comments[item._id].topick.userLastName}}</p>
                       </div>
                       <div class="right">
                           <h6>最新コメント</h6>
-                          <p>{{item_comments[item._id].comment}}</p>
+                          <p>{{item_comments[item._id].topick.body}}</p>
                           <a href="">もっと詳しく見る</a>
                       </div>
 
@@ -100,7 +100,7 @@
                     <div class="footer_box">
                         <ul>
                             <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikesCounter}}人がいいねといっています</h6></li>
-                            <li><a href="#" ng-click="showModal()"><img src="./assets/./images/main/parts/star_button.svg" alt="" /></a><a href=""><img src="./assets/./images/main/parts/point_button.svg" alt="" /></a></li>
+                            <li><button class="btn" type="button" ng-click="update()">登録する</button></li>
                         </ul>
                     </div>
 

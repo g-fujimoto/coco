@@ -13,8 +13,8 @@ var _ = require('lodash');
 //index
 exports.index = function(req, res) {
 
-    if (req.body.itemName) {
-        req.body.itemName = new RegExp('^' + req.body.itemName);
+    if (req.body.name) {
+        req.body.name = new RegExp('^' + req.body.name);
     }
 
     Items.find(req.body, function(err, data) {
