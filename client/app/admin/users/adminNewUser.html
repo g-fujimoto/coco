@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newUser.password" class="control-label">パスワード</label>
+                                <label for="newUser.password" class="control-label">パスワード&nbsp;<span class="text-danger text-xs">※<span></label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="password" name="newUser.password" value="" ng-model="newUser.password" id="newUser.password" class="form-control" placeholder="パスワード" required>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newUser.lastName" class="control-label">名前(姓)</label>
+                                <label for="newUser.lastName" class="control-label">名前(姓)&nbsp;<span class="text-danger text-xs">※</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" name="newUser.lastName" value="" ng-model="newUser.lastName" id="newUser.lastName" class="form-control" placeholder="名前(姓)" required>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newUser.firstName" class="control-label">名前(名)</label>
+                                <label for="newUser.firstName" class="control-label">名前(名)&nbsp;<span class="text-danger text-xs">※</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" name="newUser.firstName" value="" ng-model="newUser.firstName" id="newUser.firstName" class="form-control" placeholder="名前(名)" required>
@@ -116,7 +116,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
-                                <label for="newUser.company.name" class="control-label">会社名</label>
+                                <label for="newUser.company.name" class="control-label">会社名&nbsp;<span class="text-danger text-xs">※</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" name="newUser.company.name" value="" ng-model="newUser.company.name" id="newUser.company.name" class="form-control" placeholder="会社名" required>
@@ -124,7 +124,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-4 text-left">
-                                <label for="newUser.company.postalCode" class="control-label">郵便番号(会社)</label>
+                                <label for="newUser.company.postalCode" class="control-label">郵便番号(会社)&nbsp;<span class="text-danger text-xs">※</label>
                             </div>
                             <div class="col-sm-7">
                                 <input type="text" name="newUser.company.postalCode" value="" ng-model="newUser.company.postalCode" id="newUser.company.postalCode" class="form-control" placeholder="郵便番号(会社)" required>
@@ -132,7 +132,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-4 text-left">
-                                <label for="newUser.company.address" class="control-label">住所(会社)</label>
+                                <label for="newUser.company.address" class="control-label">住所(会社)&nbsp;<span class="text-danger text-xs">※</label>
                             </div>
                             <div class="col-sm-7">
                                 <input type="text" name="newUser.company.address" value="" ng-model="newUser.company.address" id="newUser.company.address" class="form-control" placeholder="住所(会社)" required>
@@ -140,7 +140,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-4 text-left">
-                                <label for="newUser.company.tel" class="control-label">電話番号(会社)</label>
+                                <label for="newUser.company.tel" class="control-label">電話番号(会社)&nbsp;<span class="text-danger text-xs">※</label>
                             </div>
                             <div class="col-sm-7">
                                 <input type="text" name="newUser.company.tel" value="" ng-model="newUser.company.tel" id="newUser.company.tel" class="form-control" placeholder="電話番号(会社)" required>
@@ -176,24 +176,34 @@
             <div class="col-sm-6">
                 <div class="row">
                     <div class="container-fluid">
-                        <div class="form-group">
-                            <div class="col-sm-4 text-left">
-                                <label for="newUser.aboutWork.title" class="control-label">仕事について</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="text" name="newUser.aboutWork.title" value="" class="form-control" ng-model="newUser.aboutWork.title" placeholder="タイトル">
-                                <br>
-                                <textarea name="newUser.aboutWork.body" rows="8" cols="40" ng-model="newUser.aboutWork.body" id="" class="form-control" placeholder="本文"></textarea>
+                        <div ng-repeat="aboutWork in newUser.aboutWorks">
+                            <div class="form-group">
+                                <div class="col-sm-4 text-left">
+                                    <label for="newUser.aboutWork.title" class="control-label" ng-show="aboutWork.label">仕事について</label>
+                                    <br>
+                                    <br>
+                                    <button type="button" ng-click="addAboutWorks()" class="btn btn-success" ng-disabled="aboutWork.disabled" ng-show="aboutWork.button">さらに追加する</button>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" name="newUser.aboutWork.title" value="" class="form-control" ng-model="aboutWork.title" placeholder="タイトル">
+                                    <br>
+                                    <textarea name="newUser.aboutWork.body" rows="6" cols="40" ng-model="aboutWork.body" id="" class="form-control" placeholder="本文"></textarea>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-4 text-left">
-                                <label for="newUser.other.title" class="control-label">その他</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="text" name="newUser.other.title" value="" class="form-control" ng-model="newUser.other.title" placeholder="タイトル">
-                                <br>
-                                <textarea name="newUser.other.body" rows="8" cols="40" ng-model="newUser.other.body" id="" class="form-control" placeholder="本文"></textarea>
+                        <div ng-repeat="other in newUser.others">
+                            <div class="form-group">
+                                <div class="col-sm-4 text-left">
+                                    <label for="newUser.other.title" class="control-label" ng-show="other.label">その他</label>
+                                    <br>
+                                    <br>
+                                    <button type="button" ng-click="addOthers()" class="btn btn-success" ng-disabled="other.disabled" ng-show="other.button">さらに追加する</button>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" name="newUser.other.title" value="" class="form-control" ng-model="other.title" placeholder="タイトル">
+                                    <br>
+                                    <textarea name="newUser.other.body" rows="6" cols="40" ng-model="other.body" id="" class="form-control" placeholder="本文"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
