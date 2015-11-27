@@ -10,6 +10,7 @@
     var mongoose      = require('mongoose');
     var autoIncrement = require('mongoose-auto-increment');
     var session       = require('express-session');
+    var multer        = require('multer');
 
 // Own Objects
     var config       = require('./config/environment');
@@ -17,6 +18,7 @@
     var itemComments = require('./api/itemComments');
     var area         = require('./api/area');
     var users        = require('./api/users');
+    var upload       = require('./api/upload');
 
 // create WebServer
 var app = express();
@@ -35,6 +37,7 @@ db.once('open', function(callback) {
 });
 
 // MiddleWare
+    app.use(multer({dest:'./uploads/'}).single('file'));
     app.use(express.static('client'));
     app.use(morgan('dev'));
     app.use(bodyParser.json());
@@ -46,6 +49,8 @@ db.once('open', function(callback) {
     app.use('/api/area', area);
     app.use('/api/users', users);
     app.use('/api/itemComments', itemComments);
+
+    app.use('/api/upload', upload);
 
 // Listen server
     app.listen(config.port);

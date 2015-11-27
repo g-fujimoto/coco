@@ -195,6 +195,28 @@
             </div>
         </div>
     </div><!-- /row -->
+
+    <div class="row">
+        <div class="container-fluid">
+            <h3 class="page-header">ファイルアップロード</h3>
+            <form>
+                <p>
+                    画像
+                </p>
+                <div ngf-drop ng-model="files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+                    ここにドラッグ
+                </div>
+            </form>
+            <hr>
+            <span ng-repeat="file in files">
+                <img ngf-src="file" ngf-accept="'image/*'"  style="width:100px;height:100px;">
+            </span>
+            <span ngf-no-file-drop>
+                御使いのブラウザには対応していません。
+            </span>
+        </div>
+    </div>
+
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
