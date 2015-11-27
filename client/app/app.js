@@ -4,7 +4,7 @@ var app = angular.module('webApp', [
     // 'ngMessages',
     'ui.bootstrap',
     'ngAnimate',
-    // 'ngFileUpload',
+    'ngFileUpload'
     // 'ngCookies'
 ]);
 
