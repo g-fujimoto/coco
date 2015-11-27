@@ -187,6 +187,24 @@ body.home #main { margin: -50px auto 94px; }
 #footer .footer_main ul { border-right: 1px solid #3f220e; overflow: hidden; }
 #footer .footer_main ul li { display: block; border-left: 1px solid #3f220e; width: 152px; float: left; }
 #footer .footer_main ul li a { text-align: center; text-decoration: none; display: block; color: #3f220e; font-size: 11px; width: 152px; line-height: 25px; }
+
+/* -------------------------------- public -------------------------------- */
+.upload-area {
+      padding: 20px;
+      color: #fff;
+      border-radius: 10px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      background: #6495ed;
+      margin: 10px;
+}
+
+.upload-show-image {
+  width:100px;
+  height:100px;
+  margin-left: 10px;
+}
+
 /* -------------------------------- margin-top -------------------------------- */
 
 .margin-top-xs {
