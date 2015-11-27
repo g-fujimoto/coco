@@ -11,11 +11,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
                 }
             }
         })
-        .state('adminNewComments', {
-            url: '/admin/comments/adminNewComments',
+        .state('adminNewComment', {
+            url: '/admin/comments/adminNewComment',
             views: {
                 '': {
-                    templateUrl: './app/admin/comments/adminNewComments.html',
+                    templateUrl: './app/admin/comments/adminNewComment.html',
                     controller: 'CommentsController'
                 }
             }

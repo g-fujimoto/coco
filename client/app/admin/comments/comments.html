@@ -16,7 +16,7 @@
 </div>
 <div class="row">
     <div class="container-fluid">
-        <button type="button" ui-sref="adminNewItem" class="btn btn-danger">新規登録</button>
+        <button type="button" ui-sref="adminNewComment" class="btn btn-danger">新規登録</button>
     </div>
     <br>
 </div>
@@ -29,6 +29,9 @@
             </th>
             <th>
                 ユーザー名
+            </th>
+            <th>
+                ユーザーID
             </th>
             <th>
                 店舗ID
@@ -61,30 +64,39 @@
                 削除
             </th>
         </tr>
-        <tr ng-repeat="item in comments">
+        <tr ng-repeat="comment in comments">
             <td>
-                {{item._id}}
+                {{comment._id}}
             </td>
             <td>
-                {{item.name}}
+                {{comment.userLastName}}&nbsp;{{comments.userFirstName}}
             </td>
             <td>
-                {{item.branch}}
+                {{comment.userId}}
             </td>
             <td>
-                {{item.area}}
+                {{comment.itemId}}
             </td>
             <td>
-                {{item.tel}}
+                {{comment.title}}
             </td>
             <td>
-                {{item.genreName}}
+                {{comment.body}}
             </td>
             <td>
-                {{item.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{comment.itemLikesCounter}}
             </td>
             <td>
-                {{item.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{comment.genre}}
+            </td>
+            <td>
+                {{comment.scenes}}
+            </td>
+            <td>
+                {{comment.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+            </td>
+            <td>
+                {{comment.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
                 <button class="btn btn-xs btn-success width-lg" ng-click="showEditModal($index)">編集</button>
