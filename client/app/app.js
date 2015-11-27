@@ -1,10 +1,10 @@
 // Create Application
 var app = angular.module('webApp', [
     'ui.router',
-    // 'ngMessages',
     'ui.bootstrap',
     'ngAnimate',
     'ngFileUpload'
+    // 'ngMessages',
     // 'ngCookies'
 ]);
 
