@@ -24,7 +24,7 @@ angular.module('webApp')
 
                     //Usersデータ登録
                     $scope.registerItem = function() {
-                        
+
                         $UsersService.save($scope, $scope.newUser);
                     };
 
@@ -49,8 +49,8 @@ angular.module('webApp')
                     };
 
                 //$watch
-                    $scope.stopAboutWorks = $scope.$watch('newUser.aboutWorks', function(newValue, oldValue, scope) {
-                                                angular.forEach(newValue, function(element, index) {
+                    $scope.stopAboutWorks = $scope.$watch('newUser.aboutWorks', (newValue) => {
+                                                angular.forEach(newValue, (element, index) => {
                                                     if(newValue[index].title && newValue[index].body) {
                                                         newValue[0].disabled = false;
                                                     } else {
@@ -59,8 +59,8 @@ angular.module('webApp')
                                                 });
                                             }, true);
 
-                    $scope.stopOthers = $scope.$watch('newUser.others', function(newValue, oldValue, scope) {
-                                                angular.forEach(newValue, function(element, index) {
+                    $scope.stopOthers = $scope.$watch('newUser.others', (newValue) => {
+                                                angular.forEach(newValue, (element, index) => {
                                                     if(newValue[index].title && newValue[index].body) {
                                                         newValue[0].disabled = false;
                                                     } else {
@@ -68,10 +68,6 @@ angular.module('webApp')
                                                     }
                                                 });
                                             }, true);
-
-
-
-
 
 // ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
                 //編集モーダル呼び出し
@@ -79,7 +75,6 @@ angular.module('webApp')
                     $scope.index      = $index;
                     $scope.selectUser = $scope.users[$index];
                     $scope.editUser = _.cloneDeep($scope.selectUser);
-                    console.log($scope.editUser);
                     $uibModal.open({
                         templateUrl : './components/modal/users/modal.edit.html',
                         scope       : $scope,
@@ -93,8 +88,6 @@ angular.module('webApp')
                 $scope.showDeleteModal = function($index) {
                     $scope._id   = $scope.users[$index]._id;
                     $scope.index = $index;
-
-                    $scope
 
                     $uibModal.open({
                         controller  : 'ModalController',
