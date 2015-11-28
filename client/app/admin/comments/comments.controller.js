@@ -1,20 +1,35 @@
 angular.module('webApp')
-    .controller('CommentsController', ['$scope', '$uibModal', '$CommentsService', '$AreaService', '$$Genres', '$$Scenes',
-            function($scope, $uibModal,  $CommentsService, $AreaService, $$Genres, $$Scenes) {
+    .controller('CommentsController', ['$scope', '$uibModal', '$Comments', '$AreaService', '$$Genres', '$$Scenes', '$$Rates', '$timeout', '$state',
+            function($scope, $uibModal, $Comments, $AreaService, $$Genres, $$Scenes, $$Rates, $timeout, $state) {
                 //$scope宣言
                     $scope.alerts  = [];
                     $scope.apiName = 'comments';
                     $scope.genres  = $$Genres;
                     $scope.scenes  = $$Scenes;
+                    $scope.rates   = $$Rates;
 
-                    //Comments データ登録
-                    $scope.registerItem = function() {
-                        $CommentsService.save($scope, $scope.newComment);
+                    $scope.comments = $Comments.query();
+
+                    $scope.createComment = () => {
+
+                        calcAve();
+
+                        $Comments.save(
+                            $scope.newComment,
+                            () => {
+                                $scope.comments = $Comments.query();
+                                $timeout(() => {
+                                    $scope.alerts.splice(0, 1);
+                                }, 1800);
+
+                                $state.go('comments');
+
+                            },
+                            () => {
+                                console.log('error');
+                            }
+                        );
                     };
-
-                //データ取得
-                    $CommentsService.findAll($scope);
-                    $AreaService.findAll($scope);
 
 // ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
                 //編集モーダル呼び出し
@@ -41,5 +56,19 @@ angular.module('webApp')
                         scope       : $scope,
                         templateUrl : './components/modal/modal.delete.html'
                     });
+                };
+
+// ----------------------------------------------- 独自関数 -----------------------------------------------//
+                const calcAve = () => {
+                    //ジャンル平均点
+                    const genreRate = _.map($scope.newComment.genre.options, (element) => {
+                        return element.rate;
+                    });
+                    const genreRateSum = genreRate.reduce((x, y) => {
+                        return x + y;
+                    });
+                    $scope.newComment.genre.ave = (genreRateSum / 5).toFixed(1);
+                    //シーン平均点
+
                 };
     }]);

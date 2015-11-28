@@ -2,174 +2,497 @@ angular.module('webApp')
     .value('$$Genres', [
         {
             name        : '和食',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : '魚介・海鮮料理',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : '焼肉・ホルモン・鉄板焼き',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : 'イタリアン・フレンチ',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : '中華・アジア・エスニック料理',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : '居酒屋',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : 'バー',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : 'ラーメン',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : 'カレー',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : 'B級グルメ',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : 'カフェ・スイーツ',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         },
         {
             name        : 'その他',
-            taste       : 'おいしさ',
-            beautiful   : '見た目の美しさ',
-            quality     : '食材の品質',
-            originality : '創意工夫さ',
-            sense       : '五感への刺激(シズル感)'
+            options : {
+                taste: {
+                    label: 'おいしさ',
+                    rate: 1
+                },
+                beautiful: {
+                    label: '見た目の美しさ',
+                    rate: 1
+                },
+                quality: {
+                    label: '食材の品質',
+                    rate: 1
+                },
+                originality: {
+                    label: '創意工夫さ',
+                    rate: 1
+                },
+                sense: {
+                    label: '五感への刺激(シズル感)',
+                    rate: 1
+                }
+            }
         }
     ])
     .value('$$Scenes', [
         {
             name   : '高級接待',
-            value1 : '空間の高級感',
-            value2 : '感動の度合い',
-            value3 : 'スタッフの対応力',
-            value4 : 'オリジナリティー',
-            value5 : '個別の対応力'
+            options: {
+                value1: {
+                    label: '空間の高級感',
+                    rate : 1
+                },
+                value2: {
+                    label: '感動の度合い',
+                    rate : 1
+                },
+                value3: {
+                    label: 'スタッフの対応力',
+                    rate : 1
+                },
+                value4: {
+                    label: 'オリジナリティー',
+                    rate : 1
+                },
+                value5: {
+                    label: '個別の対応力',
+                    rate : 1
+                }
+            }
         },
         {
             name   : '通常接待',
-            value1 : 'メニューの豊富さ',
-            value2 : 'プライバシーへの配慮',
-            value3 : 'スタッフの対応力',
-            value4 : 'オリジナリティー',
-            value5 : '費用対効果'
+            options: {
+                value1: {
+                    label: 'メニューの豊富さ',
+                    rate : 1
+                },
+                value2: {
+                    label: 'プライバシーへの配慮',
+                    rate : 1
+                },
+                value3: {
+                    label: 'スタッフの対応力',
+                    rate : 1
+                },
+                value4: {
+                    label: 'オリジナリティー',
+                    rate : 1
+                },
+                value5: {
+                    label: '費用対効果',
+                    rate : 1
+                }
+            }
         },
         {
             name   : '社内利用',
-            value1 : '費用対効果',
-            value2  : 'メニューの豊富さ',
-            value3 : 'スタッフの対応力',
-            value4 : '部屋のバリエーション',
-            value5 : 'アクセス'
+            options: {
+                value1: {
+                    label: '費用対効果',
+                    rate : 1
+                },
+                value2: {
+                    label: 'メニューの豊富さ',
+                    rate : 1
+                },
+                value3: {
+                    label: 'スタッフの対応力',
+                    rate : 1
+                },
+                value4: {
+                    label: '部屋のバリエーション',
+                    rate : 1
+                },
+                value5: {
+                    label: 'アクセス',
+                    rate : 1
+                }
+            }
         },
         {
             name   : '家族利用',
-            value1 : '部屋のバリエーション',
-            value2 : 'メニューの豊富さ',
-            value3 : 'スタッフの対応力',
-            value4 : '子供への配慮',
-            value5 : '高齢者への配慮'
+            options: {
+                value1: {
+                    label: '部屋のバリエーション',
+                    rate : 1
+                },
+                value2: {
+                    label: 'メニューの豊富さ',
+                    rate : 1
+                },
+                value3: {
+                    label: 'スタッフの対応力',
+                    rate : 1
+                },
+                value4: {
+                    label: '子供への配慮',
+                    rate : 1
+                },
+                value5: {
+                    label: '高齢者への配慮',
+                    rate : 1
+                }
+            }
         },
         {
             name   : 'お土産利用',
-            value1 : '費用対効果',
-            value2 : '新規性（めずらしい）',
-            value3 : 'こだわり度',
-            value4 : 'パッケージ',
-            value5 : '入手難易度'
+            options: {
+                value1: {
+                    label: '費用対効果',
+                    rate : 1
+                },
+                value2: {
+                    label: '新規性（めずらしい）',
+                    rate : 1
+                },
+                value3: {
+                    label: 'こだわり度',
+                    rate : 1
+                },
+                value4: {
+                    label: 'パッケージ',
+                    rate : 1
+                },
+                value5: {
+                    label: '入手難易度',
+                    rate : 1
+                }
+            }
         },
         {
             name   : '一人利用',
-            value1 : '味（本物志向度）',
-            value2 : '１人客への配慮',
-            value3 : 'メニューの豊富さ（変化）',
-            value4 : '利便性',
-            value5 : 'こだわり'
+            options: {
+                value1: {
+                    label: '味（本物志向度）',
+                    rate : 1
+                },
+                value2: {
+                    label: '１人客への配慮',
+                    rate : 1
+                },
+                value3: {
+                    label: 'メニューの豊富さ（変化）',
+                    rate : 1
+                },
+                value4: {
+                    label: '利便性',
+                    rate : 1
+                },
+                value5: {
+                    label: 'こだわり',
+                    rate : 1
+                }
+            }
         },
         {
             name   : 'デート利用',
-            value1 : 'インテリア',
-            value2 : '雰囲気',
-            value3 : 'スタッフの対応力',
-            value4 : 'プライバシーへの配慮',
-            value5 : '眺望の良さ'
+            options: {
+                value1: {
+                    label: 'インテリア',
+                    rate : 1
+                },
+                value2: {
+                    label: '雰囲気',
+                    rate : 1
+                },
+                value3: {
+                    label: 'スタッフの対応力',
+                    rate : 1
+                },
+                value4: {
+                    label: 'プライバシーへの配慮',
+                    rate : 1
+                },
+                value5: {
+                    label: '眺望の良さ',
+                    rate : 1
+                }
+            }
         }
     ])
-    .value('$$Rate', [
+    .value('$$Rates', [
             {
-                rating: 1
+                value: 1
             },
             {
-                rating: 2
+                value: 2
             },
             {
-                rating: 3
+                value: 3
             },
             {
-                rating: 4
+                value: 4
             },
             {
-                rating: 5
+                value: 5
             }
     ])
     .value('$$Alert', {

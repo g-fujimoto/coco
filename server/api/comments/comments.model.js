@@ -13,25 +13,58 @@ var CommentsSchema = mongoose.Schema({
     body          : String,
     genre         : {
         name            : String,
-        tasteRate       : {type: Number, default: 0},
-        beautifulRate   : {type: Number, default: 0},
-        qualityRate     : {type: Number, default: 0},
-        originalityRate : {type: Number, default: 0},
-        senseRate       : {type: Number, default: 0}
+        options: {
+            taste: {
+                label: String,
+                rate: Number
+            },
+            beautiful: {
+                label: String,
+                rate: Number
+            },
+            quality: {
+                label: String,
+                rate: Number
+            },
+            originality: {
+                label: String,
+                rate: Number
+            },
+            sense: {
+                label: String,
+                rate: Number
+            }
+        },
+        ave : {type : Number, default : 0}
     },
-    genreAve : {type : Number, default : 0},
     scenes   : [
         {
             name       : String,
-            rate1 : {type: Number, default: 0},
-            rate2 : {type: Number, default: 0},
-            rate3 : {type: Number, default: 0},
-            rate4 : {type: Number, default: 0},
-            rate5 : {type: Number, default: 0}
-
+            options: {
+                value1: {
+                    label:String,
+                    rate : Number
+                },
+                value2: {
+                    label:String,
+                    rate : Number
+                },
+                value3: {
+                    label:String,
+                    rate : Number
+                },
+                value4: {
+                    label:String,
+                    rate : Number
+                },
+                value5: {
+                    label:String,
+                    rate : Number
+                }
+            },
+            ave : {type: Number, default: 0}
         }
     ],
-    sceneAve : {type: Number, default: 0},
     itemLikes : {
         count : {type: Number, default: 0}
     },
