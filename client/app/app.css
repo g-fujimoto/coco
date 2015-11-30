@@ -88,7 +88,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #sidemenu .sidemenu_box { margin-bottom: 25px; }
 #main #sidemenu .sidemenu_box h3 { font-weight: bold; width: 180px; height: 40px; line-height: 40px; color: #fff; font-size: 14px; text-align: center; background-color: #000; }
 #main #sidemenu .sidemenu_box ul li a { display: block; text-decoration: none; width: 180px; height: 35px; line-height: 35px; color: #000; font-size: 12px; text-align: center; background-color: #fff; border-top: 1px solid #aaa; }
-#main #sidemenu .sidemenu_box ul li:first-child a { border: 0px; }
+/*#main #sidemenu .sidemenu_box ul li:first-child a { border: 0px; }*/
 #main #sidemenu .sidemenu_box ul li.current a { background-color: #FAEBD7;font-weight: bold;}
 #main .pager_box ul { text-align: center; padding: 30px 0px; }
 #main .pager_box ul li { display: inline-block; }

@@ -1,10 +1,11 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', 'Upload',
-  function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, Upload) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', 'Upload', '$Areas',
+  function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, Upload, $Areas) {
 
     $scope.global_menu = 'main';
-
+    $scope.scenelists = $$Scenes;
+    $scope.genrelists = $$Genres;
     $scope.pages      = [];
 
     $scope.upload = function(files) {
@@ -46,7 +47,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
     $scope.getArea= function() {
 
-        $http.get('/api/area')
+        $http.get('/api/areas')
         .success(function(data) {
             $scope.arealists = data;
         });

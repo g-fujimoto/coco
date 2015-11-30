@@ -8,7 +8,6 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     $scope.genrelists = $$Genres;
     $scope.pages      = [];
 
-
     // -------- DummyData --------//
     $scope.loginUser  = $Users.get({_id: 11});
 
