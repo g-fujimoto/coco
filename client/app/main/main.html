@@ -1,5 +1,4 @@
-
-<ng-main-header></ng-main-header>
+<coco-main-header></coco-main-header>
 
 <div id="main" >
 
@@ -52,15 +51,15 @@
                     <ul class="category_list">
                         <li>（{{item.genreName}}）</li>
                         <li>（{{item.area}}）</li>
-                        <li>（<span ng-repeat="sceneName in item.sceneNames">{{item.sceneNames}} </span>）</li>
+                        <li>（{{item.scenes}}）</li>
                     </ul>
                     <hr />
                     <div class="button_box">
                         <div class="left">
                             <div class="box_header">
                                <ul>
-                                    <li><h3><b>ジャンル</b>{{item_comments[item._id].genreAves | number:1}}</h3></li>
-                                    <li><h3><b>シーン</b>{{item_comments[item._id].sceneAves | number:1}}</h3></li>
+                                    <li><h3><b>ジャンル</b>{{item_comments[item._id].genreAve | number:1}}</h3></li>
+                                    <li><h3><b>シーン</b>{{item_comments[item._id].sceneAve | number:1}}</h3></li>
                                 </ul>
                             </div>
                             <div class="box_main" ng-show="debug">
@@ -151,4 +150,4 @@
         </div>
 
 </div><!-- #main -->
-<ng-footer></ng-footer>
+<coco-footer></coco-footer>
