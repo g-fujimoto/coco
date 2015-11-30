@@ -19,9 +19,10 @@ angular.module('webApp')
                 $scope.addScenes = () => {
                     $scope.newComment.scenes.push($scope.newComment.scene);
                     var selectSceneName = $scope.newComment.scene.name;
-                    $scope.$$scenes = _.reject($scope.$$scenes, (element) => {
+                    $scope.scenes = _.reject($scope.scenes, (element) => {
                         return element.name === selectSceneName;
                     });
+                    console.log(selectSceneName);
                     $scope.selectScenes.push(selectSceneName);
                     if($scope.selectScenes) $scope.noSelectScene = true;
                     $scope.newComment.disabled = true;

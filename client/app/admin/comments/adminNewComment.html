@@ -105,11 +105,11 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="well">
-                            <span ng-hide="noSelectScene" class="text-warning text-sm">
+                            <span ng-hide="noSelectScene" class="text-danger text-sm">
                                 ※シーンが選択されていません
                             </span>
                             <ul ng-repeat="scene in newComment.scenes" ng-show="noSelectScene">
-                                <li class="text-info text-sm">{{$index + 1}}:{{scene.name}}</li>
+                                <li class="text-warning text-sm">{{$index + 1}}:{{scene.name}}</li>
                             </ul>
                         </div>
                         <button type="button" ng-click="addScenes()" class="btn btn-warning btn-xs" ng-disabled="newComment.disabled">シーンを追加する</button>
