@@ -1,6 +1,6 @@
 var app = angular.module('webApp');
 
-app.directive('ngHeader', function() {
+app.directive('cocoHeader', function() {
     return {
         templateUrl: './components/header/header.html',
         restrict: 'E'
