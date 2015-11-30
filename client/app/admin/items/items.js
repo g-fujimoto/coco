@@ -1,5 +1,6 @@
+var app = angular.module('webApp');
 
-app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
     $stateProvider
         .state('items', {
             url: '/admin/items',
@@ -18,5 +19,5 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                     controller: 'ItemsController'
                 }
             }
-    });
+        });
 }]);

@@ -14,12 +14,21 @@
 
         <div class="mainmenu_main">
             <ul>
-                <li><a ui-sref="main" class="current">トップページ</a></li>
-                <li><a ui-sref="myPage">マイページ</a></li>
-                <li><a ui-sref="search">店舗検索</a></li>
-                <li><a ui-sref="newItem">新規店舗登録</a></li>
+                <li><a ui-sref="main" ng-class="{current:global_menu=='main'}" ng-click="global_menu='main'">トップページ</a></li>
+                <li  ng-click="global_menu='myPage'"><a ui-sref="myPage" ng-class="{current:global_menu=='myPage'}">マイページ</a></li>
+                <li><a ui-sref="search" ng-class="{current:global_menu=='search'}" ng-click="global_menu='search'">店舗検索</a></li>
+                <li><a ui-sref="newItem" ng-class="{current:global_menu=='newItem'}" ng-click="global_menu='newItem'">新規店舗登録</a></li>
             </ul>
         </div>
+<<<<<<< HEAD
+=======
+
+        <!-- トップページのみ ----------->
+        <div class="mainmenu_footer"  ng-show="global_menu=='main'">
+            <h2><img src="./assets/./images/header/top_mess.svg" alt="ココ社長" /></h2>
+        </div>
+
+>>>>>>> dc17a4bd27d88b9af74f6bcc6aeb692dabb33fda
     </nav>
 
   </header>

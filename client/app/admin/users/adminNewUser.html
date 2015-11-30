@@ -1,0 +1,228 @@
+<ng-navbar></ng-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="container-fluid">
+            <h1 class="page-header margin-top-sm">新規登録</h1>
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" name="myForm" novalidate>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="container-fluid">
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.email" class="control-label">E-mail</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.email" value="" ng-model="newUser.email" id="newUser.email" class="form-control" placeholder="E-mail" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.password" class="control-label">パスワード&nbsp;<span class="text-danger text-xs">※<span></label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="password" name="newUser.password" value="" ng-model="newUser.password" id="newUser.password" class="form-control" placeholder="パスワード" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.lastName" class="control-label">名前(姓)&nbsp;<span class="text-danger text-xs">※</span></label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.lastName" value="" ng-model="newUser.lastName" id="newUser.lastName" class="form-control" placeholder="名前(姓)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.firstName" class="control-label">名前(名)&nbsp;<span class="text-danger text-xs">※</span></label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.firstName" value="" ng-model="newUser.firstName" id="newUser.firstName" class="form-control" placeholder="名前(名)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.birthYear" class="control-label">誕生年</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.birthYear" value="" ng-model="newUser.birthYear" id="newUser.birthYear" class="form-control" placeholder="誕生年">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.birthPref" class="control-label">生まれた都道府県</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.birthPref" value="" ng-model="newUser.birthPref" id="newUser.birthPref" class="form-control" placeholder="生まれた都道府県">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.highSchoolYear" class="control-label">高校卒業年</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.highSchoolYear" value="" ng-model="newUser.highSchoolYear" id="newUser.highSchoolYear" class="form-control" placeholder="高校卒業年">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.highSchoolName" class="control-label">高校名</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.highSchoolName" value="" ng-model="newUser.highSchoolName" id="newUser.highSchoolName" class="form-control" placeholder="高校名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.universityYear" class="control-label">大学卒業年</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.universityYear" value="" ng-model="newUser.universityYear" id="newUser.universityYear" class="form-control" placeholder="大学卒業年">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.universityName" class="control-label">大学名</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.universityName" value="" ng-model="newUser.universityName" id="newUser.universityName" class="form-control" placeholder="大学名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.oAuthName" class="control-label">外部認証名</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.oAuthName" value="" ng-model="newUser.oAuthName" id="newUser.oAuthName" class="form-control" placeholder="外部認証名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.oAuthKey" class="control-label">外部認証キー</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.oAuthKey" value="" ng-model="newUser.oAuthKey" id="newUser.oAuthKey" class="form-control" placeholder="外部認証キー">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.specialized" class="control-label">専門分野</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.specialized" value="" ng-model="newUser.specialized" id="newUser.specialized" class="form-control" placeholder="専門分野">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.images.path" class="control-label">画像パス</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.images.path" value="" ng-model="newUser.images.path" id="newUser.images.path" class="form-control" placeholder="画像パス">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newUser.company.name" class="control-label">会社名&nbsp;<span class="text-danger text-xs">※</span></label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="newUser.company.name" value="" ng-model="newUser.company.name" id="newUser.company.name" class="form-control" placeholder="会社名" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="newUser.company.postalCode" class="control-label">郵便番号(会社)&nbsp;<span class="text-danger text-xs">※</span></label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="newUser.company.postalCode" value="" ng-model="newUser.company.postalCode" id="newUser.company.postalCode" class="form-control" placeholder="郵便番号(会社)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="newUser.company.address" class="control-label">住所(会社)&nbsp;<span class="text-danger text-xs">※</span></label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="newUser.company.address" value="" ng-model="newUser.company.address" id="newUser.company.address" class="form-control" placeholder="住所(会社)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="newUser.company.tel" class="control-label">電話番号(会社)&nbsp;<span class="text-danger text-xs">※</span></label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="newUser.company.tel" value="" ng-model="newUser.company.tel" id="newUser.company.tel" class="form-control" placeholder="電話番号(会社)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="newUser.company.fax" class="control-label">FAX番号(会社)</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="newUser.company.fax" value="" ng-model="newUser.company.fax" id="newUser.company.fax" class="form-control" placeholder="FAX番号(会社)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="newUser.company.url" class="control-label">ホームページ(会社)</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="newUser.company.url" value="" ng-model="newUser.company.url" id="newUser.company.url" class="form-control" placeholder="ホームページ(会社)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="newUser.company.email" class="control-label">E-mail(会社)</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="newUser.company.email" value="" ng-model="newUser.company.email" id="newUser.company.email" class="form-control" placeholder="E-mail(会社)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="container-fluid">
+                        <div ng-repeat="aboutWork in newUser.aboutWorks">
+                            <div class="form-group">
+                                <div class="col-sm-4 text-left">
+                                    <label for="newUser.aboutWork.title" class="control-label" ng-show="aboutWork.label">仕事について</label>
+                                    <br>
+                                    <br>
+                                    <button type="button" ng-click="addAboutWorks()" class="btn btn-success" ng-disabled="aboutWork.disabled" ng-show="aboutWork.button">さらに追加する</button>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" name="newUser.aboutWork.title" value="" class="form-control" ng-model="aboutWork.title" placeholder="タイトル">
+                                    <br>
+                                    <textarea name="newUser.aboutWork.body" rows="6" cols="40" ng-model="aboutWork.body" id="" class="form-control" placeholder="本文"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-repeat="other in newUser.others">
+                            <div class="form-group">
+                                <div class="col-sm-4 text-left">
+                                    <label for="newUser.other.title" class="control-label" ng-show="other.label">その他</label>
+                                    <br>
+                                    <br>
+                                    <button type="button" ng-click="addOthers()" class="btn btn-success" ng-disabled="other.disabled" ng-show="other.button">さらに追加する</button>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" name="newUser.other.title" value="" class="form-control" ng-model="other.title" placeholder="タイトル">
+                                    <br>
+                                    <textarea name="newUser.other.body" rows="6" cols="40" ng-model="other.body" id="" class="form-control" placeholder="本文"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <button type="button" class="btn btn-info btn-lg" ng-click="registerItem()" ng-disabled="myForm.$invalid">登録</button>
+                            <button type="button" class="btn btn-default btn-lg" ui-sref="users">戻る</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

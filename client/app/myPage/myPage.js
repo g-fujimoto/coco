@@ -6,7 +6,7 @@ angular.module('webApp')
             views: {
                 '': {
                     templateUrl: './app/myPage/myPage.profile.html',
-                    controller: 'MainController'
+                    controller: 'MyPageController'
                 }
             }
         });

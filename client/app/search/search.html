@@ -1,5 +1,139 @@
 <ng-header></ng-header>
-<p>
-    search.hrml
-</p>
+
+<div id="main" class="search">
+
+    <div id="main_header">
+        <h2><img src="./assets/./images/main/parts/title.svg" alt="" /></h2>
+        <h3>店舗検索</h3>
+    </div>
+
+    <div id="main_search_box">
+
+        <div class="main_search_box_header">
+            <ul>
+                <li><h6>フリーワードで絞り込む</h6></li>
+                <li><input type="text" value="Freeword" ng-model="word" ng-model-options="{debounce: 750}"/></li>
+                <!-- <li><a href=""><img src="./assets/./images/main/parts/search.svg" alt="" /></a></li> -->
+            </ul>
+        </div>
+
+        <div class="main_search_box_main">
+            <ul>
+                <li>
+                    <h6>検索中の条件：新着順</h6>
+                    <p>1~10件を表示/全{{items.length}}件</p>
+                </li>
+                <li class="right"><h5>{{items.length}}件 お店が見つかりました</h5></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="main_side_wrap">
+
+          <div id="main_contents" >
+
+            <div class="loop_contents_box" ng-repeat="item in items | limitTo:10:(currentPage-1)*10">
+
+                <div class="left_box">
+                    <ul>
+<!-- TODO データが入ってから確認
+                        <li ng-repeat="image in images | filter : {'deleteFlg': 0} | orderBy : 'sortNo'"><img src="{{image.path}}" /></li>
+-->
+                        <li><img src="./assets/./images/main/top/test01.jpg" /></li>
+                        <li><img src="./assets/./images/main/top/test02.jpg" /></li>
+                        <li><img src="./assets/./images/main/top/test03.jpg" /></li>
+                    </ul>
+                </div>
+
+                <div class="right_box">
+                    <h2>{{item.name}}</h2>
+                    <ul class="category_list">
+                        <li>（{{item.genreName}}）</li>
+                        <li>（{{item.area}}）</li>
+                        <li>（<span ng-repeat="sceneName in item.sceneNames">{{item.sceneNames}} </span>）</li>
+                    </ul>
+                    <hr />
+                    <div class="button_box">
+                        <div class="left">
+                            <div class="box_header">
+                               <ul>
+                                    <li><h3><b>ジャンル</b>{{item_comments[item._id].genreAves | number:1}}</h3></li>
+                                    <li><h3><b>シーン</b>{{item_comments[item._id].sceneAves | number:1}}</h3></li>
+                                </ul>
+                            </div>
+                            <div class="box_main" ng-show="debug">
+                                <ul>
+                                    <li><span>味</span>0.0</li>
+                                    <li><span>盛付</span>0.0</li>
+                                    <li><span>品質</span>0.0</li>
+                                    <li><span>創作</span>0.0</li>
+                                    <li><span>ドリンク</span>0.0</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <a href=""><img src="./assets/./images/main/parts/detail_button.svg" /></a>
+                        </div>
+                    </div>
+
+                    <div class="text_box" ng-init="$parent.show_loading=true;">
+
+                      <div class="sk-three-bounce" ng-show="show_loading">
+                          <div class="sk-child sk-bounce1"></div>
+                          <div class="sk-child sk-bounce2"></div>
+                          <div class="sk-child sk-bounce3"></div>
+                      </div>
+
+                      <div class="left">
+                          <div class="img_box"><img src="./assets/./images/main/top/test04.jpg" /></div>
+                          <p>{{item_comments[item._id].topick.userFirsName}} {{item_comments[item._id].topick.userLastName}}</p>
+                      </div>
+                      <div class="right">
+                          <h6>最新コメント</h6>
+                          <p>{{item_comments[item._id].topick.body}}</p>
+                          <a href="">もっと詳しく見る</a>
+                      </div>
+
+                    </div>
+
+                    <div class="footer_box">
+                        <ul>
+                            <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikesCounter}}人がいいねといっています</h6></li>
+                            <li><button class="btn" type="button">推薦する</button></li>
+                        </ul>
+                    </div>
+
+                  </div>
+
+              </div>
+              <!--------->
+              <div ng-show="items.length==0">
+                  ご指定の条件に該当する店舗が見つかりませんでした。<br>
+                  お店の新規登録は<a ui-sref="newItem" ng-class="{current:global_menu=='newItem'}" ng-click="global_menu='newItem'">新規登録ページ</a>から行うことができます。
+              </div>
+          </div>
+
+    <div id="sidemenu">
+
+        <div class="sidemenu_box">
+            <h3>利用用途から探す</h3>
+            <ul>
+                <li ng-repeat="scenelist in scenelists" ng-class="{current:$parent.scene==scenelist.name}"><a href="" ng-click="findAddScene(scenelist.name)">{{scenelist.name}}</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    </div>
+
+        <div class="pager_box">
+            <ul>
+                <li><a href="" ng-click="currentPage=currentPage-1"><</a></li>
+                <li ng-repeat="page in pages" ng-class="{current:$parent.currentPage==page}"><a href="" ng-click="$parent.currentPage=page">{{page}}</a></li>
+                <li><a href="" ng-click="currentPage=currentPage+1">></a></li>
+            </ul>
+        </div>
+
+</div><!-- #main -->
 <ng-footer></ng-footer>

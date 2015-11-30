@@ -4,7 +4,7 @@
 <!-- BODY -->
 <ng-navbar></ng-navbar>
 <div class="container-fluid">
-    <h1 class="page-header margin-top-sm">ユーザー一覧</h1>
+    <h1 class="page-header margin-top-sm">コメント一覧</h1>
 <div class="row">
     <div ng-controller="AlertController">
         <div class="container-fluid">
@@ -16,34 +16,37 @@
 </div>
 <div class="row">
     <div class="container-fluid">
-        <button type="button" ui-sref="adminNewUser" class="btn btn-info">新規登録</button>
+        <button type="button" ui-sref="adminNewComment" class="btn btn-danger">新規登録</button>
     </div>
     <br>
 </div>
 <!-- テーブル -->
 <div class="table-responsive">
     <table class="table table-bordered">
-        <tr class="info">
+        <tr class="danger">
             <th>
                 ID
             </th>
             <th>
-                名前
+                ユーザー名
             </th>
             <th>
-                E-mail
+                ユーザーID
             </th>
             <th>
-                会社名
+                店舗ID
             </th>
             <th>
-                行った店舗数
+                タイトル
             </th>
             <th>
-                行きたい店舗数
+                いいね!数
             </th>
             <th>
-                推薦店舗数
+                ジャンル平均点
+            </th>
+            <th>
+                シーン平均点
             </th>
             <th>
                 登録日
@@ -58,33 +61,36 @@
                 削除
             </th>
         </tr>
-        <tr ng-repeat="user in users">
+        <tr ng-repeat="comment in comments">
             <td>
-                {{user._id}}
+                {{comment._id}}
             </td>
             <td>
-            {{user.lastName}}&nbsp;{{user.firstName}}
+                {{comment.userLastName}}&nbsp;{{comment.userFirstName}}
             </td>
             <td>
-                {{user.email}}
+                {{comment.userId}}
             </td>
             <td>
-                {{user.company.name}}
+                {{comment.itemId}}
             </td>
             <td>
-                {{user.wentItems.length}} 店舗
+                {{comment.title}}
             </td>
             <td>
-                {{user.wantItems.length}} 店舗
+                {{comment.itemLikesCounter.count}}&nbsp;いいね!
             </td>
             <td>
-                {{user.recommendItems.length}} 店舗
+                {{comment.genreAve | number: 1}}&nbsp;点
             </td>
             <td>
-                {{user.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{comment.scenesAve | number: 1}}&nbsp;点
             </td>
             <td>
-                {{user.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{comment.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+            </td>
+            <td>
+                {{comment.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
                 <button class="btn btn-xs btn-success width-lg" ng-click="showEditModal($index)">編集</button>

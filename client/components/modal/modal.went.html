@@ -1,15 +1,15 @@
 <div class="modal-header">
-    <h4 class="modal-title">{{title}}の「行った」を登録</h4>
+    <h4 class="modal-title">{{modalOption.item.name}}の「行った」を登録</h4>
 </div>
 <div class="modal-body">
     <div class="row">
         <div class="container-fluid text-sm">
             <div class="col-sm-3">
-                ジャンル：
+                ジャンル：{{modalOption.genre.name}}
             </div>
             <div class="col-sm-9 text-sm">
                 <p>
-                    ◯◯◯の評価基準 1
+                    {{modalOption.genre.beautiful}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -23,7 +23,7 @@
                 </p>
                 <br>
                 <p>
-                    ◯◯◯の評価基準 2
+                    {{modalOption.genre.originality}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -37,7 +37,7 @@
                 </p>
                 <br>
                 <p>
-                    ◯◯◯の評価基準 3
+                    {{modalOption.genre.beautiful}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -51,7 +51,7 @@
                 </p>
                 <br>
                 <p>
-                    ◯◯◯の評価基準 4
+                    {{modalOption.genre.quality}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -65,7 +65,7 @@
                 </p>
                 <br>
                 <p>
-                    ◯◯◯の評価基準 5
+                    {{modalOption.genre.sense}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -84,13 +84,13 @@
         <hr>
     </p>
     <div class="row">
-        <div class="container-fluid text-sm">
+        <div class="container-fluid text-sm" ng-repeat="scenelist in scenelists | filter : {'name': '高級接待'}">
             <div class="col-sm-3">
-                シーン：
+                シーン：{{scenelist.name}}
             </div>
             <div class="col-sm-9 text-sm">
                 <p>
-                    ◯◯◯の評価基準 1
+                    {{scenelist.value1}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -104,7 +104,7 @@
                 </p>
                 <br>
                 <p>
-                    ◯◯◯の評価基準 2
+                    {{scenelist.value2}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -118,7 +118,7 @@
                 </p>
                 <br>
                 <p>
-                    ◯◯◯の評価基準 3
+                    {{scenelist.value3}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -132,7 +132,7 @@
                 </p>
                 <br>
                 <p>
-                    ◯◯◯の評価基準 4
+                    {{scenelist.value4}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -146,7 +146,7 @@
                 </p>
                 <br>
                 <p>
-                    ◯◯◯の評価基準 5
+                    {{scenelist.value5}}の評価基準
                     <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
                     <label for="rate1">1</label>
                     <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
@@ -182,19 +182,19 @@
                 画像登録：
             </div>
             <div class="col-sm-9 text-sm">
-                <input type="file" name="name" value="">
-                <br>
-                <input type="file" name="name" value="">
-                <br>
-                <input type="file" name="name" value="">
-                <br>
-                <input type="file" name="name" value="">
-                <br>
-                <input type="file" name="name" value="">
-                <br>
+                <div class="upload-area" ngf-drop ng-model="$parent.files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+                    ここにドラッグ
+                </div>
+                <div ng-repeat="file in files">
+                    <img ngf-src="file" ngf-accept="'image/*'"  class="upload-show-image">
+                </div>
+                <span ngf-no-file-drop>
+                    <input type="file" name="name" value="">
+                </span>
             </div>
         </div>
     </div><!-- /row -->
+
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>

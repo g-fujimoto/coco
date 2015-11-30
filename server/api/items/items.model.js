@@ -5,25 +5,39 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose);
 
 var ItemsSchema = mongoose.Schema({
-    name        : String,
-    kana        : String,
-    branch      : String,
-    otherName   : String,
-    tel         : String,
-    area        : String,
-    address         : {
-        postalCode  : String,
-        pref        : String,
-        city        : String,
-        town        : String,
-        building    : String
+    name      : String,
+    kana      : String,
+    branch    : String,
+    otherName : String,
+    tel       : String,
+    area      : String,
+    address   : {
+        postalCode : String,
+        pref       : String,
+        city       : String,
+        town       : String,
+        building   : String
     },
+    genreName  : String,
+    sceneNames : [String],
     itemRecommendCounter : {
-        count : Number
+        count : {type: Number, default: 0}
     },
-    created         : Date,
-    modified        : Date,
-    deleteFlg       : Number
+    itemLikeCounter : {
+        count : {type: Number, default: 0}
+    },
+    images : [
+        {
+            path      : String,
+            sortNo    : String,
+            created   : {type: Date, default: Date.now()},
+            modified  : {type: Date, default: Date.now()},
+            deleteFlg : {type: Number, default: 0}
+        }
+    ],
+    created   : {type: Date, default : Date.now()},
+    modified  : {type: Date, default : Date.now()},
+    deleteFlg : {type: Number, default: 0}
 });
 
 ItemsSchema.plugin(autoIncrement.plugin, {model: 'Items', field: '_id'});

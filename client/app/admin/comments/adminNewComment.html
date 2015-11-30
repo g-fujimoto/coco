@@ -1,0 +1,131 @@
+<ng-navbar></ng-navbar>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="container-fluid">
+            <h1 class="page-header margin-top-sm">新規登録</h1>
+        </div>
+    <div class="row">
+        <div class="container">
+            <form class="form-horizontal" name="myForm" novalidate>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newComment.userId" class="control-label">ユーザーID&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newComment.userId" value="" ng-model="newComment.userId" id="newComment.userId" class="form-control" placeholder="ユーザーID" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newComment.itemId" class="control-label">店舗ID&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newComment.itemId" value="" ng-model="newComment.itemId" id="newComment.itemId" class="form-control" placeholder="店舗ID" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newComment.title" class="control-label">タイトル&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newComment.title" value="" ng-model="newComment.title" id="newComment.title" class="form-control" placeholder="タイトル" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newComment.body" class="control-label">内容&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <textarea name="newComment.body" rows="8" cols="40" ng-model="newComment.body" id="newComment.body" class="form-control" placeholder="内容"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newComment.images.path" class="control-label">画像パス</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newComment.images.path" value="" ng-model="newComment.images.path" id="newComment.images.path" class="form-control" placeholder="画像パス">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newComment.genre" class="control-label">ジャンル</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select  name="newComment.genre" ng-model="newComment.genre" class="form-control" ng-options="genre as genre.name for genre in genres" required>
+                            <option value="" class="">以下のジャンルから選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div ng-repeat="option in newComment.genre.options">
+                    <div class="form-group">
+                        <div class="col-sm-3 col-sm-offset-2 text-left">
+                            <label for="newComment.genre" class="control-label" ng-model="option.label">{{option.label}}</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <select  name="newComment.genre" ng-model="option.rate" class="form-control" ng-options="rate.value as rate.value for rate in rates" required>
+                                <option value="" class="">以下のレートから選択して下さい</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newComment.scene" class="control-label">シーン</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <select  name="newComment.scene" ng-model="newComment.scene" class="form-control" ng-options="scene as scene.name for scene in scenes" required>
+                                    <option value="" class="">以下のシーンから選択して下さい</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div ng-repeat="option in newComment.scene.options">
+                            <div class="form-group">
+                                <div class="col-sm-6 col-sm-offset-4 text-left">
+                                    <label for="newComment.scene" class="control-label" ng-model="option.label">{{option.label}}</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select  name="newComment.scene" ng-model="option.rate" class="form-control" ng-options="rate.value as rate.value for rate in rates" required>
+                                        <option value="" class="">以下のレートから選択して下さい</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <span ng-hide="noSelectScene" class="text-warning text-sm">
+                                ※シーンが選択されていません
+                            </span>
+                            <ul ng-repeat="scene in newComment.scenes" ng-show="noSelectScene">
+                                <li class="text-info text-sm">{{$index + 1}}:{{scene.name}}</li>
+                            </ul>
+                        </div>
+                        <button type="button" ng-click="addScenes()" class="btn btn-warning btn-xs" ng-disabled="newComment.disabled">シーンを追加する</button>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-danger btn-lg" ng-click="createComment()" ng-disabled="myForm.$invalid">登録</button>
+                        <button type="button" class="btn btn-default btn-lg" ui-sref="comments">戻る</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.row2 -->
+</div><!-- /.firstContainer -->

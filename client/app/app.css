@@ -32,7 +32,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_search_box .main_search_box_header ul { overflow: hidden; padding-left: 25px; }
 #main #main_search_box .main_search_box_header ul li { float: left; }
 #main #main_search_box .main_search_box_header ul li h6 { /*                        display:block;*/ padding-top: 5px; font-size: 16px; width: 198px; color: #fff; line-height: 1.0em; }
-#main #main_search_box .main_search_box_header ul li input[type=text] { width: 580px; height: 20px; border: 1px solid #ccc; margin-top: 1px; margin-right: 15px; color: #cacaca; }
+#main #main_search_box .main_search_box_header ul li input[type=text] { width: 680px; height: 20px; border: 1px solid #ccc; margin-top: 1px; margin-right: 15px; color: #cacaca; }
 #main #main_search_box .main_search_box_header ul li input[type=text]:focus { color: #000; }
 #main #main_search_box .main_search_box_header ul li a { display: block; width: 85px; height: 25px; background-color: #ebf0ed; }
 #main #main_search_box .main_search_box_header ul li a img { display: block; }
@@ -76,7 +76,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right { padding-top: 13px; width: 403px; float: right; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right h6 { font-size: 12px; line-height: 1.0em; margin-bottom: 4px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right p { height: 35px; overflow: hidden; font-size: 12px; line-height: 17px; padding-right: 13px; text-align: justify; margin-bottom: 5px; }
-#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right a { width: 110px; float: right; padding: 3px 0px 0px 20px; display: block; color: #1d2087; text-align: left; font-size: 12px; line-height: 1.0em; text-decoration: none; background-image: url(../images/main/parts/arrow_2.svg); background-repeat: no-repeat; background-position: left bottom; }
+#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right a { width: 110px; float: right; padding: 3px 0px 0px 20px; display: block; color: #1d2087; text-align: left; font-size: 12px; line-height: 1.0em; text-decoration: none; background-image: url(../assets/images/main/parts/arrow_2.svg); background-repeat: no-repeat; background-position: left bottom; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box { height: 46px; border: 1px solid #c9c9c9; border-top: 0px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li { float: left; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li:nth-child(2) { float: right; padding-right: 5px; }
@@ -89,11 +89,12 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #sidemenu .sidemenu_box h3 { font-weight: bold; width: 180px; height: 40px; line-height: 40px; color: #fff; font-size: 14px; text-align: center; background-color: #000; }
 #main #sidemenu .sidemenu_box ul li a { display: block; text-decoration: none; width: 180px; height: 35px; line-height: 35px; color: #000; font-size: 12px; text-align: center; background-color: #fff; border-top: 1px solid #aaa; }
 #main #sidemenu .sidemenu_box ul li:first-child a { border: 0px; }
+#main #sidemenu .sidemenu_box ul li.current a { background-color: #FAEBD7;font-weight: bold;}
 #main .pager_box ul { text-align: center; padding: 30px 0px; }
 #main .pager_box ul li { display: inline-block; }
 #main .pager_box ul li a { text-align: center; display: block; text-decoration: none; color: #1d2087; font-size: 16px; width: 31px; height: 17px; }
-#main .pager_box ul li:first-child a { width: 9px; background-image: url(../images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: 0px 0px; text-indent: -9999px; margin-right: 10px; }
-#main .pager_box ul li:last-child a { width: 9px; background-image: url(../images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: -9px 0px; text-indent: -9999px; margin-left: 10px; }
+#main .pager_box ul li:first-child a { width: 9px; background-image: url(../assets/images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: 0px 0px; text-indent: -9999px; margin-right: 10px; }
+#main .pager_box ul li:last-child a { width: 9px; background-image: url(../assets/images/main/parts/arrow.svg); background-repeat: no-repeat; background-position: -9px 0px; text-indent: -9999px; margin-left: 10px; }
 #main .pager_box ul li.current a { font-weight: bold; }
 
 /****     reviews.htmlでの変更追加     ****/
@@ -178,7 +179,7 @@ body.home #main { margin: -50px auto 94px; }
 
 #sidemenu { float: left; width: 180px; }
 
-#footer { background-image: url(../images/footer/border.gif); background-repeat: repeat-x; background-position: top; min-height: 170px; }
+#footer { background-image: url(../assets/images/footer/border.gif); background-repeat: repeat-x; background-position: top; min-height: 170px; }
 #footer .footer_box { width: 1000px; margin: 0px auto; padding-top: 30px; position: relative; }
 #footer .footer_box h3 { width: 192px; height: 55px; padding-right: 21px; }
 #footer .footer_box h3 img { width: 192px; display: block; }
@@ -186,6 +187,24 @@ body.home #main { margin: -50px auto 94px; }
 #footer .footer_main ul { border-right: 1px solid #3f220e; overflow: hidden; }
 #footer .footer_main ul li { display: block; border-left: 1px solid #3f220e; width: 152px; float: left; }
 #footer .footer_main ul li a { text-align: center; text-decoration: none; display: block; color: #3f220e; font-size: 11px; width: 152px; line-height: 25px; }
+
+/* -------------------------------- public -------------------------------- */
+.upload-area {
+      padding: 20px;
+      color: #fff;
+      border-radius: 10px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      background: #6495ed;
+      margin: 10px;
+}
+
+.upload-show-image {
+  width:100px;
+  height:100px;
+  margin-left: 10px;
+}
+
 /* -------------------------------- margin-top -------------------------------- */
 
 .margin-top-xs {

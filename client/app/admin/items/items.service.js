@@ -5,7 +5,8 @@ angular.module('webApp')
          * Items データ全件出力
          */
         this.findAll = function(scope) {
-            $http.get('/api/admin/items')
+
+            $http.get('/api/items')
                 .success(function(data) {
                     scope.items = data;
                 });
@@ -15,28 +16,55 @@ angular.module('webApp')
          * Items 新規登録処理
          */
         this.save = function(scope, postData) {
-            $http.post('/api/admin/items', postData)
+            $http.post('/api/items', postData)
                 .success(function(data) {
-                    if(data === 'error') {
-                        console.log('エラーだよ');
-                    } else {
-                        console.log(data);
-                        scope.items.push(data);
-                        scope.alerts.push($$Alert.successRegister);
+                    if(data.type) {
+
+                        scope.alerts.push($$Alert.failureRegister);
+
+                        console.log(data.type);
+                        console.log(data.message);
+
                         $timeout(function() {
                             scope.alerts.splice(0, 1);
                         }, 1800);
+
+                    } else {
+
+                        $timeout(function() {
+                            scope.alerts.splice(0, 1);
+                        }, 1800);
+
                         $state.go('items');
+                        return data;
                     }
+                });
+        };
+
+        /**
+         * Items 編集処理
+         */
+        this.update = function(scope) {
+
+            $http.put('/api/items/' + scope.editItem._id, scope.editItem)
+                .success(function(data) {
+
+                    scope.items[scope.index] = data;
+                    scope.$dismiss();
+                    scope.alerts.push($$Alert.successUpdate);
+
+                    $timeout(function() {
+                        scope.alerts.splice(0, 1);
+                    }, 1800);
                 });
         };
 
         /**
          * Items 削除処理
          */
-        this.delete = function(scope, apiUrl) {
-            $http.delete(apiUrl + scope._id)
-                .success(function(data) {
+        this.delete = function(scope) {
+            $http.delete('/api/items/' + scope._id)
+                .success(function() {
                     scope.$dismiss();
                     scope.items.splice(scope.index, 1);
                     scope.alerts.push($$Alert.successDelete);
@@ -46,19 +74,4 @@ angular.module('webApp')
                 });
         };
 
-        /**
-         * Items 編集処理
-         */
-        this.update = function(scope, apiUrl) {
-            $http.put(apiUrl + scope.selectRow._id, scope.selectRow)
-                .success(function(data) {
-                    scope.items[scope.index] = data;
-                    scope.$dismiss();
-                    scope.alerts.push($$Alert.successUpdate);
-                    $timeout(function() {
-                        scope.alerts.splice(0, 1);
-                    }, 1800);
-
-                });
-        };
 }]);

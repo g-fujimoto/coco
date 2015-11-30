@@ -10,13 +10,18 @@
     var mongoose      = require('mongoose');
     var autoIncrement = require('mongoose-auto-increment');
     var session       = require('express-session');
+    var multer        = require('multer');
 
 // Own Objects
-    var config        = require('./config/environment');
-    var items         = require('./api/items');
-    var itemComments  = require('./api/itemComments');
+    var config       = require('./config/environment');
+    var items        = require('./api/items');
+    var comments = require('./api/comments');
+    var area         = require('./api/area');
+    var users        = require('./api/users');
+    var upload       = require('./api/upload');
+
 // create WebServer
-    var app = express();
+var app = express();
 
 // connect MongoDB
 var connect = mongoose.connect(config.mongo.uri);
@@ -32,6 +37,7 @@ db.once('open', function(callback) {
 });
 
 // MiddleWare
+    app.use(multer({dest:'./uploads/'}).single('file'));
     app.use(express.static('client'));
     app.use(morgan('dev'));
     app.use(bodyParser.json());
@@ -39,9 +45,12 @@ db.once('open', function(callback) {
     app.use(cookieParser());
 
 // Routes
-    app.use('/api/admin/items', items);
     app.use('/api/items', items);
-    app.use('/api/itemComments', itemComments);
+    app.use('/api/area', area);
+    app.use('/api/users', users);
+    app.use('/api/comments', comments);
+
+    app.use('/api/upload', upload);
 
 // Listen server
     app.listen(config.port);

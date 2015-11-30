@@ -1,32 +1,33 @@
 angular.module('webApp')
-    .controller('ModalController', ['$http', '$scope', '$uibModalInstance', '$ItemsService', function($http, $scope, $uibModalInstance, $ItemsService) {
-
-        //ジャンル・シーン編集時、selectRow.genre.nameを監視
-        $scope.$watch('selectRow.genre.name', function(newValue, oldValue) {
-            if(!angular.isUndefined($scope.selectRow)) {
-                $scope.selectGenre = true;
-            } else {
-                $scope.selectGenre = false;
-            }
-        });
-
-        //ジャンル・シーン編集時、selectRow.scene.nameを監視
-        $scope.$watch('selectRow.scene.name', function(newValue, oldValue) {
-            if(!angular.isUndefined($scope.selectRow)) {
-                $scope.selectScene = true;
-            } else {
-                $scope.selectScene = false;
-            }
-        });
-
-        //削除ボタン 処理
-        $scope.delete = function() {
-            $ItemsService.delete($scope, 'api/admin/items/');
-        };
+    .controller('ModalController', ['$http', '$scope', '$uibModalInstance', '$ItemsService', '$UsersService',
+     function($http, $scope, $uibModalInstance, $ItemsService, $UsersService) {
 
         //更新ボタン 処理
         $scope.update = function() {
-            $ItemsService.update($scope, 'api/admin/items/');
+            $ItemsService.update($scope, 'api/items/');
+        };
+
+        //削除ボタン 処理
+        $scope.delete = function(apiName) {
+
+            switch(apiName) {
+                case 'items' :
+                    var api = {
+                        service : $ItemsService,
+                        name : 'items'
+                    };
+                    api.service.delete($scope, 'api/' + api.name + '/');
+                    break;
+                case 'users' :
+                    api = {
+                        service : $UsersService,
+                        name : 'users'
+                    };
+                    api.service.delete($scope, 'api/' + api.name + '/');
+                    break;
+                case 'comments' :
+                    $scope.deleteComment($scope.$parent._id, $scope);
+            }
         };
 
         //キャンセルボタン 処理
