@@ -1,0 +1,57 @@
+<div class="modal-header">
+    <h4 class="modal-title">編集</h4>
+</div>
+<div class="modal-body">
+    <div class="container-fluid">
+
+    <div class="row">
+        <div class="container-fluid">
+            <h1 class="page-header margin-top-sm">新規登録</h1>
+        </div>
+    <div class="row">
+        <div class="container">
+            <form class="form-horizontal" name="myForm" novalidate>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="editComment.userId" class="control-label">ユーザーID&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="editComment.userId" value="" ng-model="editComment.userId" id="editComment.userId" class="form-control" placeholder="ユーザーID" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="editComment.itemId" class="control-label">店舗ID&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="editComment.itemId" value="" ng-model="editComment.itemId" id="editComment.itemId" class="form-control" placeholder="店舗ID" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="editComment.title" class="control-label">タイトル&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="editComment.title" value="" ng-model="editComment.title" id="editComment.title" class="form-control" placeholder="タイトル" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="editComment.body" class="control-label">内容&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <textarea name="editComment.body" rows="8" cols="40" ng-model="editComment.body" id="editComment.body" class="form-control" placeholder="内容"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.row2 -->
+</div>
+<br>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="update('comments')">更新</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">キャンセル</button>
+</div>

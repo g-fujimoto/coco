@@ -78,13 +78,13 @@
                 {{comment.title}}
             </td>
             <td>
-                {{comment.itemLikesCounter}}
+                {{comment.itemLikesCounter.count}}&nbsp;いいね!
             </td>
             <td>
-                {{comment.genre.ave | number: 1}}&nbsp;点
+                {{comment.genreAve | number: 1}}&nbsp;点
             </td>
             <td>
-                {{comment.scene.ave | number: 1}}&nbsp;点
+                {{comment.scenesAve | number: 1}}&nbsp;点
             </td>
             <td>
                 {{comment.created | date: 'yyyy-MM-dd HH:mm:dd'}}
