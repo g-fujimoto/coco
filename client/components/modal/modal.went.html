@@ -182,14 +182,20 @@
                 画像登録：
             </div>
             <div class="col-sm-9 text-sm">
-                <div class="upload-area" ngf-drop ng-model="$parent.files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
-                    ここにドラッグ
+                <div class="upload-area" ngf-drop ng-model="modalOption.files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+                    <div clss="upload-drop">アップロードする画像をドラッグしてください。</div>
                 </div>
-                <div ng-repeat="file in files">
+                <div ng-repeat="file in modalOption.files">
                     <img ngf-src="file" ngf-accept="'image/*'"  class="upload-show-image">
                 </div>
                 <span ngf-no-file-drop>
-                    <input type="file" name="name" value="">
+                    <div class="upload-button">
+                        ファイルを選択
+                        <input type="file" onchange="uv.style.display='inline-block'; uv.value = this.value;" />
+                    </div>
+                    <div class="upload-value">
+                        <input class="upload-text" type="text" id="uv"/>
+                    </div>
                 </span>
             </div>
         </div>

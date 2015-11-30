@@ -4,7 +4,8 @@ angular.module('webApp')
 
         //更新ボタン 処理
         $scope.update = function() {
-            $ItemsService.update($scope, 'api/items/');
+            console.log('test');
+            //$ItemsService.update($scope, 'api/items/');
         };
 
         //削除ボタン 処理
