@@ -2,38 +2,12 @@
 
 <div id="main" >
 
-    <div id="main_header">
-        <h2><img src="./assets/./images/main/parts/title.svg" alt="" /></h2>
-        <h3>店舗検索</h3>
-    </div>
-
-    <div id="main_search_box">
-
-        <div class="main_search_box_header">
-            <ul>
-                <li><h6>フリーワードで絞り込む</h6></li>
-                <li><input type="text" value="Freeword" ng-model="word" ng-model-options="{debounce: 750}"/></li>
-                <!-- <li><a href=""><img src="./assets/./images/main/parts/search.svg" alt="" /></a></li> -->
-            </ul>
-        </div>
-
-        <div class="main_search_box_main">
-            <ul>
-                <li>
-                    <h6>検索中の条件：新着順</h6>
-                    <p>1~10件を表示/全{{items.length}}件</p>
-                </li>
-                <li class="right"><h5>{{items.length}}件 お店が見つかりました</h5></li>
-            </ul>
-        </div>
-
-    </div>
 
     <div id="main_side_wrap">
 
           <div id="main_contents" >
 
-            <div class="loop_contents_box" ng-repeat="item in items | limitTo:10:(currentPage-1)*10">
+            <div class="loop_contents_box" ng-repeat="item in items | limitTo:10:0">
 
                 <div class="left_box">
                     <ul>
@@ -72,9 +46,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="right">
-                            <a ui-sref="shopDetail" ng-click="global_menu='shopDetail'" href="#"><img src="./assets/./images/main/parts/detail_button.svg" /></a>
-                        </div>
                     </div>
 
                     <div class="text_box" ng-init="$parent.show_loading=true;">
@@ -107,47 +78,9 @@
                   </div>
 
               </div>
-              <!--------->
-              <div ng-show="items.length==0">
-                  ご指定の条件に該当する店舗が見つかりませんでした。<br>
-                  お店の新規登録は<a ui-sref="newItem" ng-click="global_menu='newItem'">新規登録ページ</a>から行うことができます。
-              </div>
           </div>
 
-    <div id="sidemenu">
-
-        <div class="sidemenu_box">
-            <h3>エリアから探す</h3>
-            <ul>
-                <li ng-repeat="arealist in arealists" ng-class="{current:$parent.area==arealist.name}"><a href="" ng-click="findAddArea(arealist.name)">{{arealist.name}}</a></li>
-            </ul>
-        </div>
-
-        <div class="sidemenu_box">
-            <h3>利用用途から探す</h3>
-            <ul>
-                <li ng-repeat="scenelist in scenelists" ng-class="{current:$parent.scene==scenelist.name}"><a href="" ng-click="findAddScene(scenelist.name)">{{scenelist.name}}</a></li>
-            </ul>
-        </div>
-
-        <div class="sidemenu_box">
-            <h3>ジャンルから探す</h3>
-            <ul>
-                <li ng-repeat="genrelist in genrelists" ng-class="{current:$parent.genreName==genrelist.name}"><a href="" ng-click="findAddGenreName(genrelist.name)">{{genrelist.name}}</a></li>
-            </ul>
-        </div>
-
     </div>
-
-    </div>
-
-        <div class="pager_box">
-            <ul>
-                <li><a href="" ng-click="currentPage=currentPage-1"><</a></li>
-                <li ng-repeat="page in pages" ng-class="{current:$parent.currentPage==page}"><a href="" ng-click="$parent.currentPage=page">{{page}}</a></li>
-                <li><a href="" ng-click="currentPage=currentPage+1">></a></li>
-            </ul>
-        </div>
 
 </div><!-- #main -->
 <ng-footer></ng-footer>

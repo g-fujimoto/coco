@@ -10,13 +10,23 @@ var Items = require('./items.model');
 var _ = require('lodash');
 //index
 exports.index = function(req, res) {
+
     if (req.body.name) {
         req.body.name = new RegExp('^' + req.body.name);
     }
+
     Items.find(req.body, function(err, data) {
         res.json(data);
     });
 };
+
+exports.findOne = function(req,res) {
+  console.log(req.params);
+    Items.find({_id: req.params._id}, function(err, data) {
+        res.json(data);
+    });
+}
+
 //create
 exports.create = function(req, res) {
     var newItem = new Items(req.body);

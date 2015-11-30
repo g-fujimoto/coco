@@ -53,9 +53,10 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
     $scope.getComments = function() {
 
-        var item_ids = _.pluck($scope.items, '_id');
+        var data = {};
+        data.itemId = _.pluck($scope.items, '_id');
 
-        $http.get('/api/comments', JSON.stringify(item_ids))
+        $http.post('/api/comments/find', JSON.stringify(data))
         .success(function(data) {
 
             // 店舗IDリスト作成
@@ -64,7 +65,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             // 店舗毎にコメントを操作
             for (var i in item_comments) {
 
-                var comments = _.filter(data, function(num) {return num._item_id === item_comments[i];});
+                var comments = _.filter(data, function(num) {return num.itemId === item_comments[i];});
 
                 // ジャンルポイント平均作成
                 var genreAvelist = _.pluck(comments, 'genreAve');
@@ -135,6 +136,9 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         $scope.scenelists = $$Scenes;
         $scope.genrelists = $$Genres;
+
+        // モーダルの初期化
+
 
         var genre = _.select($$Genres, function(num) {
             return num.name == item.genreName
