@@ -1,69 +1,86 @@
 angular.module('webApp')
-    .controller('CommentsController', ['$scope', '$uibModal', '$Comments', '$AreaService', '$$Genres', '$$Scenes', '$$Rates', '$timeout', '$state',
-            function($scope, $uibModal, $Comments, $AreaService, $$Genres, $$Scenes, $$Rates, $timeout, $state) {
-                //$scope宣言
-                    $scope.alerts  = [];
-                    $scope.apiName = 'comments';
-                    $scope.$$genres  = $$Genres;
-                    $scope.$$scenes  = $$Scenes;
-                    $scope.$$rates   = $$Rates;
-                    $scope.newComment = {
-                        disabled: true
-                    };
-                    //Postするscenesデータ配列
-                    $scope.newComment.scenes = [];
+    .controller('CommentsController', ['$scope', '$uibModal', '$Comments', '$AreaService', '$$Genres', '$$Scenes', '$$Rates', '$timeout', '$state', '$$Alert', '$rootScope',
+            function($scope, $uibModal, $Comments, $AreaService, $$Genres, $$Scenes, $$Rates, $timeout, $state, $$Alert, $rootScope) {
+                $rootScope.alerts  = [];
+                $scope.apiName = 'comments';
+                $scope.genres  = $$Genres;
+                $scope.scenes  = $$Scenes;
+                $scope.rates   = $$Rates;
+                $scope.newComment = {
+                    disabled: true
+                };
+                //Postするscenesデータ配列
+                $scope.newComment.scenes = [];
 
-                    //Commentsデータ取得
-                    $scope.comments = $Comments.query();
 
-                    //シーン追加処理
-                    $scope.selectScenes = [];
+                //シーン追加処理
+                $scope.selectScenes = [];
 
-                    $scope.addScenes = () => {
-                        $scope.newComment.scenes.push($scope.newComment.scene);
-                        var selectSceneName = $scope.newComment.scene.name;
-                        $scope.$$scenes = _.reject($scope.$$scenes, (element) => {
-                            return element.name === selectSceneName;
-                        });
-                        $scope.selectScenes.push(selectSceneName);
-                        if($scope.selectScenes) $scope.noSelectScene = true;
-                        $scope.newComment.disabled = true;
-                        $scope.newComment.scene = {};
-                    };
+                $scope.addScenes = () => {
+                    $scope.newComment.scenes.push($scope.newComment.scene);
+                    var selectSceneName = $scope.newComment.scene.name;
+                    $scope.$$scenes = _.reject($scope.$$scenes, (element) => {
+                        return element.name === selectSceneName;
+                    });
+                    $scope.selectScenes.push(selectSceneName);
+                    if($scope.selectScenes) $scope.noSelectScene = true;
+                    $scope.newComment.disabled = true;
+                    $scope.newComment.scene = {};
+                };
 
-                    //$watch
-                        //newComment.disabled 監視
-                        $scope.$watch('newComment', (newValue) => {
-                            if(newValue.scene) {
-                                if(newValue.scene.name) {
-                                    $scope.newComment.disabled = false;
-                                }
-                            } else {
-                                $scope.newComment.disabled = true;
+                //$watch
+                    //newComment.disabled 監視
+                    $scope.$watch('newComment', (newValue) => {
+                        if(newValue.scene) {
+                            if(newValue.scene.name) {
+                                $scope.newComment.disabled = false;
                             }
-                        },true);
+                        } else {
+                            $scope.newComment.disabled = true;
+                        }
+                    },true);
 
-                    //Commentsデータ登録
-                    $scope.createComment = () => {
+                //$Commentsデータ取得
+                $scope.comments = $Comments.query();
 
-                        calcAve();
+                //$Commentsデータ登録
+                $scope.createComment = () => {
 
-                        $Comments.save(
-                            $scope.newComment,
-                            () => {
-                                $scope.comments = $Comments.query();
-                                $timeout(() => {
-                                    $scope.alerts.splice(0, 1);
-                                }, 1800);
+                    calcAve();
 
-                                $state.go('comments');
-                            },
-                            () => {
-                                console.log('error');
-                            }
-                        );
-                    };
+                    $Comments.save(
+                        $scope.newComment,
+                        () => {
+                            $scope.comments = $Comments.query();
+                            $rootScope.alerts.push($$Alert.successRegister);
+                            $timeout(() => {
+                                $scope.alerts.splice(0, 1);
+                            }, 1800);
+                            $state.go('comments');
 
+                        },
+                        () => {
+                            console.log('error');
+                        }
+                    );
+                };
+
+                //$Commentsデータ削除
+                $scope.deleteComment = (_id, scope) => {
+                    $Comments.delete(
+                        {_id: _id},
+                        () => {
+                            console.log($scope);
+                            $scope.comments = $Comments.query();
+                            scope.$dismiss();
+                            $scope.alerts.push($$Alert.successDelete);
+                            $scope.comments.splice($scope.index, 1);
+                            $timeout(() => {
+                                $scope.alerts.splice(0, 1);
+                            }, 1800);
+                        }
+                    );
+                };
 
 // ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
                 //編集モーダル呼び出し

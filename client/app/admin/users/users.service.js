@@ -29,6 +29,7 @@ angular.module('webApp')
                         }, 1800);
 
                     } else {
+                        scope.alerts.push($$Alert.successRegister);                        
                         $timeout(function() {
                             scope.alerts.splice(0, 1);
                         }, 1800);

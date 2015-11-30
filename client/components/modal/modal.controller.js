@@ -16,16 +16,18 @@ angular.module('webApp')
                         service : $ItemsService,
                         name : 'items'
                     };
+                    api.service.delete($scope, 'api/' + api.name + '/');
                     break;
                 case 'users' :
-                    var api = {
+                    api = {
                         service : $UsersService,
                         name : 'users'
                     };
+                    api.service.delete($scope, 'api/' + api.name + '/');
                     break;
+                case 'comments' :
+                    $scope.deleteComment($scope.$parent._id, $scope);
             }
-
-            api.service.delete($scope, 'api/' + api.name + '/');
         };
 
         //キャンセルボタン 処理

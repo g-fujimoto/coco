@@ -66,11 +66,10 @@ exports.update = function(req, res) {
 // delete
 exports.delete = function(req, res) {
     Comments.remove({_id: req.params._id}, function(err) {
-        if(err) {
-            console.log('error');
-        }
+        if(err) console.log('error');
+
         Comments.find({}, function(err, data) {
-            res.json(data);
+            res.json({message : 'success'});
         });
     });
 };

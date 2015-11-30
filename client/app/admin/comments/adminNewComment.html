@@ -58,7 +58,7 @@
                         <label for="newComment.genre" class="control-label">ジャンル</label>
                     </div>
                     <div class="col-sm-4">
-                        <select  name="newComment.genre" ng-model="newComment.genre" class="form-control" ng-options="genre as genre.name for genre in $$genres" required>
+                        <select  name="newComment.genre" ng-model="newComment.genre" class="form-control" ng-options="genre as genre.name for genre in genres" required>
                             <option value="" class="">以下のジャンルから選択して下さい</option>
                         </select>
                     </div>
@@ -70,7 +70,7 @@
                             <label for="newComment.genre" class="control-label" ng-model="option.label">{{option.label}}</label>
                         </div>
                         <div class="col-sm-1">
-                            <select  name="newComment.genre" ng-model="option.rate" class="form-control" ng-options="rate.value as rate.value for rate in $$rates" required>
+                            <select  name="newComment.genre" ng-model="option.rate" class="form-control" ng-options="rate.value as rate.value for rate in rates" required>
                                 <option value="" class="">以下のレートから選択して下さい</option>
                             </select>
                         </div>
@@ -84,7 +84,7 @@
                                 <label for="newComment.scene" class="control-label">シーン</label>
                             </div>
                             <div class="col-sm-8">
-                                <select  name="newComment.scene" ng-model="newComment.scene" class="form-control" ng-options="scene as scene.name for scene in $$scenes" required>
+                                <select  name="newComment.scene" ng-model="newComment.scene" class="form-control" ng-options="scene as scene.name for scene in scenes" required>
                                     <option value="" class="">以下のシーンから選択して下さい</option>
                                 </select>
                             </div>
@@ -96,7 +96,7 @@
                                     <label for="newComment.scene" class="control-label" ng-model="option.label">{{option.label}}</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <select  name="newComment.scene" ng-model="option.rate" class="form-control" ng-options="rate.value as rate.value for rate in $$rates" required>
+                                    <select  name="newComment.scene" ng-model="option.rate" class="form-control" ng-options="rate.value as rate.value for rate in rates" required>
                                         <option value="" class="">以下のレートから選択して下さい</option>
                                     </select>
                                 </div>
