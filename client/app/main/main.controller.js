@@ -46,7 +46,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
     $scope.getArea= function() {
 
-        $http.get('/api/area')
+        $http.get('/api/areas')
         .success(function(data) {
             $scope.arealists = data;
         });

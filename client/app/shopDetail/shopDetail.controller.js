@@ -1,10 +1,9 @@
 var app = angular.module('webApp');
 
-app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload',
-  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload) {
+app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams',
+  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams) {
 
     $scope.global_menu = 'shopDetail';
-    $scope.pages      = [];
 
     $scope.upload = function(files) {
         if(files && files.length) {
@@ -23,9 +22,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
 
     $scope.getItem = function() {
 
-        //console.log($location.search('itemid'));
-
-        $http.get('/api/items/findOne/' + 18)
+        $http.get('/api/items/findOne/' + $stateParams.itemid)
         .success(function(data) {
             $scope.items = data;
         });
@@ -34,11 +31,11 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     $scope.getComments = function() {
 
         var data = {};
-        data.itemId = 18;
+        data.itemId = $stateParams.itemid;
 
         $http.post('/api/comments/find', JSON.stringify(data))
         .success(function(data) {
-
+/*
             // ジャンルポイント平均作成
             var genreAvelist = _.pluck(data, 'genreAve');
             var genreAveSum = _.reduce(genreAvelist, function(memo, num){ return memo + num;}, 0);
@@ -48,7 +45,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
             var sceneAvelist = _.pluck(data, 'sceneAve');
             var sceneAveSum = _.reduce(sceneAvelist, function(memo, num){ return memo + num;}, 0);
             $scope.items.sceneAves = sceneAveSum / sceneAvelist.length;
-
+*/
         });
     };
 
@@ -67,9 +64,6 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
 
         $scope.scenelists = $$Scenes;
         $scope.genrelists = $$Genres;
-
-        // モーダルの初期化
-
 
         var genre = _.select($$Genres, function(num) {
             return num.name == item.genreName
