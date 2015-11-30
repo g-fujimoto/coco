@@ -11,6 +11,7 @@ var CommentsSchema = mongoose.Schema({
     itemId        : Number,
     title         : String,
     body          : String,
+    genreAve: {type : Number, default : 0},
     genre         : {
         name            : String,
         options: {
@@ -34,9 +35,9 @@ var CommentsSchema = mongoose.Schema({
                 label: String,
                 rate: Number
             }
-        },
-        ave : {type : Number, default : 0}
+        }
     },
+    scenesAve : {type : Number, default : 0},
     scenes   : [
         {
             name       : String,
@@ -65,7 +66,7 @@ var CommentsSchema = mongoose.Schema({
             ave : {type: Number, default: 0}
         }
     ],
-    itemLikes : {
+    itemLikesCounter : {
         count : {type: Number, default: 0}
     },
     images : [

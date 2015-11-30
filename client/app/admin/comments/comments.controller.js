@@ -4,12 +4,46 @@ angular.module('webApp')
                 //$scope宣言
                     $scope.alerts  = [];
                     $scope.apiName = 'comments';
-                    $scope.genres  = $$Genres;
-                    $scope.scenes  = $$Scenes;
-                    $scope.rates   = $$Rates;
+                    $scope.$$genres  = $$Genres;
+                    $scope.$$scenes  = $$Scenes;
+                    $scope.$$rates   = $$Rates;
+                    $scope.newComment = {
+                        disabled: true
+                    };
+                    //Postするscenesデータ配列
+                    $scope.newComment.scenes = [];
 
+                    //Commentsデータ取得
                     $scope.comments = $Comments.query();
 
+                    //シーン追加処理
+                    $scope.selectScenes = [];
+
+                    $scope.addScenes = () => {
+                        $scope.newComment.scenes.push($scope.newComment.scene);
+                        var selectSceneName = $scope.newComment.scene.name;
+                        $scope.$$scenes = _.reject($scope.$$scenes, (element) => {
+                            return element.name === selectSceneName;
+                        });
+                        $scope.selectScenes.push(selectSceneName);
+                        if($scope.selectScenes) $scope.noSelectScene = true;
+                        $scope.newComment.disabled = true;
+                        $scope.newComment.scene = {};
+                    };
+
+                    //$watch
+                        //newComment.disabled 監視
+                        $scope.$watch('newComment', (newValue) => {
+                            if(newValue.scene) {
+                                if(newValue.scene.name) {
+                                    $scope.newComment.disabled = false;
+                                }
+                            } else {
+                                $scope.newComment.disabled = true;
+                            }
+                        },true);
+
+                    //Commentsデータ登録
                     $scope.createComment = () => {
 
                         calcAve();
@@ -23,13 +57,13 @@ angular.module('webApp')
                                 }, 1800);
 
                                 $state.go('comments');
-
                             },
                             () => {
                                 console.log('error');
                             }
                         );
                     };
+
 
 // ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
                 //編集モーダル呼び出し
@@ -67,8 +101,22 @@ angular.module('webApp')
                     const genreRateSum = genreRate.reduce((x, y) => {
                         return x + y;
                     });
-                    $scope.newComment.genre.ave = (genreRateSum / 5).toFixed(1);
-                    //シーン平均点
+                    $scope.newComment.genreAve = (genreRateSum / 5).toFixed(1);
 
+                    //シーン平均点
+                    const scenesRates = _.map($scope.newComment.scenes, (element) => {
+
+                        const sceneRate = _.map(element.options, (childElement) => {
+                            return childElement.rate;
+                        });
+                        const sceneRateAll = sceneRate.reduce((x, y) => {
+                                return x + y
+                        });
+                        return sceneRateAll;
+                        });
+                    const scenesRatesSum = scenesRates.reduce((x, y) => {
+                        return x + y;
+                    });
+                    $scope.newComment.scenesAve = (scenesRatesSum / $scope.newComment.scenes.length).toFixed(1);
                 };
     }]);
