@@ -4,6 +4,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
   function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, Upload) {
 
     $scope.global_menu = 'main';
+
     $scope.pages      = [];
 
     $scope.upload = function(files) {

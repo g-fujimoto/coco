@@ -6,3 +6,9 @@ app.directive('cocoHeader', function() {
         restrict: 'E'
     };
 });
+app.directive('cocoMainHeader', function() {
+    return {
+        templateUrl: './components/header/mainHeader.html',
+        restrict: 'E'
+    };
+});
