@@ -82,18 +82,34 @@ angular.module('webApp')
                     );
                 };
 
+                //$Commentsデータ更新
+                $scope.updateComment = (scope) => {
+                    $Comments.update(
+                        $scope.editComment,
+                        () => {
+                            $scope.comments = $Comments.query();
+                            scope.$dismiss();
+                            $scope.alerts.push($$Alert.successUpdate);
+                            $scope.comments.splice($scope.index, 1);
+                            $timeout(() => {
+                                $scope.alerts.splice(0, 1);
+                            }, 1800);
+                        }
+                    );
+                };
+
+
 // ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
                 //編集モーダル呼び出し
                 $scope.showEditModal = function($index) {
-                    $scope.index      = $index;
                     $scope.selectComment = $scope.comments[$index];
-                    $scope.editComment = _.cloneDeep($scope.selectComment);
-
+                    $scope.editComment = $Comments.get({_id: $scope.selectComment._id});
                     $uibModal.open({
                         templateUrl : './components/modal/comments/modal.edit.html',
                         scope       : $scope,
                         controller  : 'ModalController',
-                        backdrop    : 'static'
+                        backdrop    : 'static',
+                        size        : 'lg'
                     });
                 };
 

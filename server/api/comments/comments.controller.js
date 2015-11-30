@@ -22,6 +22,13 @@ exports.index = function(req, res) {
     });
 };
 
+//get
+exports.get = function(req, res) {
+    Comments.findOne({_id: req.params._id}, function(err, data) {
+        res.json(data);
+    });
+};
+
 //create
 exports.create = function(req, res) {
 
