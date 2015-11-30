@@ -1,23 +1,34 @@
 /**
- * GET     /api/items              ->  index
- * POST    /api/items              ->  create
- * GET     /api/items/:id          ->  show
- * PUT     /api/items/:id          ->  update
- * DELETE  /api/items/:id          ->  delete
+ * GET     /api/users              ->  index
+ * GET     /api/users/:_id              ->  index
+ * POST    /api/users              ->  create
+ * GET     /api/users/:_id          ->  show
+ * PUT     /api/users/:_id          ->  update
+ * DELETE  /api/users/:_id          ->  delete
  */
 
 // Dependences Modules
-var Items = require('./users.model');
+var Users = require('./users.model');
 var _ = require('lodash');
 
 //index
 exports.index = function(req, res) {
 
-    if (req.body.itemName) {
-        req.body.itemName = new RegExp('^' + req.body.itemName);
+    if (req.body.userName) {
+        req.body.userName = new RegExp('^' + req.body.userName);
     }
 
-    Items.find(req.body, function(err, data) {
+    Users.find(req.body, function(err, data) {
+        res.json(data);
+    });
+};
+
+//get
+exports.get = function(req, res) {
+
+    Users.findOne({_id: req.params._id}, function(err, data) {
+        console.log(req.params._id);
+        console.log(data);
         res.json(data);
     });
 };
@@ -32,9 +43,9 @@ exports.create = function(req, res) {
 
     var sendData = _.merge(req.body, date);
 
-    var newItem = new Items(sendData);
+    var newUser = new Users(sendData);
 
-    newItem.save(function(err) {
+    newUser.save(function(err) {
         if(err) {
             var errData = {
                 type    : err.type,
@@ -45,14 +56,14 @@ exports.create = function(req, res) {
 
         } else {
 
-            res.json(newItem);
+            res.json(newUser);
 
         }
     });
 };
 
 exports.update = function(req, res) {
-    Items.findOne({_id: req.params._id}, function(err, data) {
+    Users.findOne({_id: req.params._id}, function(err, data) {
 
         _.extend(data, req.body);
         data.modified = new Date();
@@ -69,11 +80,11 @@ exports.update = function(req, res) {
 
 // delete
 exports.delete = function(req, res) {
-    Items.remove({_id: req.params._id}, function(err) {
+    Users.remove({_id: req.params._id}, function(err) {
         if(err) {
             console.log('error');
         }
-        Items.find({}, function(err, data) {
+        Users.find({}, function(err, data) {
             res.json(data);
         });
     });

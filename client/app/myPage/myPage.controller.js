@@ -1,15 +1,20 @@
 var app = angular.module('webApp');
 
-app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout) {
+app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users',
+    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users) {
 
     $scope.global_menu = 'myPage';
-    $scope.pages      = [];
-
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
+    $scope.pages      = [];
+
+
+    // -------- DummyData --------//
+    $scope.loginUser  = $Users.get({_id: 11});
+
+
 
     $scope.getItem = function() {
-
         var data = {};
         if ($scope.word) data.itemName = $scope.word;
         if ($scope.scene) data.scene   = $scope.scene;
@@ -27,7 +32,6 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
                 $scope.pages.unshift(i);
             }
             $timeout(function() {
-                console.log($scope);
             }, 1000);
         });
     };
