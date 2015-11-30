@@ -3,11 +3,8 @@ var app = angular.module('webApp');
 app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', 'Upload',
   function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, Upload) {
 
-<<<<<<< HEAD
-    $scope.mainPage   = false;
-=======
     $scope.global_menu = 'main';
->>>>>>> dc17a4bd27d88b9af74f6bcc6aeb692dabb33fda
+
     $scope.pages      = [];
 
     $scope.upload = function(files) {
