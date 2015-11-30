@@ -1,6 +1,6 @@
 
 var express    = require('express');
-var controller = require('./area.controller');
+var controller = require('./areas.controller');
 
 var router     = express.Router();
 

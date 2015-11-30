@@ -1,5 +1,5 @@
 #header { width: 100%; }
-#header #mainmenu { padding-top: 45px; width: 1000px; margin: 0px auto; margin-bottom: 50px;}
+#header #mainmenu { padding-top: 45px; width: 1000px; margin: 0px auto;}
 #header #mainmenu .mainmenu_header { width: 1000px; height: 95px; margin: 0px auto; position: relative; }
 #header #mainmenu .mainmenu_header h2 { width: 228px; height: 65px; padding-left: 12px; }
 #header #mainmenu .mainmenu_header h2 a { display: block; }
@@ -20,8 +20,8 @@
 #header #mainmenu .mainmenu_main ul li:nth-child(4) a { background-position: -690px 0px; }
 #header #mainmenu .mainmenu_footer { height: 586px; width: 1000px; margin: 0px auto; overflow: hidden; }
 #header #mainmenu .mainmenu_footer h2 { margin-top: 156px; margin-left: 9px; width: 548px; height: 220px; }
-
-body.home #header { background-image: url(../assets/images/header/top_background.jpg); background-repeat: no-repeat; background-position: center bottom; margin-bottom: -50px;}
+.margin_btm { margin-bottom: 100px; }
+body.home #header #header_bg { background-image: url(../assets/images/header/top_background.jpg); background-repeat: no-repeat; background-position: center; margin-bottom: -50px; overflow: hidden;}
 
 #main { width: 930px; padding: 35px 35px; margin: 0px auto 94px; background-color: #e8f0ed; overflow: hidden; }
 #main #main_header { height: 69px; overflow: hidden; }
@@ -173,7 +173,7 @@ body.home #header { background-image: url(../assets/images/header/top_background
     box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 }
 #main #main_contents .want_go_store_list .store_info .edit { width: 200px; float: right; }
-/*****************************************1317a1*/
+/******************************************/
 
 body.home #main { margin: -50px auto 94px; }
 

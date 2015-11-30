@@ -1,0 +1,32 @@
+<header id="header">
+    <div id="header_bg">
+        <nav id="mainmenu">
+
+            <div class="mainmenu_header">
+                <h2><a href=""><img src="./assets/./images/header/logo.svg" alt="ココ社長" /></a></h2>
+                <div id="login_box">
+                    <ul>
+                        <li><input type="email" value="Email" /></li>
+                        <li><input type="text" value="Password" /></li>
+                        <li><a href=""><img src="./assets/./images/header/login_button.svg" alt="ログイン" /></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mainmenu_main">
+                <ul>
+                    <li ng-click="global_menu='main'"><a ui-sref="main" ng-class="{current:global_menu=='main'}" ng-click="global_menu='main'">トップページ</a></li>
+                    <li><a ui-sref="myPage" ng-class="{current:global_menu=='myPage'}">マイページ</a></li>
+                    <li><a ui-sref="search" ng-class="{current:global_menu=='search'}" ng-click="global_menu='search'">店舗検索</a></li>
+                    <li><a ui-sref="newItem" ng-class="{current:global_menu=='newItem'}" ng-click="global_menu='newItem'">新規店舗登録</a></li>
+                </ul>
+            </div>
+
+            <!-- トップページのみ ----------->
+            <div class="mainmenu_footer img-responsive">
+                <h2><img src="./assets/./images/header/top_mess.svg" alt="ココ社長" /></h2>
+            </div>
+
+        </nav>
+    </div>
+  </header>
