@@ -2,11 +2,8 @@
 
     <div class="sidemenu_box">
         <h3>エリアから探す</h3>
-        <ul>
-            <li><a href="">梅田・北新地</a></li>
-            <li><a href="">難波・道頓堀</a></li>
-            <li><a href="">心斎橋</a></li>
-            <li><a href="">淀屋橋・本町・北浜</a></li>
+        <ul ng-repeat="area in areas">
+            <li><a href="">{{area.name}}</a></li>
         </ul>
     </div>
 

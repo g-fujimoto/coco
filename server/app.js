@@ -16,7 +16,7 @@
     var config       = require('./config/environment');
     var items        = require('./api/items');
     var comments = require('./api/comments');
-    var area         = require('./api/area');
+    var areas         = require('./api/areas');
     var users        = require('./api/users');
     var upload       = require('./api/upload');
 
@@ -46,7 +46,7 @@ db.once('open', function(callback) {
 
 // Routes
     app.use('/api/items', items);
-    app.use('/api/area', area);
+    app.use('/api/areas', areas);
     app.use('/api/users', users);
     app.use('/api/comments', comments);
 
