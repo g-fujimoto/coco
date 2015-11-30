@@ -43,6 +43,14 @@ db.once('open', function(callback) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(cookieParser());
+    app.use(session({
+      secret: 'hogehoge key',
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        maxAge: 30 * 60 * 1000
+      }
+    }));
 
 // Routes
     app.use('/api/items', items);

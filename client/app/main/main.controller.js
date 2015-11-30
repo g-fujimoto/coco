@@ -4,8 +4,20 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
   function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, Upload) {
 
     $scope.global_menu = 'main';
-
+    $scope.islogin = true;
     $scope.pages      = [];
+
+    $scope.login = function() {
+
+        var data = {};
+        data.email = $scope.email;
+        data.password = $scope.password;
+
+        $http.post('/api/users/login', JSON.stringify(data))
+        .success(function(data) {
+            $scope.islogin = data.login;
+        });
+    }
 
     $scope.upload = function(files) {
         if(files && files.length) {
@@ -129,6 +141,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
 
+    $scope.login();
     $scope.getArea();
     $scope.getItem();
 

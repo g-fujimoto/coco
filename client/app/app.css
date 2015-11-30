@@ -7,7 +7,7 @@
 #header #mainmenu .mainmenu_header #login_box { position: absolute; width: 620px; height: 50px; right: 12px; top: 8px; background-color: #1d2087; overflow: hidden; }
 #header #mainmenu .mainmenu_header #login_box ul { margin-left: 20px; margin-top: 12px; }
 #header #mainmenu .mainmenu_header #login_box ul li { float: left; }
-#header #mainmenu .mainmenu_header #login_box ul li input[type=email], #header #mainmenu .mainmenu_header #login_box ul li input[type=text] { width: 230px; height: 20px; border: 1px solid #ccc; color: #cacaca; margin-top: 1px; margin-right: 19px; }
+#header #mainmenu .mainmenu_header #login_box ul li input[type=password], #header #mainmenu .mainmenu_header #login_box ul li input[type=email] { width: 230px; height: 20px; border: 1px solid #ccc; color: #cacaca; margin-top: 1px; margin-right: 19px; }
 #header #mainmenu .mainmenu_header #login_box ul li input:focus { color: #000; }
 #header #mainmenu .mainmenu_header #login_box ul li a { display: block; width: 75px; height: 25px; background-color: #ebf0ed; }
 #header #mainmenu .mainmenu_header #login_box ul li a img { display: block; }
