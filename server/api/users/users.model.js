@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var autoIncrement = require('mongoose-auto-increment');
 
+
 autoIncrement.initialize(mongoose);
 
 var UsersSchema = mongoose.Schema({
@@ -65,9 +66,12 @@ var UsersSchema = mongoose.Schema({
     itemRegisterCounter : {
         count : {type: Number, default: 0}
     },
-    wentItems      : [Number],
-    wantItems      : [Number],
-    recommendItems : [Number],
+    recommendItems : [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: 'Items'
+        }
+    ],
     created        : {type: Date, default: Date.now()},
     modified       : {type: Date, default: Date.now()},
     deleted        : Date,

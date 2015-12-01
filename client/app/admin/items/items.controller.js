@@ -1,9 +1,9 @@
 angular.module('webApp')
-    .controller('ItemsController', ['$scope', '$uibModal', '$ItemsService', '$AreaService', '$$Genres', '$$Prefs',
-            function($scope, $uibModal,  $ItemsService, $AreaService, $$Genres, $$Prefs) {
+    .controller('ItemsController', ['$scope', '$uibModal', '$ItemsService', '$Areas', '$$Genres', '$$Prefs',
+            function($scope, $uibModal,  $ItemsService, $Areas, $$Genres, $$Prefs) {
                 //$scope宣言
                     $scope.alerts  = [];
-                    $scope.areas   = [];
+                    $scope.areas   = $Areas.query();
                     $scope.apiName = 'items';
                     $scope.genres  = $$Genres;
                     $scope.prefs   = $$Prefs;
@@ -15,7 +15,7 @@ angular.module('webApp')
 
                 //データ取得
                     $ItemsService.findAll($scope);
-                    $AreaService.findAll($scope);
+
 
 // ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
                 //編集モーダル呼び出し

@@ -28,13 +28,10 @@
                 ID
             </th>
             <th>
-                ユーザー名
+                名前
             </th>
             <th>
-                ユーザーID
-            </th>
-            <th>
-                店舗ID
+                店舗
             </th>
             <th>
                 タイトル
@@ -65,14 +62,12 @@
             <td>
                 {{comment._id}}
             </td>
+
             <td>
-                {{comment.userLastName}}&nbsp;{{comment.userFirstName}}
+                {{comment.user.lastName}}&nbsp;{{comment.user.firstName}}
             </td>
             <td>
-                {{comment.userId}}
-            </td>
-            <td>
-                {{comment.itemId}}
+                {{comment.item.name}}
             </td>
             <td>
                 {{comment.title}}

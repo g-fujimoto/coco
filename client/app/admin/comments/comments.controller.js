@@ -1,6 +1,6 @@
 angular.module('webApp')
-    .controller('CommentsController', ['$scope', '$uibModal', '$Comments', '$AreaService', '$$Genres', '$$Scenes', '$$Rates', '$timeout', '$state', '$$Alert', '$rootScope',
-            function($scope, $uibModal, $Comments, $AreaService, $$Genres, $$Scenes, $$Rates, $timeout, $state, $$Alert, $rootScope) {
+    .controller('CommentsController', ['$scope', '$uibModal', '$Comments', '$Areas', '$$Genres', '$$Scenes', '$$Rates', '$timeout', '$state', '$$Alert', '$rootScope',
+            function($scope, $uibModal, $Comments, $Areas, $$Genres, $$Scenes, $$Rates, $timeout, $state, $$Alert, $rootScope) {
                 $rootScope.alerts  = [];
                 $scope.apiName = 'comments';
                 $scope.genres  = $$Genres;

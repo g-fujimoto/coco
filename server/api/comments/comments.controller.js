@@ -17,14 +17,22 @@ exports.index = function(req, res) {
         req.body.name = new RegExp('^' + req.body.name);
     }
 
-    Comments.find(req.body, function(err, data) {
-        res.json(data);
-    });
+    Comments.find(req.body)
+        .populate('user')
+        .populate('item')
+        .exec(function(err, data) {
+            if(err) throw Error(err);
+            res.json(data);
+        });
 };
 
 //get
 exports.get = function(req, res) {
-    Comments.findOne({_id: req.params._id}, function(err, data) {
+    Comments.findOne({_id: req.params._id})
+    .populate('user')
+    .populate('item')
+    .exec(function(err, data) {
+        if(err) throw Error(err);
         res.json(data);
     });
 };
@@ -32,9 +40,7 @@ exports.get = function(req, res) {
 //create
 exports.create = function(req, res) {
 
-
     var newItem = new Comments(req.body);
-
 
     newItem.save(function(err) {
         if(err) {

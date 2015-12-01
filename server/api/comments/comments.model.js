@@ -5,35 +5,34 @@ var autoIncrement = require('mongoose-auto-increment');
 autoIncrement.initialize(mongoose);
 
 var CommentsSchema = mongoose.Schema({
-    userId        : Number,
-    userFirstName : String,
-    userLastName  : String,
-    itemId        : Number,
-    title         : String,
-    body          : String,
+    user  : {type : mongoose.Schema.ObjectId, ref : 'Users'},
+    item  : {type : mongoose.Schema.ObjectId, ref : 'Items'},
+    title : String,
+    body  : String,
+    type  : Boolean,
     genreAve: {type : Number, default : 0},
     genre         : {
         name            : String,
         options: {
             taste: {
-                label: String,
-                rate: Number
+                label : String,
+                rate  : Number
             },
             beautiful: {
-                label: String,
-                rate: Number
+                label : String,
+                rate  : Number
             },
             quality: {
-                label: String,
-                rate: Number
+                label : String,
+                rate  : Number
             },
             originality: {
-                label: String,
-                rate: Number
+                label : String,
+                rate  : Number
             },
             sense: {
-                label: String,
-                rate: Number
+                label : String,
+                rate  : Number
             }
         }
     },
