@@ -12,7 +12,6 @@ angular.module('webApp')
                 //Postするscenesデータ配列
                 $scope.newComment.scenes = [];
 
-
                 //シーン追加処理
                 $scope.selectScenes = [];
 
@@ -43,6 +42,7 @@ angular.module('webApp')
 
                 //$Commentsデータ取得
                 $scope.comments = $Comments.query();
+                $scope.datas = $Comments.query();
 
                 //$Commentsデータ登録
                 $scope.createComment = () => {
@@ -134,7 +134,7 @@ angular.module('webApp')
                             return childElement.rate;
                         });
                         const sceneRateAll = sceneRate.reduce((x, y) => {
-                                return x + y
+                                return x + y;
                         });
                         return sceneRateAll;
                         });

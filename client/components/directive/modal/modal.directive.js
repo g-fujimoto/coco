@@ -2,8 +2,9 @@ angular.module('webApp')
     .directive('deleteModal', ($uibModal) => {
         return (scope, element, attr) => {
             element.on('click', () => {
-                    scope._id   = scope.comments[attr.modalDelete]._id;
-                    scope.index = attr.modalDelete;
+                    console.log(scope.apiName);
+                    scope.$apply._id   = scope.datas[attr.deleteModal]._id;
+                    scope.$apply.index = attr.modalDelete;
                     $uibModal.open({
                         controller  : 'ModalController',
                         backdrop    : 'static',

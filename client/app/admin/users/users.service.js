@@ -9,6 +9,7 @@ angular.module('webApp')
             $http.get('/api/users')
                 .success(function(data) {
                     scope.users = data;
+                    scope.datas = data;
                 });
         };
 
@@ -29,7 +30,7 @@ angular.module('webApp')
                         }, 1800);
 
                     } else {
-                        scope.alerts.push($$Alert.successRegister);                        
+                        scope.alerts.push($$Alert.successRegister);
                         $timeout(function() {
                             scope.alerts.splice(0, 1);
                         }, 1800);

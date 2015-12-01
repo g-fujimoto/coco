@@ -129,3 +129,4 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.genrelists = $$Genres;
 
     $scope.getItem();
+}]);
