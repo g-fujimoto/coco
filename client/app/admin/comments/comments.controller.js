@@ -12,7 +12,6 @@ angular.module('webApp')
                 //Postするscenesデータ配列
                 $scope.newComment.scenes = [];
 
-
                 //シーン追加処理
                 $scope.selectScenes = [];
 
@@ -43,6 +42,7 @@ angular.module('webApp')
 
                 //$Commentsデータ取得
                 $scope.comments = $Comments.query();
+                $scope.datas = $Comments.query();
 
                 //$Commentsデータ登録
                 $scope.createComment = () => {
@@ -106,7 +106,7 @@ angular.module('webApp')
                     $scope.selectComment = $scope.comments[$index];
                     $scope.editComment = $Comments.get({_id: $scope.selectComment._id});
                     $uibModal.open({
-                        templateUrl : './components/modal/comments/modal.edit.html',
+                        templateUrl : './components/directive/modal/comments/modal.edit.html',
                         scope       : $scope,
                         controller  : 'ModalController',
                         backdrop    : 'static',
@@ -114,17 +114,7 @@ angular.module('webApp')
                     });
                 };
 
-                //削除モーダル呼び出し
-                $scope.showDeleteModal = function($index) {
-                    $scope._id   = $scope.comments[$index]._id;
-                    $scope.index = $index;
-                    $uibModal.open({
-                        controller  : 'ModalController',
-                        backdrop    : 'static',
-                        scope       : $scope,
-                        templateUrl : './components/modal/modal.delete.html'
-                    });
-                };
+
 
 // ----------------------------------------------- 独自関数 -----------------------------------------------//
                 const calcAve = () => {
@@ -144,7 +134,7 @@ angular.module('webApp')
                             return childElement.rate;
                         });
                         const sceneRateAll = sceneRate.reduce((x, y) => {
-                                return x + y
+                                return x + y;
                         });
                         return sceneRateAll;
                         });

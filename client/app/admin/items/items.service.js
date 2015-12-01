@@ -9,6 +9,7 @@ angular.module('webApp')
             $http.get('/api/items')
                 .success(function(data) {
                     scope.items = data;
+                    scope.datas = data;
                 });
         };
 

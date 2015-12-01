@@ -131,46 +131,4 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
 
-
-// ------------------------------- Modal ------------------------------ //
-    $scope.showWentModal = function(item) {
-
-        $scope.scenelists = $$Scenes;
-        $scope.genrelists = $$Genres;
-
-        var genre = _.select($$Genres, function(num) {
-            return num.name == item.genreName
-        });
-
-        $scope.modalOption = {
-            item    : item,
-            genre : genre[0],
-            scenelists : $$Scenes,
-            modalUrl : './components/directive/modal/modal.wantGo.html',
-            scope    : $scope
-        };
-
-        $uibModal.open({
-            controller  : 'ModalController',
-            backdrop    : 'static',
-            scope       : $scope,
-            templateUrl : './components/directive/modal/modal.went.html'
-        });
-    };
-
-    $scope.showWannaModal = function(item) {
-
-        $scope.modalOption = {
-            item    : item,
-            modalUrl : './components/directive/modal/modal.wantGo.html',
-            scope    : $scope
-        };
-
-        $uibModal.open({
-            controller  : 'ModalController',
-            backdrop    : 'static',
-            scope       : $scope,
-            templateUrl : './components/directive/modal/modal.wanna.html'
-        });
-    };
 }]);
