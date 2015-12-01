@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', 'Upload', '$Areas',
-  function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, Upload, $Areas) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$Users',
+  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $Users) {
 
     $scope.global_menu = 'main';
     $scope.scenelists = $$Scenes;
@@ -10,15 +10,8 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.pages      = [];
 
     $scope.login = function() {
-
-        var data = {};
-        data.email = $scope.email;
-        data.password = $scope.password;
-
-        $http.post('/api/users/login', JSON.stringify(data))
-        .success(function(data) {
-            $scope.islogin = data.login;
-        });
+      
+        $scope.islogin = $Users.login($scope);
     }
 
     $scope.upload = function(files) {
@@ -40,7 +33,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         var data = {};
         if ($scope.word) data.name = $scope.word;
-        if ($scope.scene) data.scene   = $scope.scene;
+        if ($scope.scene) data.sceneName   = $scope.sceneName;
         if ($scope.genreName) data.genreName   = $scope.genreName;
         if ($scope.area) data.area   = $scope.area;
 
@@ -55,14 +48,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             for(var i = Math.ceil(data.length/10) + 1;--i;) {
                 $scope.pages.unshift(i);
             }
-        });
-    };
-
-    $scope.getArea= function() {
-
-        $http.get('/api/areas')
-        .success(function(data) {
-            $scope.arealists = data;
         });
     };
 
@@ -111,11 +96,11 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     };
 
     $scope.findAddScene = function(value) {
-        $scope.scene = ($scope.scene == value) ? null : value;
+        $scope.sceneName = ($scope.sceneName == value) ? null : value;
         $scope.getItem();
     };
 
-    $scope.findAddGenreName = function(value) {
+    $scope.findAddGenre = function(value) {
         $scope.genreName = ($scope.genreName == value) ? null : value;
         $scope.getItem();
     };
@@ -143,8 +128,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
 
-    $scope.login();
-    $scope.getArea();
     $scope.getItem();
 
 // ------------------------------- Modal ------------------------------ //
@@ -152,9 +135,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         $scope.scenelists = $$Scenes;
         $scope.genrelists = $$Genres;
-
-        // モーダルの初期化
-
 
         var genre = _.select($$Genres, function(num) {
             return num.name == item.genreName

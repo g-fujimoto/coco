@@ -5,5 +5,6 @@ angular.module('webApp')
             {_id: '@_id'},
             {update: {method: 'PUT'}}
         );
+
         return this.Areas;
     }]);

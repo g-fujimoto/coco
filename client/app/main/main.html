@@ -114,30 +114,7 @@
               </div>
           </div>
 
-    <div id="sidemenu">
-
-        <div class="sidemenu_box">
-            <h3>エリアから探す</h3>
-            <ul>
-                <li ng-repeat="arealist in arealists" ng-class="{current:$parent.area==arealist.name}"><a href="" ng-click="findAddArea(arealist.name)">{{arealist.name}}</a></li>
-            </ul>
-        </div>
-
-        <div class="sidemenu_box">
-            <h3>利用用途から探す</h3>
-            <ul>
-                <li ng-repeat="scenelist in scenelists" ng-class="{current:$parent.scene==scenelist.name}"><a href="" ng-click="findAddScene(scenelist.name)">{{scenelist.name}}</a></li>
-            </ul>
-        </div>
-
-        <div class="sidemenu_box">
-            <h3>ジャンルから探す</h3>
-            <ul>
-                <li ng-repeat="genrelist in genrelists" ng-class="{current:$parent.genreName==genrelist.name}"><a href="" ng-click="findAddGenreName(genrelist.name)">{{genrelist.name}}</a></li>
-            </ul>
-        </div>
-
-    </div>
+          <coco-sidebar></coco-sidebar>
 
     </div>
 
