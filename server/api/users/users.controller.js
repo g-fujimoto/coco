@@ -25,6 +25,18 @@ exports.index = function(req, res) {
 
 };
 
+exports.login = function(req, res) {
+
+    if (req.session.user) {
+        return res.json({login: false});
+    }
+
+    Users.findOne({email: req.body.email, password:req.body.password}, function(err, data) {
+        req.session.user = data;
+        return res.json({login: !data});
+    });
+};
+
 //get
 exports.get = function(req, res) {
 

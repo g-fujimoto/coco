@@ -6,7 +6,20 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.global_menu = 'main';
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
+    $scope.islogin = true;
     $scope.pages      = [];
+
+    $scope.login = function() {
+
+        var data = {};
+        data.email = $scope.email;
+        data.password = $scope.password;
+
+        $http.post('/api/users/login', JSON.stringify(data))
+        .success(function(data) {
+            $scope.islogin = data.login;
+        });
+    }
 
     $scope.upload = function(files) {
         if(files && files.length) {
@@ -55,9 +68,10 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
     $scope.getComments = function() {
 
-        var item_ids = _.pluck($scope.items, '_id');
+        var data = {};
+        data.itemId = _.pluck($scope.items, '_id');
 
-        $http.get('/api/comments', JSON.stringify(item_ids))
+        $http.post('/api/comments/find', JSON.stringify(data))
         .success(function(data) {
 
             // 店舗IDリスト作成
@@ -66,7 +80,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             // 店舗毎にコメントを操作
             for (var i in item_comments) {
 
-                var comments = _.filter(data, function(num) {return num._item_id === item_comments[i];});
+                var comments = _.filter(data, function(num) {return num.itemId === item_comments[i];});
 
                 // ジャンルポイント平均作成
                 var genreAvelist = _.pluck(comments, 'genreAve');
@@ -129,6 +143,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
 
+    $scope.login();
     $scope.getArea();
     $scope.getItem();
 
@@ -137,6 +152,9 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         $scope.scenelists = $$Scenes;
         $scope.genrelists = $$Genres;
+
+        // モーダルの初期化
+
 
         var genre = _.select($$Genres, function(num) {
             return num.name == item.genreName

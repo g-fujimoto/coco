@@ -13,8 +13,9 @@ var _ = require('lodash');
 //index
 exports.index = function(req, res) {
 
-    if (req.body.name) {
-        req.body.name = new RegExp('^' + req.body.name);
+
+    if (req.body.itemId) {
+        req.body.itemId = {$in : req.body.itemId};
     }
 
     Comments.find(req.body)
