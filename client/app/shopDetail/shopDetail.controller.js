@@ -1,10 +1,15 @@
 var app = angular.module('webApp');
 
-app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams',
-  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams) {
+app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams', '$Users',
+  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users) {
 
     $scope.global_menu = 'shopDetail';
     $scope.islogin = true;
+
+    $scope.login = function() {
+
+        $scope.islogin = $Users.login($scope);
+    }
 
     $scope.upload = function(files) {
         if(files && files.length) {
@@ -34,7 +39,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
         var data = {};
         data.itemId = $stateParams.itemid;
 
-        $http.post('/api/comments/find', JSON.stringify(data))
+        $http.post('/api/comments/getByItemID', JSON.stringify(data))
         .success(function(data) {
 /*
             // ジャンルポイント平均作成
@@ -57,6 +62,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
 
+    $scope.login();
     $scope.getItem();
     $scope.getComments();
 
@@ -74,7 +80,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
             item    : item,
             genre : genre[0],
             scenelists : $$Scenes,
-            modalUrl : './components/modal/modal.wantGo.html',
+            modalUrl : './components/directive/modal/modal.wantGo.html',
             scope    : $scope
         };
 
@@ -82,7 +88,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
             controller  : 'ModalController',
             backdrop    : 'static',
             scope       : $scope,
-            templateUrl : './components/modal/modal.went.html'
+            templateUrl : './components/directive/modal/modal.went.html'
         });
     };
 
@@ -90,7 +96,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
 
         $scope.modalOption = {
             item    : item,
-            modalUrl : './components/modal/modal.wantGo.html',
+            modalUrl : './components/directive/modal/modal.wantGo.html',
             scope    : $scope
         };
 
@@ -98,7 +104,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
             controller  : 'ModalController',
             backdrop    : 'static',
             scope       : $scope,
-            templateUrl : './components/modal/modal.wanna.html'
+            templateUrl : './components/directive/modal/modal.wanna.html'
         });
     };
 }]);

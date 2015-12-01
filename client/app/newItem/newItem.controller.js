@@ -1,6 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('NewItemController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout) {
+app.controller('NewItemController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users',
+    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users) {
 
     $scope.global_menu = 'newItem';
     $scope.islogin = true;
@@ -8,6 +9,11 @@ app.controller('NewItemController', ['$scope', '$http', '$$Scenes', '$$Genres', 
 
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
+
+    $scope.login = function() {
+
+        $scope.islogin = $Users.login($scope);
+    }
 
     $scope.getItem = function() {
 
@@ -79,6 +85,7 @@ app.controller('NewItemController', ['$scope', '$http', '$$Scenes', '$$Genres', 
         $scope.getItem();
     });
 
+    $scope.login();
     $scope.getItem();
 
 

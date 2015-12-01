@@ -10,7 +10,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.pages      = [];
 
     $scope.login = function() {
-      
+
         $scope.islogin = $Users.login($scope);
     }
 
@@ -125,10 +125,12 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         $scope.upload($scope.files);
     });
 
+    $scope.login();
+    $scope.getItem();
+
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
 
-    $scope.getItem();
 
 // ------------------------------- Modal ------------------------------ //
     $scope.showWentModal = function(item) {
@@ -144,7 +146,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             item    : item,
             genre : genre[0],
             scenelists : $$Scenes,
-            modalUrl : './components/modal/modal.wantGo.html',
+            modalUrl : './components/directive/modal/modal.wantGo.html',
             scope    : $scope
         };
 
@@ -152,7 +154,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             controller  : 'ModalController',
             backdrop    : 'static',
             scope       : $scope,
-            templateUrl : './components/modal/modal.went.html'
+            templateUrl : './components/directive/modal/modal.went.html'
         });
     };
 
@@ -160,7 +162,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         $scope.modalOption = {
             item    : item,
-            modalUrl : './components/modal/modal.wantGo.html',
+            modalUrl : './components/directive/modal/modal.wantGo.html',
             scope    : $scope
         };
 
@@ -168,7 +170,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             controller  : 'ModalController',
             backdrop    : 'static',
             scope       : $scope,
-            templateUrl : './components/modal/modal.wanna.html'
+            templateUrl : './components/directive/modal/modal.wanna.html'
         });
     };
 }]);

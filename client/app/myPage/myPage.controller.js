@@ -14,6 +14,11 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
 
     $scope.comments = '';
 
+    $scope.login = function() {
+
+        $scope.islogin = $Users.login($scope);
+    }
+
     $scope.getItem = function() {
         var data = {};
         if ($scope.word) data.itemName = $scope.word;
@@ -81,6 +86,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         $scope.getItem();
     });
 
+    $scope.login();
     $scope.getItem();
 
 

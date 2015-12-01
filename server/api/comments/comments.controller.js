@@ -13,7 +13,6 @@ var _ = require('lodash');
 //index
 exports.index = function(req, res) {
 
-
     if (req.body.itemId) {
         req.body.itemId = {$in : req.body.itemId};
     }
@@ -37,6 +36,18 @@ exports.get = function(req, res) {
         res.json(data);
     });
 };
+
+exports.getByItemID = function(req, res) {
+
+    if (req.body.itemId) {
+        req.body.itemId = {$in : req.body.itemId};
+    }
+
+    Comments.find(req.body, function(err, data) {
+        res.json(data);
+    });
+
+}
 
 //create
 exports.create = function(req, res) {

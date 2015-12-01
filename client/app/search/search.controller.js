@@ -1,10 +1,16 @@
 var app = angular.module('webApp');
 
-app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $uibModal, $timeout) {
+app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', '$timeout', '$Users',
+    function($scope, $http, $$Scenes, $uibModal, $timeout, $Users) {
 
     $scope.global_menu = 'search';
     $scope.islogin = true;
     $scope.pages      = [];
+
+    $scope.login = function() {
+
+        $scope.islogin = $Users.login($scope);
+    }
 
     $scope.getItem = function() {
 
@@ -87,6 +93,7 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
 
     $scope.scenelists = $$Scenes;
 
+    $scope.login();
     $scope.getItem();
 
 }]);
