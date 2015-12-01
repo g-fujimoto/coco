@@ -1,7 +1,7 @@
 angular.module('webApp')
     .directive('ngNavbar', function() {
         return {
-            templateUrl: './components/adminNavbar/adminNavbar.html',
+            templateUrl: './components/directive/navbar/navbar.html',
             restric: 'E'
         };
     });

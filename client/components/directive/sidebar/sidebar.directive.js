@@ -1,7 +1,7 @@
 angular.module('webApp')
     .directive('cocoSidebar', () => {
         return {
-            templateUrl: './components/sidebar/sidebar.html',
+            templateUrl: './components/directive/sidebar/sidebar.html',
             restrict: 'E'
         };
     });
