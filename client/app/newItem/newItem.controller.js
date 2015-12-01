@@ -3,6 +3,7 @@ var app = angular.module('webApp');
 app.controller('NewItemController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout) {
 
     $scope.global_menu = 'newItem';
+    $scope.islogin = true;
     $scope.pages      = [];
 
     $scope.scenelists = $$Scenes;

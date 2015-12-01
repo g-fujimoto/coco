@@ -3,11 +3,11 @@
 
         <div class="mainmenu_header">
             <h2><a href=""><img src="./assets/./images/header/logo.svg" alt="ココ社長" /></a></h2>
-            <div id="login_box">
+            <div id="login_box" ng-show="islogin">
                 <ul>
-                    <li><input type="email" value="Email" /></li>
-                    <li><input type="text" value="Password" /></li>
-                    <li><a href=""><img src="./assets/./images/header/login_button.svg" alt="ログイン" /></a></li>
+                    <li><input type="email" value="Email" ng-model="email"/></li>
+                    <li><input type="password" value="Password" ng-model="password"/></li>
+                    <li><a ng-click="login()" href=""><img src="./assets/./images/header/login_button.svg" alt="ログイン" /></a></li>
                 </ul>
             </div>
         </div>

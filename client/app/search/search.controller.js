@@ -3,6 +3,7 @@ var app = angular.module('webApp');
 app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', '$timeout', function($scope, $http, $$Scenes, $uibModal, $timeout) {
 
     $scope.global_menu = 'search';
+    $scope.islogin = true;
     $scope.pages      = [];
 
     $scope.getItem = function() {

@@ -6,13 +6,11 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     $scope.global_menu = 'myPage';
     $scope.scenelists = $$Scenes;
     $scope.genrelists = $$Genres;
+    $scope.islogin = true;
     $scope.pages      = [];
-
 
     // -------- DummyData --------//
     $scope.loginUser  = $Users.get({_id: 11});
-
-
 
     $scope.getItem = function() {
         var data = {};

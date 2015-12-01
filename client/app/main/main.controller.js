@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', 'Upload',
-  function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, Upload) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload',
+  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload) {
 
     $scope.global_menu = 'main';
     $scope.islogin = true;
