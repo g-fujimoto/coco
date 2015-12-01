@@ -1,5 +1,6 @@
 angular.module('webApp')
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
     $stateProvider
         .state('myPage', {
             url: '/myPage',

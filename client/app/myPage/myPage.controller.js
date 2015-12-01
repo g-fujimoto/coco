@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users',
-    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users) {
+app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users', '$Comments',
+    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments) {
 
     $scope.global_menu = 'myPage';
     $scope.scenelists = $$Scenes;
@@ -10,7 +10,9 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     $scope.pages      = [];
 
     // -------- DummyData --------//
-    $scope.loginUser  = $Users.get({_id: 11});
+    $scope.loginUser = $Users.get({_id : 11});
+
+    $scope.comments = '';
 
     $scope.getItem = function() {
         var data = {};

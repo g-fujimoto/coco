@@ -1,17 +1,20 @@
 
     <div id="bg_black"> </div>
     <div id="main_contents">
-        <div class="want_go_store_list">
-            <div class="store_img">
-                画像
-            </div>
-            <div class="store_info">
-                <h5>やまっち</h5>
-                <p class="store_attribute">(イタリアン) (心斎橋) (社内利用 家族利用 一人利用)</p>
-                <p class="gradation_thin_border"></p>
-                <p class="impressions">あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ・・・</p>
-                <p class="see_store_info"><a href="#">店舗情報を見る</a></p>
-                <p class="edit"><a href="#">編集する</a></p>
+        <div ng-repeat="comment in comments | filter: {type: false} | filter: {user: {_id: comment.user._id}}">
+            <div class="want_go_store_list" style="margin-bottom:20px;">
+                <div class="store_img">
+                    画像
+                </div>
+                    <div class="store_info">
+                        <h5>{{comment.item.name}}</h5>
+                        <p class="store_attribute">({{comment.item.genreName}})&nbsp;({{comment.item.area}})&nbsp;(<span ng-repeat="sceneName in comment.item.sceneNames">{{sceneName}}&nbsp;</span>)</p>
+                        <p class="gradation_thin_border"></p>
+                        <p class="impressions">{{comment.body}}</p>
+                        <p class="see_store_info"><a href="#">店舗情報を見る</a></p>
+                        <p class="edit"><a href="#">編集する</a></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -18,9 +18,11 @@ exports.index = function(req, res) {
         req.body.userName = new RegExp('^' + req.body.userName);
     }
 
-    Users.find(req.body, function(err, data) {
+    Users.find({}, function(err, data) {
+        if(err) throw Error(err);
         res.json(data);
     });
+
 };
 
 exports.login = function(req, res) {
@@ -39,8 +41,7 @@ exports.login = function(req, res) {
 exports.get = function(req, res) {
 
     Users.findOne({_id: req.params._id}, function(err, data) {
-        console.log(req.params._id);
-        console.log(data);
+        if(err) throw Error(err);
         res.json(data);
     });
 };
