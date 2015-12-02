@@ -1,7 +1,7 @@
 <div class="modal-header">
-    <h4 class="modal-title">{{modalOption.item.name}}の「行きたい」を登録</h4>
+    <h4 class="modal-title">{{item.name}}の「行きたい」を登録</h4>
 </div>
-<div class="modal-body">m
+<div class="modal-body">
     <div class="row">
         <div class="container-fluid text-sm">
             <div class="col-sm-3">
@@ -13,5 +13,5 @@
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
-    <button class="btn" type="button" ng-click="update()">登録する</button>
+    <button class="btn" type="button" ng-click="update('comments'))">登録する</button>
 </div>

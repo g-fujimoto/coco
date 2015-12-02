@@ -1,5 +1,4 @@
 <coco-header></coco-header>
-
 <div id="main" class="search" ng-show="!islogin">
 
     <div id="main_header">
@@ -100,7 +99,7 @@
                     <div class="footer_box">
                         <ul>
                             <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikesCounter}}人がいいねといっています</h6></li>
-                            <li><button class="blue_btn" type="button"><i class="fa fa-star-o"></i>&nbsp;推薦する</button></li>
+                            <li><button class="blue_btn" type="button"><i class="fa fa-star-o" ng-click="setItemRecomment(item._id);hoge='animatehoge'"></i>&nbsp;推薦する</button></li>
                         </ul>
                     </div>
 

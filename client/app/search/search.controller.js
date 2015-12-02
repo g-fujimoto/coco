@@ -10,7 +10,12 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
     $scope.login = function() {
 
         $scope.islogin = $Users.login($scope);
-    }
+    };
+
+    $scope.setItemRecommentd = function(itemid) {
+
+        console.log('nice' + itemid);
+    };
 
     $scope.getItem = function() {
 

@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$Users',
-  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $Users) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$Users',
+  function($scope, $http, $$Scenes, $$Genres, $uibModal, $Users) {
 
     $scope.global_menu = 'main';
     $scope.scenelists = $$Scenes;
@@ -13,21 +13,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         $scope.islogin = $Users.login($scope);
     }
-
-    $scope.upload = function(files) {
-        if(files && files.length) {
-            for(var i = 0; i < files.length; i++) {
-                var file = files[i];
-                Upload.upload({
-                    url: '/api/upload',
-                    file: file
-                })
-                .success(function(data, status, header, config) {
-                    console.log('アップデート完了：' + config.file.name);
-                });
-            }
-        }
-    };
 
     $scope.getItem = function() {
 
@@ -119,10 +104,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.$watch('word', function(newValue, oldValue) {
         if (!newValue && !oldValue) return;
         $scope.getItem();
-    });
-
-    $scope.$watch('files', function() {
-        $scope.upload($scope.files);
     });
 
     $scope.login();

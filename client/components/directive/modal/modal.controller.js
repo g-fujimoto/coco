@@ -1,9 +1,23 @@
 angular.module('webApp')
-    .controller('ModalController', ['$http', '$scope', '$uibModalInstance', '$ItemsService', '$UsersService',
-     function($http, $scope, $uibModalInstance, $ItemsService, $UsersService) {
+    .controller('ModalController', ['$http', '$scope', '$uibModalInstance', '$ItemsService', '$UsersService', 'Upload',
+     function($http, $scope, $uibModalInstance, $ItemsService, $UsersService, Upload) {
 
         //更新ボタン 処理
         $scope.update = function(apiName) {
+
+            if($scope.modalOption.files && $scope.modalOption.files.length) {
+                for(var i = 0; i < $scope.modalOption.files.length; i++) {
+                    var file = $scope.modalOption.files[i];
+                    Upload.upload({
+                        url: '/api/upload',
+                        file: file
+                    })
+                    .success(function(data, status, header, config) {
+                        console.log('アップロード完了：' + config.file.name);
+                    });
+                }
+            }
+
             switch(apiName) {
                 case 'items' :
                     var api = {
