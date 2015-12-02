@@ -12,7 +12,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     // -------- DummyData --------//
     $scope.loginUser = $Users.get({_id : 11});
 
-    $scope.comments = '';
+    $scope.comments = $Comments;
 
     $scope.login = function() {
 
