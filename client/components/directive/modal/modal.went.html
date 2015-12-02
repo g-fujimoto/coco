@@ -1,11 +1,11 @@
 <div class="modal-header">
-    <h4 class="modal-title">{{modalOption.item.name}}の「行った」を登録</h4>
+    <h4 class="modal-title">{{item.name}}の「行った」を登録</h4>
 </div>
 <div class="modal-body">
     <div class="row">
         <div class="container-fluid text-sm">
             <div class="col-sm-3">
-                ジャンル：{{modalOption.genre.name}}
+                ジャンル：{{item.genreName}}
             </div>
             <div class="col-sm-9 text-sm">
                 <p>
@@ -86,7 +86,7 @@
     <div class="row">
         <div class="container-fluid text-sm" ng-repeat="scenelist in scenelists | filter : {'name': '高級接待'}">
             <div class="col-sm-3">
-                シーン：{{scenelist.name}}
+                シーン：{{item.scene.name}}
             </div>
             <div class="col-sm-9 text-sm">
                 <p>
@@ -204,5 +204,5 @@
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
-    <button class="btn" type="button" ng-click="update()">登録する</button>
+    <button class="btn" type="button" ng-click="update('')">登録する</button>
 </div>
