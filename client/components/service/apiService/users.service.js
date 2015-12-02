@@ -14,10 +14,9 @@ angular.module('webApp')
             data.password = $scope.password;
 
             $http.post('/api/users/login', JSON.stringify(data))
-            .success(function(data) {
+            .success((data) => {
                 return data;
             });
-
             return null;
         };
 

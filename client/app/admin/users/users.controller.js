@@ -1,25 +1,25 @@
 angular.module('webApp')
-    .controller('UsersController', ['$scope', '$uibModal', '$UsersService',
-            function($scope, $uibModal,  $UsersService) {
+    .controller('UsersController', ['$scope', '$uibModal', '$UsersService', '$Users',
+            function($scope, $uibModal,  $UsersService, $Users) {
                 //getData
-                    $UsersService.findAll($scope);
+                $scope.datas = $Users.query();
                 //$scope
                     $scope.alerts = [];
                     $scope.apiName = 'users';
                     $scope.newUser = {};
                     $scope.newUser.aboutWorks = [{
-                            title: undefined,
-                            body : undefined,
+                            title    : undefined,
+                            body     : undefined,
                             disabled : true,
                             button   : true,
-                            label: true
+                            label    : true
                         }];
                     $scope.newUser.others = [{
-                            title: undefined,
-                            body : undefined,
+                            title    : undefined,
+                            body     : undefined,
                             disabled : true,
                             button   : true,
-                            label: true
+                            label    : true
                         }];
 
                     //Usersデータ登録
@@ -30,21 +30,21 @@ angular.module('webApp')
 
                     $scope.addAboutWorks = function() {
                         $scope.newUser.aboutWorks.push({
-                            title: undefined,
-                            body: undefined,
-                            disabled: false,
-                            button: false,
-                            label: false
+                            title    : undefined,
+                            body     : undefined,
+                            disabled : false,
+                            button   : false,
+                            label    : false
                         });
                     };
 
                     $scope.addOthers = function() {
                         $scope.newUser.others.push({
-                            title: undefined,
-                            body: undefined,
-                            disabled: false,
-                            button: false,
-                            label: false
+                            title    : undefined,
+                            body     : undefined,
+                            disabled : false,
+                            button   : false,
+                            label    : false
                         });
                     };
 
@@ -69,31 +69,4 @@ angular.module('webApp')
                                                 });
                                             }, true);
 
-// ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
-                //編集モーダル呼び出し
-                $scope.showEditModal = function($index) {
-                    $scope.index      = $index;
-                    $scope.selectUser = $scope.users[$index];
-                    $scope.editUser = _.cloneDeep($scope.selectUser);
-                    $uibModal.open({
-                        templateUrl : './components/modal/users/modal.edit.html',
-                        scope       : $scope,
-                        controller  : 'ModalController',
-                        backdrop    : 'static',
-                        size        : 'lg'
-                    });
-                };
-
-                //削除モーダル呼び出し
-                $scope.showDeleteModal = function($index) {
-                    $scope._id   = $scope.users[$index]._id;
-                    $scope.index = $index;
-
-                    $uibModal.open({
-                        controller  : 'ModalController',
-                        backdrop    : 'static',
-                        scope       : $scope,
-                        templateUrl : './components/modal/modal.delete.html'
-                    });
-                };
     }]);

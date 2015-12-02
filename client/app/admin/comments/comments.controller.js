@@ -41,7 +41,6 @@ angular.module('webApp')
                     },true);
 
                 //$Commentsデータ取得
-                $scope.comments = $Comments.query();
                 $scope.datas = $Comments.query();
 
                 //$Commentsデータ登録
@@ -69,13 +68,12 @@ angular.module('webApp')
                 //$Commentsデータ削除
                 $scope.deleteComment = (_id, scope) => {
                     $Comments.delete(
-                        {_id: _id},
+                        {_id},
                         () => {
-                            console.log($scope);
-                            $scope.comments = $Comments.query();
+                            $scope.datas = $Comments.query();
                             scope.$dismiss();
                             $scope.alerts.push($$Alert.successDelete);
-                            $scope.comments.splice($scope.index, 1);
+                            $scope.datas.splice($scope.index, 1);
                             $timeout(() => {
                                 $scope.alerts.splice(0, 1);
                             }, 1800);
@@ -88,10 +86,10 @@ angular.module('webApp')
                     $Comments.update(
                         $scope.editComment,
                         () => {
-                            $scope.comments = $Comments.query();
+                            $scope.datas = $Comments.query();
                             scope.$dismiss();
                             $scope.alerts.push($$Alert.successUpdate);
-                            $scope.comments.splice($scope.index, 1);
+                            $scope.datas.splice($scope.index, 1);
                             $timeout(() => {
                                 $scope.alerts.splice(0, 1);
                             }, 1800);

@@ -58,34 +58,34 @@
                 削除
             </th>
         </tr>
-        <tr ng-repeat="comment in comments">
+        <tr ng-repeat="data in datas">
             <td>
-                {{comment._id}}
+                {{data._id}}
             </td>
 
             <td>
-                {{comment.user.lastName}}&nbsp;{{comment.user.firstName}}
+                {{data.user.lastName}}&nbsp;{{data.user.firstName}}
             </td>
             <td>
-                {{comment.item.name}}
+                {{data.item.name}}
             </td>
             <td>
-                {{comment.title}}
+                {{data.title}}
             </td>
             <td>
-                {{comment.itemLikesCounter.count}}&nbsp;いいね!
+                {{data.itemLikesCounter.count}}&nbsp;いいね!
             </td>
             <td>
-                {{comment.genreAve | number: 1}}&nbsp;点
+                {{data.genreAve | number: 1}}&nbsp;点
             </td>
             <td>
-                {{comment.scenesAve | number: 1}}&nbsp;点
+                {{data.scenesAve | number: 1}}&nbsp;点
             </td>
             <td>
-                {{comment.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{data.created | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
-                {{comment.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{data.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
                 <button class="btn btn-xs btn-success width-lg" ng-click="showEditModal($index)">編集</button>

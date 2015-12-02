@@ -58,33 +58,33 @@
                 削除
             </th>
         </tr>
-        <tr ng-repeat="user in users">
+        <tr ng-repeat="data in datas">
             <td>
-                {{user._id}}
+                {{data._id}}
             </td>
             <td>
-            {{user.lastName}}&nbsp;{{user.firstName}}
+            {{data.lastName}}&nbsp;{{data.firstName}}
             </td>
             <td>
-                {{user.email}}
+                {{data.email}}
             </td>
             <td>
-                {{user.company.name}}
+                {{data.company.name}}
             </td>
             <td>
-                {{user.wentItems.length}}&nsbp;店舗
+                {{data.wentItems.length}}&nbsp;店舗
             </td>
             <td>
-                {{user.wantItems.length}} 店舗
+                {{data.wantItems.length}} 店舗
             </td>
             <td>
-                {{user.recommendItems.length}} 店舗
+                {{data.recommendItems.length}} 店舗
             </td>
             <td>
-                {{user.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{data.created | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
-                {{user.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{data.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
                 <button class="btn btn-xs btn-success width-lg" ng-click="showEditModal($index)">編集</button>

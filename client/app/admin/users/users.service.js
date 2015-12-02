@@ -1,18 +1,5 @@
 angular.module('webApp')
     .service('$UsersService', ['$http', '$state', '$timeout', '$$Alert', function($http, $state, $timeout, $$Alert) {
-
-        /**
-         * Users データ全件出力
-         */
-        this.findAll = function(scope) {
-
-            $http.get('/api/users')
-                .success(function(data) {
-                    scope.users = data;
-                    scope.datas = data;
-                });
-        };
-
         /**
          * Users 新規登録処理
          */
@@ -21,17 +8,13 @@ angular.module('webApp')
                 .success(function(data) {
                     if(data.type) {
                         scope.alerts.push($$Alert.failureRegister);
-
-                        console.log(data.type);
-                        console.log(data.message);
-
-                        $timeout(function() {
+                        $timeout(() => {
                             scope.alerts.splice(0, 1);
                         }, 1800);
 
                     } else {
                         scope.alerts.push($$Alert.successRegister);
-                        $timeout(function() {
+                        $timeout(() => {
                             scope.alerts.splice(0, 1);
                         }, 1800);
 
@@ -53,7 +36,7 @@ angular.module('webApp')
                     scope.$dismiss();
                     scope.alerts.push($$Alert.successUpdate);
 
-                    $timeout(function() {
+                    $timeout(() => {
                         scope.alerts.splice(0, 1);
                     }, 1800);
                 });
@@ -63,12 +46,12 @@ angular.module('webApp')
          * Users 削除処理
          */
         this.delete = function(scope) {
-            $http.delete('/api/users/' + scope._id)
-                .success(function() {
+            $http.delete(`/api/users/${scope._id}`)
+                .success(() => {
                     scope.$dismiss();
-                    scope.users.splice(scope.index, 1);
+                    scope.datas.splice(scope.index, 1);
                     scope.alerts.push($$Alert.successDelete);
-                    $timeout(function() {
+                    $timeout(() => {
                         scope.alerts.splice(0, 1);
                     }, 1800);
                 });

@@ -1,7 +1,8 @@
+'use strict';
+
 angular.module('webApp')
     .controller('ModalController', ['$http', '$scope', '$uibModalInstance', '$ItemsService', '$UsersService', 'Upload',
      function($http, $scope, $uibModalInstance, $ItemsService, $UsersService, Upload) {
-
         //更新ボタン 処理
         $scope.update = function(apiName) {
 
@@ -9,11 +10,11 @@ angular.module('webApp')
                 for(var i = 0; i < $scope.modalOption.files.length; i++) {
                     var file = $scope.modalOption.files[i];
                     Upload.upload({
-                        url: '/api/upload',
-                        file: file
+                        file,
+                        url: '/api/upload'
                     })
-                    .success(function(data, status, header, config) {
-                        console.log('アップロード完了：' + config.file.name);
+                    .success(() => {
+                        console.log(`アップロード完了：#{config.file.name}`);
                     });
                 }
             }
@@ -41,7 +42,7 @@ angular.module('webApp')
 
         //削除ボタン 処理
         $scope.delete = function(apiName) {
-
+            console.log($scope.data._id);
             switch(apiName) {
                 case 'items' :
                     var api = {
@@ -58,11 +59,10 @@ angular.module('webApp')
                     api.service.delete($scope, 'api/' + api.name + '/');
                     break;
                 case 'comments' :
-                    $scope.deleteComment($scope.$parent._id, $scope);
+                    $scope.deleteComment($scope.data._id, $scope);
                     break;
             }
         };
-
         //キャンセルボタン 処理
         $scope.cancel = function() {
             $uibModalInstance.dismiss();

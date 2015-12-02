@@ -55,30 +55,30 @@
                 削除
             </th>
         </tr>
-        <tr ng-repeat="item in items">
+        <tr ng-repeat="data in datas">
             <td>
-                {{item._id}}
+                {{data._id}}
             </td>
             <td>
-                {{item.name}}
+                {{data.name}}
             </td>
             <td>
-                {{item.branch}}
+                {{data.branch}}
             </td>
             <td>
-                {{item.area}}
+                {{data.area}}
             </td>
             <td>
-                {{item.tel}}
+                {{data.tel}}
             </td>
             <td>
-                {{item.genreName}}
+                {{data.genreName}}
             </td>
             <td>
-                {{item.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{data.created | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
-                {{item.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
+                {{data.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
             </td>
             <td>
                 <button class="btn btn-xs btn-success width-lg" ng-click="showEditModal($index)">編集</button>
