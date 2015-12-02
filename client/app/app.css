@@ -67,8 +67,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box .left .box_main ul { overflow: hidden; padding-top: 4px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box .left .box_main ul li { float: left; font-size: 10px; line-height: 1.0em; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box .left .box_main ul li span { display: inline-block; padding: 3px 4px; background-color: #dbdcdc; margin: 0px 4px 0px 9px; }
-#main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box .right { width: 185px; float: right; }
-#main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box .right a { width: 170px; height: 35px; display: block; margin-top: 18px; margin-left: 5px; background-color: #000000; -moz-box-shadow: 1px 1px 2px 1px #666666; -webkit-box-shadow: 1px 1px 2px 1px #666666; box-shadow: 1px 1px 2px 1px #666666; filter: progid:DXImageTransform.Microsoft.Shadow(strength = 1, direction = 135, color = '#666666'); -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(strength = 1, Direction = 135, Color = '#666666')"; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#5e5e5e', endColorstr = '#000000'); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#5e5e5e', endColorstr = '#000000')"; background-image: -moz-linear-gradient(top, #5e5e5e, #000000); background-image: -ms-linear-gradient(top, #5e5e5e, #000000); background-image: -o-linear-gradient(top, #5e5e5e, #000000); background-image: -webkit-gradient(linear, center top, center bottom, from(#5e5e5e), to(#000000)); background-image: -webkit-linear-gradient(top, #5e5e5e, #000000); background-image: linear-gradient(top, #5e5e5e, #000000); }
+#main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box .right { width: 185px; float: right; margin-top: 7px;}
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box { overflow: hidden; border: 1px solid #c9c9c9; height: 97px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .left { width: 85px; float: left; padding-top: 13px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .left img { display: block; width: 50px; margin: 0px auto 4px; }
@@ -146,6 +145,94 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #reviews_list .reviews_img li:last-child { margin-right: 0;}
 /*****************************************/
 
+/************ 黒のグラデーションボタン *************/
+.black_btn a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #333;
+    padding: 10px 25px;
+    letter-spacing: 2px;
+    background-image: -moz-linear-gradient(top, #777, #000);
+    background-image: -ms-linear-gradient(top, #777, #000);
+    background-image: -webkit-linear-gradient(top, #777, #000);
+    background-image: linear-gradient(top, #777, #000);
+    background-clip: padding-box;
+    box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
+    -webkit-box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
+    -moz-box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
+}
+.black_btn a:active {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #333;
+    padding: 10px 25px;
+    letter-spacing: 2px;
+    background-image: -moz-linear-gradient(bottom, #777, #000);
+    background-image: -ms-linear-gradient(bottom, #777, #000);
+    background-image: -webkit-linear-gradient(bottom, #777, #000);
+    background-image: linear-gradient(bottom, #777, #000);
+    background-clip: padding-box;
+    box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
+    -webkit-box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
+    -moz-box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
+}
+/**********************************************/
+
+/************ 白のグラデーションボタン *************/
+.white_btn a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    padding: 6px 20px;
+    background-image: -moz-linear-gradient(top, #fff, #ddd);
+    background-image: -ms-linear-gradient(top, #fff, #ddd);
+    background-image: -webkit-linear-gradient(top, #fff, #ddd);
+    background-image: linear-gradient(top, #fff, #ddd);
+    background-clip: padding-box;
+    box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+    -webkit-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+    -moz-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+}
+.white_btn a:active {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    padding: 6px 20px;
+    background-image: -moz-linear-gradient(bottom, #fff, #ddd);
+    background-image: -ms-linear-gradient(bottom, #fff, #ddd);
+    background-image: -webkit-linear-gradient(bottom, #fff, #ddd);
+    background-image: linear-gradient(bottom, #fff, #ddd);
+    background-clip: padding-box;
+    box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+    -webkit-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+    -moz-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+}
+/**********************************************/
+.blue_btn{
+    color: #fff;
+    background-color: #fff;
+    padding: 6px 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border: 0;
+    font-weight: 100;
+    background-image: -moz-linear-gradient(top, #504DCB, #200098, #504DCB);
+    background-image: -ms-linear-gradient(top, #504DCB,#200098, #504DCB);
+    background-image: -webkit-linear-gradient(top, #504DCB,#200098, #504DCB);
+    background-image: linear-gradient(top, #504DCB,#200098, #504DCB);
+    background-clip: padding-box;
+    box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+    -webkit-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+    -moz-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+}
 /****     want_go_store.htmlでの変更追加     ****/
 #main .main_title { font-size: 28px; padding-bottom: 20px; padding-left: 10px;}
 #main .main_title .customer_info { font-size: 16px; padding-left: 20px;}
@@ -164,15 +251,9 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_contents .gradation_thin_border:before,.gradation_thin_border:after{ content:"";display:block; height:1px; background: linear-gradient(to right, #ccc 0%,#ccc 48%,#fff 100%); clear: both;}
 #main #main_contents .want_go_store_list .store_info .impressions { font-size: 12px; padding: 10px 0 0 10px; line-height: 20px; padding-bottom: 50px;
 }
-#main #main_contents .want_go_store_list .store_info .see_store_info a { display: block; text-align: center; text-decoration: none; color: #fff; float: right; background-color: #333; padding: 8px 20px; font-size: 14px;
-    background-image: -moz-linear-gradient(top, #777, #000);
-    background-image: -ms-linear-gradient(top, #777, #000);
-    background-image: -webkit-linear-gradient(top, #777, #000);
-    background-image: linear-gradient(top, #777, #000);
-    background-clip: padding-box;
-    box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
-}
-#main #main_contents .want_go_store_list .store_info .edit { width: 200px; float: right; }
+.profile_btn { float: right; font-size: 12px; margin-left: 50px;}
+.see_store_info { font-size: 15px; float: right; }
+#main #main_contents .want_go_store_list .store_info .edit { float: right; font-size: 12px; margin-right: 30px; margin-top: 9px;}
 /******************************************/
 
 body.home #main { margin: -50px auto 94px; }
