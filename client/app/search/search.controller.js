@@ -12,10 +12,20 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
         $scope.islogin = $Users.login($scope);
     };
 
-    $scope.setItemRecommentd = function(itemid) {
-
+    $scope.setItemRecomment = function(itemid) {
         console.log('nice' + itemid);
+        $scope.isPop = true;
     };
+
+    $scope.modPop = function() {
+        $timeout(function() {
+            if ($scope.isPop) {
+              $scope.isPop =false;
+            } else {
+                scope.modPop();
+            }
+        },3000);
+    }
 
     $scope.getItem = function() {
 
@@ -88,6 +98,12 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
             $scope.currentPage = $scope.pages.length;
         } else if(oldValue){
             scope.getComments();
+        }
+    });
+
+    $scope.$watch('isPop', function(newValue, oldValue) {
+        if (newValue) {
+            $scope.modPop();
         }
     });
 
