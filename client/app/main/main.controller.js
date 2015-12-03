@@ -10,7 +10,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.pages      = [];
 
     $scope.login = function() {
-
         $scope.islogin = $Users.login($scope);
     }
 

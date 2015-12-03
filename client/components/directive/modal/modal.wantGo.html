@@ -8,10 +8,10 @@
                 コメント
             </div>
             <div class="col-sm-9 text-sm">
-                <textarea name="name" rows="8" cols="40" class="form-control"></textarea>
+                <textarea name="name" rows="8" cols="40" class="form-control" ng-model='body'></textarea>
             </div>
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
-    <button class="btn" type="button" ng-click="update('comments'))">登録する</button>
+    <button class="btn" type="button" ng-click="update('wentGo'))">登録する</button>
 </div>

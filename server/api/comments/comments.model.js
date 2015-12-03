@@ -82,6 +82,6 @@ var CommentsSchema = mongoose.Schema({
     deleteFlg : {type : Number, default : 0}
 });
 
-CommentsSchema.plugin(autoIncrement.plugin, {model: 'Comments', field: '_id'});
+CommentsSchema.plugin(autoIncrement.plugin, {model: 'Comments', field: 'commentId'});
 
 module.exports = mongoose.model('Comments', CommentsSchema);
