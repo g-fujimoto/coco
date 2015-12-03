@@ -47,7 +47,7 @@ angular.module('webApp')
                 $scope.createComment = () => {
 
                     calcAve();
-
+                    console.log($scope.newComment);
                     $Comments.save(
                         $scope.newComment,
                         () => {

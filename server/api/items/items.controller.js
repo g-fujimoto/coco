@@ -60,10 +60,8 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
     Items.remove({_id: req.params._id}, function(err) {
         if(err) {
-            console.log('error');
+            res.json(err);
         }
-        Items.find({}, function(err, data) {
-            res.json(data);
-        });
+        res.json({message: 'success'});
     });
 };

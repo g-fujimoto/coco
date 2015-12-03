@@ -1,8 +1,10 @@
 angular.module('webApp')
+    // 削除モーダル表示属性
     .directive('deleteModal', ($uibModal) => {
         return (scope, element, attr) => {
             element.on('click', () => {
-                    scope.$apply._id   = scope.datas[attr.deleteModal]._id;
+                    scope.data = scope.datas[attr.deleteModal];
+                    scope.hello = 'hello';
                     $uibModal.open({
                         scope,
                         controller  : 'ModalController',
@@ -12,10 +14,13 @@ angular.module('webApp')
             });
         };
     })
+    // 更新モーダル表示属性
     .directive('editModal', ($uibModal) => {
         return (scope, element, attr) => {
             element.on('click', () => {
-                scope.$apply._id = scope.datas[attr.editModal]._id;
+                scope.data = scope.datas[attr.editModal];
+                scope.editData = _.clone(scope.data);
+                console.log(scope.data);
                 $uibModal.open({
                     scope,
                     controller :'ModalController',
@@ -25,6 +30,7 @@ angular.module('webApp')
             });
         };
     })
+    // 「行った店」モーダル表示属性
     .directive('wentModal', ($uibModal) => {
         return (scope, element) => {
             element.on('click', () => {
@@ -37,6 +43,7 @@ angular.module('webApp')
             });
         };
     })
+    // 「行きたい店」モーダル表示属性
     .directive('wantGoModal', ($uibModal) => {
         return (scope, element, attr) => {
             element.on('click', () => {

@@ -17,7 +17,7 @@ angular.module('webApp')
             .success((data) => {
                 return data;
             });
-            return null;
+            return false;
         };
 
         return this.Users;

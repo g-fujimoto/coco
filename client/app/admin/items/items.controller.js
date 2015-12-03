@@ -1,6 +1,6 @@
 angular.module('webApp')
-    .controller('ItemsController', ['$scope', '$Areas', '$$Genres', '$$Prefs', '$Items',
-            function($scope, $Areas, $$Genres, $$Prefs, $Items) {
+    .controller('ItemsController', ['$scope', '$Areas', '$$Genres', '$$Prefs', '$Items', '$$Alert', '$timeout', '$state',
+            function($scope, $Areas, $$Genres, $$Prefs, $Items, $$Alert, $timeout, $state) {
 // ----------------------------------------------- $scope -----------------------------------------------//
                     $scope.alerts  = [];
                     $scope.apiName = 'items';
@@ -15,27 +15,51 @@ angular.module('webApp')
                 //データ個別取得
 
                 //データ新規作成
-
-                //データ更新
-                $scope.showEditModal = function($index) {
-                    $scope.index      = $index;
-                    $scope.selectItem = $scope.datas[$index];
-                    $scope.editItem = _.cloneDeep($scope.selectItem);
+                $scope.saveAPI = () => {
+                    $Items.save(
+                        $scope.newData,
+                        () => {
+                            $scope.datas = $Items.query();
+                            $scope.alerts.push($$Alert.successSave);
+                            $scope.datas.splice($scope.index, 1);
+                            $timeout(() => {
+                                $scope.alerts.splice(0, 1);
+                            }, 1800);
+                            $state.go('items');
+                        }
+                    );
                 };
 
-                //データ削除
-                $scope.deleteAPI = (_id, scope) => {
-                    $Items.delete(
-                        {_id},
+                //データ更新
+                $scope.editAPI = (data) => {
+                    $Items.update(
+                        data,
                         () => {
-                            $scope.datas = $Comments.query();
-                            scope.$dismiss();
-                            $scope.alerts.push($$Alert.successDelete);
+                            $scope.datas = $Items.query();
+                            $scope.alerts.push($$Alert.successUpdate);
                             $scope.datas.splice($scope.index, 1);
                             $timeout(() => {
                                 $scope.alerts.splice(0, 1);
                             }, 1800);
                         }
                     );
+                };
 
-    })];
+                //データ削除
+                $scope.deleteAPI = () => {
+                    console.log($scope.data);
+                    // $Items.delete(
+                        // {_id: $scope.data._id},
+                        // () => {
+                        //     $scope.datas = $Items.query();
+                        //     $scope.$dismiss();
+                        //     $scope.alerts.push($$Alert.successDelete);
+                        //     $scope.datas.splice($scope.index, 1);
+                        //     $timeout(() => {
+                        //         $scope.alerts.splice(0, 1);
+                        //     }, 1800);
+                        // }
+                    // );
+                };
+
+    }]);

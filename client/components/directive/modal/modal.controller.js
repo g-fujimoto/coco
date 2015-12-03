@@ -1,8 +1,15 @@
-'use strict';
-
 angular.module('webApp')
     .controller('ModalController', ['$scope', 'Upload', '$uibModalInstance',
      function($scope, Upload, $uibModalInstance) {
+         //キャンセルボタン 処理
+         $scope.cancel = function() {
+             $uibModalInstance.dismiss();
+         };
+
+         $scope.delete = () => {
+             console.log($scope.hello);
+         };
+
         //更新ボタン 処理
         // $scope.update = function(apiName) {
         //
@@ -40,12 +47,5 @@ angular.module('webApp')
             // }
         // };
 
-        //削除ボタン 処理
-        $scope.delete = function() {
-            $scope.deleteAPI($scope.data._id, $scope);
-        };
-        //キャンセルボタン 処理
-        $scope.cancel = function() {
-            $uibModalInstance.dismiss();
-        };
+
     }]);
