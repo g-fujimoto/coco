@@ -9,5 +9,14 @@ angular.module('webApp')
                     controller: 'ShopDetailController',
                 }
             }
+        })
+        .state('reviews', {
+            url: '/shopDetail/reviews',
+            views: {
+                '': {
+                    templateUrl: './app/shopDetail/shopDetail.reviews.html',
+                    controller: 'ShopDetailController',
+                }
+            }
         });
 }]);

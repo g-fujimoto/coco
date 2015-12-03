@@ -1,0 +1,35 @@
+<div id="bg_black"> </div>
+<div id="main_contents">
+    <p class="settled_store">登録可能件数10件中10件登録済み</p>
+    <!-- <div ng-repeat="comment in comments | filter: {type: false} | filter: {user: {_id: comment.user._id}}"> -->
+    <div ng-repeat="comment in comments">
+        <div class="recommend_list" style="margin-bottom:20px;">
+            <div class="store_img">
+                画像
+            </div>
+                <div class="store_info">
+                    <h5>{{comment.item.name}}</h5>
+                    <p class="store_attribute">({{comment.item.genreName}})&nbsp;({{comment.item.area}})&nbsp;(<span ng-repeat="sceneName in comment.item.sceneNames">{{sceneName}}&nbsp;</span>)</p>
+                    <p class="gradation_thin_border"></p>
+                    <div class="box_header">
+                       <ul>
+                            <li><h3><b>ジャンル</b>{{item_comments[item._id].genreAve | number:1}}</h3></li>
+                            <li><h3><b>シーン</b>{{item_comments[item._id].sceneAve | number:1}}</h3></li>
+                        </ul>
+                    </div>
+                    <p class="see_store_info black_btn"><a ui-sref="reviews">店舗情報を見る</a></p>
+                    <button type="button" class="blue_btn circle delete"><i class="fa fa-times"></i>&nbsp;削除する</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="sidemenu">
+    <p class="lightBlue_btn circle store_add"><a href="#"><i class="fa fa-pencil"></i>お店を追加登録する</a></p>
+    <div class="sidemenu_box">
+        <h3>利用用途から探す</h3>
+        <ul ng-repeat="area in areas">
+            <li ng-class="{current:$parent.area==area.name}"><a href="" ng-click="findAddArea(area.name)">{{area.name}}</a></li>
+        </ul>
+    </div>
+</div>
