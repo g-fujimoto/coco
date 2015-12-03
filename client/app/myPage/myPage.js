@@ -46,5 +46,14 @@ angular.module('webApp')
                     controller: 'MyPageController'
                 }
             }
+        })
+        .state('reviews', {
+            url: '/shopDetail',
+            views: {
+                '': {
+                    templateUrl: './app/shopDetail/shopDetail.html',
+                    controller: 'ShopDetailController'
+                }
+            }
         });
 }]);
