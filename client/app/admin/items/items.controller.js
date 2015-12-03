@@ -1,45 +1,41 @@
 angular.module('webApp')
-    .controller('ItemsController', ['$scope', '$uibModal', '$ItemsService', '$Areas', '$$Genres', '$$Prefs', '$Items',
-            function($scope, $uibModal,  $ItemsService, $Areas, $$Genres, $$Prefs, $Items) {
-                //$scope宣言
+    .controller('ItemsController', ['$scope', '$Areas', '$$Genres', '$$Prefs', '$Items',
+            function($scope, $Areas, $$Genres, $$Prefs, $Items) {
+// ----------------------------------------------- $scope -----------------------------------------------//
                     $scope.alerts  = [];
-                    $scope.areas   = $Areas.query();
                     $scope.apiName = 'items';
                     $scope.genres  = $$Genres;
                     $scope.prefs   = $$Prefs;
 
-                    //Itemsデータ登録
-                    $scope.registerItem = function() {
-                        $ItemsService.save($scope, $scope.newItem);
-                    };
+// ----------------------------------------------- RESTful API -----------------------------------------------//
+                //データ全件取得
+                $scope.areas   = $Areas.query();
+                $scope.datas   = $Items.query();
 
-                //データ取得
-                    $scope.datas = $Items.query();
+                //データ個別取得
 
-// ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
-                //編集モーダル呼び出し
+                //データ新規作成
+
+                //データ更新
                 $scope.showEditModal = function($index) {
                     $scope.index      = $index;
-                    $scope.selectItem = $scope.items[$index];
+                    $scope.selectItem = $scope.datas[$index];
                     $scope.editItem = _.cloneDeep($scope.selectItem);
-
-                    $uibModal.open({
-                        templateUrl : './components/modal/items/modal.edit.html',
-                        scope       : $scope,
-                        controller  : 'ModalController',
-                        backdrop    : 'static'
-                    });
                 };
 
-                //削除モーダル呼び出し
-                $scope.showDeleteModal = function($index) {
-                    $scope._id   = $scope.items[$index]._id;
-                    $scope.index = $index;
-                    $uibModal.open({
-                        controller  : 'ModalController',
-                        backdrop    : 'static',
-                        scope       : $scope,
-                        templateUrl : './components/modal/modal.delete.html'
-                    });
-                };
-    }]);
+                //データ削除
+                $scope.deleteAPI = (_id, scope) => {
+                    $Items.delete(
+                        {_id},
+                        () => {
+                            $scope.datas = $Comments.query();
+                            scope.$dismiss();
+                            $scope.alerts.push($$Alert.successDelete);
+                            $scope.datas.splice($scope.index, 1);
+                            $timeout(() => {
+                                $scope.alerts.splice(0, 1);
+                            }, 1800);
+                        }
+                    );
+
+    })];

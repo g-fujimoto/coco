@@ -3,13 +3,25 @@ angular.module('webApp')
         return (scope, element, attr) => {
             element.on('click', () => {
                     scope.$apply._id   = scope.datas[attr.deleteModal]._id;
-                    scope.$apply.index = attr.modalDelete;
                     $uibModal.open({
-                        scope: scope,
+                        scope,
                         controller  : 'ModalController',
                         backdrop    : 'static',
                         templateUrl : './components/directive/modal/modal.delete.html'
                     });
+            });
+        };
+    })
+    .directive('editModal', ($uibModal) => {
+        return (scope, element, attr) => {
+            element.on('click', () => {
+                scope.$apply._id = scope.datas[attr.editModal]._id;
+                $uibModal.open({
+                    scope,
+                    controller :'ModalController',
+                    backdrop   : 'static',
+                    templateUrl: `./components/directive/modal/${scope.apiName}/modal.edit.html`
+                });
             });
         };
     })

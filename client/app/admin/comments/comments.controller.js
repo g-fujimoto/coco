@@ -66,7 +66,7 @@ angular.module('webApp')
                 };
 
                 //$Commentsデータ削除
-                $scope.deleteComment = (_id, scope) => {
+                $scope.deleteAPI = (_id, scope) => {
                     $Comments.delete(
                         {_id},
                         () => {
@@ -96,23 +96,6 @@ angular.module('webApp')
                         }
                     );
                 };
-
-
-// ----------------------------------------------- モーダル呼び出し -----------------------------------------------//
-                //編集モーダル呼び出し
-                $scope.showEditModal = function($index) {
-                    $scope.selectComment = $scope.comments[$index];
-                    $scope.editComment = $Comments.get({_id: $scope.selectComment._id});
-                    $uibModal.open({
-                        templateUrl : './components/directive/modal/comments/modal.edit.html',
-                        scope       : $scope,
-                        controller  : 'ModalController',
-                        backdrop    : 'static',
-                        size        : 'lg'
-                    });
-                };
-
-
 
 // ----------------------------------------------- 独自関数 -----------------------------------------------//
                 const calcAve = () => {
