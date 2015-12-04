@@ -13,7 +13,7 @@ app.controller('NewItemController', ['$scope', '$http', '$$Scenes', '$$Genres', 
     $scope.login = function() {
 
         $scope.islogin = $Users.login($scope);
-    }
+    };
 
     $scope.getItem = function() {
 
