@@ -496,7 +496,7 @@ angular.module('webApp')
             }
     ])
     .value('$$Alert', {
-            successRegister: {
+            successSave: {
                 msg  : '登録が完了しました。',
                 type : 'info'
             },
@@ -508,7 +508,7 @@ angular.module('webApp')
                 msg  : 'データを削除しました。',
                 type : 'danger'
             },
-            failureRegister: {
+            failureSave: {
                 msg  : '登録に失敗しました',
                 type : 'warning'
             },

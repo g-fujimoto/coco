@@ -18,8 +18,8 @@ exports.index = function(req, res) {
     }
 
     Comments.find(req.body)
-        .populate('user')
-        .populate('item')
+        .populate('userId')
+        .populate('itemId')
         .exec(function(err, data) {
             if(err) throw Error(err);
             res.json(data);
@@ -29,8 +29,8 @@ exports.index = function(req, res) {
 //get
 exports.get = function(req, res) {
     Comments.findOne({_id: req.params._id})
-    .populate('user')
-    .populate('item')
+    .populate('userId')
+    .populate('itemId')
     .exec(function(err, data) {
         if(err) throw Error(err);
         res.json(data);
@@ -52,9 +52,9 @@ exports.getByItemID = function(req, res) {
 //create
 exports.create = function(req, res) {
 
-    var newItem = new Comments(req.body);
+    var newComment = new Comments(req.body);
 
-    newItem.save(function(err) {
+    newComment.save(function(err) {
         if(err) {
             console.log(err);
             var errData = {
@@ -65,8 +65,8 @@ exports.create = function(req, res) {
             res.json(errData);
 
         } else {
-            console.log(newItem);
-            res.json(newItem);
+            console.log(newComment);
+            res.json(newComment);
 
         }
     });
