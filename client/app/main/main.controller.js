@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$Users',
-  function($scope, $http, $$Scenes, $$Genres, $uibModal, $Users) {
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$Users',
+  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $Users) {
 
     $scope.global_menu = 'main';
     $scope.scenelists = $$Scenes;
@@ -10,8 +10,28 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.pages      = [];
 
     $scope.login = function() {
-        $scope.islogin = $Users.login($scope);
+
+        // test
+        $scope.email = 'omurago@gmail.com';
+        $scope.password = 'a123456789';
+
+        $scope.islogin = !$Users.login($scope);
     }
+
+    $scope.upload = function(files) {
+        if(files && files.length) {
+            for(var i = 0; i < files.length; i++) {
+                var file = files[i];
+                Upload.upload({
+                    url: '/api/upload',
+                    file: file
+                })
+                .success(function(data, status, header, config) {
+                    console.log('アップデート完了：' + config.file.name);
+                });
+            }
+        }
+    };
 
     $scope.getItem = function() {
 
@@ -55,6 +75,9 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
                 var genreAvelist = _.pluck(comments, 'genreAve');
                 var genreAveSum = _.reduce(genreAvelist, function(memo, num){ return memo + num;}, 0);
                 var genreAves = genreAveSum / genreAvelist.length;
+
+                // 行きたいコメントに絞り込み①
+                var comments = _.filter(data, function(num) {return num.type === 1;});
 
                 // シーンポイント平均作成
                 var sceneAvelist = _.pluck(comments, 'sceneAve');
@@ -103,6 +126,10 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
     $scope.$watch('word', function(newValue, oldValue) {
         if (!newValue && !oldValue) return;
         $scope.getItem();
+    });
+
+    $scope.$watch('files', function() {
+        $scope.upload($scope.files);
     });
 
     $scope.login();

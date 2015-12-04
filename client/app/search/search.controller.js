@@ -1,19 +1,18 @@
 var app = angular.module('webApp');
 
-app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', '$timeout', '$Users',
-    function($scope, $http, $$Scenes, $uibModal, $timeout, $Users) {
+app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', '$timeout', '$Users', '$Recommend',
+    function($scope, $http, $$Scenes, $uibModal, $timeout, $Users, $Recommend) {
 
     $scope.global_menu = 'search';
     $scope.islogin = true;
     $scope.pages      = [];
 
     $scope.login = function() {
-
         $scope.islogin = $Users.login($scope);
     };
 
-    $scope.setItemRecomment = function(itemid) {
-        console.log('nice' + itemid);
+    $scope.recommendAdd = function(itemid) {
+        $Recommend.add(itemid);
         $scope.isPop = true;
     };
 
