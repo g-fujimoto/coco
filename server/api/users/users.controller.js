@@ -101,10 +101,8 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
     Users.remove({_id: req.params._id}, function(err) {
         if(err) {
-            console.log('error');
+            res.json(err);
         }
-        Users.find({}, function(err, data) {
-            res.json(data);
-        });
+        res.json({message: 'success'});
     });
 };

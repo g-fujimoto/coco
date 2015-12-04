@@ -1,0 +1,151 @@
+<coco-header></coco-header>
+
+<div id="main" ng-show="!islogin">
+    <div id="main_header">
+        <h2><img src="./assets/./images/main/parts/title.svg" alt="" /></h2>
+        <h3>新規店舗登録</h3>
+    </div>
+    <div id="main_search_box">
+
+
+        <div id="item_registration">
+
+            <div id="item_title">
+                <h4>登録の手順</h4>
+            </div>
+
+            <div id="item_navigation">
+                    <li  color="#808080"><a href="newItemRegistration.html">登録内容入力</a></li>
+                    <li><a href="newItemRegistration.html">登録内容確認</a></li>
+                    <li>完了</li>
+            </div>
+
+            <div id="item_form">
+                <form name="tableform">
+                    <p>※は必須項目です</p>
+                    <table>
+                        <tr>
+                            <th><label for="">店舗名※</label></th>
+                            <td><input type="text" id="" class="" name="" value="" placeholder="例：coco社長" /></td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗名（フリガナ）※</label></th>
+                            <td><input type="text" id="" class="" name="" value="" placeholder="例：ココシャチョウ" /></td>
+                        </tr>
+                        <tr>
+                            <th><label for="">支店名</label></th>
+                            <td><input type="text" id="" class="" name="" value="" placeholder="例：東京支店" /></td>
+                        </tr>
+                        <tr>
+                            <th><label for="">別表記</label></th>
+                            <td><input type="text" id="" class="" name="" value="" placeholder="例：東京支店" /></td>
+                        </tr>
+                        <tr>
+                            <th><label for="">電話番号※</label></th>
+                            <td><input type="text" id="" class="" name="" value="" placeholder="例：08014350211" /></td>
+                        </tr>
+                        <tr>
+                            <th><label for="">郵便番号※</label></th>
+                            <td>
+                                <label class="">〒
+                                <input type="text" id="" class="" name="" value="" placeholder="350-0001" />
+                                <button class="button_zipcode" name="" value="">住所検索>></button></label><br/>
+                                <label class="label_zipcode">住所が自動で入力されます。</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗住所(都道府県)※</label></th>
+                            <td>
+                                <select name="">
+                                    <option value="">選択してください</option>
+                                    <option value="1">北海道</option>
+                                    <option value="2">青森</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗住所(市区町村)※</label></th>
+                            <td><input type="text" class="input_address" id="" name="" value="" placeholder="例：千代田区" /></td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗住所(町番地)※</label></th>
+                            <td><input type="text" class="input_address" id="" name="" value="" placeholder="例：有楽町 1-2-2" /></td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗住所(ビル名)※</label></th>
+                            <td><input type="text" class="input_address" id="" name="" value="" placeholder="例：東宝日野谷ビル" /></td>
+                        </tr>
+                        <tr>
+                            <th><label for="">ジャンル</label></th>
+                            <td>
+                                <label for="">1
+                                <select id="" class="" name="">
+                                    <option value="" selected>選択してください</option>
+                                    <option value="1">サンプル2</option>
+                                    <option value="2">サンプル3</option>
+                                </select>
+                                </label><span>※</span><br/>
+
+                                <label for="">2
+                                <select id="" class="" name="">
+                                    <option value="" selected>選択してください</option>
+                                    <option value="1">サンプル2</option>
+                                    <option value="2">サンプル3</option>
+                                </select></label><br/>
+
+                                <label for="">3
+                                <select id="" class="" name="">
+                                    <option value="" selected>選択してください</option>
+                                    <option value="1">サンプル2</option>
+                                    <option value="2">サンプル3</option>
+                                </select></label><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="">シーン</label></th>
+                            <td>
+                                <label for="">1
+                                <select id="" class="" name="">
+                                    <option value="" selected>選択してください</option>
+                                    <option value="1">サンプル2</option>
+                                    <option value="2">サンプル3</option>
+                                </select>
+                                </label><span>※</span><br/>
+
+                                <label for="">2
+                                <select id="" class="" name="">
+                                    <option value="" selected>選択してください</option>
+                                    <option value="1">サンプル2</option>
+                                    <option value="2">サンプル3</option>
+                                </select></label><br/>
+
+                                <label for="">3
+                                <select id="" class="" name="">
+                                    <option value="" selected>選択してください</option>
+                                    <option value="1">サンプル2</option>
+                                    <option value="2">サンプル3</option>
+                                </select></label><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="">紹介文</label></th>
+                            <td><textarea id="" class="" name="" placeholder=""></textarea></td>
+                        </tr>
+
+
+                    </table>
+
+                    <div id="button">
+                        <button type="submit" id="" class="button_submit" name="" value="">確認画面へ</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<coco-footer></coco-footer>

@@ -72,6 +72,18 @@ var UsersSchema = mongoose.Schema({
             ref: 'Items'
         }
     ],
+    wentItems : [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: 'Items'
+        }
+    ],
+    wantGoItems : [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: 'Items'
+        }
+    ],
     created        : {type: Date, default: Date.now()},
     modified       : {type: Date, default: Date.now()},
     deleted        : Date,

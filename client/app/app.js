@@ -4,9 +4,8 @@ const app = angular.module('webApp', [
     'ui.bootstrap',
     'ngAnimate',
     'ngFileUpload',
-    'ngResource'
-    // 'ngMessages',
-    // 'ngCookies'
+    'ngResource',
+    'cfp.loadingBar'
 ]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

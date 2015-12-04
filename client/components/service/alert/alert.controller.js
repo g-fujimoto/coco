@@ -1,8 +1,6 @@
 angular.module('webApp')
-    .controller('AlertController', ['$scope', '$$Alert', function($scope, $$Alert) {
+    .controller('AlertController', ['$scope', function($scope) {
         $scope.closeAlert = function(index) {
             $scope.alerts.splice(index, 1);
         };
-
-        $scope.fujimoto = 'fujimotokun';
     }]);
