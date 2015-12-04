@@ -5,7 +5,7 @@ angular.module('webApp')
             url: '/newItem',
             views: {
                 '': {
-                    templateUrl: './app/newItem/newItem.html',
+                    templateUrl: './app/newItem/newItemRegistration.html',
                     controller: 'NewItemController'
                 }
             }
