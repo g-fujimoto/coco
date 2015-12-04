@@ -1,6 +1,6 @@
 angular.module('webApp')
-    .controller('UsersController', ['$scope', '$Users', '$$Alert', '$timeout', '$state',
-            function($scope, $Users, $$Alert, $timeout, $state) {
+    .controller('UsersController', ['$scope', '$Users', '$$Alerts', '$timeout', '$state',
+            function($scope, $Users, $$Alerts, $timeout, $state) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
                     $scope.alerts = [];
                     $scope.apiName = 'users';
@@ -69,7 +69,7 @@ angular.module('webApp')
                             $scope.newData,
                             () => {
                                 $scope.datas = $Users.query();
-                                $scope.alerts.push($$Alert.successSave);
+                                $scope.alerts.push($$Alerts.successSave);
                                 $scope.datas.splice($scope.index, 1);
                                 $timeout(() => {
                                     $scope.alerts.splice(0, 1);
@@ -85,7 +85,7 @@ angular.module('webApp')
                             data,
                             () => {
                                 $scope.datas = $Users.query();
-                                $scope.alerts.push($$Alert.successUpdate);
+                                $scope.alerts.push($$Alerts.successUpdate);
                                 $scope.datas.splice($scope.index, 1);
                                 $timeout(() => {
                                     $scope.alerts.splice(0, 1);
@@ -100,7 +100,7 @@ angular.module('webApp')
                             {_id: scope.data._id},
                             () => {
                                 $scope.datas = $Users.query();
-                                $scope.alerts.push($$Alert.successDelete);
+                                $scope.alerts.push($$Alerts.successDelete);
                                 $scope.datas.splice($scope.index, 1);
                                 scope.$dismiss();
                                 $timeout(() => {
