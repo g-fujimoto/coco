@@ -1,9 +1,5 @@
 // Dependences Modules
 var mongoose = require('mongoose');
-var autoIncrement = require('mongoose-auto-increment');
-
-
-autoIncrement.initialize(mongoose);
 
 var UsersSchema = mongoose.Schema({
     email          : String,
@@ -89,7 +85,5 @@ var UsersSchema = mongoose.Schema({
     deleted        : Date,
     deleteFlg      : {type: Number, default: 0}
 });
-
-UsersSchema.plugin(autoIncrement.plugin, {model: 'Users', field: '_id'});
 
 module.exports = mongoose.model('Users', UsersSchema);

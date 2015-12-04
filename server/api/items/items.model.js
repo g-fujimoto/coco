@@ -1,8 +1,5 @@
 // Dependences Modules
 var mongoose = require('mongoose');
-var autoIncrement = require('mongoose-auto-increment');
-
-autoIncrement.initialize(mongoose);
 
 var ItemsSchema = mongoose.Schema({
     name      : String,
@@ -11,6 +8,7 @@ var ItemsSchema = mongoose.Schema({
     otherName : String,
     tel       : String,
     area      : String,
+    introduce : String,
     address   : {
         postalCode : String,
         pref       : String,
@@ -39,7 +37,5 @@ var ItemsSchema = mongoose.Schema({
     modified  : {type: Date, default : Date.now()},
     deleteFlg : {type: Number, default: 0}
 });
-
-ItemsSchema.plugin(autoIncrement.plugin, {model: 'Items', field: '_id'});
 
 module.exports = mongoose.model('Items', ItemsSchema);

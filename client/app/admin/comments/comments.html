@@ -55,7 +55,7 @@
                 削除
             </th>
         </tr>
-        <tr ng-repeat="data in datas">
+        <tr ng-repeat="data in datas | orderBy: 'created'">
 
             <td>
                 {{data.userId.lastName}}&nbsp;{{data.userId.firstName}}

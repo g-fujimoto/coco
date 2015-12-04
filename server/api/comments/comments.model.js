@@ -1,12 +1,9 @@
 // Dependences Modules
 var mongoose = require('mongoose');
-var autoIncrement = require('mongoose-auto-increment');
-
-autoIncrement.initialize(mongoose);
 
 var CommentsSchema = mongoose.Schema({
-    userId  : {type : Number, ref : 'Users'},
-    itemId  : {type : Number, ref : 'Items'},
+    userId  : {type : mongoose.Schema.ObjectId, ref : 'Users'},
+    itemId  : {type : mongoose.Schema.ObjectId, ref : 'Items'},
     title : String,
     body  : String,
     type  : Boolean,
@@ -82,6 +79,5 @@ var CommentsSchema = mongoose.Schema({
     deleteFlg : {type : Number, default : 0}
 });
 
-CommentsSchema.plugin(autoIncrement.plugin, {model: 'Comments', field: 'commentId'});
 
 module.exports = mongoose.model('Comments', CommentsSchema);

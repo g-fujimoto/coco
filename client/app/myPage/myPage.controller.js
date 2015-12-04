@@ -10,7 +10,8 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     $scope.pages      = [];
 
     // -------- DummyData --------//
-    $scope.loginUser = $Users.get({_id : 11});
+    $scope.loginUser = $Users.get({_id : "56613f64517025801962fe20"});
+    console.log($scope.loginUser);
 
     $scope.comments = $Comments;
 
