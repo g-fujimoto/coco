@@ -18,6 +18,7 @@
     var comments = require('./api/comments');
     var areas         = require('./api/areas');
     var users        = require('./api/users');
+    var recommend    = require('./api/recommend');
     var upload       = require('./api/upload');
 
 // create WebServer
@@ -57,6 +58,8 @@ db.once('open', function(callback) {
     app.use('/api/areas', areas);
     app.use('/api/users', users);
     app.use('/api/comments', comments);
+
+    app.use('/api/recommend', recommend);
 
     app.use('/api/upload', upload);
 
