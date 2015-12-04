@@ -7,11 +7,11 @@ angular.module('webApp')
          };
 
          $scope.delete = () => {
-             console.log($scope.hello);
+            $scope.deleteAPI($scope);
          };
 
         //更新ボタン 処理
-        // $scope.update = function(apiName) {
+        // $scope.update = function() {
         //
         //     if($scope.modalOption.files && $scope.modalOption.files.length) {
         //         for(var i = 0; i < $scope.modalOption.files.length; i++) {
@@ -25,27 +25,5 @@ angular.module('webApp')
         //             });
         //         }
         //     }
-            //
-            // switch() {
-            //     case 'items' :
-            //         var api = {
-            //             service : $ItemsService,
-            //             name : 'items'
-            //         };
-            //         api.service.update($scope, 'api/' + api.name + '/');
-            //         break;
-            //     case 'users' :
-            //         api = {
-            //             service : $UsersService,
-            //             name : 'users'
-            //         };
-            //         api.service.update($scope, 'api/' + api.name + '/');
-            //         break;
-            //     case 'comments' :
-            //         $scope.updateComment($scope);
-            //         break;
-            // }
         // };
-
-
     }]);

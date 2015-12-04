@@ -4,7 +4,6 @@ angular.module('webApp')
         return (scope, element, attr) => {
             element.on('click', () => {
                     scope.data = scope.datas[attr.deleteModal];
-                    scope.hello = 'hello';
                     $uibModal.open({
                         scope,
                         controller  : 'ModalController',
@@ -20,7 +19,6 @@ angular.module('webApp')
             element.on('click', () => {
                 scope.data = scope.datas[attr.editModal];
                 scope.editData = _.clone(scope.data);
-                console.log(scope.data);
                 $uibModal.open({
                     scope,
                     controller :'ModalController',
@@ -48,7 +46,6 @@ angular.module('webApp')
         return (scope, element, attr) => {
             element.on('click', () => {
                 scope.$apply.modalOption = {
-                    scope,
                     item    : attr.wantGoModal,
                     modalUrl : './components/directive/modal/modal.wantGo.html'
                 };
