@@ -50,10 +50,12 @@
 
                 <div class="form-group">
                     <div class="col-sm-2 text-left">
-                        <label for="newData.images.path" class="control-label">画像パス</label>
+                        <label for="newData.type" class="control-label">コメントタイプ</label>
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" name="newData.images.path" value="" ng-model="newData.images.path" id="newData.images.path" class="form-control" placeholder="画像パス">
+                        <select  name="newData.type" ng-model="newData.type" class="form-control" ng-options="type.value as type.label for type in types" required>
+                            <option value="" class="">以下のジャンルから選択して下さい</option>
+                        </select>
                     </div>
                 </div>
 

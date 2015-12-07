@@ -14,7 +14,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     ];
 
     // -------- DummyData --------//
-    $scope.loginUser = $Users.get({_id : "5661406f517025801962fe26"});
+    $scope.loginUser = $Users.get({_id : "56650edca064a49709351950"});
     console.log($scope.loginUser);
 
     $scope.comments = $Comments.query();

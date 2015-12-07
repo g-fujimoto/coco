@@ -10,6 +10,10 @@ angular.module('webApp')
                 $scope.alerts         = [];
                 $scope.users          = $Users.query();
                 $scope.items          = $Items.query();
+                $scope.types           = [
+                    {label: '行った', value: true},
+                    {label: '行きたい', value: false}
+                ];
                 //新規登録画面からのアラートメッセージを受け取る
                 if($stateParams.alert) {
                     $scope.alerts.push($stateParams.alert);

@@ -1,178 +1,169 @@
 <div class="modal-header">
-    <h4 class="modal-title">{{item.name}}の「行った」を登録</h4>
+    <h4 class="modal-title">{{newData.item.name}}の「行った」を登録</h4>
 </div>
 <div class="modal-body">
     <div class="row">
         <div class="container-fluid text-sm">
-            <div class="col-sm-3">
-                ジャンル：{{item.genreName}}
+            <div class="row">
+                <div class="container-fluid">
+                    ジャンル：{{newData.genre.name}}
+                </div>
             </div>
-            <div class="col-sm-9 text-sm">
-                <p>
-                    {{modalOption.genre.beautiful}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
-                <br>
-                <p>
-                    {{modalOption.genre.originality}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
-                <br>
-                <p>
-                    {{modalOption.genre.beautiful}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
-                <br>
-                <p>
-                    {{modalOption.genre.quality}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
-                <br>
-                <p>
-                    {{modalOption.genre.sense}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
+            <br>
+            <div class="row">
+                <div class="container-fluid">
+                    <div ng-repeat="option in newData.genre.options">
+                        <div class="col-sm-5">
+                            <label for="name">{{option.label}}の評価基準</label>
+                        </div>
+                        <div class="col-sm-7" id="name">
+                            <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="option.rate">
+                            <label for="rate1">1</label>
+                            <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate2">2</label>
+                            <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate3">3</label>
+                            <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate4">4</label>
+                            <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate5">5</label>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div><!-- /row -->
-    <p>
-        <hr>
-    </p>
-    <div class="row">
-        <div class="container-fluid text-sm" ng-repeat="scenelist in scenelists | filter : {'name': '高級接待'}">
-            <div class="col-sm-3">
-                シーン：{{item.scene.name}}
-            </div>
-            <div class="col-sm-9 text-sm">
-                <p>
-                    {{scenelist.value1}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
-                <br>
-                <p>
-                    {{scenelist.value2}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
-                <br>
-                <p>
-                    {{scenelist.value3}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
-                <br>
-                <p>
-                    {{scenelist.value4}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
-                <br>
-                <p>
-                    {{scenelist.value5}}の評価基準
-                    <input type="radio" name="genre" value="1" id="rate1" class="margin-left-md">
-                    <label for="rate1">1</label>
-                    <input type="radio" name="genre" value="2" id="rate2" class="margin-left-sm">
-                    <label for="rate2">2</label>
-                    <input type="radio" name="genre" value="3" id="rate3" class="margin-left-sm">
-                    <label for="rate3">3</label>
-                    <input type="radio" name="genre" value="4" id="rate4" class="margin-left-sm">
-                    <label for="rate4">4</label>
-                    <input type="radio" name="genre" value="5" id="rate5" class="margin-left-sm">
-                    <label for="rate5">5</label>
-                </p>
-            </div>
-        </div>
-    </div><!-- /row -->
-    <p>
-        <hr>
-    </p>
+    </div>
+    <hr>
     <div class="row">
         <div class="container-fluid text-sm">
-            <div class="col-sm-3">
-                コメント
+            <div class="row">
+                <div class="container-fluid">
+                    シーン：デート利用
+                </div>
             </div>
-            <div class="col-sm-9 text-sm">
-                <textarea name="name" rows="8" cols="40" class="form-control"></textarea>
+            <br>
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-5">
+                        <label for="name">1の評価基準</label>
+                    </div>
+                    <div class="col-sm-7" id="name">
+                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value1.rate">
+                        <label for="rate1">1</label>
+                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value1.rate">
+                        <label for="rate2">2</label>
+                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value1.rate">
+                        <label for="rate3">3</label>
+                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value1.rate">
+                        <label for="rate4">4</label>
+                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value1.rate">
+                        <label for="rate5">5</label>
+                        <br>
+                        <br>
+                    </div>
+                </div>
             </div>
-    </div><!-- /row -->
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-5">
+                        <label for="name">2の評価基準</label>
+                    </div>
+                    <div class="col-sm-7" id="name">
+                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value2.rate">
+                        <label for="rate1">1</label>
+                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value2.rate">
+                        <label for="rate2">2</label>
+                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value2.rate">
+                        <label for="rate3">3</label>
+                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value2.rate">
+                        <label for="rate4">4</label>
+                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value2.rate">
+                        <label for="rate5">5</label>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-5">
+                        <label for="name">3の評価基準</label>
+                    </div>
+                    <div class="col-sm-7" id="name">
+                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value3.rate">
+                        <label for="rate1">1</label>
+                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value3.rate">
+                        <label for="rate2">2</label>
+                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value3.rate">
+                        <label for="rate3">3</label>
+                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value3.rate">
+                        <label for="rate4">4</label>
+                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value3.rate">
+                        <label for="rate5">5</label>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-5">
+                        <label for="name">4の評価基準</label>
+                    </div>
+                    <div class="col-sm-7" id="name">
+                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value4.rate">
+                        <label for="rate1">1</label>
+                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value4.rate">
+                        <label for="rate2">2</label>
+                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value4.rate">
+                        <label for="rate3">3</label>
+                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value4.rate">
+                        <label for="rate4">4</label>
+                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value4.rate">
+                        <label for="rate5">5</label>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-5">
+                        <label for="name">5の評価基準</label>
+                    </div>
+                    <div class="col-sm-7" id="name">
+                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value5.rate">
+                        <label for="rate1">1</label>
+                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value5.rate">
+                        <label for="rate2">2</label>
+                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value5.rate">
+                        <label for="rate3">3</label>
+                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value5.rate">
+                        <label for="rate4">4</label>
+                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value5.rate">
+                        <label for="rate5">5</label>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-5">
+            <label for="name" class="text-sm">コメント</label>
+        </div>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="col-sm-8">
+                <textarea name="name" rows="8" class="form-control" ng-model="newData.body"></textarea>
+            </div>
+        </div>
+    </div>
     <p>
         <hr>
     </p>
@@ -200,9 +191,10 @@
             </div>
         </div>
     </div><!-- /row -->
+</div>
 
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
-    <button class="btn" type="button" ng-click="update('')">登録する</button>
+    <button class="btn" type="button" ng-click="saveAPI(newData)">登録する</button>
 </div>

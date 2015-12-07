@@ -65,7 +65,8 @@ var UsersSchema = mongoose.Schema({
     recommendItems : [
         {
             type: mongoose.Schema.ObjectId,
-            ref: 'Items'
+            ref: 'Items',
+            unique: true
         }
     ],
     wentItems : [

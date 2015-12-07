@@ -2,8 +2,8 @@
 var mongoose = require('mongoose');
 
 var CommentsSchema = mongoose.Schema({
-    user  : {type : mongoose.Schema.ObjectId, ref : 'Users', unique:false},
-    item  : {type : mongoose.Schema.ObjectId, ref : 'Items', unipue:false},
+    user  : {type : mongoose.Schema.ObjectId, ref : 'Users', unique: false},
+    item  : {type : mongoose.Schema.ObjectId, ref : 'Items', unipue: false},
     title : String,
     body  : String,
     type  : Boolean,
