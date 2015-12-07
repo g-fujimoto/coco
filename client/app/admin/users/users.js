@@ -8,15 +8,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
                     templateUrl: './app/admin/users/users.html',
                     controller: 'UsersController'
                 }
+            },
+            params: {
+                alert: null
             }
         })
         .state('adminNewUser', {
-            url: '/admin/users/adminNewUser',
+            url: '/admin/users/new',
             views: {
                 '': {
-                    templateUrl: './app/admin/users/adminNewUser.html',
+                    templateUrl: './app/admin/users/new.html',
                     controller: 'UsersController'
                 }
+            },
+            params: {
+                alert: null
             }
     });
 }]);

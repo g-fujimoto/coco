@@ -1,6 +1,6 @@
 angular.module('webApp')
-    .controller('CommentsController', ['$scope', '$Comments', '$Areas', '$$Genres', '$$Scenes', '$$Rates', '$timeout', '$state', '$$Alerts',
-            function($scope, $Comments, $Areas, $$Genres, $$Scenes, $$Rates, $timeout, $state, $$Alerts) {
+    .controller('CommentsController', ['$scope', '$Comments', '$Areas', '$$Genres', '$$Scenes', '$$Rates', '$timeout', '$state', '$$Alerts', '$stateParams',
+            function($scope, $Comments, $Areas, $$Genres, $$Scenes, $$Rates, $timeout, $state, $$Alerts, $stateParams) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
 
                 $scope.apiName        = 'comments';
@@ -8,6 +8,14 @@ angular.module('webApp')
                 $scope.scenes         = $$Scenes;
                 $scope.rates          = $$Rates;
                 $scope.alerts         = [];
+                //新規登録画面からのアラートメッセージを受け取る
+                if($stateParams.alert) {
+                    $scope.alerts.push($stateParams.alert);
+                    $timeout(() => {
+                        $scope.alerts.splice(0, 1);
+                    }, 1800);
+                }
+
                 $scope.selectScenes   = [];
                 $scope.newData        = {
                     disabled: true
@@ -51,11 +59,9 @@ angular.module('webApp')
                         $scope.newData,
                         () => {
                             $scope.comments = $Comments.query();
-                            $scope.alerts.push($$Alerts.successRegister);
-                            $timeout(() => {
-                                $scope.alerts.splice(0, 1);
-                            }, 1800);
-                            $state.go('comments');
+                            $state.go('comments', {
+                                alert: $$Alerts.successSave
+                            });
                         }
                     );
                 };

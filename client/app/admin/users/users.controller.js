@@ -1,8 +1,15 @@
 angular.module('webApp')
-    .controller('UsersController', ['$scope', '$Users', '$$Alerts', '$timeout', '$state',
-            function($scope, $Users, $$Alerts, $timeout, $state) {
+    .controller('UsersController', ['$scope', '$Users', '$$Alerts', '$timeout', '$state', '$stateParams',
+            function($scope, $Users, $$Alerts, $timeout, $state, $stateParams) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
                     $scope.alerts = [];
+                    if($stateParams.alert) {
+                        $scope.alerts.push($stateParams.alert);
+
+                        $timeout(() => {
+                            $scope.alerts.splice(0, 1);
+                        }, 1800);
+                    }
                     $scope.apiName = 'users';
                     $scope.newData = {};
                     $scope.newData.aboutWorks = [{
@@ -69,12 +76,9 @@ angular.module('webApp')
                             $scope.newData,
                             () => {
                                 $scope.datas = $Users.query();
-                                $scope.alerts.push($$Alerts.successSave);
-                                $scope.datas.splice($scope.index, 1);
-                                $timeout(() => {
-                                    $scope.alerts.splice(0, 1);
-                                }, 1800);
-                                $state.go('users');
+                                $state.go('users', {
+                                    alert: $$Alerts.successSave
+                                });
                             }
                         );
                     };

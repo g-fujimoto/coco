@@ -1,8 +1,15 @@
 angular.module('webApp')
-    .controller('ItemsController', ['$scope', '$Areas', '$$Genres', '$$Prefs', '$Items', '$$Alerts', '$timeout', '$state',
-            function($scope, $Areas, $$Genres, $$Prefs, $Items, $$Alerts, $timeout, $state) {
+    .controller('ItemsController', ['$scope', '$Areas', '$$Genres', '$$Prefs', '$Items', '$$Alerts', '$timeout', '$state', '$stateParams',
+            function($scope, $Areas, $$Genres, $$Prefs, $Items, $$Alerts, $timeout, $state, $stateParams) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
                     $scope.alerts  = [];
+                    if($stateParams.alert) {
+                        $scope.alerts.push($stateParams.alert);
+                        $timeout(() => {
+                            $scope.alerts.splice(0, 1);
+                        }, 1800);
+                    }
+
                     $scope.apiName = 'items';
                     $scope.genres  = $$Genres;
                     $scope.prefs   = $$Prefs;
@@ -18,12 +25,12 @@ angular.module('webApp')
                         $scope.newData,
                         () => {
                             $scope.datas = $Items.query();
-                            $scope.alerts.push($$Alerts.successSave);
-                            $scope.datas.splice($scope.index, 1);
                             $timeout(() => {
                                 $scope.alerts.splice(0, 1);
                             }, 1800);
-                            $state.go('items');
+                            $state.go('items', {
+                                alert: $$Alerts.successSave
+                            });
                         }
                     );
                 };
