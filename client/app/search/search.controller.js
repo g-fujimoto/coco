@@ -11,8 +11,10 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
         $scope.islogin = $Users.login($scope);
     };
 
-    $scope.recommendAdd = function(itemid) {
-        $Recommend.add(itemid);
+    $scope.recommendAdd = function(item) {
+        var res = $Recommend.add(item._id);
+        console.log(res);
+        item.itemRecommendCounter.count += res;
         $scope.isPop = true;
     };
 

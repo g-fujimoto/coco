@@ -15,7 +15,6 @@ angular.module('webApp')
             .success((data) => {
                 return data;
             });
-            return false;
         };
 
         // 削除
@@ -28,7 +27,6 @@ angular.module('webApp')
             .success((data) => {
                 return data;
             });
-            return false;
         };
 
         return this.Recommend;
