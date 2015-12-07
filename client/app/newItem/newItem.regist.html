@@ -40,6 +40,14 @@
                             <td><input type="text" id="" class="" name="" value="" placeholder="例：08014350211" ng-model="newData.tel" required></td>
                         </tr>
                         <tr>
+                            <th><label for="">エリア※</label></th>
+                            <td>
+                                <select name="" ng-model="newData.area" ng-options="area.name as area.name for area in areas" required>
+                                    <option value="">選択してください</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
                             <th><label for="">郵便番号※</label></th>
                             <td>
                                 <label class="">〒
