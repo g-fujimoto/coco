@@ -21,6 +21,9 @@ angular.module('webApp')
 
                 //データ新規作成
                 $scope.saveAPI = () => {
+                    // ------ dummy ----- //
+                    $scope.newData.sceneAve = 3.2;
+                    // ------------------ //
                     $Items.save(
                         $scope.newData,
                         () => {

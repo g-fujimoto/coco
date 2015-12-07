@@ -1,6 +1,6 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$Users', '$Comments',
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$Users', '$Comments', 
     function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $Users, $Comments) {
 
 // ----------------------------------------------- $scope ----------------------------------------------------//
@@ -174,11 +174,12 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         // データ登録
         $scope.saveAPI = (newData) => {
             newData.item = newData.item._id;
-            console.log(newData);
             calcAve(newData);
             $Comments.save(
                 newData,
                 () => {
+                    console.log($scope);
+                    $uibModal.dismiss();
                     $scope.comments = $Comments.query();
                 }
             );

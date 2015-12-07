@@ -44,29 +44,25 @@
         <div class="container-fluid text-sm">
             <div class="row">
                 <div class="container-fluid">
-                    シーン：デート利用
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="form-group form-inline">
-                            <div class="col-sm-5">
-                                <label for="name" style="padding-top:10px;">value1の評価基準</label>
-                            </div>
-                            <div class="col-sm-7" id="sample">
-                                <input type="radio" name="value" value="1" id="rate1" class="margin-left-md">
-                                <label for="rate1">1</label>
-                                <input type="radio" name="value" value="2" id="rate2" class="margin-left-sm">
-                                <label for="rate2">2</label>
-                                <input type="radio" name="value" value="3" id="rate3" class="margin-left-sm">
-                                <label for="rate3">3</label>
-                                <input type="radio" name="value" value="4" id="rate4" class="margin-left-sm">
-                                <label for="rate4">4</label>
-                                <input type="radio" name="value" value="5" id="rate5" class="margin-left-sm">
-                                <label for="rate5">5</label>
-                            </div>
+                    <label>シーン：</label>
+                    <select class="" name="" ng-model="newData.scene" ng-options="scene as scene.name for scene in scenes">
+                        <option value="">以下のシーンから選択して下さい</option>
+                    </select>
+                    <div ng-repeat="sceneSampe in newData.sceneSamples">
+                        <div class="col-sm-5">
+                            <label for="name" style="padding-top:10px;">value{{$index}}の評価基準</label>
+                        </div>
+                        <div class="col-sm-7" id="sample">
+                            <input type="radio" name="sample-{{$index}}" value="1" id="rate1" class="margin-left-md" ng-model="sceneSample.rate1">
+                            <label for="rate1">1</label>
+                            <input type="radio" name="sample-{{$index}}" value="2" id="rate2" class="margin-left-sm" ng-model="sceneSample.rate2">
+                            <label for="rate2">2</label>
+                            <input type="radio" name="sample-{{$index}}" value="3" id="rate3" class="margin-left-sm" ng-model="sceneSample.rate3">
+                            <label for="rate3">3</label>
+                            <input type="radio" name="sample-{{$index}}" value="4" id="rate4" class="margin-left-sm" ng-model="sceneSample.rate4">
+                            <label for="rate4">4</label>
+                            <input type="radio" name="sample-{{$index}}" value="5" id="rate5" class="margin-left-sm" ng-model="sceneSample.rate5">
+                            <label for="rate5">5</label>
                         </div>
                     </div>
                 </div>
