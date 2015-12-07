@@ -52,12 +52,12 @@
                 削除
             </th>
         </tr>
-        <tr ng-repeat="data in datas">
+        <tr ng-repeat="data in datas | orderBy: 'created'">
             <td>
                 {{data.name}}
             </td>
             <td>
-                {{data.branch}}
+                {{data.branch || '-'}}
             </td>
             <td>
                 {{data.area}}

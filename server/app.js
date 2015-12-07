@@ -8,27 +8,24 @@
     var cookieParser  = require('cookie-parser');
     var favicon       = require('serve-favicon');
     var mongoose      = require('mongoose');
-    var autoIncrement = require('mongoose-auto-increment');
     var session       = require('express-session');
     var multer        = require('multer');
 
 // Own Objects
-    var config       = require('./config/environment');
-    var items        = require('./api/items');
-    var comments = require('./api/comments');
+    var config        = require('./config/environment');
+    var items         = require('./api/items');
+    var comments      = require('./api/comments');
     var areas         = require('./api/areas');
-    var users        = require('./api/users');
-    var recommend    = require('./api/recommend');
-    var like    = require('./api/like');
-    var upload       = require('./api/upload');
+    var users         = require('./api/users');
+    var recommend     = require('./api/recommend');
+    var like          = require('./api/like');
+    var upload        = require('./api/upload');
 
 // create WebServer
 var app = express();
 
 // connect MongoDB
 var connect = mongoose.connect(config.mongo.uri);
-
-autoIncrement.initialize(connect);
 
 // create DBModule
 var db = connect.connection;

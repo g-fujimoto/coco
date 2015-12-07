@@ -9,15 +9,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
                     templateUrl: './app/admin/items/items.html',
                     controller: 'ItemsController'
                 }
+            },
+            params: {
+                alert: null
             }
         })
         .state('adminNewItem', {
-            url: '/admin/items/adminNewItem',
+            url: '/admin/items/new',
             views: {
                 '': {
-                    templateUrl: './app/admin/items/adminNewItem.html',
+                    templateUrl: './app/admin/items/new.html',
                     controller: 'ItemsController'
                 }
+            },
+            params: {
+                alert: null
             }
         });
 }]);

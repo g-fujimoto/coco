@@ -1,8 +1,7 @@
 
     <div id="bg_black"></div>
     <div id="main_contents">
-        <!-- <div ng-repeat="comment in comments | filter: {type: false} | filter: {user: {_id: comment.user._id}}"> -->
-        <div ng-repeat="comment in comments">
+        <div ng-repeat="comment in comments | filter: {type: false}">
             <div class="want_go_store_list" style="margin-bottom:20px;">
                 <div class="store_img">
                     画像
@@ -12,7 +11,7 @@
                         <p class="store_attribute">({{comment.item.genreName}})&nbsp;({{comment.item.area}})&nbsp;(<span ng-repeat="sceneName in comment.item.sceneNames">{{sceneName}}&nbsp;</span>)</p>
                         <p class="gradation_thin_border"></p>
                         <p class="impressions">{{comment.body}}</p>
-                        <p class="see_store_info black_btn"><a href="#">店舗情報を見る</a></p>
+                        <p class="see_store_info black_btn"><a ui-sref="shopDetail.main">店舗情報を見る</a></p>
                         <p class="edit white_btn"><a href="#">編集する</a></p>
                     </div>
                 </div>

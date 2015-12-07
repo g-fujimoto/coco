@@ -55,13 +55,13 @@
                 削除
             </th>
         </tr>
-        <tr ng-repeat="data in datas">
+        <tr ng-repeat="data in datas | orderBy: 'created'">
 
             <td>
-                {{data.userId.lastName}}&nbsp;{{data.userId.firstName}}
+                {{data.user.lastName}}&nbsp;{{data.user.firstName}}
             </td>
             <td>
-                {{data.itemId.name}}
+                {{data.item.name}}
             </td>
             <td>
                 {{data.title}}

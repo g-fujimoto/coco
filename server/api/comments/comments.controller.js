@@ -18,8 +18,8 @@ exports.index = function(req, res) {
     }
 
     Comments.find(req.body)
-        .populate('userId')
-        .populate('itemId')
+        .populate('user')
+        .populate('item')
         .exec(function(err, data) {
             if(err) throw Error(err);
             res.json(data);
@@ -29,8 +29,8 @@ exports.index = function(req, res) {
 //get
 exports.get = function(req, res) {
     Comments.findOne({_id: req.params._id})
-    .populate('userId')
-    .populate('itemId')
+    .populate('user')
+    .populate('item')
     .exec(function(err, data) {
         if(err) throw Error(err);
         res.json(data);

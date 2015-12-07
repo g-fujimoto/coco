@@ -10,14 +10,15 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     $scope.pages      = [];
 
     // -------- DummyData --------//
-    $scope.loginUser = $Users.get({_id : 11});
+    $scope.loginUser = $Users.get({_id : "56613f64517025801962fe20"});
+    console.log($scope.loginUser);
 
-    $scope.comments = $Comments;
+    $scope.comments = $Comments.query();
 
     $scope.login = function() {
 
         $scope.islogin = $Users.login($scope);
-    }
+    };
 
     $scope.getItem = function() {
         var data = {};
@@ -27,7 +28,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         if ($scope.scene) data.scene   = $scope.scene;
 
         $http.post('/api/items/find', JSON.stringify(data))
-        .success(function(data) {
+        .success((data) => {
             $scope.items = data;
             $scope.getComments();
 
@@ -36,25 +37,25 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
             for(var i = Math.ceil(data.length/10) + 1;--i;) {
                 $scope.pages.unshift(i);
             }
-            $timeout(function() {
+            $timeout(() => {
             }, 1000);
         });
     };
 
-    $scope.getComments = function() {
+    $scope.getComments = () => {
         $http.get('/api/comments')
-        .success(function(data) {
+        .success((data) => {
             $scope.item_comments = data;
         });
     };
 
-    $scope.$watch('item_comments', function(newValue, oldValue) {
+    $scope.$watch('item_comments', (newValue) => {
         if (!newValue) return;
         $scope.show_loading = false;
     });
 
     // ページャー処理
-    $scope.$watch('currentPage', function(newValue, oldValue) {
+    $scope.$watch('currentPage', (newValue) => {
         if (!newValue) {
             $scope.currentPage = 1;
         } else if (newValue != 1 && newValue > $scope.pages.length) {
