@@ -12,11 +12,7 @@ angular.module('webApp')
             data._commentid = commentid;
             data._itemid = itemid;
 
-            $http.post('/api/like/add', JSON.stringify(data))
-            .success((data) => {
-                return data;
-            });
-            return false;
+            return $http.post('/api/like/add', JSON.stringify(data));
         };
 
         // 削除
@@ -26,11 +22,7 @@ angular.module('webApp')
             data._commentid = commentid;
             data._itemid = itemid;
 
-            $http.post('/api/like/delete', JSON.stringify(data))
-            .success((data) => {
-                return data;
-            });
-            return false;
+            return $http.post('/api/like/delete', JSON.stringify(data));
         };
 
         return this.Like;

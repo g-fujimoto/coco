@@ -12,10 +12,13 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
     };
 
     $scope.recommendAdd = function(item) {
-        var res = $Recommend.add(item._id);
-        console.log(res);
-        item.itemRecommendCounter.count += res;
-        $scope.isPop = true;
+        $Recommend.add(item._id)
+        .success(function (data) {
+            if (data.ok === 1) {
+                item.itemRecommendCounter.count += 1;
+                $scope.isPop = true;
+            }
+        });
     };
 
     $scope.modPop = function() {

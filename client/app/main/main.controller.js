@@ -11,7 +11,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
     $scope.login = function() {
         // test
-        $scope.email    = 'omurago@gmail.com';
+        $scope.email = 'okamoto@gmail.com';
         $scope.password = 'a123456789';
         $scope.islogin  = !$Users.login($scope);
     };

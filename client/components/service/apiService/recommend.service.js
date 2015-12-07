@@ -11,10 +11,7 @@ angular.module('webApp')
             var data = {};
             data._itemid = itemid;
 
-            $http.post('/api/recommend/add', JSON.stringify(data))
-            .success((data) => {
-                return data;
-            });
+            return $http.post('/api/recommend/add', JSON.stringify(data));
         };
 
         // 削除
@@ -23,10 +20,7 @@ angular.module('webApp')
             var data = {};
             data._itemid = itemid;
 
-            $http.post('/api/recommend/delete', JSON.stringify(data))
-            .success((data) => {
-                return data;
-            });
+            return $http.post('/api/recommend/delete', JSON.stringify(data))
         };
 
         return this.Recommend;
