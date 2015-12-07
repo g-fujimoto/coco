@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users', '$Comments',
-    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments) {
+app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload',
+    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments, Upload) {
 
     $scope.global_menu = 'myPage';
     $scope.scenes = $$Scenes;
@@ -23,6 +23,20 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
 
         $scope.islogin = $Users.login($scope);
     };
+
+    $scope.saveUser = function () {
+
+        if ($scope.files[0]) {
+            Upload.upload({
+                url: 'api/upload/user',
+                file: $scope.files[0]
+            })
+            .success(function(data, status, header, config){
+                console.log('OK');
+            });
+        }
+
+    }
 
     $scope.getItem = function() {
         var data = {};
