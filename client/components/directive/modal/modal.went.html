@@ -13,29 +13,33 @@
             <div class="row">
                 <div class="container-fluid">
                     <div ng-repeat="option in newData.genre.options">
-                        <div class="col-sm-5">
-                            <label for="name">{{option.label}}の評価基準</label>
-                        </div>
-                        <div class="col-sm-7" id="name">
-                            <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="option.rate">
-                            <label for="rate1">1</label>
-                            <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="option.rate">
-                            <label for="rate2">2</label>
-                            <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="option.rate">
-                            <label for="rate3">3</label>
-                            <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="option.rate">
-                            <label for="rate4">4</label>
-                            <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="option.rate">
-                            <label for="rate5">5</label>
-                            <br>
-                            <br>
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-sm-5">
+                                    <label for="name" style="padding-top:10px;">{{option.label}}の評価基準</label>
+                                </div>
+                                <div class="col-sm-7" id="sample">
+                                    <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="option.rate">
+                                    <label for="rate1">1</label>
+                                    <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate2">2</label>
+                                    <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate3">3</label>
+                                    <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate4">4</label>
+                                    <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate5">5</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
+    <p>
+        <hr>
+    </p>
     <div class="row">
         <div class="container-fluid text-sm">
             <div class="row">
@@ -46,112 +50,32 @@
             <br>
             <div class="row">
                 <div class="container-fluid">
-                    <div class="col-sm-5">
-                        <label for="name">1の評価基準</label>
-                    </div>
-                    <div class="col-sm-7" id="name">
-                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value1.rate">
-                        <label for="rate1">1</label>
-                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value1.rate">
-                        <label for="rate2">2</label>
-                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value1.rate">
-                        <label for="rate3">3</label>
-                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value1.rate">
-                        <label for="rate4">4</label>
-                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value1.rate">
-                        <label for="rate5">5</label>
-                        <br>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container-fluid">
-                    <div class="col-sm-5">
-                        <label for="name">2の評価基準</label>
-                    </div>
-                    <div class="col-sm-7" id="name">
-                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value2.rate">
-                        <label for="rate1">1</label>
-                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value2.rate">
-                        <label for="rate2">2</label>
-                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value2.rate">
-                        <label for="rate3">3</label>
-                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value2.rate">
-                        <label for="rate4">4</label>
-                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value2.rate">
-                        <label for="rate5">5</label>
-                        <br>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container-fluid">
-                    <div class="col-sm-5">
-                        <label for="name">3の評価基準</label>
-                    </div>
-                    <div class="col-sm-7" id="name">
-                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value3.rate">
-                        <label for="rate1">1</label>
-                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value3.rate">
-                        <label for="rate2">2</label>
-                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value3.rate">
-                        <label for="rate3">3</label>
-                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value3.rate">
-                        <label for="rate4">4</label>
-                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value3.rate">
-                        <label for="rate5">5</label>
-                        <br>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container-fluid">
-                    <div class="col-sm-5">
-                        <label for="name">4の評価基準</label>
-                    </div>
-                    <div class="col-sm-7" id="name">
-                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value4.rate">
-                        <label for="rate1">1</label>
-                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value4.rate">
-                        <label for="rate2">2</label>
-                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value4.rate">
-                        <label for="rate3">3</label>
-                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value4.rate">
-                        <label for="rate4">4</label>
-                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value4.rate">
-                        <label for="rate5">5</label>
-                        <br>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container-fluid">
-                    <div class="col-sm-5">
-                        <label for="name">5の評価基準</label>
-                    </div>
-                    <div class="col-sm-7" id="name">
-                        <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="newData.scene.options.value5.rate">
-                        <label for="rate1">1</label>
-                        <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="newData.scene.options.value5.rate">
-                        <label for="rate2">2</label>
-                        <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="newData.scene.options.value5.rate">
-                        <label for="rate3">3</label>
-                        <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="newData.scene.options.value5.rate">
-                        <label for="rate4">4</label>
-                        <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="newData.scene.options.value5.rate">
-                        <label for="rate5">5</label>
-                        <br>
-                        <br>
+                    <div class="row">
+                        <div class="form-group form-inline">
+                            <div class="col-sm-5">
+                                <label for="name" style="padding-top:10px;">value1の評価基準</label>
+                            </div>
+                            <div class="col-sm-7" id="sample">
+                                <input type="radio" name="value" value="1" id="rate1" class="margin-left-md">
+                                <label for="rate1">1</label>
+                                <input type="radio" name="value" value="2" id="rate2" class="margin-left-sm">
+                                <label for="rate2">2</label>
+                                <input type="radio" name="value" value="3" id="rate3" class="margin-left-sm">
+                                <label for="rate3">3</label>
+                                <input type="radio" name="value" value="4" id="rate4" class="margin-left-sm">
+                                <label for="rate4">4</label>
+                                <input type="radio" name="value" value="5" id="rate5" class="margin-left-sm">
+                                <label for="rate5">5</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
+    <p>
+        <hr>
+    </p>
     <div class="row">
         <div class="col-sm-5">
             <label for="name" class="text-sm">コメント</label>
@@ -160,7 +84,7 @@
         <br>
         <div class="container-fluid">
             <div class="col-sm-8">
-                <textarea name="name" rows="8" class="form-control" ng-model="newData.body"></textarea>
+                <textarea name="name" rows="4" class="form-control" ng-model="newData.body"></textarea>
             </div>
         </div>
     </div>

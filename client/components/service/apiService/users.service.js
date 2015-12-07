@@ -9,8 +9,8 @@ angular.module('webApp')
         // ログイン
         this.Users.login = function($scope) {
 
-            var data = {};
-            data.email = $scope.email;
+            var data      = {};
+            data.email    = $scope.email;
             data.password = $scope.password;
 
             $http.post('/api/users/login', JSON.stringify(data))

@@ -1,9 +1,9 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$Users', '$Comments', '$state',
-    function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $Users, $Comments, $state) {
-// ----------------------------------------------- $scope ----------------------------------------------------//
+app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$Users', '$Comments',
+    function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $Users, $Comments) {
 
+// ----------------------------------------------- $scope ----------------------------------------------------//
         $scope.global_menu = 'main';
         $scope.scenes      = $$Scenes;
         $scope.genres      = $$Genres;
@@ -125,7 +125,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         $scope.login();
 
         $scope.getItem();
-        
+
 // ----------------------------------------------- $watch ----------------------------------------------------//
 
         // ページャー処理
@@ -152,13 +152,13 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         // データ登録
         $scope.saveAPI = (newData) => {
-            calcAve(newData);
             newData.item = newData.item._id;
+            console.log(newData);
+            calcAve(newData);
             $Comments.save(
                 newData,
                 () => {
                     $scope.comments = $Comments.query();
-                    $state.go('main');
                 }
             );
         };

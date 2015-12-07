@@ -3,7 +3,7 @@ angular.module('webApp')
     .directive('deleteModal', ($uibModal) => {
         return (scope, element, attr) => {
             element.on('click', () => {
-                    scope.data = scope.datas[attr.deleteModal];
+                    scope.data = angular.fromJson(attr.deleteModal);
                     $uibModal.open({
                         scope,
                         controller  : 'ModalController',
@@ -22,7 +22,8 @@ angular.module('webApp')
                     scope,
                     controller :'ModalController',
                     backdrop   : 'static',
-                    templateUrl: `./components/directive/modal/${scope.apiName}/modal.edit.html`
+                    templateUrl: `./components/directive/modal/${scope.apiName}/modal.edit.html`,
+                    size: 'lg'
                 });
             });
         };
@@ -33,7 +34,7 @@ angular.module('webApp')
             element.on('click', () => {
                 scope.newData = {};
                 scope.newData.item = angular.fromJson(attr.wentModal);
-
+                scope.newData.type = true;
                 var wentModal = angular.fromJson(attr.wentModal);
                 const genreArr = _.filter(scope.genres, (element) => {
                     return element.name === wentModal.genreName;
@@ -52,11 +53,14 @@ angular.module('webApp')
     .directive('wantGoModal', ($uibModal) => {
         return (scope, element, attr) => {
             element.on('click', () => {
-                scope.$apply.modalOption = {
-                    item    : attr.wantGoModal,
-                    modalUrl : './components/directive/modal/modal.wantGo.html'
-                };
-
+                scope.newData = {};
+                scope.newData.item = angular.fromJson(attr.wantGoModal);
+                scope.newData.type = false;
+                var wantGoModal = angular.fromJson(attr.wantGoModal);
+                const genreArr = _.filter(scope.genres, (element) => {
+                    return element.name === wantGoModal.genreName;
+                });
+                scope.newData.genre = genreArr[0];
 
                 $uibModal.open({
                     scope,

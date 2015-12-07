@@ -4,14 +4,16 @@
 <div class="modal-body">
     <div class="row">
         <div class="container-fluid text-sm">
-            <div class="col-sm-3">
-                コメント
-            </div>
-            <div class="col-sm-9 text-sm">
-                <textarea name="name" rows="8" cols="40" class="form-control" ng-model='body'></textarea>
+            <div>
+                <div class="col-sm-3">
+                    コメント
+                </div>
+                <div class="col-sm-9 text-sm">
+                    <textarea name="name" rows="8" cols="40" class="form-control margin-bottom-sm" ng-model='newData.body'></textarea>
+                </div>
             </div>
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
-    <button class="btn" type="button" ng-click="update('wentGo'))">登録する</button>
+    <button class="btn" type="button" ng-click="saveAPI(newData)">登録する</button>
 </div>

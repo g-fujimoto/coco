@@ -507,6 +507,23 @@ body.home #main { margin: -50px auto 94px; }
 .margin-top-lg {
     margin-top: 45px!important;
 }
+/* -------------------------------- margin-bottom -------------------------------- */
+
+.margin-bottom-xs {
+    margin-bottom: 5px!important;
+}
+
+.margin-bottom-sm {
+    margin-bottom: 15px!important;
+}
+
+.margin-bottom-md {
+    margin-bottom: 30px!important;
+}
+
+.margin-bottom-lg {
+    margin-bottom: 45px!important;
+}
 /* -------------------------------- margin-left -------------------------------- */
 
 .margin-left-xs {
@@ -546,19 +563,19 @@ body.home #main { margin: -50px auto 94px; }
 /* -------------------------------- font-size -------------------------------- */
 
 .text-xs {
-    font-size: 8px;
+    font-size: 8px!important;
 }
 
 .text-sm {
-    font-size: 12px;
+    font-size: 12px!important;
 }
 
 .text-md {
-    font-size: 15px;
+    font-size: 15px!important;
 }
 
 .text-lg {
-    font-size: 20px;
+    font-size: 20px!important;
 }
 
 /* -------------------------------- width -------------------------------- */

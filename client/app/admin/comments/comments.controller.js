@@ -90,9 +90,9 @@ angular.module('webApp')
                 };
 
                 // データ削除
-                $scope.deleteAPI = (scope) => {
+                $scope.deleteAPI = (data) => {
                     $Comments.delete(
-                        {_id: scope.data._id},
+                        {_id: data._id},
                         () => {
                             $scope.datas = $Comments.query();
                             $scope.alerts.push($$Alerts.successDelete);
