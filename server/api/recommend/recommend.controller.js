@@ -18,6 +18,7 @@ exports.add = function(req, res) {
 
     Items.update({_id : req.body._itemid}, {$inc : {"itemRecommendCounter.count" : 1}}, function(err, data) {
         // 例外処理
+        res.json(data);
     });
 };
 
@@ -27,7 +28,7 @@ exports.delete = function(req, res) {
     User.remove({_id: req.session.user._id}, {recommendItems : req.body._item_id}, function(err, data) {
         // 例外処理
     });
-    
+
     Items.update({_id : req.body._itemid}, {$inc : {"itemRecommendCounter.count" : -1}}, function(err, data) {
         // 例外処理
     });
