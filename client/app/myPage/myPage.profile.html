@@ -14,9 +14,23 @@
                 <li>その他のプロフィールその他のプロフィール</li>
             </ul>
         </div>
-        <div class="profile_img">
-            画像
+        <div class="profile_img_box" ngf-drop ng-model="files" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+            アップロードする画像をドラッグしてください。
+            <div ng-repeat="file in files">
+                <img ngf-src="file" ngf-accept="'image/*'"  class="profile_img">
+            </div>
         </div>
+
+        <span ngf-no-file-drop style="float:right;">
+            <div class="upload-button">
+                ファイルを選択
+                <input type="file" onchange="uv.style.display='inline-block'; uv.value = this.value;" />
+            </div>
+            <div class="upload-value">
+                <input class="upload-text" type="text" id="uv"/>
+            </div>
+        </span>
+
     </div>
     <div class="profile_detail">
         <h5>会社概要</h5>
@@ -54,6 +68,6 @@
             </div>
         </div>
     </div>
-        <p class="profile_btn white_btn"><a href="#">編集する</a></p>
-        <p class="profile_btn white_btn"><a href="#">パスワード変更</a></p>
+        <p class="profile_btn white_btn"  ng-click="saveUser()"><a href="">編集する</a></p>
+        <p class="profile_btn white_btn"><a href="">パスワード変更</a></p>
 </div>
