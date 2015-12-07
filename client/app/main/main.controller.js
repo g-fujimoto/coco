@@ -122,6 +122,10 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             $scope.getItem();
         };
 
+        $scope.login();
+
+        $scope.getItem();
+        
 // ----------------------------------------------- $watch ----------------------------------------------------//
 
         // ページャー処理
@@ -144,8 +148,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             $scope.upload($scope.files);
         });
 
-        $scope.login();
-        $scope.getItem();
 // ----------------------------------------------- RESTful API -----------------------------------------------//
 
         // データ登録
@@ -189,5 +191,5 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             // });
             // $scope.newData.scenesAve = (scenesRatesSum / $scope.newData.scenes.length).toFixed(1);
         };
-        
+
 }]);
