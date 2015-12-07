@@ -121,7 +121,7 @@
         <div class="sidemenu_box">
             <h3>利用用途から探す</h3>
             <ul>
-                <li ng-repeat="scenelist in scenelists" ng-class="{current:$parent.scene==scenelist.name}"><a href="" ng-click="findAddScene(scenelist.name)">{{scenelist.name}}</a></li>
+                <li ng-repeat="scenelist in scenes" ng-class="{current:$parent.scene==scenelist.name}"><a href="" ng-click="findAddScene(scenelist.name)">{{scenelist.name}}</a></li>
             </ul>
         </div>
 

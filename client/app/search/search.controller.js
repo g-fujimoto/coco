@@ -116,7 +116,7 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
         $scope.getItem();
     });
 
-    $scope.scenelists = $$Scenes;
+    $scope.scenes = $$Scenes;
 
     $scope.login();
     $scope.getItem();

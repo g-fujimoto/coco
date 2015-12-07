@@ -59,8 +59,8 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
         $scope.upload($scope.files);
     });
 
-    $scope.scenelists = $$Scenes;
-    $scope.genrelists = $$Genres;
+    $scope.scenes = $$Scenes;
+    $scope.genres = $$Genres;
 
     $scope.login();
     $scope.getItem();
@@ -69,8 +69,8 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
 // ------------------------------- Modal ------------------------------ //
     $scope.showWentModal = function(item) {
 
-        $scope.scenelists = $$Scenes;
-        $scope.genrelists = $$Genres;
+        $scope.scenes = $$Scenes;
+        $scope.genres = $$Genres;
 
         var genre = _.select($$Genres, function(num) {
             return num.name == item.genreName
@@ -79,7 +79,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
         $scope.modalOption = {
             item    : item,
             genre : genre[0],
-            scenelists : $$Scenes,
+            scenes : $$Scenes,
             modalUrl : './components/directive/modal/modal.wantGo.html',
             scope    : $scope
         };

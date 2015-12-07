@@ -4,8 +4,8 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments) {
 
     $scope.global_menu = 'myPage';
-    $scope.scenelists = $$Scenes;
-    $scope.genrelists = $$Genres;
+    $scope.scenes = $$Scenes;
+    $scope.genres = $$Genres;
     $scope.islogin = true;
     $scope.pages      = [];
     $scope.type = [
