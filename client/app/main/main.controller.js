@@ -54,22 +54,54 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             });
         };
 
+        $scope.getItem = function() {
+
+            var data = {};
+            if ($scope.word) data.name = $scope.word;
+            if ($scope.scene) data.sceneName   = $scope.sceneName;
+            if ($scope.genreName) data.genreName   = $scope.genreName;
+            if ($scope.area) data.area   = $scope.area;
+
+            $http.post('/api/items/find', JSON.stringify(data))
+            .success((data) => {
+                $scope.items = data;
+
+                $scope.getComments();
+
+                $scope.currentPage = 1;
+                $scope.pages       = [];
+                for(var i = Math.ceil(data.length/10) + 1;--i;) {
+                    $scope.pages.unshift(i);
+                }
+            });
+        };
+
         $scope.getComments = function() {
 
             var data = {};
-            data.itemId = _.pluck($scope.items, '_id');
+            data.item = _.pluck($scope.items, '_id');
 
             $http.post('/api/comments/find', JSON.stringify(data))
             .success((data) => {
 
                 // 店舗IDリスト作成
-                var item_comments = _.pluck($scope.items, '_id');
+                var item_ids = _.pluck($scope.items, '_id');
+
+                var item_comments = [];
 
                 // 店舗毎にコメントを操作
-                for (var i in item_comments) {
+                for (var i in item_ids) {
 
                     var comments = _.filter(data, (num) => {
-                        return num.itemId === item_comments[i];
+                        return num.item._id === item_ids[i];
+                    });
+
+                    // 最新コメント情報作成
+                    var comment = comments[0];
+
+                    // 行きたいコメントに絞り込み①
+                    comments = _.filter(comments, (num) => {
+                        return num.type === true;
                     });
 
                     // ジャンルポイント平均作成
@@ -77,32 +109,21 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
                     var genreAveSum = _.reduce(genreAvelist, (memo, num) => {
                          return memo + num;
                      }, 0);
-                    var genreAves = genreAveSum / genreAvelist.length;
-
-                    // 行きたいコメントに絞り込み①
-                    comments = _.filter(data, (num) => {
-                        return num.type === 1;
-                    });
+                    var genreAve = genreAveSum / genreAvelist.length;
 
                     // シーンポイント平均作成
                     var sceneAvelist = _.pluck(comments, 'sceneAve');
                     var sceneAveSum = _.reduce(sceneAvelist, (memo, num) => {
                          return memo + num;
                      }, 0);
-                    var sceneAves = sceneAveSum / sceneAvelist.length;
+                    var sceneAve = sceneAveSum / sceneAvelist.length;
 
-                    // 最新コメント情報作成
-                    var topick = _.max(comments, (comment) => {
-                         return comment._id;
-                     });
+                    item_comments[item_ids[i]] = {comment, genreAve, sceneAve };
 
-                    item_comments[item_comments[i]] = {
-                        topick,
-                        genreAves,
-                        sceneAves
-                    };
                 }
+
                 $scope.item_comments = item_comments;
+
                 $scope.show_loading = false;
             });
         };
