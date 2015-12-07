@@ -35,7 +35,7 @@ angular.module('webApp')
                 scope.newData.item = angular.fromJson(attr.wentModal);
 
                 var wentModal = angular.fromJson(attr.wentModal);
-                const genreArr = _.filter(scope.genrelists, (element) => {
+                const genreArr = _.filter(scope.genres, (element) => {
                     return element.name === wentModal.genreName;
                 });
                 scope.newData.genre = genreArr[0];
