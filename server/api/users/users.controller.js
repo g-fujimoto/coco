@@ -33,7 +33,6 @@ exports.login = function(req, res) {
 
     Users.findOne({email: req.body.email, password:req.body.password}, function(err, data) {
         req.session.user = data;
-        console.log(data);
         if (data) {
             return res.json({login: true});
         } else {

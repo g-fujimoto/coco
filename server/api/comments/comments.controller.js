@@ -51,7 +51,9 @@ exports.getByItemID = function(req, res) {
 
 //create
 exports.save = function(req, res) {
-
+    if (req.session.user) {
+        req.body.user = req.session.user._id;
+    }
     var newComment = new Comments(req.body);
 
     newComment.save(function(err) {
