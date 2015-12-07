@@ -33,8 +33,6 @@ exports.delete = function(req, res) {
         {$pull : {recommendItems : req.body._itemid}}, function(err, data) {
 
         // 例外処理
-        console.log(err);
-        console.log(data);
 
         if (!err && data.n > 0) {
             Items.update({_id : req.body._itemid}, {$inc : {"itemRecommendCounter.count" : -1}}, function(err, data) {

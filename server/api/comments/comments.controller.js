@@ -13,13 +13,14 @@ var _ = require('lodash');
 //index
 exports.index = function(req, res) {
 
-    if (req.body.itemId) {
-        req.body.itemId = {$in : req.body.itemId};
+    if (req.body.item) {
+        req.body.item = {$in : req.body.item};
     }
 
     Comments.find(req.body)
         .populate('user')
         .populate('item')
+        .sort({'created' : -1})
         .exec(function(err, data) {
             if(err) throw Error(err);
             res.json(data);
