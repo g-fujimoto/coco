@@ -8,9 +8,13 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     $scope.genrelists = $$Genres;
     $scope.islogin = true;
     $scope.pages      = [];
+    $scope.type = [
+        {label: '行きたい', type: false},
+        {label: '行った', type: true}
+    ];
 
     // -------- DummyData --------//
-    $scope.loginUser = $Users.get({_id : "56613f64517025801962fe20"});
+    $scope.loginUser = $Users.get({_id : "5661406f517025801962fe26"});
     console.log($scope.loginUser);
 
     $scope.comments = $Comments.query();

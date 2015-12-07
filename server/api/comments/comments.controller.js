@@ -1,6 +1,6 @@
 /**
  * GET     /api/comments              ->  index
- * POST    /api/comments              ->  create
+ * POST    /api/comments              ->  save
  * GET     /api/comments/:id          ->  show
  * PUT     /api/comments/:id          ->  update
  * DELETE  /api/comments/:id          ->  delete
@@ -50,7 +50,7 @@ exports.getByItemID = function(req, res) {
 }
 
 //create
-exports.create = function(req, res) {
+exports.save = function(req, res) {
 
     var newComment = new Comments(req.body);
 
@@ -61,7 +61,7 @@ exports.create = function(req, res) {
                 type    : err.type,
                 message : err.message
             };
-
+            console.log(errData);
             res.json(errData);
 
         } else {

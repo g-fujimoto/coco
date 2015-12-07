@@ -18,6 +18,8 @@ angular.module('webApp')
         return (scope, element, attr) => {
             element.on('click', () => {
                 scope.data = scope.datas[attr.editModal];
+                console.log(attr.editModal);
+                console.log(scope.datas[0]);
                 scope.editData = _.clone(scope.data);
                 $uibModal.open({
                     scope,

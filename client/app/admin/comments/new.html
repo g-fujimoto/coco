@@ -13,7 +13,9 @@
                         <label for="newData.user" class="control-label">ユーザーID&nbsp;<span class="text-danger text-xs">※</span></label>
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" name="newData.user" value="" ng-model="newData.user" id="newData.user" class="form-control" placeholder="ユーザーID" required>
+                        <input type="text" name="newData.user" value="" ng-model="newData.user" id="newData.user" class="form-control" placeholder="ユーザーID" required
+                                uib-typeahead="user as user.lastName + ' ' + user.firstName for user in users | filter: $viewValue"
+                                uib-typeahead-focus-first>
                     </div>
                 </div>
 
@@ -22,7 +24,9 @@
                         <label for="newData.item" class="control-label">店舗ID&nbsp;<span class="text-danger text-xs">※</span></label>
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" name="newData.item" value="" ng-model="newData.item" id="newData.item" class="form-control" placeholder="店舗ID" required>
+                        <input type="text" name="newData.item" value="" ng-model="newData.item" id="newData.item" class="form-control" placeholder="店舗ID" required
+                                uib-typeahead="item as item.name for item in items | filter: $viewValue"
+                                uib-typeahead-focus-first>
                     </div>
                 </div>
 
@@ -41,6 +45,15 @@
                     </div>
                     <div class="col-sm-4">
                         <textarea name="newData.body" rows="8" cols="40" ng-model="newData.body" id="newData.body" class="form-control" placeholder="内容"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.images.path" class="control-label">画像パス</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.images.path" value="" ng-model="newData.images.path" id="newData.images.path" class="form-control" placeholder="画像パス">
                     </div>
                 </div>
 

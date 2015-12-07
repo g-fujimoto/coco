@@ -1,6 +1,6 @@
 angular.module('webApp')
-    .controller('CommentsController', ['$scope', '$Comments', '$Areas', '$$Genres', '$$Scenes', '$$Rates', '$timeout', '$state', '$$Alerts', '$stateParams',
-            function($scope, $Comments, $Areas, $$Genres, $$Scenes, $$Rates, $timeout, $state, $$Alerts, $stateParams) {
+    .controller('CommentsController', ['$scope', '$Comments', '$Areas', '$$Genres', '$$Scenes', '$$Rates', '$timeout', '$state', '$$Alerts', '$stateParams', '$Users', '$Items',
+            function($scope, $Comments, $Areas, $$Genres, $$Scenes, $$Rates, $timeout, $state, $$Alerts, $stateParams, $Users, $Items) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
 
                 $scope.apiName        = 'comments';
@@ -8,6 +8,8 @@ angular.module('webApp')
                 $scope.scenes         = $$Scenes;
                 $scope.rates          = $$Rates;
                 $scope.alerts         = [];
+                $scope.users          = $Users.query();
+                $scope.items          = $Items.query();
                 //新規登録画面からのアラートメッセージを受け取る
                 if($stateParams.alert) {
                     $scope.alerts.push($stateParams.alert);
@@ -55,6 +57,8 @@ angular.module('webApp')
                 // データ登録
                 $scope.saveAPI = () => {
                     calcAve();
+                    $scope.newData.user = $scope.newData.user._id;
+                    $scope.newData.item = $scope.newData.item._id;
                     $Comments.save(
                         $scope.newData,
                         () => {
