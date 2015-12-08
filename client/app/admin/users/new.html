@@ -44,6 +44,16 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
+                                <label for="newData.admin" class="control-label">権限&nbsp;<span class="text-danger text-xs">※</span></label>
+                            </div>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="newData.admin" ng-model="newData.admin" ng-options="admin.type as admin.label for admin in admins">
+                                    <option value="">以下の権限から選択して下さい</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
                                 <label for="newData.birthYear" class="control-label">誕生年</label>
                             </div>
                             <div class="col-sm-8">
@@ -122,6 +132,12 @@
                                 <input type="text" name="newData.images.path" value="" ng-model="newData.images.path" id="newData.images.path" class="form-control" placeholder="画像パス">
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="container-fluid">
                         <div class="form-group">
                             <div class="col-sm-4 text-left">
                                 <label for="newData.company.name" class="control-label">会社名&nbsp;<span class="text-danger text-xs">※</span></label>
@@ -178,12 +194,6 @@
                                 <input type="text" name="newData.company.email" value="" ng-model="newData.company.email" id="newData.company.email" class="form-control" placeholder="E-mail(会社)">
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="container-fluid">
                         <div ng-repeat="aboutWork in newData.aboutWorks">
                             <div class="form-group">
                                 <div class="col-sm-4 text-left">

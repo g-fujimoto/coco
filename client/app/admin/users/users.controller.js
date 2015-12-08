@@ -45,6 +45,10 @@ angular.module('webApp')
                             label    : false
                         });
                     };
+                    $scope.admins = [
+                        {label: '一般', type: 0},
+                        {label: '管理者', type: 1}
+                    ];
 // ----------------------------------------------- $watch ----------------------------------------------------//
                     $scope.stopAboutWorks = $scope.$watch('newData.aboutWorks', (newValue) => {
                                                 angular.forEach(newValue, (element, index) => {

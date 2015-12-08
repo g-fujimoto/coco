@@ -1,5 +1,5 @@
 angular.module('webApp')
-    .service('$Users', ['$resource', '$http', ($resource, $http) => {
+    .service('$Users', ['$resource', '$http', '$state', '$timeout', ($resource, $http, $state) => {
         this.Users = $resource(
             '/api/users/:_id',
             {_id: '@_id'},
@@ -7,18 +7,25 @@ angular.module('webApp')
         );
 
         // ログイン
-        this.Users.login = function($scope) {
+        this.Users.login = function(scope) {
 
             var data      = {};
-            data.email    = $scope.email;
-            data.password = $scope.password;
+            data.email    = scope.email;
+            data.password = scope.password;
 
-            $http.post('/api/users/login', JSON.stringify(data))
+            $http.post('/api/users/login', data)
             .success((data) => {
-                return data;
+                if(data.login) {
+                    $state.go('items');
+                } else {
+                    scope.error = true;
+                    var panel = document.getElementById('loginPanel');
+                    angular.element(panel).addClass('animated shake');
+                    angular.element(panel).on('webkitAnimationEnd mozAnimationeEnd MSAnimationEnd oanimationend animationend', () => {
+                        angular.element(panel).removeClass('animated shake');
+                    });
+                }
             });
-            return false;
         };
-
         return this.Users;
     }]);

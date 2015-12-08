@@ -15,6 +15,7 @@ var UsersSchema = mongoose.Schema({
     oAuthName      : String,
     oAuthKey       : String,
     specialized    : String,
+    admin          : {type: Number, default: 0},
     lastLogin      : {type: Date, default: Date.now()},
     others          : [
         {

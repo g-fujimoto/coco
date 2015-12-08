@@ -1,4 +1,7 @@
 angular.module('webApp')
-    .controller('LoginController', ['$scope', function($scope) {
-        $scope.loginState = false;
+    .controller('LoginController', ['$scope', '$Users', function($scope, $Users) {
+        $scope.error = false;
+        $scope.login = () => {
+            $Users.login($scope);
+        };
     }]);

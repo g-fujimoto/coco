@@ -6,8 +6,12 @@ const app = angular.module('webApp', [
     'ngFileUpload',
     'ngResource',
     'cfp.loadingBar'
-]);
-
-app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+])
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
+}])
+.run(['$rootScope', '$state', function($rootScope) {
+    $rootScope.$on('$stateChangeStart', (e, toState, toParams, fromState, fromParams) => {
+        console.log(e, toState, fromState);
+    });
 }]);

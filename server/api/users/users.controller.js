@@ -26,19 +26,17 @@ exports.index = function(req, res) {
 };
 
 exports.login = function(req, res) {
-
-    if (req.session.user) {
-        return res.json({login: true});
-    }
-
     Users.findOne({email: req.body.email, password:req.body.password}, function(err, data) {
-        req.session.user = data;
+        req.session.loginUser = data;
+
+        if(err) {
+         return res.json({login: 'Error!!!'});
+        }
         if (data) {
             return res.json({login: true});
         } else {
             return res.json({login: false});
         }
-
     });
 };
 

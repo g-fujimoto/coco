@@ -31,6 +31,9 @@
                 E-mail
             </th>
             <th>
+                権限
+            </th>
+            <th>
                 会社名
             </th>
             <th>
@@ -61,6 +64,9 @@
             </td>
             <td>
                 {{data.email}}
+            </td>
+            <td>
+                {{data.admin ? '管理者' : '一般'}}
             </td>
             <td>
                 {{data.company.name}}
