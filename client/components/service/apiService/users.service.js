@@ -16,7 +16,7 @@ angular.module('webApp')
             $http.post('/api/users/login', data)
             .success((data) => {
                 if(data.login) {
-                    $state.go('items');
+                    // $state.go('items');
                 } else {
                     scope.error = true;
                     var panel = document.getElementById('loginPanel');
