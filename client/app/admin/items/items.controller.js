@@ -21,9 +21,6 @@ angular.module('webApp')
 
                 //データ新規作成
                 $scope.saveAPI = () => {
-                    // ------ dummy ----- //
-                    $scope.newData.sceneAve = 3.2;
-                    // ------------------ //
                     $Items.save(
                         $scope.newData,
                         () => {
@@ -39,7 +36,7 @@ angular.module('webApp')
                 };
 
                 //データ更新
-                $scope.updateAPI = (data) => {
+                $scope.updateAPI = (data, scope) => {
                     $Items.update(
                         data,
                         () => {
@@ -49,12 +46,13 @@ angular.module('webApp')
                             $timeout(() => {
                                 $scope.alerts.splice(0, 1);
                             }, 1800);
+                            scope.$dismiss();
                         }
                     );
                 };
 
                 //データ削除
-                $scope.deleteAPI = (scope) => {
+                $scope.deleteAPI = (data, scope) => {
                     $Items.delete(
                         {_id: scope.data._id},
                         () => {
@@ -65,6 +63,7 @@ angular.module('webApp')
                             $timeout(() => {
                                 $scope.alerts.splice(0, 1);
                             }, 1800);
+                            scope.$dismiss();
                         }
                     );
                 };

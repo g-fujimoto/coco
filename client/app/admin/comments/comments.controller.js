@@ -90,7 +90,7 @@ angular.module('webApp')
                 };
 
                 // データ削除
-                $scope.deleteAPI = (data) => {
+                $scope.deleteAPI = (data, scope) => {
                     $Comments.delete(
                         {_id: data._id},
                         () => {
@@ -100,6 +100,7 @@ angular.module('webApp')
                             $timeout(() => {
                                 $scope.alerts.splice(0, 1);
                             }, 1800);
+                            scope.$dismiss();
                         }
                     );
                 };

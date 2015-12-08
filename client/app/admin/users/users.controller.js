@@ -84,9 +84,9 @@ angular.module('webApp')
                     };
 
                     //データ更新
-                    $scope.updateAPI = (data) => {
+                    $scope.updateAPI = (editData, scope) => {
                         $Users.update(
-                            data,
+                            editData,
                             () => {
                                 $scope.datas = $Users.query();
                                 $scope.alerts.push($$Alerts.successUpdate);
@@ -94,12 +94,13 @@ angular.module('webApp')
                                 $timeout(() => {
                                     $scope.alerts.splice(0, 1);
                                 }, 1800);
+                                scope.$dismiss();
                             }
                         );
                     };
 
                     //データ削除
-                    $scope.deleteAPI = (scope) => {
+                    $scope.deleteAPI = (data, scope) => {
                         $Users.delete(
                             {_id: scope.data._id},
                             () => {
@@ -110,6 +111,7 @@ angular.module('webApp')
                                 $timeout(() => {
                                     $scope.alerts.splice(0, 1);
                                 }, 1800);
+                                scope.$dismiss();
                             }
                         );
                     };

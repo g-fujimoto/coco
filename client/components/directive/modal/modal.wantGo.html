@@ -8,6 +8,8 @@
                 <div class="col-sm-3">
                     コメント
                 </div>
+                <br>
+                <br>
                 <div class="col-sm-9 text-sm">
                     <textarea name="name" rows="8" cols="40" class="form-control margin-bottom-sm" ng-model='newData.body'></textarea>
                 </div>
@@ -15,5 +17,5 @@
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
-    <button class="btn" type="button" ng-click="saveAPI(newData)">登録する</button>
+    <button class="btn" type="button" ng-click="save(newData)">登録する</button>
 </div>
