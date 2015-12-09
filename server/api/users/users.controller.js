@@ -40,6 +40,11 @@ exports.login = function(req, res) {
     });
 };
 
+exports.logout = function(req, res) {
+    req.session.loginUser = '';
+    res.json({isLogin: false});
+};
+
 exports.stateCheck = function(req, res) {
     console.log(req.session.loginUser);
     if(req.session.loginUser) {

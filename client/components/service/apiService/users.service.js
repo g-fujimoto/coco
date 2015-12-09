@@ -60,6 +60,17 @@ angular.module('webApp')
             });
         };
 
+        this.Users.logout = () => {
+            $http.post(
+                '/api/users/logout',
+                {}
+            )
+            .success(() => {
+                $rootScope.isLogin = false;
+                $state.go('login');
+            });
+        };
+
 
         return this.Users;
     }]);
