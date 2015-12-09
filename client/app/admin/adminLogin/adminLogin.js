@@ -5,8 +5,8 @@ angular.module('webApp')
                 url: '/admin',
                 views: {
                     '': {
-                        templateUrl: './app/admin/login/login.html',
-                        controller: 'LoginController'
+                        templateUrl: './app/admin/adminLogin/adminLogin.html',
+                        controller: 'AdminLoginController'
                     }
                 }
             });

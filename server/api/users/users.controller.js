@@ -30,21 +30,22 @@ exports.login = function(req, res) {
         req.session.loginUser = data;
 
         if(err) {
-         return res.json({login: 'Error!!!'});
+         return res.json({isLogin: 'Error!!!'});
         }
         if (data) {
-            return res.json({login: true});
+            return res.json({isLogin: true});
         } else {
-            return res.json({login: false});
+            return res.json({isLogin: false});
         }
     });
 };
 
 exports.stateCheck = function(req, res) {
+    console.log(req.session.loginUser);
     if(req.session.loginUser) {
-        return res.json({login: true});
+        return res.json({isLogin: true});
     } else {
-        return res.json({login: false});
+        return res.json({isLogin: false});
     }
 };
 

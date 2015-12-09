@@ -7,16 +7,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
         $scope.global_menu = 'main';
         $scope.scenes      = $$Scenes;
         $scope.genres      = $$Genres;
-        $scope.islogin     = true;
         $scope.pages       = [];
-
-        $scope.login = function() {
-            // test
-            $scope.email = 'lufy@gmail.com';
-            $scope.password = 'a123456789';
-            $scope.islogin  = $Users.login($scope);
-            console.log($scope.islogin);
-        };
 
         $scope.upload = function(files) {
             if(files && files.length) {
@@ -143,8 +134,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             $scope.genreName = ($scope.genreName == value) ? null : value;
             $scope.getItem();
         };
-
-        $scope.login();
 
         $scope.getItem();
 

@@ -7,7 +7,7 @@
 #header #mainmenu .mainmenu_header #login_box { position: absolute; width: 620px; height: 50px; right: 12px; top: 8px; background-color: #1d2087; overflow: hidden; }
 #header #mainmenu .mainmenu_header #login_box ul { margin-left: 20px; margin-top: 12px; }
 #header #mainmenu .mainmenu_header #login_box ul li { float: left; }
-#header #mainmenu .mainmenu_header #login_box ul li input[type=password], #header #mainmenu .mainmenu_header #login_box ul li input[type=email] { width: 230px; height: 20px; border: 1px solid #ccc; color: #cacaca; margin-top: 1px; margin-right: 19px; }
+#header #mainmenu .mainmenu_header #login_box ul li input[type=password], #header #mainmenu .mainmenu_header #login_box ul li input[type=email] { width: 230px; height: 20px; border: 1px solid; font-size:12px; margin-top: 1px; margin-right: 19px; }
 #header #mainmenu .mainmenu_header #login_box ul li input:focus { color: #000; }
 #header #mainmenu .mainmenu_header #login_box ul li a { display: block; width: 75px; height: 25px; background-color: #ebf0ed; }
 #header #mainmenu .mainmenu_header #login_box ul li a img { display: block; }
@@ -22,6 +22,7 @@
 #header #mainmenu .mainmenu_footer h2 { margin-top: 156px; margin-left: 9px; width: 548px; height: 220px; }
 .margin_btm { margin-bottom: 100px; }
 body.home #header #header_bg { background-image: url(../assets/images/header/top_background.jpg); background-repeat: no-repeat; background-position: center; margin-bottom: -50px; overflow: hidden;}
+
 
 #main { width: 930px; padding: 35px 35px; margin: 0px auto 94px; background-color: #e8f0ed; overflow: hidden; }
 #main #main_header { height: 69px; overflow: hidden; }
@@ -630,6 +631,11 @@ body.home #main { margin: -50px auto 94px; }
 /* ---------------- Alert ----------------- */
 .alertAnimate.ng-leave {
     opacity: 0.5
+}
+
+/* ---------------- Button ---------------- */
+#logout {
+    margin-bottom: 20px!important;
 }
 
 /* -------------------------------  OutLine ------------------------------------ */

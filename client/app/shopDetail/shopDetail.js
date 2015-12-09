@@ -8,7 +8,8 @@ angular.module('webApp')
                     templateUrl: './app/shopDetail/shopDetail.html',
                     controller: 'ShopDetailController'
                 }
-            }
+            },
+            auth: true
         })
         .state('shopDetail.main', {
             url: '/main',
@@ -17,7 +18,8 @@ angular.module('webApp')
                     templateUrl: './app/shopDetail/shopDetail.main.html',
                     controller: 'ShopDetailController'
                 }
-            }
+            },
+            auth: true
         })
         .state('shopDetail.photos', {
             url: '/photos',
@@ -26,7 +28,8 @@ angular.module('webApp')
                     templateUrl: './app/shopDetail/shopDetail.photos.html',
                     controller: 'ShopDetailController'
                 }
-            }
+            },
+            auth: true
         })
         .state('shopDetail.reviews', {
             url: '/reviews',
@@ -35,7 +38,8 @@ angular.module('webApp')
                     templateUrl: './app/shopDetail/shopDetail.reviews.html',
                     controller: 'ShopDetailController'
                 }
-            }
+            },
+            auth: true
         })
         .state('shopDetail.map', {
             url: '/map',
@@ -44,6 +48,7 @@ angular.module('webApp')
                     templateUrl: './app/shopDetail/shopDetail.map.html',
                     controller: 'ShopDetailController'
                 }
-            }
+            },
+            auth: true
         });
 }]);

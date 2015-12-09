@@ -13,7 +13,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
             params: {
                 alert: null
             },
-            isLogin: true
+            login: true
         })
         .state('adminNewComment', {
             url: '/admin/comments/new',
@@ -23,6 +23,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
                     controller: 'CommentsController'
                 }
             },
-            isLogin: true
+            login: true
         });
 }]);
