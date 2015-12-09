@@ -4,12 +4,8 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
     function($scope, $http, $$Scenes, $uibModal, $timeout, $Users, $Recommend) {
 
     $scope.global_menu = 'search';
-    $scope.islogin = true;
     $scope.pages      = [];
 
-    $scope.login = function() {
-        $scope.islogin = $Users.login($scope);
-    };
 
     $scope.recommendAdd = function(item) {
         $Recommend.add(item._id)
@@ -117,8 +113,6 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
     });
 
     $scope.scenes = $$Scenes;
-
-    $scope.login();
     $scope.getItem();
 
 }]);

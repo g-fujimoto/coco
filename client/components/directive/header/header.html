@@ -4,14 +4,6 @@
         <div class="mainmenu_header">
             <h2><a ui-sref="main"><img src="./assets/./images/header/logo.svg" alt="ココ社長" /></a></h2>
             <button type="button" name="button" ng-show="isLogin" class="btn btn-default" id="logout_box" ng-click="logout();">Logout</button>
-            <div id="login_box" ng-hide="isLogin">
-                <ul>
-                    <li><input type="email" value="Email" ng-model="email" placeholder="E-mail"/></li>
-                    <li><input type="password" value="Password" ng-model="password" placeholder="Password"/></li>
-                    <li><a ng-click="login()" href=""><img src="./assets/./images/header/login_button.svg" alt="ログイン" /></a></li>
-                </ul>
-            </div>
-            <button type="button" name="button" ng-show="isLogin" class="btn btn-default">Logout</button>
         </div>
 
         <coco-navbar></coco-navbar>

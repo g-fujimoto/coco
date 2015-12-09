@@ -10,15 +10,10 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
         $scope.prefs       = $$Prefs;
         $scope.areas       = $Areas.query();
         $scope.confirmData = $stateParams.newData || {};
-        /* ----------------------------------------- $scope(function) ------------------------ */
-        //ログイン状態監視 -> ui-routerのページ遷移時に記載する予定です。
-        //-----------------------------------------------------//
-        $scope.islogin     = true;
-        $scope.login = function() {
-            $scope.islogin = $Users.login($scope);
-        };
-        $scope.login();
-        //-----------------------------------------------------//
+/* ----------------------------------------- $scope(function) ----------------------------- */
+
+/* ----------------------------------------- RestfulAPI ----------------------------------- */
+
         $scope.saveAPI = () => {
             $Items.save(
                 $scope.confirmData,

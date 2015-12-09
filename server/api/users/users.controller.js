@@ -32,10 +32,13 @@ exports.login = function(req, res) {
         if(err) {
          return res.json({isLogin: 'Error!!!'});
         }
+
         if (data) {
-            return res.json({isLogin: true});
+            data.email = '';
+            data.password = '';
+            return res.json(data);
         } else {
-            return res.json({isLogin: false});
+            return res.json(data);
         }
     });
 };

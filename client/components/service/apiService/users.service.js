@@ -31,12 +31,13 @@ angular.module('webApp')
                 $http.post('/api/users/login', data)
                     .success((data) => {
                         console.log(data);
-                        if(data.isLogin) {
+                        if(data) {
                             $state.go('main');
-                            $rootScope.isLogin = true;
+                            $rootScope.isLogin   = true;
+                            $rootScope.loginUser = data;
                         } else {
                             scope.$root.error = true;
-                            var panel = document.getElementById('loginPanel');
+                            var panel = document.getElementById('login_box');
                             angular.element(panel).addClass('animated shake');
                             angular.element(panel).on('webkitAnimationEnd mozAnimationeEnd MSAnimationEnd oanimationend animationend', () => {
                                 angular.element(panel).removeClass('animated shake');
@@ -66,7 +67,8 @@ angular.module('webApp')
                 {}
             )
             .success(() => {
-                $rootScope.isLogin = false;
+                $rootScope.isLogin   = false;
+                $rootScope.loginUser = null;
                 $state.go('login');
             });
         };
