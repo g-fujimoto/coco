@@ -10,6 +10,7 @@
     var mongoose      = require('mongoose');
     var session       = require('express-session');
     var multer        = require('multer');
+    var MongoSessionStore = require('connect-mongo')(session);
 
 // Own Objects
     var config        = require('./config/environment');
@@ -46,6 +47,10 @@ db.once('open', function(callback) {
       secret: 'hogehoge key',
       resave: false,
       saveUninitialized: false,
+      store: new MongoSessionStore({
+            mongooseConnection: db,
+            ttl: 60 * 60
+       }),
       cookie: {
         maxAge: 30 * 60 * 1000
       }

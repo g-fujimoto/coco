@@ -11,7 +11,7 @@ router.get('/:_id', controller.get);
 router.post('/', controller.create);
 router.delete('/:_id', controller.delete);
 router.put('/:_id', controller.update);
-
 router.post('/login', controller.login);
+router.post('/stateCheck', controller.stateCheck);
 
 module.exports = router;

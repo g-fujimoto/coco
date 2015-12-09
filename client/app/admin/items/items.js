@@ -1,6 +1,6 @@
 var app = angular.module('webApp');
 
-app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('items', {
             url: '/admin/items',

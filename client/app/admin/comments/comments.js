@@ -12,7 +12,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
             },
             params: {
                 alert: null
-            }
+            },
+            isLogin: true
         })
         .state('adminNewComment', {
             url: '/admin/comments/new',
@@ -21,6 +22,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
                     templateUrl: './app/admin/comments/new.html',
                     controller: 'CommentsController'
                 }
-            }
+            },
+            isLogin: true
         });
 }]);

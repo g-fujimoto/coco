@@ -26,7 +26,7 @@ exports.index = function(req, res) {
 };
 
 exports.login = function(req, res) {
-    Users.findOne({email: req.body.email, password:req.body.password}, function(err, data) {
+    Users.findOne({email: req.body.email, password: req.body.password}, function(err, data) {
         req.session.loginUser = data;
 
         if(err) {
@@ -38,6 +38,14 @@ exports.login = function(req, res) {
             return res.json({login: false});
         }
     });
+};
+
+exports.stateCheck = function(req, res) {
+    if(req.session.loginUser) {
+        return res.json({login: true});
+    } else {
+        return res.json({login: false});
+    }
 };
 
 //get
