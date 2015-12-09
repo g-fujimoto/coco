@@ -640,3 +640,20 @@ a {
 li {
     outline: none!important;
 }
+
+/* -------------------------------- タイトル背景のグラデーション ----------------------*/
+#title_background {
+    width: auto;
+    height: 30px;
+    padding: 18px 0px 5px 0px;
+    text-indent: 35px;
+    line-height: 25px;
+    color: #191a67;
+    letter-spacing: 0;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.90, #e4e6e7), color-stop(0.67, #d1dbfa), color-stop(0.27, #90c0ea), color-stop(0.16, #fff), color-stop(0.07, #191a67));
+    background: -webkit-linear-gradient(top, #191a67 7%, #fff 16%, #90c0ea 27%, #d1dbfa 67%, #e4e6e7 90%);
+    background: -moz-linear-gradient(top, #191a67 7%, #fff 16%, #90c0ea 27%, #d1dbfa 67%, #e4e6e7 90%);
+    background: -o-linear-gradient(top, #191a67 7%, #fff 16%, #90c0ea 27%, #d1dbfa 67%, #e4e6e7 90%);
+    background: -ms-linear-gradient(top, #191a67 7%, #fff 16%, #90c0ea 27%, #d1dbfa 67%, #e4e6e7 90%);
+    background: linear-gradient(to bottom, #191a67 7%, #fff 16%, #90c0ea 27%, #d1dbfa 67%, #e4e6e7 90%);
+}
