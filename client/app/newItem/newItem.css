@@ -15,6 +15,11 @@
 #item_title {
     width: 800px;
     margin: 20px auto 20px auto;
+    font-size: 14px;
+}
+#item_title h3{
+    width: 400px;
+    float: left;
 }
 
 /*パン屑リスト設定*/
