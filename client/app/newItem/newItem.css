@@ -1,7 +1,14 @@
 /*背景色および余白設定*/
 #item_registration{
     background-color: #fff;
-    padding: 50px 70px;
+    padding: 50px 70px 50px 70px;
+}
+
+/*登録完了ページ設定*/
+#resultmessagemessage{
+    width: 800px;
+    height: 200px;
+    text-indent: 20px;
 }
 
 /*タイトル設定*/
@@ -26,23 +33,15 @@
     list-style: none;
     overflow: hidden;
     color: #aaa;
-    font: 10px Verdana, sans-serif;
+    font: 20px Verdana, sans-serif;
     background: #fff;
     border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
     background: #fafafa;
 }
 
-#item_navigation {
-        list-style: none;
-        overflow: hidden;
-        color: #aaa;
-        font: 20px Verdana, sans-serif;
-        background: #fff;
-        border-top: 1px solid #dedede;
-        border-bottom: 1px solid #dedede;
-        background: #fafafa;
-        text-align: center;
+#item_navigation a {
+    cursor: default;
 }
 
 #item_navigation li {
@@ -51,17 +50,27 @@
         text-shadow: 0 1px 1px white;
 }
 
-#item_navigation li a {
-        color: #aaa;
-        text-decoration: none;
-        padding: 0 10px 0 40px;
-        display: block;
-        float: left;
-        background: #fafafa;
-        width: 150px;
+#item_navigation li:first-child a {
+    padding-left: 10px;
 }
 
-#item_navigation li a::after {
+#item_navigation li:last-child {
+    padding-left: 40px;
+}
+
+/*未選択css*/
+#item_navigation li .navigation_def {
+    color: #aaa;
+    text-decoration: none;
+    padding: 0 10px 0 30px;
+    display: block;
+    float: left;
+    background: #fafafa;
+    text-align: center;
+    width: 230px;
+}
+
+#item_navigation li .navigation_def::after {
         position: relative;
         display: block;
         margin-top: -30px;
@@ -75,7 +84,7 @@
         border-right: 1px solid #d6d6d6;
 }
 
-#item_navigation li a::before {
+#item_navigation li .navigation_def::before {
         float: right;
         display: block;
         margin-bottom: -30px;
@@ -89,31 +98,71 @@
         border-right: 1px solid #d6d6d6;
 }
 
-#item_navigation li:first-child a {
-  padding-left: 10px;
+/*移動後css*/
+#item_navigation li .navigation_aft {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px 0 30px;
+    display: block;
+    float: left;
+    background: #777;
+    text-align: center;
+    width: 230px;
 }
 
-#item_navigation li:last-child {
-        padding-left: 40px;
+#item_navigation li .navigation_aft::after {
+    position: relative;
+    display: block;
+    margin-top: -30px;
+    margin-left: auto;
+    margin-right: -25px;
+    height: 30px;
+    width: 30px;
+    content: " ";
+    -webkit-transform: skew(-40deg);
+    background: #777;
+    border-right: 1px solid #d6d6d6;
 }
 
-#item_navigation li a:hover {
-    color: #333;
+#item_navigation li .navigation_aft::before {
+    float: right;
+    display: block;
+    margin-bottom: -30px;
+    margin-left: auto;
+    margin-right: -25px;
+    height: 30px;
+    width: 30px;
+    content: " ";
+    -webkit-transform: skew(40deg);
+    background: #777;
+    border-right: 1px solid #d6d6d6;
 }
 
-#item_navigation li.current {
-        color: #fff;
-        background: #777;
-        text-shadow: 0 1px 1px black;
+/*最後用css*/
+#item_navigation li .navigation_end_def {
+    color: #aaa;
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+    display: block;
+    float: left;
+    background: #fafafa;
+    text-align: center;
+    width: 220px;
 }
 
-#item_navigation li.current a {
-        color: #fff;
-        background: #777;
+#item_navigation li .navigation_end_aft {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+    display: block;
+    float: left;
+    background: #777;
+    text-align: center;
+    width: 220px;
 }
 
-#item_navigation li.current a::before, #item_navigation li.current a::after {
-  background: #777;
+#item_navigation .navigation_end_aft_li {
+    background: #777;
 }
 
 /*テーブル設定*/
@@ -203,10 +252,4 @@
     height: 50PX;
     margin: 20px auto 0px auto;
     box-shadow:2px 2px #555;
-}
-
-#message{
-    width: 800px;
-    height: 200px;
-    text-indent: 20px;
 }
