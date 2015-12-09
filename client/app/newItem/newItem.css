@@ -1,7 +1,7 @@
 /*背景色および余白設定*/
 #item_registration{
     background-color: #fff;
-    padding: 50px 70px 50px 70px;
+    padding: 50px 65px 50px 65px;
 }
 
 /*登録完了ページ設定*/
@@ -15,15 +15,6 @@
 #item_title {
     width: 800px;
     margin: 20px auto 20px auto;
-}
-
-#item_title h4 {
-    padding: 15px 10px 10px 10px;
-    text-indent: 25px;
-    background: #9999FF;
-    border-top: 5px solid #0000FF;
-    font-weight: bold;
-    color: #FFFFFF;
 }
 
 /*パン屑リスト設定*/
