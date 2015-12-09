@@ -1,11 +1,11 @@
 /*背景色および余白設定*/
-#item_registration{
+#item_registration {
     background-color: #fff;
     padding: 50px 65px 50px 65px;
 }
 
 /*登録完了ページ設定*/
-#resultmessagemessage{
+#resultmessagemessage {
     width: 800px;
     height: 200px;
     text-indent: 20px;
@@ -49,7 +49,7 @@
     padding-left: 40px;
 }
 
-/*未選択css*/
+/*遷移前*/
 #item_navigation li .navigation_def {
     color: #aaa;
     text-decoration: none;
@@ -89,7 +89,7 @@
         border-right: 1px solid #d6d6d6;
 }
 
-/*移動後css*/
+/*遷移後*/
 #item_navigation li .navigation_aft {
     color: #fff;
     text-decoration: none;
@@ -129,7 +129,7 @@
     border-right: 1px solid #d6d6d6;
 }
 
-/*最後用css*/
+/*遷移前(末尾)*/
 #item_navigation li .navigation_end_def {
     color: #aaa;
     text-decoration: none;
@@ -141,6 +141,7 @@
     width: 220px;
 }
 
+/*遷移後(末尾)*/
 #item_navigation li .navigation_end_aft {
     color: #fff;
     text-decoration: none;
@@ -182,12 +183,6 @@
     padding: 10px 10px 0px 10px;
 }
 
-/*郵便番号用メッセージラベル設定*/
-#item_form .label_zipcode {
-    margin-bottom: 10px;
-    text-indent: 25px;
-}
-
 /*テキストボックスの設定*/
 #item_form input{
     width: 300px;
@@ -197,10 +192,23 @@
     text-indent: 10px;
 }
 
+/*郵便番号用メッセージラベル設定*/
+#item_form .label_zipcode {
+    margin-bottom: 10px;
+    text-indent: 25px;
+}
+
 /*郵便番号のテキストボックス設定*/
 #item_form .input_zipcode {
     width: 90px;
     margin-right: 20px;
+}
+
+/*郵便番号ボタン設定*/
+#item_form .button_zipcode {
+    height: 35px;
+    margin:0px;
+    box-shadow:2px 2px #555;
 }
 
 /*住所のテキストボックス設定*/
@@ -208,7 +216,7 @@
     width: 500px;
 }
 
-/*セレクトボックスの設定*/
+/*セレクトボックス設定*/
 #item_form select {
     width: 250px;
     height: 35px;
@@ -216,7 +224,7 @@
     text-indent: 10px;
 }
 
-/*テキストエリアの設定*/
+/*テキストエリア設定*/
 #item_form textarea {
     width: 550px;
     height: 200px;
@@ -226,21 +234,20 @@
     resize: none;
 }
 
-/*郵便番号のボタン設定*/
-#item_form .button_zipcode {
-    height: 35px;
-    margin:0px;
-    box-shadow:2px 2px #555;
-}
-
+/*ボタン設定*/
 #button {
    text-align: center;
 }
 
-/*サブミットのボタン設定*/
-#button .button_submit {
+#button button {
     width:200px;
-    height: 50PX;
+    height: 50px;
     margin: 20px auto 0px auto;
     box-shadow:2px 2px #555;
+}
+
+/*無効時ボタン設定*/
+#button button:disabled {
+    opacity:0.6;
+    box-shadow:0px 0px #fff;
 }
