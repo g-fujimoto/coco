@@ -59,9 +59,9 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_side_wrap #main_contents .loop_contents_box .right_box hr { margin: 0px; width: 100%; height: 2px; border: 0px; background-color: #000000; filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = '#c8c8c8', endColorstr = '#ffffff'); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = '#c8c8c8', endColorstr = '#ffffff')"; background-image: -moz-linear-gradient(left, #c8c8c8, #ffffff); background-image: -ms-linear-gradient(left, #c8c8c8, #ffffff); background-image: -o-linear-gradient(left, #c8c8c8, #ffffff); background-image: -webkit-gradient(linear, left top, right top, from(#c8c8c8), to(#ffffff)); background-image: -webkit-linear-gradient(left, #c8c8c8, #ffffff); background-image: linear-gradient(left, #c8c8c8, #ffffff); }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box { height: 72px; overflow: hidden; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box .left { width: 305px; float: left; }
-.box_header { height: 40px; width: 300px; float: left;}
+.box_header { height: 40px; width: auto; float: left;}
 .box_header ul { padding-left: 10px; overflow: hidden; }
-.box_header ul li { float: left; padding-right: 25px;}
+.box_header ul li { float: left; width: auto;padding-right: 25px;}
 .box_header ul li h3 { color: #1d2087; font-size: 25px; font-weight: bold; line-height: 44px; }
 .box_header ul li h3 b { padding-right: 4px; font-size: 14px; font-weight: normal; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box .left .box_main ul { overflow: hidden; padding-top: 4px; }
@@ -98,7 +98,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 
 /****     reviews.htmlでの変更追加     ****/
 /**** top ****/
-#main #main_top { background-color: #fff; margin: 0 -35px; padding: 20px 50px 0px 50px; overflow: hidden; }
+#main #main_top { background-color: #fff; margin: 0 -35px; padding: 20px 50px 20px 50px; overflow: hidden; }
 #main_top h3 { font-size: 30px; font-weight: 800; border-bottom: 1px solid #000; padding-bottom: 15px; padding-left: 10px; margin-bottom: 15px; }
 #main #main_top .header_list li { width: 80px; float: left; font-size: 12px; text-align: center; padding: 4px 0;}
 #main #main_top .header_list .narrowing_title { box-shadow: 3px 3px 3px rgba(0,0,0,0.4); border: 1px solid #ccc;}
@@ -116,14 +116,15 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 /**** 空白のdivにbackground-color ****/
 #main #bg_black{ background-color: #000; width: 950px; height: 10px; margin-left: -10px;}
 /**** レビューひとつひとつの外枠 ****/
-#main #shopDetail_main { background-color: #fff; padding: 20px 100px;}
-#main #shopDetail_main .go_button {  width: 200px; float: left;}
-#main #shopDetail_main .nice_button {  width: 200px; float: right; text-align: right; padding-right: 20px; line-height: 27px;}
-#main .reviews_list_blue{ background-color: #335ad0; padding: 5px; border-radius: 2px; box-shadow:rgba(113, 135, 164, 0.33333) 0px 0px 3px 3px; -webkit-box-shadow:rgba(113, 135, 164, 0.33333) 0px 0px 3px 3px; -moz-box-shadow:rgba(113, 135, 164, 0.33333) 0px 0px 3px 3px;}
-#main .reviews_list_gray{ background-color: #ccc; padding: 5px; border-radius: 2px; box-shadow:rgba(113, 135, 164, 0.33333) 0px 0px 3px 3px; -webkit-box-shadow:rgba(113, 135, 164, 0.33333) 0px 0px 3px 3px; -moz-box-shadow:rgba(113, 135, 164, 0.33333) 0px 0px 3px 3px;}
+#main #shopDetail_main { background-color: #fff; width: 930px; padding-top: 20px; overflow: hidden;}
+#main #shopDetail_main .go_button {  width: auto; float: left; font-size: 12px; margin-left: 20px;}
+#main #shopDetail_main .nice_button{ width: auto; float: right; text-align: right; margin-right: 20px; }
+#main #shopDetail_main .nice_button a{ color: #fff;}
+#main .reviews_list_blue{ background-color: #335ad0; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);}
+#main .reviews_list_gray{ background-color: #ccc; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);}
 #main .reviews_list_main{ background-color: #fff; padding: 30px 50px;}
 #main .reviews_list_footer_blue{ overflow: hidden; background-color: #335ad0; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);  margin-top: -2px; border-top: 1px solid rgba(0, 0, 0, 0.2); margin-bottom: 50px;}
-#main .reviews_list_footer_gray{ overflow: hidden; background-color: #ccc; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);  margin-top: -2px; border-top: 1px solid rgba(0, 0, 0, 0.2);}
+#main .reviews_list_footer_gray{ overflow: hidden; background-color: #ccc; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);  margin-top: -2px; border-top: 1px solid rgba(0, 0, 0, 0.2); margin-bottom: 50px;}
 /**** レビューひとつひとつの内容  ****/
 #main #shopDetail_main .reviews_top { width: 620px; overflow: hidden; padding-bottom: 3px;}
 #main #shopDetail_main .reviews_title { width: 490px; font-size: 22px; float: left; font-weight: 800;}
@@ -189,19 +190,203 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #shopDetail_main #top_person { overflow: hidden; margin-bottom: 30px;}
 #main #shopDetail_main .top_person_info { width: 10%; float: left; }
 #main #shopDetail_main .person_reviews { width: 70%; float: left;}
-#main #shopDetail_main #top_person .person_reviews h3 { font-size: 16px; font-weight: 800; padding-bottom: 5px;}
-#main #shopDetail_main .person_reviews_img { width: 20%; float: left; height: 100px; background-color: #ccc; text-align: center; line-height: 100px; color: #fff;}
-#main #shopDetail_main .top_thumbnail { margin: 3px 0; width: 60px; height: 72px; background-color: #ccc; box-shadow: 2px 2px 1px rgba(0,0,0,0.4); float: left;}
-#main #shopDetail_main .top_reviews_impressions { padding: 5px 10px; border-top: 1px solid #333; border-bottom: 1px solid #333; line-height: 16px;}
+#main #shopDetail_main #top_person .person_reviews h3 { font-size: 16px; font-weight: 800; padding-bottom: 5px; padding-left: 10px;}
+#main #shopDetail_main .person_reviews_img { width: 18%; margin-left: 2%; float: left; height: 120px; background-color: #ccc; text-align: center; line-height: 120px; color: #fff; }
+#main #shopDetail_main .top_thumbnail { margin: 3px 0; width: 60px; height: 72px; background-color: #ccc; box-shadow: 2px 2px 1px rgba(0,0,0,0.4);}
+#main #shopDetail_main .top_reviews_impressions { overflow: hidden; padding: 5px 10px; border-top: 1px solid #333; border-bottom: 1px solid #333; line-height: 16px; clear: both;}
+.box_header_small { width: 300px; float: left;}
+.box_header_small ul { padding-left: 10px; overflow: hidden; }
+.box_header_small ul li { float: left; width: 100px;}
+.box_header_small ul li h4 { color: #1d2087; font-size: 12px; padding-top: 5px;}
+.box_header_small ul li h4 b { padding-right: 4px; font-size: 12px;}
+#shopDetail_top { width: 80%; margin: 0 auto; }
+#shopDetail_main .shopDetail_btn { width: auto; float: right; font-size: 11px; margin-right: 20px; text-indent: 0px; padding: 0;}
+#shopDetail_main .shopDetail_btn a { display: block; padding: 1px 10px;}
+#shopDetail_main_reviews { width: 80%; margin: 0 auto;}
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list { margin-bottom: 30px; overflow: hidden;}
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .top_person_info { width: 10%; float: left; overflow: hidden;}
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .top_thumbnail { width: 50px; height: 60px; background-color: #ccc; box-shadow: 2px 2px 1px rgba(0,0,0,0.4);}
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .top_person_info .person_reviews_name { width: 100%; clear: text-align: center;}
+.arrow_box_blue {
+	position: relative;
+	background: #ffffff;
+	border: 4px solid #335ad0;
+    border-radius: 10px;
+    width: 80%;
+    float: left;
+    padding: 15px 20px;
+}
+.arrow_box_blue:after, .arrow_box_blue:before {
+	right: 100%;
+	top: 20%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
 
+.arrow_box_blue:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-right-color: #335ad0;
+	border-width: 5px;
+	margin-top: -5px;
+}
+.arrow_box_blue:before {
+	border-color: rgba(51, 90, 208, 0);
+	border-right-color: #335ad0;
+	border-width: 12px;
+	margin-top: -12px;
+}
+.review_state_blue{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 11px;
+    width: 75px;
+    color: #fff;
+    padding: 3px 0;
+    text-align: center;
+    background-color: #335ad0;
+}
+.arrow_box_gray {
+	position: relative;
+	background: #ffffff;
+	border: 4px solid #ccc;
+    border-radius: 10px;
+    width: 80%;
+    float: left;
+    padding: 15px 20px;
+}
+.arrow_box_gray:after, .arrow_box_gray:before {
+	right: 100%;
+	top: 20%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
 
+.arrow_box_gray:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-right-color: #ccc;
+	border-width: 5px;
+	margin-top: -5px;
+}
+.arrow_box_gray:before {
+	border-color: rgba(51, 90, 208, 0);
+	border-right-color: #ccc;
+	border-width: 12px;
+	margin-top: -12px;
+}
+.review_state_gray{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 11px;
+    width: 75px;
+    color: #333;
+    padding: 3px 0;
+    text-align: center;
+    background-color: #ccc;
+}
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .person_reviews { width: 100%;}
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list  h3 { font-size: 14px; font-weight: 800; padding-bottom: 5px; padding-left: 10px; width: 400px; float: left;}
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .top_reviews_img{ width: 10%; margin-left: 2%; float: left; height: 55px; background-color: #ccc; text-align: center; line-height: 55px; color: #fff; }
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .arrow_box_blue .person_reviews .reviews_text { width: 88%; float: left;}
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .arrow_box_gray .person_reviews .reviews_text { width: 100%; }
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .person_reviews .review_date { width: auto; float: left;}
+.reviews_more{
+    text-align: right;
+    font-size: 12px;
+    width: 90%;
+    margin: 0 auto;
+}
+#shopDetail_info{
+    width: 80%;
+    margin: 0 auto;
+}
+#shopDetail_info h5{
+    font-size: 15px;
+    margin-bottom: 8px;
+    padding-left: 8px;
+}
+.shopDetail_info table{
+    width: 100%;
+    border: 3px solid #666;
+    font-size: 14px;
+    margin-bottom: 50px;
+}
+.shopDetail_info th{
+    width: 25%;
+}
+.shopDetail_info td{
+    width: 75%;
+}
+.shopDetail_info th,td{
+    border-top: 2px solid #ccc;
+    padding-left: 15px;
+    line-height: 22px;
+}
+.shopDetail_info .map{
+    width: 500px;
+    height: 150px;
+    background-color: #ccc;
+}
 /********************************************/
+
+/*******************　shopDetail.photo.htmlでの変更点　******************/
+#shopDetail_photo_list{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+#shopDetail_photo_list .shopDetail_photo{
+    width: 22.75%;
+    margin-right: 3%;
+    float: left;
+    margin-bottom: 30px;
+}
+#shopDetail_photo_list .shopDetail_photo:nth-child(4n){
+    margin-right: 0%;
+}
+#shopDetail_photo_list .photo_img{
+    width: 100%;
+    background-color: #ccc;
+    color: #fff;
+    text-align: center;
+    line-height: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+.img_posting{
+    width: 200px;
+    padding: 20px;
+    margin: 0 auto;
+}
+/***********************************************************************/
+
+/*******************　shopDetail.map.htmlでの変更点　******************/
+.shopDetail_access{
+    width: 80%;
+    margin: 0 auto;
+}
+.shopDetail_map{
+    width: 90%;
+    margin: 0 auto;
+    height: 500px;
+    background-color: #ccc;
+    margin-bottom: 30px;
+}
+/********************************************************************/
 
 /************ font-size  class *************/
 .fontSize12 { font-size: 12px; }
 
 /*******************************************/
-
 
 /************ 黒のグラデーションボタン *************/
 .black_btn a {
@@ -647,7 +832,7 @@ li {
     height: 30px;
     padding: 18px 0px 5px 0px;
     text-indent: 35px;
-    line-height: 25px;
+    line-height: 20px;
     color: #191a67;
     letter-spacing: 0;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.90, #e4e6e7), color-stop(0.67, #d1dbfa), color-stop(0.27, #90c0ea), color-stop(0.16, #fff), color-stop(0.07, #191a67));
