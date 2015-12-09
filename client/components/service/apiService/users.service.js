@@ -11,6 +11,7 @@ angular.module('webApp')
             data.email    = scope.email;
             data.password = scope.password;
 
+            // Admin or Public
             if(admin) {
                 $http.post('/api/users/login', data)
                     .success((data) => {
@@ -51,11 +52,10 @@ angular.module('webApp')
                 {}
             )
             .success((data) => {
-                console.log(data);
                 if(data.isLogin) {
-                    console.log('ログイン状態だよ');
+                    $rootScope.isLogin = true;
                 } else {
-                    console.log('未ログイン状態だよ');
+                    $rootScope.isLogin = false;
                 }
             });
         };

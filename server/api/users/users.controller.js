@@ -46,7 +46,6 @@ exports.logout = function(req, res) {
 };
 
 exports.stateCheck = function(req, res) {
-    console.log(req.session.loginUser);
     if(req.session.loginUser) {
         return res.json({isLogin: true});
     } else {

@@ -49,11 +49,11 @@ db.once('open', function(callback) {
       saveUninitialized: false,
       store: new MongoSessionStore({
             mongooseConnection: db,
-            ttl: 60 * 60
+            ttl: 60 * 60 * 24 * 14
 
        }),
       cookie: {
-        maxAge: 60 * 60
+        maxAge: 60 * 60 * 24 * 14
       }
     }));
 
