@@ -6,6 +6,9 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     $scope.global_menu = 'shopDetail';
     $scope.islogin = true;
 
+    // 前画面からの引き継ぎ
+    console.log($stateParams.itemid);
+
     $scope.login = function() {
 
         $scope.islogin = $Users.login($scope);

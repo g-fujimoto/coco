@@ -12,11 +12,11 @@ angular.module('webApp')
             auth: true
         })
         .state('shopDetail.main', {
-            url: '/main',
+            url: '/main/:itemid',
             views: {
                 '': {
                     templateUrl: './app/shopDetail/shopDetail.main.html',
-                    controller: 'ShopDetailController'
+                    controller: 'ShopDetailController',
                 }
             },
             auth: true

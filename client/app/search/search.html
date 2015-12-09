@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="right">
-                            <p class="see_store_info black_btn"><a ui-sref="shopDetail.main">店舗詳細を見る</p></a>
+                            <p class="see_store_info black_btn"><a ui-sref="shopDetail.main({itemid:item._id})">店舗詳細を見る</p></a>
                         </div>
                     </div>
 
@@ -94,14 +94,14 @@
                       <div class="right">
                           <h6>最新コメント</h6>
                           <p>{{item_comments[item._id].topick.body}}</p>
-                          <a href="">もっと詳しく見る</a>
+                          <a ui-sref="shopDetail.reviews">もっと詳しく見る</a>
                       </div>
 
                     </div>
 
                     <div class="footer_box">
                         <ul>
-                            <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikesCounter}}人がいいねといっています</h6></li>
+                            <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikeCounter.count}}人がいいねといっています</h6></li>
                             <li><button class="blue_btn recommendation margin-top-xs" type="button"  ng-click="recommendAdd(item);"><i class="fa fa-star-o"></i>&nbsp;推薦する</button></li>
                         </ul>
                     </div>
