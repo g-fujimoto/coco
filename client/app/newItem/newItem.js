@@ -11,7 +11,8 @@ angular.module('webApp')
                     templateUrl: './app/newItem/newItem.html',
                     controller: 'NewItemController'
                 }
-            }
+            },
+            auth: true
         })
         .state('newItem.regist', {
             url: '/regist',
@@ -23,7 +24,8 @@ angular.module('webApp')
             },
             params: {
                 confirmData: null
-            }
+            },
+            auth: true
         })
         .state('newItem.confirm', {
             url: '/confirm',
@@ -35,7 +37,8 @@ angular.module('webApp')
             },
             params: {
                 newData: null
-            }
+            },
+            auth: true
         })
         .state('newItem.complete', {
             url: '/complete',
@@ -47,6 +50,8 @@ angular.module('webApp')
             },
             params: {
 
-            }
+            },
+
+            auth: true
         });
 }]);

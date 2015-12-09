@@ -8,6 +8,7 @@ angular.module('webApp')
                     templateUrl: './app/search/search.html',
                     controller: 'SearchController'
                 }
-            }
+            },
+            auth: true
         });
 }]);

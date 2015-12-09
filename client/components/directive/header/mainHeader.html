@@ -3,30 +3,22 @@
         <nav id="mainmenu">
 
             <div class="mainmenu_header">
-                <h2><a href=""><img src="./assets/./images/header/logo.svg" alt="ココ社長" /></a></h2>
-                <div id="login_box" ng-show="islogin">
+                <h2><a ui-sref="main"><img src="./assets/./images/header/logo.svg" alt="ココ社長" /></a></h2>
+                <button type="button" name="button" ng-show="isLogin" class="btn btn-default" id="logout_box" ng-click="logout();">Logout</button>
+                <div id="login_box" ng-hide="isLogin">
                     <ul>
-                        <li><input type="email" value="Email" ng-model="email"/></li>
-                        <li><input type="password" value="Password" ng-model="password"/></li>
+                        <li><input type="email" value="Email" ng-model="email" placeholder="E-mail"/></li>
+                        <li><input type="password" value="Password" ng-model="password" placeholder="Password"/></li>
                         <li><a ng-click="login()" href=""><img src="./assets/./images/header/login_button.svg" alt="ログイン" /></a></li>
                     </ul>
                 </div>
             </div>
+            <coco-navbar></coco-navbar>
 
-            <div class="mainmenu_main">
-                <ul>
-                    <li ng-click="global_menu='main'"><a ui-sref="main" ng-class="{current:global_menu=='main'}" ng-click="global_menu='main'">トップページ</a></li>
-                    <li><a ui-sref="myPage.profile" ng-class="{current:global_menu=='myPage'}">マイページ</a></li>
-                    <li><a ui-sref="search" ng-class="{current:global_menu=='search'}" ng-click="global_menu='search'">店舗検索</a></li>
-                    <li><a ui-sref="newItem.regist" ng-class="{current:global_menu=='newItem'}" ng-click="global_menu='newItem'">新規店舗登録</a></li>
-                </ul>
-            </div>
-
-            <!-- トップページのみ ----------->
+            <!-- login/mainのみ -->
             <div class="mainmenu_footer img-responsive">
                 <h2><img src="./assets/./images/header/top_mess.svg" alt="ココ社長" /></h2>
             </div>
-
         </nav>
     </div>
   </header>

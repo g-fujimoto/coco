@@ -50,9 +50,10 @@ db.once('open', function(callback) {
       store: new MongoSessionStore({
             mongooseConnection: db,
             ttl: 60 * 60
+
        }),
       cookie: {
-        maxAge: 30 * 60 * 1000
+        maxAge: 60 * 60
       }
     }));
 

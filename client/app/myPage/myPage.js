@@ -18,7 +18,8 @@ angular.module('webApp')
                     templateUrl: './app/myPage/myPage.profile.html',
                     controller: 'MyPageController'
                 }
-            }
+            },
+            auth: true
         })
         .state('myPage.went', {
             url: '/went',
@@ -27,7 +28,8 @@ angular.module('webApp')
                     templateUrl: './app/myPage/myPage.went.html',
                     controller: 'MyPageController'
                 }
-            }
+            },
+            auth: true
         })
         .state('myPage.wantGo', {
             url: '/wantGo',
@@ -36,7 +38,8 @@ angular.module('webApp')
                     templateUrl: './app/myPage/myPage.wantGo.html',
                     controller: 'MyPageController'
                 }
-            }
+            },
+            auth: true
         })
         .state('myPage.recommend', {
             url: '/recommend',
@@ -45,7 +48,8 @@ angular.module('webApp')
                     templateUrl: './app/myPage/myPage.recommend.html',
                     controller: 'MyPageController'
                 }
-            }
+            },
+            auth: true
         })
         .state('reviews', {
             url: '/shopDetail',
@@ -54,6 +58,7 @@ angular.module('webApp')
                     templateUrl: './app/shopDetail/shopDetail.html',
                     controller: 'ShopDetailController'
                 }
-            }
+            },
+            auth: true
         });
 }]);

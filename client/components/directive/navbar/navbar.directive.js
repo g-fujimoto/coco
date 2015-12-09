@@ -1,7 +1,7 @@
 angular.module('webApp')
-    .directive('ngNavbar', function() {
+    .directive('cocoNavbar', () => {
         return {
             templateUrl: './components/directive/navbar/navbar.html',
-            restric: 'E'
+            restrict: 'E'
         };
     });

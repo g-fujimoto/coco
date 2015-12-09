@@ -1,27 +1,8 @@
-<!-- CSS -->
-<link rel="stylesheet" href="./bower/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
-
-<!-- Navbar -->
-<div ng-controller="LoginController">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a ui-sref="admin" class="navbar-brand">COCO社長</a>
-                <div ng-hide="loginState">
-                    <button type="button" name="button" class="navbar-toggle" data-toggle="collapse" data-target="#xsMenu" id="xsBtn">
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse" id="xsMenu">
-              <ul class="nav navbar-nav navbar-right">
-                    <li ng-hide="loginState"><a ui-sref="items" class="navList">Stores</a></li>
-                    <li ng-hide="loginState"><a ui-sref="users" class="navList">Users</a></li>
-                    <li ng-hide="loginState"><a ui-sref="comments" class="navList">Comments</a></li>
-              </ul>
-            </div>
-        </div>
-    </nav>
+<div class="mainmenu_main" ng-show="isLogin">
+    <ul>
+        <li ng-click="global_menu='main'"><a ui-sref="main" ng-class="{current:global_menu=='main'}" ng-click="global_menu='main'">トップページ</a></li>
+        <li><a ui-sref="myPage.profile" ng-class="{current:global_menu=='myPage'}">マイページ</a></li>
+        <li><a ui-sref="search" ng-class="{current:global_menu=='search'}" ng-click="global_menu='search'">店舗検索</a></li>
+        <li><a ui-sref="newItem.regist" ng-class="{current:global_menu=='newItem'}" ng-click="global_menu='newItem'">新規店舗登録</a></li>
+    </ul>
 </div>

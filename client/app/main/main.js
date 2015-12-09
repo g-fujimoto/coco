@@ -2,12 +2,13 @@ angular.module('webApp')
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('main', {
-            url: '/',
+            url: '/main',
             views: {
                 '': {
                     templateUrl: './app/main/main.html',
                     controller: 'MainController'
                 }
-            }
+            },
+            auth: true
         });
 }]);

@@ -4,24 +4,15 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments, Upload) {
 
     $scope.global_menu = 'myPage';
-    $scope.scenes = $$Scenes;
-    $scope.genres = $$Genres;
-    $scope.islogin = true;
-    $scope.pages      = [];
-    $scope.type = [
-        {label: '行きたい', type: false},
-        {label: '行った', type: true}
-    ];
-
-    // -------- DummyData --------//
-    $scope.loginUser = $Users.get({_id : "56650edca064a49709351950"});
+    $scope.scenes      = $$Scenes;
+    $scope.genres      = $$Genres;
+    $scope.pages       = [];
+    $scope.type        = [
+                            {label: '行きたい', type: false},
+                            {label: '行った', type: true}
+                        ];
 
     $scope.comments = $Comments.query();
-
-    $scope.login = function() {
-
-        $scope.islogin = $Users.login($scope);
-    };
 
     $scope.saveUser = function () {
 
@@ -34,7 +25,6 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
                 console.log('OK');
             });
         }
-
     }
 
     $scope.getItem = function() {
@@ -104,25 +94,5 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         $scope.getItem();
     });
 
-    $scope.login();
     $scope.getItem();
-
-
-// ------------------------------- Modal ------------------------------ //
-    $scope.showModal = function() {
-        $scope.modalOption = {
-            title    : 'やまっち',
-            titleEng : 'yamacchi',
-            modalUrl : './components/modal/modal.wantGo.html',
-            scope    : $scope
-        };
-
-        $uibModal.open({
-            controller  : 'ModalController',
-            backdrop    : 'static',
-            scope       : $scope,
-            templateUrl : './components/modal/modal.went.html'
-        });
-    };
-
 }]);
