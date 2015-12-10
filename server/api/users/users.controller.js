@@ -50,8 +50,10 @@ exports.logout = function(req, res) {
 
 exports.stateCheck = function(req, res) {
     if(req.session.loginUser) {
+        console.log(req.session.loginUser);
         return res.json({isLogin: true});
     } else {
+        console.log('no session loginUser');
         return res.json({isLogin: false});
     }
 };

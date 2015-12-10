@@ -56,8 +56,9 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul li:last-child { margin: 0px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box { width: 490px; float: right; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box h2 { font-size: 22px; font-weight: bold; line-height: 30px; }
+.item_area { font-size: 12px; font-weight: 400;}
 #main #main_side_wrap #main_contents .loop_contents_box .right_box ul.category_list { overflow: hidden; height: 26px; }
-#main #main_side_wrap #main_contents .loop_contents_box .right_box ul.category_list li { padding-top: 5px; font-size: 12px; line-height: 1.0em; float: left; }
+#main #main_side_wrap #main_contents .loop_contents_box .right_box ul.category_list li { padding-top: 5px; font-size: 12px; line-height: 1.0em; float: left;}
 #main #main_side_wrap #main_contents .loop_contents_box .right_box hr { margin: 0px; width: 100%; height: 2px; border: 0px; background-color: #000000; filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = '#c8c8c8', endColorstr = '#ffffff'); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = '#c8c8c8', endColorstr = '#ffffff')"; background-image: -moz-linear-gradient(left, #c8c8c8, #ffffff); background-image: -ms-linear-gradient(left, #c8c8c8, #ffffff); background-image: -o-linear-gradient(left, #c8c8c8, #ffffff); background-image: -webkit-gradient(linear, left top, right top, from(#c8c8c8), to(#ffffff)); background-image: -webkit-linear-gradient(left, #c8c8c8, #ffffff); background-image: linear-gradient(left, #c8c8c8, #ffffff); }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box { height: 72px; overflow: hidden; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .button_box .left { width: 305px; float: left; }
@@ -160,7 +161,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
     -moz-box-shadow:rgba(113, 135, 164, 0.33333) 0px 0px 3px 3px;
 }
 #main .went_top { width: 620px; overflow: hidden; padding-bottom: 3px;}
-#main .went_title { font-size: 22px; float: left; font-weight: 800;}
+#main .went_title { font-size: 22px; font-weight: 800;}
 #main #went_list .went_list h5 { font-size: 15px; font-weight: 800; padding-top: 10px;}
 #main #went_list .impressions { line-height: 20px; font-size: 12px; padding: 10px 0;}
 #main #went_list .see_more a { text-decoration: none; color: #335ad0; font-size: 12px; font-weight: 900; }
@@ -171,6 +172,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_contents #went_list .recommendation { float: left; font-size: 12px; margin-right: 30px; margin-top: 10px; }
 #main #went_list .gradation_thick_border:before,.gradation_thick_border:after{ content:"";display:block; height:1.5px; background: linear-gradient(to right, #fff 0%,#ccc 48%,#fff 100%); }
 #main #went_list .wentTitle_box { overflow: hidden;margin: 10px;}
+#main #main_contents .went_list .went_top .store_attribute { width: auto; font-size: 12px; padding-top: 5px; padding-bottom: 5px;}
 /******************************************************/
 
 /****     recommend.htmlでの変更追加      ****/
@@ -178,8 +180,8 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_contents .recommend_list { background-color: #fff; overflow: hidden; padding: 20px 30px;}
 #main #main_contents .recommend_list .store_img { height: 120px; width: 120px; background-color: #ccc; float: left;}
 #main #main_contents .recommend_list .store_info { width: 485px; float: left; margin-left: 25px;}
-#main #main_contents .recommend_list .store_info h5 { font-size: 22px; font-weight: 800; width: 200px; float: left; padding-bottom: 5px;}
-#main #main_contents .recommend_list .store_info .store_attribute { width: 285px; float: right; font-size: 13px; text-align: right; padding-top: 5px;}
+#main #main_contents .recommend_list .store_info h5 { font-size: 22px; font-weight: 800; width: 500px; padding-bottom: 5px;}
+#main #main_contents .recommend_list .store_info .store_attribute { width: auto; font-size: 13px; padding-top: 5px;}
 .store_add { font-size: 14px; margin-bottom: 20px; margin-top: 10px; }
 .store_add i { font-size: 25px; padding-top: 10px;}
 /********************************************/
@@ -574,8 +576,8 @@ button[type="button"]:focus{
 #main #main_contents .want_go_store_list { background-color: #fff; overflow: hidden; padding: 20px 30px;}
 #main #main_contents .want_go_store_list .store_img { height: 160px; width: 160px; background-color: #ccc; float: left;}
 #main #main_contents .want_go_store_list .store_info { width: 485px; float: left; margin-left: 25px;}
-#main #main_contents .want_go_store_list .store_info h5 { font-size: 22px; font-weight: 800; width: 100px; float: left; padding-bottom: 5px;}
-#main #main_contents .want_go_store_list .store_info .store_attribute { width: 385px; float: right; font-size: 13px; text-align: right; padding-top: 5px;}
+#main #main_contents .want_go_store_list .store_info h5 { font-size: 22px; font-weight: 800; width: auto; padding-bottom: 5px;}
+#main #main_contents .want_go_store_list .store_info .store_attribute { width: auto; font-size: 12px; padding-top: 5px; padding-bottom: 5px;}
 #main #main_contents .gradation_thin_border:before,.gradation_thin_border:after{ content:"";display:block; height:1px; background: linear-gradient(to right, #ccc 0%,#ccc 48%,#fff 100%); clear: both;}
 #main #main_contents .want_go_store_list .store_info .impressions { font-size: 12px; padding: 10px 0 0 10px; line-height: 20px; padding-bottom: 50px;
 }

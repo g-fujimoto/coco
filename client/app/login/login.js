@@ -1,5 +1,5 @@
 angular.module('webApp')
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
     $stateProvider
         .state('login', {
             url: '/',
@@ -10,9 +10,4 @@ angular.module('webApp')
                 }
             }
         });
-}])
-.run(['$rootScope', '$state', '$http', '$Users', ($rootScope, $state, $http, $Users) => {
-    $rootScope.$on('$stateChangeStart', () => {
-        $rootScope.isLogin = false;
-    });
 }]);

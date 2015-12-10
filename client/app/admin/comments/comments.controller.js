@@ -42,16 +42,16 @@ angular.module('webApp')
 
 // ----------------------------------------------- $watch ----------------------------------------------------//
 
-                    //newData.disabled 監視
-                    $scope.$watch('newData', (newValue) => {
-                        if(newValue.scene) {
-                            if(newValue.scene.name) {
-                                $scope.newData.disabled = false;
-                            }
-                        } else {
-                            $scope.newData.disabled = true;
+                //newData.disabled 監視
+                $scope.$watch('newData', (newValue) => {
+                    if(newValue.scene) {
+                        if(newValue.scene.name) {
+                            $scope.newData.disabled = false;
                         }
-                    },true);
+                    } else {
+                        $scope.newData.disabled = true;
+                    }
+                },true);
 
 // ----------------------------------------------- RESTful API -----------------------------------------------//
 

@@ -1,11 +1,14 @@
 angular.module('webApp')
-    .controller('AdminLoginController', ['$scope', '$Users', function($scope, $Users) {
+    .controller('AdminLoginController', ['$scope', '$rootScope', '$Users', function($scope, $rootScope, $Users) {
 // ----------------------------------------------- $scope(value) ----------------------------------------------------//
-        $scope.$root.error = false;
-
+        $rootScope.error = false;
+        $rootScope.isLogin = false;
 // ----------------------------------------------- $scope(function) ----------------------------------------------------//
         $scope.login = () => {
-                $Users.login($scope, true);
+            $Users.login($scope, true);
         };
 
+        $rootScope.logout = () => {
+            $Users.logout($scope, true);
+        };
     }]);
