@@ -36,6 +36,6 @@
     "animate.css": "~3.4.0",
     "d3": "~3.5.10",
     "bootstrap-material-design": "~0.5.4",
-    "bootswatch-dist": "lumen"
+    "bootswatch-dist": "flatly"
   }
 }

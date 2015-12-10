@@ -11,7 +11,7 @@
 #header #mainmenu .mainmenu_header #login_box ul li input:focus { color: #000; }
 #header #mainmenu .mainmenu_header #login_box ul li a { display: block; width: 75px; height: 25px; background-color: #ebf0ed; }
 #header #mainmenu .mainmenu_header #login_box ul li a img { display: block; }
-#header #mainmenu .mainmenu_header #logout_box { position: absolute; width: 75px; height: 25px; right: 12px; top: 8px; background-color: #EBF0ED; overflow: hidden; padding-bottom: 24px; color: #1D2087; border-radius: 0px!important}
+#header #mainmenu .mainmenu_header #logout_box { position: absolute; width: 75px; height: 25px; right: 12px; top: 8px; background-color: #EBF0ED; overflow: hidden; color: #1D2087; border-radius: 0px!important}
 #header #mainmenu .mainmenu_main ul { width: 924px; margin: 0px auto; border-right: 1px solid #aaa; overflow: hidden; }
 #header #mainmenu .mainmenu_main ul li { width: 230px; height: 60px; border-left: 1px solid #aaa; float: left; }
 #header #mainmenu .mainmenu_main ul li a { text-indent: -9999px; width: 230px; height: 60px; display: block; background-image: url(../assets/images/header/mainmenu.svg); background-repeat: no-repeat; background-position: 0px 0px; position: relative; }
@@ -848,4 +848,11 @@ li {
     background: -o-linear-gradient(top, #191a67 7%, #fff 16%, #d1d1e0 24%, #d1dbfa 70%, #fff 90%);
     background: -ms-linear-gradient(top, #191a67 7%, #fff 16%, #d1d1e0 24%, #d1dbfa 70%, #fff 90%);
     background: linear-gradient(to bottom, #191a67 7%, #fff 16%, #d1d1e0 24%, #d1dbfa 70%, #fff 90%);
+}
+
+/* ------------------------------- Bootstrap 打ち消し ------------------------------- */
+* {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
 }
