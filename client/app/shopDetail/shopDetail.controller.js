@@ -4,7 +4,6 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
   function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users) {
 
     $scope.global_menu = 'shopDetail';
-    $scope.islogin = true;
 
 
     $scope.upload = function(files) {
