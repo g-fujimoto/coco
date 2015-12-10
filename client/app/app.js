@@ -12,6 +12,8 @@ angular.module('webApp', [
     }])
     .run(['$rootScope', '$state', '$http', '$Users', ($rootScope, $state, $http, $Users) => {
 
+        $rootScope.logout = $Users.logout;
+
         $rootScope.$on('$stateChangeStart', (e, toState, toParams, fromState, fromParams) => {
 
             $Users.stateCheck();
