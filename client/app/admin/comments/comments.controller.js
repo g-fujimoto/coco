@@ -4,6 +4,7 @@ angular.module('webApp')
 // ----------------------------------------------- $scope ----------------------------------------------------//
 
                 $scope.apiName        = 'comments';
+                $scope.isLogin        = true;
                 $scope.genres         = $$Genres;
                 $scope.scenes         = $$Scenes;
                 $scope.rates          = $$Rates;

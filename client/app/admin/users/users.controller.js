@@ -3,6 +3,7 @@ angular.module('webApp')
             function($scope, $Users, $$Alerts, $timeout, $state, $stateParams) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
                     $scope.alerts = [];
+                    $scope.isLogin = true;
                     if($stateParams.alert) {
                         $scope.alerts.push($stateParams.alert);
 
