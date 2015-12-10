@@ -17,7 +17,6 @@ angular.module('webApp')
                     .success((data) => {
                         if(data) {
                             $state.go('items');
-                            $rootScope.isLogin = true;
                             $rootScope.loginUser  = data;
                         } else {
                             $rootScope.error = true;
