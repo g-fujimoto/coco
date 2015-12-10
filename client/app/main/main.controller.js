@@ -163,6 +163,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         // データ登録
         $scope.saveAPI = (newData, scope) => {
+
             newData.item = newData.item._id;
             calcAve(newData);
             $Comments.save(
@@ -181,26 +182,19 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             const genreRate = _.map(newData.genre.options, (element) => {
                 return element.rate;
             });
-            const genreRateSum = genreRate.reduce((x, y) => {
-                return x + y;
+            const genreRateSum = genreRate.reduce((prev, current, i, arr) => {
+                return prev+current;
             });
             newData.genreAve = (genreRateSum / 5).toFixed(1);
 
-            // //シーン平均点
-            // const scenesRates = _.map($scope.newData.scenes, (element) => {
-            //
-            //     const sceneRate = _.map(element.options, (childElement) => {
-            //         return childElement.rate;
-            //     });
-            //     const sceneRateAll = sceneRate.reduce((x, y) => {
-            //             return x + y;
-            //     });
-            //     return sceneRateAll;
-            //     });
-            // const scenesRatesSum = scenesRates.reduce((x, y) => {
-            //     return x + y;
-            // });
-            // $scope.newData.scenesAve = (scenesRatesSum / $scope.newData.scenes.length).toFixed(1);
+            //シーン平均点
+            const sceneRate = _.map(newData.scene.options, (element) => {
+                return element.rate;
+            });
+            const sceneRateSum = sceneRate.reduce((prev, current, i, arr) => {
+                return prev+current;
+            });
+            newData.sceneAve = (sceneRateSum / 5).toFixed(1);
         };
 
 }]);

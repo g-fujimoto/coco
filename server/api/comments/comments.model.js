@@ -33,8 +33,8 @@ var CommentsSchema = mongoose.Schema({
             }
         }
     },
-    scenesAve : {type : Number, default : 0},
-    scenes   : [
+    sceneAve : {type : Number, default : 0},
+    scene   : [
         {
             name       : String,
             options: {
