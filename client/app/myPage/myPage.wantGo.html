@@ -7,8 +7,8 @@
                     画像
                 </div>
                     <div class="store_info">
-                        <h5>{{comment.item.name}}</h5>
-                        <p class="store_attribute">({{comment.item.genreName}})&nbsp;({{comment.item.area}})&nbsp;(<span ng-repeat="sceneName in comment.item.sceneNames">{{sceneName}}&nbsp;</span>)</p>
+                        <h5>{{comment.item.name}}<span class="item_area">&nbsp;({{comment.item.area}})</span></h5>
+                        <p class="store_attribute">({{comment.item.genreName}})&nbsp;(<span ng-repeat="sceneName in comment.item.sceneNames">{{sceneName}}&nbsp;</span>)</p>
                         <p class="gradation_thin_border"></p>
                         <p class="impressions">{{comment.body}}</p>
                         <p class="see_store_info black_btn"><a ui-sref="shopDetail.main">店舗情報を見る</a></p>
