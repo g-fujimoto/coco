@@ -28,6 +28,21 @@ angular.module('webApp')
             });
         };
     })
+    // パスワード変更モーダル表示属性
+    .directive('editPasswordModal', ($uibModal) => {
+        return (scope, element, attr) => {
+            element.on('click', () => {
+                scope.editData = angular.fromJson(attr.editModal);
+                $uibModal.open({
+                    scope,
+                    controller :'ModalController',
+                    backdrop   : 'static',
+                    templateUrl: `./components/directive/modal/modal.password.html`,
+                    size: 'lg'
+                });
+            });
+        };
+    })
     // 「行った店」モーダル表示属性
     .directive('wentModal', ($uibModal) => {
         return (scope, element, attr) => {

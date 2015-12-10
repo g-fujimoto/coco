@@ -4,6 +4,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments, Upload) {
 
     $scope.global_menu = 'myPage';
+    $scope.apiName = 'users';
     $scope.scenes      = $$Scenes;
     $scope.genres      = $$Genres;
     $scope.pages       = [];
