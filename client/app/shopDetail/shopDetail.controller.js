@@ -6,13 +6,6 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     $scope.global_menu = 'shopDetail';
     $scope.islogin = true;
 
-    // 前画面からの引き継ぎ
-    console.log($stateParams.itemid);
-
-    $scope.login = function() {
-
-        $scope.islogin = $Users.login($scope);
-    }
 
     $scope.upload = function(files) {
         if(files && files.length) {
@@ -65,7 +58,6 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     $scope.scenes = $$Scenes;
     $scope.genres = $$Genres;
 
-    $scope.login();
     $scope.getItem();
     $scope.getComments();
 

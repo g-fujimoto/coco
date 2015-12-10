@@ -6,20 +6,21 @@ angular.module('webApp')
             {update: {method: 'PUT'}}
         );
 
-        this.Users.login = (scope, admin) => {
+        this.Users.login = (scope, adminFlg) => {
             var data      = {};
             data.email    = scope.email;
             data.password = scope.password;
 
             // Admin or Public
-            if(admin) {
+            if(adminFlg) {
                 $http.post('/api/users/login', data)
                     .success((data) => {
-                        if(data.isLogin) {
+                        if(data) {
                             $state.go('items');
-                            scope.$root.isLogin = true;
+                            $rootScope.isLogin = true;
+                            $rootScope.loginUser  = data;
                         } else {
-                            scope.$root.error = true;
+                            $rootScope.error = true;
                             var panel = document.getElementById('loginPanel');
                             angular.element(panel).addClass('animated shake');
                             angular.element(panel).on('webkitAnimationEnd mozAnimationeEnd MSAnimationEnd oanimationend animationend', () => {
@@ -30,7 +31,6 @@ angular.module('webApp')
             } else {
                 $http.post('/api/users/login', data)
                     .success((data) => {
-                        console.log(data);
                         if(data) {
                             $state.go('main');
                             $rootScope.isLogin   = true;
@@ -57,20 +57,21 @@ angular.module('webApp')
                     $rootScope.isLogin = true;
                 } else {
                     $rootScope.isLogin = false;
+                    $state.go('login');
                 }
             });
         };
 
         this.Users.logout = () => {
-            $http.post(
-                '/api/users/logout',
-                {}
-            )
-            .success(() => {
-                $rootScope.isLogin   = false;
-                $rootScope.loginUser = null;
-                $state.go('login');
-            });
+                $http.post(
+                    '/api/users/logout',
+                    {}
+                )
+                .success(() => {
+                    $rootScope.isLogin   = false;
+                    $rootScope.loginUser = null;
+                    $state.go('login');
+                });
         };
 
 
