@@ -17,7 +17,6 @@ angular.module('webApp')
                     .success((data) => {
                         if(data) {
                             $state.go('items');
-                            $rootScope.isLogin = true;
                             $rootScope.loginUser  = data;
                         } else {
                             $rootScope.error = true;
@@ -53,10 +52,16 @@ angular.module('webApp')
                 {}
             )
             .success((data) => {
-                if(data.isLogin) {
-                    $rootScope.isLogin = true;
-                } else {
+                if(!$rootScope.loginUser) {
+                    console.log('no loginUser');
                     $rootScope.isLogin = false;
+                    $state.go('login');
+                }
+                if(data.isLogin) {
+                    $rootScope.isLogin   = true;
+                } else {
+                    $rootScope.isLogin   = false;
+                    $rootScope.loginUser = '';
                     $state.go('login');
                 }
             });
@@ -69,8 +74,8 @@ angular.module('webApp')
                 )
                 .success(() => {
                     $rootScope.isLogin   = false;
-                    $rootScope.loginUser = null;
-                    $state.go('login');
+                    $rootScope.loginUser = '';
+                    $state.reload();
                 });
         };
 

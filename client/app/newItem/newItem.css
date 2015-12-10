@@ -251,6 +251,10 @@
     box-shadow:2px 2px #555;
 }
 
+#button button:hover {
+    opacity: 0.8;
+}
+
 /*無効時ボタン設定*/
 #button button:disabled {
     opacity:0.6;
