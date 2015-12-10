@@ -16,7 +16,7 @@ angular.module('webApp', [
             if(toState.name === 'admin') {
                 $timeout(() => {
                     $state.go('admin');
-                }, 2000);
+                }, 1000);
             } else {
                 $Users.stateCheck();
             }
