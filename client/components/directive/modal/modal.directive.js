@@ -22,7 +22,7 @@ angular.module('webApp')
                     scope,
                     controller :'ModalController',
                     backdrop   : 'static',
-                    templateUrl: `./components/directive/modal/${scope.apiName}/modal.edit.html`,
+                    templateUrl: `./components/directive/modal/admin/${scope.apiName}/modal.edit.html`,
                     size: 'lg'
                 });
             });
