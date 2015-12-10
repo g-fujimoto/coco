@@ -31,9 +31,10 @@ angular.module('webApp')
                 $http.post('/api/users/login', data)
                     .success((data) => {
                         if(data) {
-                            $state.go('main');
                             $rootScope.isLogin   = true;
                             $rootScope.loginUser = data;
+                            console.log(data);
+                            $state.go('main');
                         } else {
                             scope.$root.error = true;
                             var panel = document.getElementById('login_box');
@@ -52,13 +53,9 @@ angular.module('webApp')
                 {}
             )
             .success((data) => {
-                if(!$rootScope.loginUser) {
-                    console.log('no loginUser');
-                    $rootScope.isLogin = false;
-                    $state.go('login');
-                }
-                if(data.isLogin) {
+                if(data.session) {
                     $rootScope.isLogin   = true;
+                    $rootScope.loginUser = data.session;
                 } else {
                     $rootScope.isLogin   = false;
                     $rootScope.loginUser = '';
