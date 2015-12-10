@@ -51,16 +51,6 @@ angular.module('webApp')
                 scope.newData.item = angular.fromJson(attr.wentModal);
                 scope.newData.type = true;
 
-                //  ------ dummy ----- //
-                scope.newData.sceneSamples = [
-                    {label: 'value1', rate1: 1, rate2: 1, rate3: 1, rate4: 1, rate5: 1},
-                    {label: 'value2', rate1: 1, rate2: 1, rate3: 1, rate4: 1, rate5: 1},
-                    {label: 'value3', rate1: 1, rate2: 1, rate3: 1, rate4: 1, rate5: 1},
-                    {label: 'value4', rate1: 1, rate2: 1, rate3: 1, rate4: 1, rate5: 1},
-                    {label: 'value5', rate1: 1, rate2: 1, rate3: 1, rate4: 1, rate5: 1}
-                ];
-                // -------------------- //
-
                 var wentModal = angular.fromJson(attr.wentModal);
                 const genreArr = _.filter(scope.genres, (element) => {
                     return element.name === wentModal.genreName;
