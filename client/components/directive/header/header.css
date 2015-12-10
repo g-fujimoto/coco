@@ -1,7 +1,3 @@
-#header button {
-    box-shadow:2px 2px #555;
-}
-
-#header button:hover {
+#login_box img:hover {
     opacity: 0.8;
 }
