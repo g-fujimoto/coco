@@ -1,8 +1,7 @@
 <div id="bg_black"> </div>
 <div id="main_contents">
     <p class="settled_store">登録可能件数10件中10件登録済み</p>
-    <!-- <div ng-repeat="comment in comments | filter: {type: false} | filter: {user: {_id: comment.user._id}}"> -->
-    <div ng-repeat="comment in comments">
+    <div ng-repeat="comment in comments | filter: {_id: loginUser._id, recommendItems: loginUser.recommendItems}">
         <div class="recommend_list" style="margin-bottom:20px;">
             <div class="store_img">
                 画像

@@ -1,10 +1,11 @@
 var app = angular.module('webApp');
 
-app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload',
-    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments, Upload) {
+app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Items',
+    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments, Upload, $Items) {
+// ----------------------------------------------- $scope ----------------------------------------------------//
 
     $scope.global_menu = 'myPage';
-    $scope.apiName = 'users';
+    $scope.apiName     = 'users';
     $scope.scenes      = $$Scenes;
     $scope.genres      = $$Genres;
     $scope.pages       = [];
@@ -12,8 +13,11 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
                             {label: '行きたい', type: false},
                             {label: '行った', type: true}
                         ];
+    if($scope.$root.loginUser.recommendItems) {
+        $scope.recommendItems = $Items.getRecommend($scope.$root.loginUser.recommendItems);
+    }
+// ----------------------------------------------- $scope(function) --------------------------------------------//
 
-    $scope.comments = $Comments.query();
 
     $scope.saveUser = function () {
 
@@ -57,6 +61,14 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         });
     };
 
+    $scope.getItem();
+
+// ----------------------------------------------- RestfulAPI ------------------------------------------------//
+
+    $scope.comments = $Comments.query();
+
+// ----------------------------------------------- $watch ----------------------------------------------------//
+
     $scope.$watch('item_comments', (newValue) => {
         if (!newValue) return;
         $scope.show_loading = false;
@@ -95,5 +107,4 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         $scope.getItem();
     });
 
-    $scope.getItem();
 }]);

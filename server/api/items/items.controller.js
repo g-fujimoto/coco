@@ -7,7 +7,8 @@
  */
 // Dependences Modules
 var Items = require('./items.model');
-var _ = require('lodash');
+var _     = require('lodash');
+
 //index
 exports.index = function(req, res) {
 
@@ -21,11 +22,18 @@ exports.index = function(req, res) {
 };
 
 exports.findOne = function(req,res) {
-  console.log(req.params);
     Items.find({_id: req.params._id}, function(err, data) {
         res.json(data);
     });
-}
+};
+
+exports.getRecommend = function(req, res) {
+    console.log(req.body);
+    // Items.find({_id: }, function(err, data) {
+    //     res.json(data);
+    // });
+};
+
 
 //create
 exports.create = function(req, res) {
@@ -39,7 +47,6 @@ exports.create = function(req, res) {
             };
             res.json(errData);
         } else {
-            console.log(newItem);
             res.json(newItem);
         }
     });
@@ -56,6 +63,7 @@ exports.update = function(req, res) {
         });
     });
 };
+
 // delete
 exports.delete = function(req, res) {
     Items.remove({_id: req.params._id}, function(err) {

@@ -4,7 +4,11 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
   function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users) {
 
     $scope.global_menu = 'shopDetail';
+    $scope.scenes      = $$Scenes;
+    $scope.genres      = $$Genres;
 
+    $scope.getItem();
+    $scope.getComments();
 
     $scope.upload = function(files) {
         if(files && files.length) {
@@ -22,7 +26,6 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     };
 
     $scope.getItem = function() {
-
         $http.get('/api/items/findOne/' + $stateParams.itemid)
         .success(function(data) {
             $scope.items = data;
@@ -30,7 +33,6 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     };
 
     $scope.getComments = function() {
-
         var data = {};
         data.itemId = $stateParams.itemid;
 
@@ -54,51 +56,4 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
         $scope.upload($scope.files);
     });
 
-    $scope.scenes = $$Scenes;
-    $scope.genres = $$Genres;
-
-    $scope.getItem();
-    $scope.getComments();
-
-// ------------------------------- Modal ------------------------------ //
-    $scope.showWentModal = function(item) {
-
-        $scope.scenes = $$Scenes;
-        $scope.genres = $$Genres;
-
-        var genre = _.select($$Genres, function(num) {
-            return num.name == item.genreName
-        });
-
-        $scope.modalOption = {
-            item    : item,
-            genre : genre[0],
-            scenes : $$Scenes,
-            modalUrl : './components/directive/modal/modal.wantGo.html',
-            scope    : $scope
-        };
-
-        $uibModal.open({
-            controller  : 'ModalController',
-            backdrop    : 'static',
-            scope       : $scope,
-            templateUrl : './components/directive/modal/modal.went.html'
-        });
-    };
-
-    $scope.showWannaModal = function(item) {
-
-        $scope.modalOption = {
-            item    : item,
-            modalUrl : './components/directive/modal/modal.wantGo.html',
-            scope    : $scope
-        };
-
-        $uibModal.open({
-            controller  : 'ModalController',
-            backdrop    : 'static',
-            scope       : $scope,
-            templateUrl : './components/directive/modal/modal.wanna.html'
-        });
-    };
 }]);
