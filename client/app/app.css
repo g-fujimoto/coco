@@ -330,7 +330,12 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 .shopDetail_info td{
     width: 75%;
 }
-.shopDetail_info th,td{
+.shopDetail_info th{
+    border-top: 2px solid #ccc;
+    padding-left: 15px;
+    line-height: 22px;
+}
+.shopDetail_info td{
     border-top: 2px solid #ccc;
     padding-left: 15px;
     line-height: 22px;

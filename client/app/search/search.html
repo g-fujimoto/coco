@@ -49,10 +49,9 @@
                 </div>
 
                 <div class="right_box">
-                    <h2>{{item.name}}</h2>
+                    <h2>{{item.name}}<span class="item_area">（{{item.area}}）</span></h2>
                     <ul class="category_list">
                         <li>（{{item.genreName}}）</li>
-                        <li>（{{item.area}}）</li>
                         <li>（<span ng-repeat="sceneName in item.sceneNames">{{item.sceneNames}} </span>）</li>
                     </ul>
                     <hr />
