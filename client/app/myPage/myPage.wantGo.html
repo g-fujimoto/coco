@@ -11,8 +11,8 @@
                         <p class="store_attribute">({{comment.item.genreName}})&nbsp;(<span ng-repeat="sceneName in comment.item.sceneNames">{{sceneName}}&nbsp;</span>)</p>
                         <p class="gradation_thin_border"></p>
                         <p class="impressions">{{comment.body}}</p>
-                        <p class="see_store_info black_btn"><a ui-sref="shopDetail.main">店舗情報を見る</a></p>
-                        <p class="edit white_btn"><a href="#">編集する</a></p>
+                        <p class="see_store_info black_btn"><a ui-sref="shopDetail.main({itemid:comment.item._id})">店舗情報を見る</a></p>
+                        <p class="edit white_btn"><a want-go-modal="{{comment.item}}">編集する</a></p>
                     </div>
                 </div>
             </div>

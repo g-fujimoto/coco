@@ -22,11 +22,18 @@ exports.index = function(req, res) {
 };
 
 exports.findOne = function(req,res) {
+
     Items.find({_id: req.params._id}, function(err, data) {
         res.json(data);
     });
 };
 
+exports.recommendItem = function(req, res) {
+    Items.find({_id: {$in : [req.session.loginUser.recommendItems]}}, function(err, data) {
+        console.log(data);
+        res.json(data);
+    });
+};
 
 //create
 exports.create = function(req, res) {

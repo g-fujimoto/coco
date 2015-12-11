@@ -21,6 +21,27 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
 
 // ----------------------------------------------- $scope(function) --------------------------------------------//
 
+    $scope.recommendAdd = function(item) {
+        $Recommend.add(item)
+        .success(function (data) {
+            if (data.ok === 1) {
+                $scope.pop = {
+                    show : true,
+                    message : '推薦店舗を追加しました。'
+                }
+            }
+        });
+    };
+
+    $scope.modPop = function() {
+        $timeout(function() {
+            if ($scope.pop.show) {
+              $scope.pop.show =false;
+            } else {
+                scope.modPop();
+            }
+        },3000);
+    }
 
     $scope.saveUser = function () {
         if ($scope.files[0]) {
@@ -34,25 +55,18 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         }
     };
 
-    $scope.getItem = function() {
+    $scope.getRecommendItem = function() {
         var data = {};
-        if ($scope.word) data.itemName = $scope.word;
-        if ($scope.scene) data.scene   = $scope.scene;
-        if ($scope.genre) data.genre   = $scope.genre;
         if ($scope.scene) data.scene   = $scope.scene;
 
-        $http.post('/api/items/find', JSON.stringify(data))
+        $http.post('/api/items/recommendItem', JSON.stringify(data))
         .success((data) => {
             $scope.items = data;
-            $scope.getComments();
-
             $scope.currentPage = 1;
             $scope.pages       = [];
             for(var i = Math.ceil(data.length/10) + 1;--i;) {
                 $scope.pages.unshift(i);
             }
-            $timeout(() => {
-            }, 1000);
         });
     };
 
@@ -60,6 +74,11 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         $http.post('/api/comments/went')
         .success((data) => {
             $scope.went_comments = data;
+            $scope.currentPage = 1;
+            $scope.pages       = [];
+            for(var i = Math.ceil(data.length/10) + 1;--i;) {
+                $scope.pages.unshift(i);
+            }
         });
     };
 
@@ -67,6 +86,11 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         $http.post('/api/comments/wantGo')
         .success((data) => {
             $scope.wantgo_comments = data;
+            $scope.currentPage = 1;
+            $scope.pages       = [];
+            for(var i = Math.ceil(data.length/10) + 1;--i;) {
+                $scope.pages.unshift(i);
+            }
         });
     };
 // ----------------------------------------------- $watch ----------------------------------------------------//
@@ -101,10 +125,11 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         $scope.getItem();
     });
 
-    $scope.$watch('word', function(newValue, oldValue) {
-
-        if (!newValue && !oldValue) return;
-        $scope.getItem();
+    // 通知
+    $scope.$watch('pop', function(newValue, oldValue) {
+        if (newValue) {
+            $scope.modPop();
+        }
     });
 
 }]);
