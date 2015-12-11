@@ -62,6 +62,7 @@ exports.adminLogin = function(req, res) {
 
 exports.logout = function(req, res) {
     req.session.loginUser = '';
+    req.session.adminLoginUser = '';
     res.json({isLogin: false});
 };
 

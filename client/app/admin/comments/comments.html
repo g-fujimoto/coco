@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="./bower/bootswatch-dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
 <!-- BODY -->
 <ng-navbar></ng-navbar>
-<div class="container-fluid">
+<div class="container-fluid" ng-show="isAdminLogin">
     <h1 class="page-header margin-top-sm">コメント一覧</h1>
 <div class="row">
     <div ng-controller="AlertController">
