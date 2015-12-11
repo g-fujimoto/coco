@@ -1,5 +1,5 @@
 angular.module('webApp')
-    .service('$Users', ['$resource', '$http', '$state', '$rootScope', ($resource, $http, $state, $rootScope) => {
+    .service('$Users', ['$resource', '$http', '$state', '$rootScope', '$timeout', ($resource, $http, $state, $rootScope, $timeout) => {
         this.Users = $resource(
             '/api/users/:_id',
             {_id: '@_id'},
@@ -13,11 +13,11 @@ angular.module('webApp')
 
             // Admin or Public
             if(adminFlg) {
-                $http.post('/api/users/login', data)
+                $http.post('/api/users/adminLogin', data)
                     .success((data) => {
                         if(data) {
-                            $rootScope.loginUser  = data;
-                            $rootScope.isLogin = true;
+                            $rootScope.adminLoginUser = data;
+                            $rootScope.isAdminLogin   = true;
                             $state.go('items');
                         } else {
                             $rootScope.error = true;
@@ -70,12 +70,18 @@ angular.module('webApp')
                     {}
                 )
                 .success(() => {
-                    $rootScope.isLogin   = false;
-                    $rootScope.loginUser = '';
-                    $state.reload();
+                    var adminFlg = true;
+                    if(adminFlg) {
+                        $rootScope.adminLoginUser = false;
+                        $rootScope.isAdminLogin   = false;
+                        $state.go('admin');
+                    } else {
+                        $rootScope.isLogin   = false;
+                        $rootScope.loginUser = '';
+                        $state.reload();
+                    }
                 });
         };
-
 
         return this.Users;
     }]);

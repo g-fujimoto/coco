@@ -6,7 +6,4 @@ angular.module('webApp')
             $Users.login($scope, true);
         };
 
-        $rootScope.logout = () => {
-            $Users.logout($scope, true);
-        };
     }]);

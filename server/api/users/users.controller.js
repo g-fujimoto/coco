@@ -1,7 +1,7 @@
 /**
- * GET     /api/users              ->  index
- * GET     /api/users/:_id              ->  index
- * POST    /api/users              ->  create
+ * GET     /api/users               ->  index
+ * GET     /api/users/:_id          ->  get
+ * POST    /api/users               ->  create
  * GET     /api/users/:_id          ->  show
  * PUT     /api/users/:_id          ->  update
  * DELETE  /api/users/:_id          ->  delete
@@ -9,7 +9,7 @@
 
 // Dependences Modules
 var Users = require('./users.model');
-var _ = require('lodash');
+var _     = require('lodash');
 
 //index
 exports.index = function(req, res) {
@@ -34,6 +34,23 @@ exports.login = function(req, res) {
         }
 
         if (data) {
+            data.email = '';
+            data.password = '';
+            return res.json(data);
+        } else {
+            return res.json(data);
+        }
+    });
+};
+
+exports.adminLogin = function(req, res) {
+    Users.findOne({email: req.body.email, password: req.body.password, admin: 1}, function(err, data) {
+        req.session.adminLoginUser = data;
+
+        if(err) {
+            return res.json({isAdminLogin: 'Error!'});
+        }
+        if(data) {
             data.email = '';
             data.password = '';
             return res.json(data);

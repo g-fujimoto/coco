@@ -14,9 +14,15 @@ angular.module('webApp', [
         $rootScope.logout = $Users.logout;
         $rootScope.$on('$stateChangeStart', (e, toState, toParams, fromState, fromParams) => {
             if(toState.name === 'admin') {
-                $timeout(() => {
-                    $state.go('admin');
-                }, 1000);
+                $rootScope.isLogin        = false;
+                $rootScope.loginUser      = false;
+                $rootScope.isAdminLogin   = false;
+                $rootScope.adminLoginUser = false;
+            } else if(toState.name === 'login') {
+                $rootScope.isLogin        = false;
+                $rootScope.loginUser      = false;
+                $rootScope.isAdminLogin   = false;
+                $rootScope.adminLoginUser = false;
             } else {
                 $Users.stateCheck();
             }
