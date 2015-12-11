@@ -16,6 +16,6 @@ router.post('/find', controller.index);
 router.post('/getByItemID', controller.getByItemID);
 router.post('/went', controller.went);
 router.post('/wantGo', controller.wantGo);
-
+router.post('/went_items', controller.went_items);
 
 module.exports = router;

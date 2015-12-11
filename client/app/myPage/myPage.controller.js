@@ -32,6 +32,20 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         });
     };
 
+    $scope.recommendDelete = function(item) {
+
+        $Recommend.delete(item)
+        .success(function (data) {
+            if (data.ok === 1) {
+                $scope.pop = {
+                    show : true,
+                    message : '推薦店舗を削除しました。'
+                }
+                $scope.getRecommendItem();
+            }
+        });
+    };
+
     $scope.modPop = function() {
         $timeout(function() {
             if ($scope.pop.show) {
@@ -58,9 +72,12 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         var data = {};
         if ($scope.scene) data.scene   = $scope.scene;
 
-        $http.post('/api/items/recommendItem', JSON.stringify(data))
+        $http.post('/api/items/recommend_item', JSON.stringify(data))
         .success((data) => {
+
             $scope.items = data;
+            $scope.getSumAve();
+
             $scope.currentPage = 1;
             $scope.pages       = [];
             for(var i = Math.ceil(data.length/10) + 1;--i;) {
@@ -68,6 +85,45 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
             }
         });
     };
+
+    $scope.getSumAve = () => {
+
+        var items = _.pluck($scope.items, '_id');
+        $Comments.went_items(items)
+        .success((data) => {
+
+            // 店舗IDリスト作成
+            var item_ids = _.pluck($scope.items, '_id');
+            var sum_ave = [];
+
+            // 店舗毎にコメントを操作
+            for (var i in item_ids) {
+
+                var comments = _.filter(data, (num) => {
+                    return num.item._id === item_ids[i];
+                });
+
+                // ジャンルポイント平均作成
+                var genreAvelist = _.pluck(comments, 'genreAve');
+                var genreAveSum = _.reduce(genreAvelist, (memo, num) => {
+                     return memo + num;
+                }, 0);
+                var genreAve = genreAveSum < 1 ? 0 : genreAveSum / genreAvelist.length;
+
+                // シーンポイント平均作成
+                var sceneAvelist = _.pluck(comments, 'sceneAve');
+                var sceneAveSum = _.reduce(sceneAvelist, (memo, num) => {
+                     return memo + num;
+                }, 0);
+                var sceneAve = sceneAveSum < 1 ? 0 : sceneAveSum / sceneAvelist.length;
+
+                sum_ave[item_ids[i]] = {genreAve, sceneAve };
+
+            }
+
+            $scope.sum_ave = sum_ave;
+        });
+    }
 
     $scope.getWentComments = () => {
         $http.post('/api/comments/went')

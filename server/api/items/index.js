@@ -12,6 +12,6 @@ router.get('/findOne/:_id', controller.findOne);
 router.post('/', controller.create);
 router.delete('/:_id', controller.delete);
 router.put('/:_id', controller.update);
-router.put('/recommendItem', controller.recommendItem);
+router.post('/recommend_item', controller.recommend_item);
 
 module.exports = router;

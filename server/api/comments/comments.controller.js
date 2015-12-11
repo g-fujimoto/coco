@@ -29,6 +29,20 @@ exports.index = function(req, res) {
         });
 };
 
+exports.went_items = function(req, res) {
+
+  if (req.body.item) {
+      req.body.item = {$in : req.body.item};
+  }
+
+  Comments.find(req.body)
+      .populate('item')
+      .exec(function(err, data) {
+          if(err) throw Error(err);
+          res.json(data);
+      });
+}
+
 //get
 exports.get = function(req, res) {
     Comments.findOne({_id: req.params._id})

@@ -36,6 +36,8 @@ exports.add = function(req, res) {
 // delete
 exports.delete = function(req, res) {
 
+console.log(req.body._itemid);
+
     Users.update({_id: req.session.loginUser._id, recommendItems : {$in : [req.body._itemid]}},
         {$pull : {recommendItems : req.body._itemid}}, function(err, data) {
 
