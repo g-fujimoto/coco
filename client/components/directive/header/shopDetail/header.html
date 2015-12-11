@@ -1,22 +1,22 @@
 
     <div id="main_top">
-        <h3>やまっち</h3>
+        <h3>{{item.name}}</h3>
         <ul class="header_list">
             <li class="narrowing_title">最寄駅</li>
-            <li>心斎橋駅</li>
+            <li>null</li>
             <li class="narrowing_title">ジャンル</li>
-            <li>イタリアン</li>
+            <li style="width:150px;">{{item.genreName}}</li>
             <li class="narrowing_title">利用用途</li>
-            <li>社内利用</li>
-            <li>家族利用</li>
-            <li>一人利用</li>
+            <span ng-repeat="sceneName in item.sceneNames">
+                <li style="width:60px;">{{sceneName}}</li>
+            </span>
         </ul>
         <p class="white_btn shopDetail_header_btn"><a href="#"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
         <p class="white_btn shopDetail_header_btn"><a href="#"><i class="fa fa-star"></i>&nbsp;行った</a></p>
         <div class="box_header">
            <ul>
-                <li><h4><b>ジャンル</b>3.5</h4></li>
-                <li><h4><b>シーン</b>3.0</h4></li>
+                <li><h4><b>ジャンル</b>null</h4></li>
+                <li><h4><b>シーン</b>null</h4></li>
             </ul>
         </div>
     </div>

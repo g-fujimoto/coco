@@ -9,17 +9,23 @@ angular.module('webApp')
                     controller: 'ShopDetailController'
                 }
             },
-            auth: true
+            params: {
+                login: true,
+                item : null
+            }
         })
         .state('shopDetail.main', {
             url: '/main/:itemid',
             views: {
                 '': {
                     templateUrl: './app/shopDetail/shopDetail.main.html',
-                    controller: 'ShopDetailController',
+                    controller: 'ShopDetailController'
                 }
             },
-            auth: true
+            params: {
+                login: true,
+                item : null
+            }
         })
         .state('shopDetail.photos', {
             url: '/photos',
@@ -29,7 +35,10 @@ angular.module('webApp')
                     controller: 'ShopDetailController'
                 }
             },
-            auth: true
+            params: {
+                login: true,
+                item : null
+            }
         })
         .state('shopDetail.reviews', {
             url: '/reviews/:itemid',
@@ -39,7 +48,10 @@ angular.module('webApp')
                     controller: 'ShopDetailController'
                 }
             },
-            auth: true
+            params: {
+                login: true,
+                item : null
+            }
         })
         .state('shopDetail.map', {
             url: '/map',
@@ -49,6 +61,22 @@ angular.module('webApp')
                     controller: 'ShopDetailController'
                 }
             },
-            auth: true
-        });
+            params: {
+                login: true,
+                item : null
+            }
+        })
+        .state('shopDetail.went', {
+            url: '/went',
+            views: {
+                '': {
+                    templateUrl: './app/shopDetail/shopDetail.went.html',
+                    controller: 'ShopDetailController'
+                }
+            },
+            params: {
+                login: true,
+                item : null
+            }
+        })
 }]);

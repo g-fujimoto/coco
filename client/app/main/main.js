@@ -9,6 +9,8 @@ angular.module('webApp')
                     controller: 'MainController'
                 }
             },
-            auth: true
+            params: {
+                login: true
+            }
         });
 }]);

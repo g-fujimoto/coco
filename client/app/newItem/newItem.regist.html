@@ -76,46 +76,14 @@
                         </tr>
                         <tr>
                             <th><label for="">店舗住所(ビル名)※</label></th>
-                            <td><input type="text" class="input_address" id="" name="" value="" placeholder="例：東宝日野谷ビル" ng-model="newData.address.building" required></td>
+                            <td><input type="text" class="input_address" id="" name="" value="" placeholder="例：東方日比谷ビル" ng-model="newData.address.building" required></td>
                         </tr>
                         <tr>
-                            <th><label for="">ジャンル</label></th>
-                            <td>
-                                <label for="scenes">&nbsp;&nbsp;
-                                <select id="scenes" name="scenes" ng-model="newData.genreName" ng-options="genre.name as genre.name for genre in genres" required>
-                                    <option value="" selected>選択してください</option>
-                                </select>
-                                </label><span>※</span><br/>
-                            </td>
+                            <th><label for="">タイトル※</label></th>
+                            <td><input type="text" class="input_address" id="" name="" value="" placeholder="" ng-model="newData.title" required></td>
                         </tr>
                         <tr>
-                            <th><label for="">シーン</label></th>
-                            <td>
-                                <label for="">1
-                                <select id="" class="" name="" ng-model="newData.sceneName" required>
-                                    <option value="" selected>選択してください</option>
-                                    <option value="1">サンプル2</option>
-                                    <option value="2">サンプル3</option>
-                                </select>
-                                </label><span>※</span><br/>
-
-                                <label for="">2
-                                <select id="" class="" name="">
-                                    <option value="" selected>選択してください</option>
-                                    <option value="1">サンプル2</option>
-                                    <option value="2">サンプル3</option>
-                                </select></label><br/>
-
-                                <label for="">3
-                                <select id="" class="" name="">
-                                    <option value="" selected>選択してください</option>
-                                    <option value="1">サンプル2</option>
-                                    <option value="2">サンプル3</option>
-                                </select></label><br/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><label for="">紹介文</label></th>
+                            <th><label for="">紹介文※</label></th>
                             <td><textarea id="" class="" name="" placeholder="" ng-model="newData.introduce"></textarea></td>
                         </tr>
                     </table>

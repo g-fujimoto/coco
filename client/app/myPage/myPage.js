@@ -9,6 +9,9 @@ angular.module('webApp')
                     templateUrl: './app/myPage/myPage.html',
                     controller: 'MyPageController'
                 }
+            },
+            params : {
+                login: true
             }
         })
         .state('myPage.profile', {
@@ -19,7 +22,9 @@ angular.module('webApp')
                     controller: 'MyPageController'
                 }
             },
-            auth: true
+            params: {
+                login: true
+            }
         })
         .state('myPage.went', {
             url: '/went',
@@ -29,7 +34,9 @@ angular.module('webApp')
                     controller: 'MyPageController'
                 }
             },
-            auth: true
+            params: {
+                login: true
+            }
         })
         .state('myPage.wantGo', {
             url: '/wantGo',
@@ -39,7 +46,9 @@ angular.module('webApp')
                     controller: 'MyPageController'
                 }
             },
-            auth: true
+            params: {
+                login: true
+            }
         })
         .state('myPage.recommend', {
             url: '/recommend',
@@ -49,7 +58,9 @@ angular.module('webApp')
                     controller: 'MyPageController'
                 }
             },
-            auth: true
+            params: {
+                login: true
+            }
         })
         .state('reviews', {
             url: '/shopDetail',
@@ -59,6 +70,8 @@ angular.module('webApp')
                     controller: 'ShopDetailController'
                 }
             },
-            auth: true
+            params: {
+                login: true
+            }
         });
 }]);

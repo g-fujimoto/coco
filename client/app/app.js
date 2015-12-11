@@ -7,10 +7,14 @@ angular.module('webApp', [
         'ngResource',
         'cfp.loadingBar'
     ])
-    .config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
+    .config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', ($stateProvider, $urlRouterProvider, $uiViewScrollProvider) => {
         $urlRouterProvider.when('/', '');
+        $uiViewScrollProvider.useAnchorScroll({
+            top: 1000
+        });
     }])
     .run(['$rootScope', '$state', '$http', '$Users', '$timeout', ($rootScope, $state, $http, $Users, $timeout) => {
+        window.scrollTo( 0, 0) ;
         $rootScope.logout = $Users.logout;
         $rootScope.$on('$stateChangeStart', (e, toState, toParams, fromState, fromParams) => {
             if(toState.name === 'admin') {
