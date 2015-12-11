@@ -59,13 +59,12 @@ angular.module('webApp')
                         $rootScope.adminLoginUser = data.session;
                     } else {
                         if(!$rootScope.isAdminLogin) {
-                        console.log('helloworld');
-                        $state.go('admin');
+                            $state.go('admin');
+                        } else {
+                            $rootScope.isAdminLogin   = false;
+                            $rootScope.adminLoginUser = '';
+                            $state.go('admin');
                         }
-                        console.log('helloworld');
-                        $rootScope.isAdminLogin   = false;
-                        $rootScope.adminLoginUser = '';
-                        $state.go('admin');
                     }
                 } else {
                     if(stateName === 'items' || stateName === 'users' || stateName === 'comments') {
@@ -74,15 +73,16 @@ angular.module('webApp')
                         $rootScope.isAdminLogin   = false;
                         $rootScope.adminLoginUser = false;
                         $state.go('admin');
-                    }
-                    if(data.session) {
-                        $rootScope.isLogin   = true;
-                        $rootScope.loginUser = data.session;
                     } else {
-                        console.log('helloworld');
-                        $rootScope.isLogin   = false;
-                        $rootScope.loginUser = '';
-                        $state.go('login');
+                        if(data.session) {
+                            $rootScope.isLogin   = true;
+                            $rootScope.loginUser = data.session;
+                        } else {
+                            console.log('helloworld');
+                            $rootScope.isLogin   = false;
+                            $rootScope.loginUser = '';
+                            $state.go('login');
+                        }                        
                     }
                 }
             });
