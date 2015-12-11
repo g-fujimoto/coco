@@ -2,7 +2,6 @@ angular.module('webApp')
     .controller('ItemsController', ['$scope', '$Areas', '$$Genres', '$$Prefs', '$Items', '$$Alerts', '$timeout', '$state', '$stateParams',
             function($scope, $Areas, $$Genres, $$Prefs, $Items, $$Alerts, $timeout, $state, $stateParams) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
-                    $scope.isAdminLogin = true;
                     $scope.alerts       = [];
                     if($stateParams.alert) {
                         $scope.alerts.push($stateParams.alert);

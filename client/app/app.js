@@ -30,10 +30,11 @@ angular.module('webApp', [
                     $state.go('login');
                 });
             } else {
+                var stateName = toState.name;
                 if($rootScope.adminLoginUser) {
-                    $Users.stateCheck(true);
+                    $Users.stateCheck(true, stateName);
                 } else {
-                    $Users.stateCheck();
+                    $Users.stateCheck(false, stateName);
                 }
             }
         });

@@ -47,7 +47,7 @@ angular.module('webApp')
             }
         };
 
-        this.Users.stateCheck = (adminFlg) => {
+        this.Users.stateCheck = (adminFlg, stateName) => {
             $http.post(
                 '/api/users/stateCheck',
                 {}
@@ -55,18 +55,31 @@ angular.module('webApp')
             .success((data) => {
                 if(adminFlg) {
                     if(data.session) {
-                        $rootScope.isAdminLogin = true;
+                        $rootScope.isAdminLogin   = true;
                         $rootScope.adminLoginUser = data.session;
                     } else {
-                        $rootScope.isAdminLogin = false;
+                        if(!$rootScope.isAdminLogin) {
+                        console.log('helloworld');
+                        $state.go('admin');
+                        }
+                        console.log('helloworld');
+                        $rootScope.isAdminLogin   = false;
                         $rootScope.adminLoginUser = '';
                         $state.go('admin');
                     }
                 } else {
+                    if(stateName === 'items' || stateName === 'users' || stateName === 'comments') {
+                        $rootScope.isLogin        = false;
+                        $rootScope.loginUser      = false;
+                        $rootScope.isAdminLogin   = false;
+                        $rootScope.adminLoginUser = false;
+                        $state.go('admin');
+                    }
                     if(data.session) {
                         $rootScope.isLogin   = true;
                         $rootScope.loginUser = data.session;
                     } else {
+                        console.log('helloworld');
                         $rootScope.isLogin   = false;
                         $rootScope.loginUser = '';
                         $state.go('login');
