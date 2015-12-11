@@ -32,7 +32,7 @@ angular.module('webApp')
             auth: true
         })
         .state('shopDetail.reviews', {
-            url: '/reviews',
+            url: '/reviews/:itemid',
             views: {
                 '': {
                     templateUrl: './app/shopDetail/shopDetail.reviews.html',

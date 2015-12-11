@@ -100,15 +100,15 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
                     var genreAvelist = _.pluck(comments, 'genreAve');
                     var genreAveSum = _.reduce(genreAvelist, (memo, num) => {
                          return memo + num;
-                     }, 0);
-                    var genreAve = genreAveSum / genreAvelist.length;
+                    }, 0);
+                    var genreAve = genreAveSum < 1 ? 0 : genreAveSum / genreAvelist.length;
 
                     // シーンポイント平均作成
                     var sceneAvelist = _.pluck(comments, 'sceneAve');
                     var sceneAveSum = _.reduce(sceneAvelist, (memo, num) => {
                          return memo + num;
-                     }, 0);
-                    var sceneAve = sceneAveSum / sceneAvelist.length;
+                    }, 0);
+                    var sceneAve = sceneAveSum < 1 ? 0 : sceneAveSum / sceneAvelist.length;
 
                     item_comments[item_ids[i]] = {comment, genreAve, sceneAve };
 
@@ -163,14 +163,14 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         // データ登録
         $scope.saveAPI = (newData, scope) => {
-
             newData.item = newData.item._id;
-            calcAve(newData);
+            if (newData.type) calcAve(newData);
             $Comments.save(
                 newData,
                 () => {
                     $scope.comments = $Comments.query();
                     scope.$dismiss();
+                    $scope.getComments();
                 }
             );
         };
@@ -182,8 +182,8 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             const genreRate = _.map(newData.genre.options, (element) => {
                 return element.rate;
             });
-            const genreRateSum = genreRate.reduce((prev, current, i, arr) => {
-                return prev+current;
+            const genreRateSum = genreRate.reduce((x, y) => {
+                return parseInt(x) + parseInt(y);
             });
             newData.genreAve = (genreRateSum / 5).toFixed(1);
 
@@ -191,8 +191,8 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             const sceneRate = _.map(newData.scene.options, (element) => {
                 return element.rate;
             });
-            const sceneRateSum = sceneRate.reduce((prev, current, i, arr) => {
-                return prev+current;
+            const sceneRateSum = sceneRate.reduce((x, y) => {
+                return parseInt(x) + parseInt(y);
             });
             newData.sceneAve = (sceneRateSum / 5).toFixed(1);
         };
