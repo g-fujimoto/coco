@@ -10,9 +10,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
                 }
             },
             params: {
-                alert: null
-            },
-            login: true
+                alert: null,
+                admin: true
+            }
         })
         .state('adminNewUser', {
             url: '/admin/users/new',
@@ -23,8 +23,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider) {
                 }
             },
             params: {
-                alert: null
-            },
-            login: true
+                alert: null,
+                admin: true
+            }
     });
 }]);

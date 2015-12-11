@@ -30,7 +30,7 @@ angular.module('webApp', [
                     $state.go('login');
                 });
             } else {
-                if(toParams.admin === true) {
+                if($rootScope.adminLoginUser) {
                     $Users.stateCheck(true);
                 } else {
                     $Users.stateCheck();
