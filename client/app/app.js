@@ -18,6 +18,7 @@ angular.module('webApp', [
                 $rootScope.loginUser      = false;
                 $rootScope.isAdminLogin   = false;
                 $rootScope.adminLoginUser = false;
+                $state.reload();
             } else if(toState.name === 'login') {
                 $rootScope.isLogin        = false;
                 $rootScope.loginUser      = false;

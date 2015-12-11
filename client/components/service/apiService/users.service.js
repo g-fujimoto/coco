@@ -53,10 +53,12 @@ angular.module('webApp')
                 {}
             )
             .success((data) => {
+                console.log(data);
                 if(data.session) {
                     $rootScope.isLogin   = true;
                     $rootScope.loginUser = data.session;
                 } else {
+                    console.log(data);
                     $rootScope.isLogin   = false;
                     $rootScope.loginUser = '';
                     $state.go('login');
@@ -64,13 +66,12 @@ angular.module('webApp')
             });
         };
 
-        this.Users.logout = () => {
+        this.Users.logout = (adminFlg) => {
                 $http.post(
                     '/api/users/logout',
                     {}
                 )
                 .success(() => {
-                    var adminFlg = true;
                     if(adminFlg) {
                         $rootScope.adminLoginUser = false;
                         $rootScope.isAdminLogin   = false;
@@ -78,7 +79,7 @@ angular.module('webApp')
                     } else {
                         $rootScope.isLogin   = false;
                         $rootScope.loginUser = '';
-                        $state.reload();
+                        $state.go('login');
                     }
                 });
         };
