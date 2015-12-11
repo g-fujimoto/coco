@@ -11,6 +11,8 @@
 #header #mainmenu .mainmenu_header #login_box ul li input:focus { color: #000; }
 #header #mainmenu .mainmenu_header #login_box ul li a { display: block; width: 75px; height: 25px; background-color: #ebf0ed; }
 #header #mainmenu .mainmenu_header #login_box ul li a img { display: block; }
+#header #mainmenu .mainmenu_header #login_box ul li button  { height: 10px; line-height: 10px; border-radius: 0px; margin-top: 1px}
+#header #mainmenu .mainmenu_header #login_box ul li button:hover  { opacity: 0.9;}
 #header #mainmenu .mainmenu_header #logout_box { position: absolute; width: 75px; height: 25px; right: 12px; top: 8px; background-color: #EBF0ED; overflow: hidden; color: #1D2087; border-radius: 0px!important}
 #header #mainmenu .mainmenu_main ul { width: 924px; margin: 0px auto; border-right: 1px solid #aaa; overflow: hidden; }
 #header #mainmenu .mainmenu_main ul li { width: 230px; height: 60px; border-left: 1px solid #aaa; float: left; }
@@ -23,7 +25,6 @@
 #header #mainmenu .mainmenu_footer h2 { margin-top: 156px; margin-left: 9px; width: 548px; height: 220px; }
 .margin_btm { margin-bottom: 100px; }
 body.home #header #header_bg { background-image: url(../assets/images/header/top_background.jpg); background-repeat: no-repeat; background-position: center; margin-bottom: -50px; overflow: hidden;}
-
 
 #main { width: 930px; padding: 35px 35px; margin: 0px auto 94px; background-color: #e8f0ed; overflow: hidden; }
 #main #main_header { height: 69px; overflow: hidden; }
@@ -79,6 +80,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right h6 { font-size: 12px; line-height: 1.0em; margin-bottom: 4px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right p { height: 35px; overflow: hidden; font-size: 12px; line-height: 17px; padding-right: 13px; text-align: justify; margin-bottom: 5px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right a { width: 110px; float: right; padding: 3px 0px 0px 20px; display: block; color: #1d2087; text-align: left; font-size: 12px; line-height: 1.0em; text-decoration: none; background-image: url(../assets/images/main/parts/arrow_2.svg); background-repeat: no-repeat; background-position: left bottom; }
+#main #main_side_wrap #main_contents .loop_contents_box .right_box .text_box .right a:hover { opacity: 0.8; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box { height: 46px; border: 1px solid #c9c9c9; border-top: 0px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li { float: left; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box .footer_box ul li:nth-child(2) { float: right; padding-right: 5px; }
@@ -90,6 +92,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #sidemenu .sidemenu_box { margin-bottom: 25px; }
 #main #sidemenu .sidemenu_box h3 { font-weight: bold; width: 180px; height: 40px; line-height: 40px; color: #fff; font-size: 14px; text-align: center; background-color: #000; }
 #main #sidemenu .sidemenu_box ul li a { display: block; text-decoration: none; width: 180px; height: 35px; line-height: 35px; color: #000; font-size: 12px; text-align: center; background-color: #fff; border-top: 1px solid #aaa; }
+#main #sidemenu .sidemenu_box ul li a:hover { opacity: 0.6; }
 /*#main #sidemenu .sidemenu_box ul li:first-child a { border: 0px; }*/
 #main #sidemenu .sidemenu_box ul li.current a { background-color: #FAEBD7;font-weight: bold;}
 #main .pager_box ul { text-align: center; padding: 30px 0px; }
@@ -114,6 +117,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_contents_main li { width: 200px; text-align: center; float: left; border-left: 1px solid #000;}
 #main #main_contents_main li:last-child{ border-right: 1px solid #000; margin-bottom: 3px;}
 #main #main_contents_main a { text-decoration: none; color: #000; font-size: 14px;}
+#main #main_contents_main a:hover { opacity: 0.6;}
 #main #main_contents_main .current_sub_now { display: block; margin: 0 auto; background-color: #ccc; height: 100%; width: 190px; padding: 10px 0;}
 #main #main_contents_main .current_sub{ display: block; margin: 0 auto; height: 100%; width: 190px; padding: 10px 0;}
 /**** 空白のdivにbackground-color ****/
@@ -586,7 +590,7 @@ button[type="button"]:focus{
 #main #main_contents .gradation_thin_border:before,.gradation_thin_border:after{ content:"";display:block; height:1px; background: linear-gradient(to right, #ccc 0%,#ccc 48%,#fff 100%); clear: both;}
 #main #main_contents .want_go_store_list .store_info .impressions { font-size: 12px; padding: 10px 0 0 10px; line-height: 20px; padding-bottom: 50px;
 }
-.profile_btn { float: right; font-size: 12px; margin-left: 50px;}
+.profile_btn { float: right; font-size: 12px; margin-left: 5px;}
 .see_store_info { font-size: 15px; float: right; margin-top: 10px;}
 .delete { font-size: 12px; float: left; margin-top: 10px;}
 .recommendation { font-size: 12px; }
@@ -605,6 +609,7 @@ body.home #main { margin: -50px auto 94px; }
 #footer .footer_main ul { border-right: 1px solid #3f220e; overflow: hidden; }
 #footer .footer_main ul li { display: block; border-left: 1px solid #3f220e; width: 152px; float: left; }
 #footer .footer_main ul li a { text-align: center; text-decoration: none; display: block; color: #3f220e; font-size: 11px; width: 152px; line-height: 25px; }
+#footer .footer_main ul li a:hover { opacity: 0.6 }
 
 /* ----------------------------------------------------------- AndPublic -------------------------------------------------------- */
 /* ------------------------------------------------ Common ---------------------------------------- */
