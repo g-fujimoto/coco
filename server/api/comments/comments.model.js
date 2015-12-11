@@ -34,34 +34,31 @@ var CommentsSchema = mongoose.Schema({
         }
     },
     sceneAve : {type : Number, default : 0},
-    scene   : [
-        {
-            name       : String,
-            options: {
-                value1: {
-                    label:String,
-                    rate : Number
-                },
-                value2: {
-                    label:String,
-                    rate : Number
-                },
-                value3: {
-                    label:String,
-                    rate : Number
-                },
-                value4: {
-                    label:String,
-                    rate : Number
-                },
-                value5: {
-                    label:String,
-                    rate : Number
-                }
+    scene          : {
+        name            : String,
+        options: {
+            value1: {
+                label:String,
+                rate : Number
             },
-            ave : {type: Number, default: 0}
+            value2: {
+                label:String,
+                rate : Number
+            },
+            value3: {
+                label:String,
+                rate : Number
+            },
+            value4: {
+                label:String,
+                rate : Number
+            },
+            value5: {
+                label:String,
+                rate : Number
+            }
         }
-    ],
+    },
     itemLikesCounter : {
         count : {type: Number, default: 0}
     },

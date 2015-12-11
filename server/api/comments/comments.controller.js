@@ -8,6 +8,8 @@
 
 // Dependences Modules
 var Comments = require('./comments.model');
+var Items = require('./../items/items.model');
+var Users = require('./../users/users.model');
 var _ = require('lodash');
 
 //index
@@ -52,9 +54,13 @@ exports.getByItemID = function(req, res) {
 
 //create
 exports.save = function(req, res) {
-    if (req.session.user) {
-        req.body.user = req.session.user._id;
+
+    if (req.session.loginUser) {
+        req.body.user = req.session.loginUser._id;
+    } else {
+        return ;
     }
+
     var newComment = new Comments(req.body);
 
     newComment.save(function(err) {
@@ -68,6 +74,30 @@ exports.save = function(req, res) {
             res.json(errData);
 
         } else {
+
+            // ユーザ・行った店
+            if (newComment.type) {
+
+                Users.update({_id: newComment.user},
+                  {$push : {wentItems : newComment.item}}, function(err, data) {
+                    // 例外処理
+                  });
+
+                  // 店舗・シーン登録
+                  Items.update({_id: newComment.item, sceneNames : {$nin : [newComment.scene.name]}},
+                      {$push : {sceneNames : newComment.scene.name}}, function(err, data) {
+                      // 例外処理
+                  });
+
+            } else {
+
+                // ユーザ・行きたい店
+                Users.update({_id: newComment.user},
+                  {$push : {wantGoItems : newComment.item}}, function(err, data) {
+                    // 例外処理
+                  });
+            }
+
             console.log(newComment);
             res.json(newComment);
 
