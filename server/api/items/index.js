@@ -8,7 +8,6 @@ var router     = express.Router();
 
 router.get('/', controller.index);
 router.post('/find', controller.index);
-router.post('/getRecommend', controller.getRecommend);
 router.get('/findOne/:_id', controller.findOne);
 router.post('/', controller.create);
 router.delete('/:_id', controller.delete);

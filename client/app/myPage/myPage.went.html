@@ -1,6 +1,6 @@
 <div id="bg_black"> </div>
 <div id="main_contents">
-    <div ng-repeat="comment in comments | filter: {type: true, user: loginUser._id}">
+    <div ng-repeat="comment in comments | filter: {userId: loginUser._id}">
         <div id="went_list">
             <div class="went_list">
                 <div class="went_list_main">

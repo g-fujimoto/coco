@@ -8,5 +8,6 @@ var router     = express.Router();
 
 router.post('/add', controller.add);
 router.post('/delete', controller.delete);
+router.post('/userRecommend', controller.userRecommend);
 
 module.exports = router;

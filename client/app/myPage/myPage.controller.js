@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Items',
-    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments, Upload, $Items) {
+app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Recommend',
+    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments, Upload, $Recommend) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
 
     $scope.global_menu = 'myPage';
@@ -14,8 +14,16 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
                             {label: '行った', type: true}
                         ];
     if($scope.$root.loginUser.recommendItems) {
-        $scope.recommendItems = $Items.getRecommend($scope.$root.loginUser.recommendItems);
+        $Recommend.userRecommend($scope.$root.loginUser.recommendItems)
+            .success((data) => {
+                $scope.userRecommends = data;
+            });
     }
+// ----------------------------------------------- RestfulAPI ------------------------------------------------//
+
+    $scope.comments = $Comments.query();
+    console.log($scope.comments[0]);
+
 // ----------------------------------------------- $scope(function) --------------------------------------------//
 
 
@@ -30,7 +38,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
                 console.log('OK');
             });
         }
-    }
+    };
 
     $scope.getItem = function() {
         var data = {};
@@ -62,10 +70,6 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     };
 
     $scope.getItem();
-
-// ----------------------------------------------- RestfulAPI ------------------------------------------------//
-
-    $scope.comments = $Comments.query();
 
 // ----------------------------------------------- $watch ----------------------------------------------------//
 

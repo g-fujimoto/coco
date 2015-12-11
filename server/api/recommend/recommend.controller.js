@@ -9,6 +9,13 @@ var Users = require('./../users/users.model');
 
 var _ = require('lodash');
 
+exports.userRecommend = function(req, res) {
+    console.log(req.body);
+    Items.find({_id: {$in: req.body}}, function(err, data) {
+        res.json(data);
+    });
+};
+
 //index
 exports.add = function(req, res) {
 

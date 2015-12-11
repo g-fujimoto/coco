@@ -27,13 +27,6 @@ exports.findOne = function(req,res) {
     });
 };
 
-exports.getRecommend = function(req, res) {
-    console.log(req.body);
-    // Items.find({_id: }, function(err, data) {
-    //     res.json(data);
-    // });
-};
-
 
 //create
 exports.create = function(req, res) {

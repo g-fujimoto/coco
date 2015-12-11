@@ -5,6 +5,11 @@ angular.module('webApp')
             '/api/recommend/:_id',
             {_id: '@_id'});
 
+        // ユーザーの推薦店舗検索
+        this.Recommend.userRecommend = (data) => {
+            return $http.post('/api/recommend/userRecommend', data);
+        };
+
         // 追加
         this.Recommend.add = function(itemid) {
 
@@ -20,7 +25,7 @@ angular.module('webApp')
             var data = {};
             data._itemid = itemid;
 
-            return $http.post('/api/recommend/delete', JSON.stringify(data))
+            return $http.post('/api/recommend/delete', JSON.stringify(data));
         };
 
         return this.Recommend;
