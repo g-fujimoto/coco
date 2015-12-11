@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a ui-sref="login" class="navbar-brand">COCO社長</a>
-                <div ng-show="isLogin">
+                <div ng-show="isAdminLogin">
                     <button type="button" name="button" class="navbar-toggle" data-toggle="collapse" data-target="#xsMenu" id="xsBtn">
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="xsMenu">
-              <ul class="nav navbar-nav navbar-right" ng-show="isLogin">
+              <ul class="nav navbar-nav navbar-right" ng-show="isAdminLogin">
                     <li><a ui-sref="items" class="navList">Stores</a></li>
                     <li><a ui-sref="users" class="navList">Users</a></li>
                     <li><a ui-sref="comments" class="navList">Comments</a></li>
