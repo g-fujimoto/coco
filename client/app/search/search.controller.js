@@ -12,15 +12,18 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
         .success(function (data) {
             if (data.ok === 1) {
                 item.itemRecommendCounter.count += 1;
-                $scope.isPop = true;
+                $scope.pop = {
+                    show : true,
+                    message : '推薦店舗を追加しました。'
+                }
             }
         });
     };
 
     $scope.modPop = function() {
         $timeout(function() {
-            if ($scope.isPop) {
-              $scope.isPop =false;
+            if ($scope.pop.show) {
+              $scope.pop.show =false;
             } else {
                 scope.modPop();
             }
@@ -116,15 +119,15 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
         }
     });
 
-    $scope.$watch('isPop', function(newValue, oldValue) {
-        if (newValue) {
-            $scope.modPop();
-        }
-    });
-
     $scope.$watch('word', function(newValue, oldValue) {
         if (!newValue && !oldValue) return;
         $scope.getItem();
+    });
+
+    $scope.$watch('pop', function(newValue, oldValue) {
+        if (newValue) {
+            $scope.modPop();
+        }
     });
 
     $scope.getItem();
