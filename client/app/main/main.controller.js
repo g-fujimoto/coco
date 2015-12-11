@@ -35,29 +35,7 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             $http.post('/api/items/find', JSON.stringify(data))
             .success((data) => {
                 $scope.items = data;
-
-                $scope.getComments();
-
-                $scope.currentPage = 1;
-                $scope.pages       = [];
-                for(var i = Math.ceil(data.length/10) + 1;--i;) {
-                    $scope.pages.unshift(i);
-                }
-            });
-        };
-
-        $scope.getItem = function() {
-
-            var data = {};
-            if ($scope.word) data.name = $scope.word;
-            if ($scope.scene) data.sceneName   = $scope.sceneName;
-            if ($scope.genreName) data.genreName   = $scope.genreName;
-            if ($scope.area) data.area   = $scope.area;
-
-            $http.post('/api/items/find', JSON.stringify(data))
-            .success((data) => {
-                $scope.items = data;
-
+console.log(data);
                 $scope.getComments();
 
                 $scope.currentPage = 1;
