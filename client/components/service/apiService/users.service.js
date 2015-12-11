@@ -47,21 +47,30 @@ angular.module('webApp')
             }
         };
 
-        this.Users.stateCheck = () => {
+        this.Users.stateCheck = (adminFlg) => {
             $http.post(
                 '/api/users/stateCheck',
                 {}
             )
             .success((data) => {
-                console.log(data);
-                if(data.session) {
-                    $rootScope.isLogin   = true;
-                    $rootScope.loginUser = data.session;
+                if(adminFlg) {
+                    if(data.session) {
+                        $rootScope.isAdminLogin = true;
+                        $rootScope.adminLoginUser = data.session;
+                    } else {
+                        $rootScope.isAdminLogin = false;
+                        $rootScope.adminLoginUser = '';
+                        $state.go('admin');
+                    }
                 } else {
-                    console.log(data);
-                    $rootScope.isLogin   = false;
-                    $rootScope.loginUser = '';
-                    $state.go('login');
+                    if(data.session) {
+                        $rootScope.isLogin   = true;
+                        $rootScope.loginUser = data.session;
+                    } else {
+                        $rootScope.isLogin   = false;
+                        $rootScope.loginUser = '';
+                        $state.go('login');
+                    }
                 }
             });
         };

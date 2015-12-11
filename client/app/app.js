@@ -18,13 +18,23 @@ angular.module('webApp', [
                 $rootScope.loginUser      = false;
                 $rootScope.isAdminLogin   = false;
                 $rootScope.adminLoginUser = false;
+                $timeout(() => {
+                    $state.go('admin');
+                });
             } else if(toState.name === 'login') {
                 $rootScope.isLogin        = false;
                 $rootScope.loginUser      = false;
                 $rootScope.isAdminLogin   = false;
                 $rootScope.adminLoginUser = false;
+                $timeout(() => {
+                    $state.go('login');
+                });
             } else {
-                $Users.stateCheck();
+                if(toParams.admin === true) {
+                    $Users.stateCheck(true);
+                } else {
+                    $Users.stateCheck();
+                }
             }
         });
     }]);

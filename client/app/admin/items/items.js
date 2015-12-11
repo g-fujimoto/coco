@@ -11,9 +11,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                 }
             },
             params: {
-                alert: null
-            },
-            login: true
+                alert: null,
+                admin: true
+            }
         })
         .state('adminNewItem', {
             url: '/admin/items/new',
@@ -24,8 +24,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                 }
             },
             params: {
-                alert: null
-            },
-            login: true
+                alert: null,
+                admin: true
+            }
         });
 }]);
