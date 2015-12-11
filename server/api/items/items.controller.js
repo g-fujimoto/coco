@@ -7,6 +7,7 @@
  */
 // Dependences Modules
 var Items = require('./items.model');
+var Users = require('./../users/users.model');
 var _     = require('lodash');
 
 //index
@@ -28,10 +29,12 @@ exports.findOne = function(req,res) {
     });
 };
 
-exports.recommendItem = function(req, res) {
-    Items.find({_id: {$in : [req.session.loginUser.recommendItems]}}, function(err, data) {
-        console.log(data);
-        res.json(data);
+exports.recommend_item = function(req, res) {
+
+    Users.find({_id : req.session.loginUser._id}, function(err, data) {
+        Items.find({_id: {$in : data[0].recommendItems}}, function(err, data) {
+            res.json(data);
+        });
     });
 };
 

@@ -1,36 +1,31 @@
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
 <div id="bg_black"> </div>
 <div id="main_contents">
-    <p class="settled_store">登録可能件数10件中10件登録済み</p>
-        <div ng-repeat="userRecommend in userRecommends">
+    <p class="settled_store">登録可能件数{{items.length}}件中10件登録済み</p>
+        <div ng-repeat="item in items">
             <div class="recommend_list" style="margin-bottom:20px;">
                 <div class="store_img">
                     画像
                 </div>
                     <div class="store_info">
-                        <h5>{{userRecommend.name}}<span class="item_area">&nbsp;({{userRecommend.area}})</span></h5>
-                        <p class="store_attribute">({{userRecommend.genreName}})&nbsp;(<span ng-repeat="sceneName in comment.item.sceneNames">{{sceneName}}&nbsp;</span>)</p>
+                        <h5>{{item.name}}<span class="item_area">&nbsp;({{item.area}})</span></h5>
+                        <p class="store_attribute">({{item.genreName}})&nbsp;({{item.sceneNames.join(" ")}})</p>
                         <p class="gradation_thin_border"></p>
                         <div class="box_header">
                            <ul>
-                                <li><h3><b>ジャンル</b>{{userRecommend.genreAve | number:1}}</h3></li>
-                                <li><h3><b>シーン</b>{{userRecommend.sceneAve | number:1}}</h3></li>
+                                <li><h3><b>ジャンル</b>{{sum_ave[item._id].genreAve | number:1}}</h3></li>
+                                <li><h3><b>シーン</b>{{sum_ave[item._id].sceneAve | number:1}}</h3></li>
                             </ul>
                         </div>
-                        <p class="see_store_info black_btn"><a ui-sref="shopDetail.main">店舗情報を見る</a></p>
-                        <button type="button" class="blue_btn circle delete"><i class="fa fa-times"></i>&nbsp;削除する</button>
+                        <p class="see_store_info black_btn"><a ui-sref="shopDetail.main({itemid: item._id})">店舗情報を見る</a></p>
+                        <button type="button" class="blue_btn circle delete" ng-click="recommendDelete(item._id);"><i class="fa fa-times"></i>&nbsp;削除する</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="sidemenu">
-        <p class="lightBlue_btn circle store_add"><a ui-sref="newItem.regist"><i class="fa fa-pencil"></i>お店を追加登録する</a></p>
-        <div class="sidemenu_box">
-            <h3>利用用途から探す</h3>
-            <ul ng-repeat="area in areas">
-                <li ng-class="{current:$parent.area==area.name}"><a href="" ng-click="findAddArea(area.name)">{{area.name}}</a></li>
-            </ul>
-
-        </div>
+    <coco-sidebar></coco-sidebar>
     </div>
 </div>
