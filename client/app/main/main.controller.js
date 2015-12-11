@@ -26,16 +26,17 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         $scope.getItem = function() {
 
+            console.log($scope.sceneName);
+
             var data = {};
             if ($scope.word) data.name = $scope.word;
-            if ($scope.scene) data.sceneName   = $scope.sceneName;
+            if ($scope.sceneName) data.sceneNames   = $scope.sceneName;
             if ($scope.genreName) data.genreName   = $scope.genreName;
             if ($scope.area) data.area   = $scope.area;
 
             $http.post('/api/items/find', JSON.stringify(data))
             .success((data) => {
                 $scope.items = data;
-console.log(data);
                 $scope.getComments();
 
                 $scope.currentPage = 1;
