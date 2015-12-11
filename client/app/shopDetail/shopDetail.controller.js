@@ -2,58 +2,13 @@ var app = angular.module('webApp');
 
 app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams', '$Users',
   function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users) {
-
-    $scope.global_menu = 'shopDetail';
+// ----------------------------------------------- $scope(value) ----------------------------------------------------//
     $scope.scenes      = $$Scenes;
     $scope.genres      = $$Genres;
 
-    $scope.getItem();
-    $scope.getComments();
 
-    $scope.upload = function(files) {
-        if(files && files.length) {
-            for(var i = 0; i < files.length; i++) {
-                var file = files[i];
-                Upload.upload({
-                    url: '/api/upload',
-                    file: file
-                })
-                .success(function(data, status, header, config) {
-                    console.log('アップデート完了：' + config.file.name);
-                });
-            }
-        }
-    };
+// ----------------------------------------------- $scope(function) ----------------------------------------------------//
 
-    $scope.getItem = function() {
-        $http.get('/api/items/findOne/' + $stateParams.itemid)
-        .success(function(data) {
-            $scope.items = data;
-        });
-    };
-
-    $scope.getComments = function() {
-        var data = {};
-        data.itemId = $stateParams.itemid;
-
-        $http.post('/api/comments/getByItemID', JSON.stringify(data))
-        .success(function(data) {
-/*
-            // ジャンルポイント平均作成
-            var genreAvelist = _.pluck(data, 'genreAve');
-            var genreAveSum = _.reduce(genreAvelist, function(memo, num){ return memo + num;}, 0);
-            $scope.items.genreAves = genreAveSum / genreAvelist.length;
-
-            // シーンポイント平均作成
-            var sceneAvelist = _.pluck(data, 'sceneAve');
-            var sceneAveSum = _.reduce(sceneAvelist, function(memo, num){ return memo + num;}, 0);
-            $scope.items.sceneAves = sceneAveSum / sceneAvelist.length;
-*/
-        });
-    };
-
-    $scope.$watch('files', function() {
-        $scope.upload($scope.files);
-    });
+// ----------------------------------------------- $watch ----------------------------------------------------//
 
 }]);

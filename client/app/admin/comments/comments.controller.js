@@ -3,18 +3,19 @@ angular.module('webApp')
             function($scope, $Comments, $Areas, $$Genres, $$Scenes, $$Rates, $timeout, $state, $$Alerts, $stateParams, $Users, $Items) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
 
-                $scope.apiName        = 'comments';
-                $scope.isLogin        = true;
-                $scope.genres         = $$Genres;
-                $scope.scenes         = $$Scenes;
-                $scope.rates          = $$Rates;
-                $scope.alerts         = [];
-                $scope.users          = $Users.query();
-                $scope.items          = $Items.query();
-                $scope.types           = [
+                $scope.apiName = 'comments';
+                $scope.isLogin = true;
+                $scope.genres  = $$Genres;
+                $scope.scenes  = $$Scenes;
+                $scope.rates   = $$Rates;
+                $scope.alerts  = [];
+                $scope.users   = $Users.query();
+                $scope.items   = $Items.query();
+                $scope.types   = [
                     {label: '行った', value: true},
                     {label: '行きたい', value: false}
                 ];
+
                 //新規登録画面からのアラートメッセージを受け取る
                 if($stateParams.alert) {
                     $scope.alerts.push($stateParams.alert);
@@ -38,7 +39,7 @@ angular.module('webApp')
                     $scope.selectScenes.push(selectSceneName);
                     if($scope.selectScenes) $scope.noSelectScene = true;
                     $scope.newData.disabled = true;
-                    $scope.newData.scene = {};
+                    $scope.newData.scene    = {};
                 };
 
 // ----------------------------------------------- $watch ----------------------------------------------------//
