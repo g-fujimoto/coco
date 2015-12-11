@@ -17,7 +17,6 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
 // ----------------------------------------------- RestfulAPI ------------------------------------------------//
 
     $scope.comments = $Comments.query();
-    console.log($scope.comments[0]);
 
 // ----------------------------------------------- $scope(function) --------------------------------------------//
 

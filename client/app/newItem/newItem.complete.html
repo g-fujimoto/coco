@@ -1,5 +1,5 @@
 
-<div id="main" ng-show="!islogin">
+<div id="main" ng-show="isLogin">
     <div id="main_header">
         <h2><img src="./assets/./images/main/parts/title.svg" alt="" /></h2>
         <h3>新規店舗登録</h3>
@@ -14,7 +14,6 @@
                     <h4>登録の手順</h4>
                 </div>
             </div>
-
             <div id="item_navigation">
                 <li><a class="navigation_aft">登録内容入力</a></li>
                 <li><a class="navigation_aft">登録内容確認</a></li>
@@ -23,13 +22,10 @@
 
             <div id="item_form">
                 <div id="message"><p>店舗登録が完了しました。</p></div>
-
-
                 <div id="button">
-                    <button id="" class="" name="" value="" ui-sref="shopDetail.went">「行った」登録を行う</button>
+                    <button id="" class="" name="" value="" ui-sref="newItem.went">「行った」登録を行う</button>
                     <button id="" class="button_submit" name="" value="" ui-sref="main">閉じる</button>
                 </div>
-
             </div>
         </div>
 

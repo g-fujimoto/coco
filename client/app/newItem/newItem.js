@@ -53,5 +53,18 @@ angular.module('webApp')
             params: {
                 login: true
             }
+        })
+        .state('newItem.went', {
+            url: '/went',
+            views: {
+                '': {
+                    templateUrl: './app/newItem/newItem.went.html',
+                    controller: 'ShopDetailController'
+                }
+            },
+            params: {
+                login: true,
+                item : null
+            }
         });
 }]);

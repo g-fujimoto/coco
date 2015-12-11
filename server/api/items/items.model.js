@@ -16,6 +16,8 @@ var ItemsSchema = mongoose.Schema({
         town       : String,
         building   : String
     },
+    station    : String,
+    title      : String,
     genreName  : String,
     sceneNames : [String],
     itemRecommendCounter : {
