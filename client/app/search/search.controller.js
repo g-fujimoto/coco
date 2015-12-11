@@ -1,10 +1,9 @@
 var app = angular.module('webApp');
 
-app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', '$timeout', '$Users', '$Recommend',
-    function($scope, $http, $$Scenes, $uibModal, $timeout, $Users, $Recommend) {
+app.controller('SearchController', ['$scope', '$http', '$uibModal', '$timeout', '$Users', '$Recommend',
+    function($scope, $http, $uibModal, $timeout, $Users, $Recommend) {
 
     $scope.global_menu = 'search';
-    $scope.scenes = $$Scenes;
     $scope.pages      = [];
 
     $scope.recommendAdd = function(item) {
@@ -35,8 +34,6 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
         var data = {};
         if ($scope.word) data.name = $scope.word;
         if ($scope.sceneName) data.sceneNames   = $scope.sceneName;
-        if ($scope.genreName) data.genreName   = $scope.genreName;
-        if ($scope.area) data.area   = $scope.area;
 
         $http.post('/api/items/find', JSON.stringify(data))
         .success((data) => {
@@ -104,7 +101,7 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
     };
 
     $scope.findAddScene = function(value) {
-        $scope.scene = ($scope.scene == value) ? null : value;
+        $scope.sceneName = ($scope.sceneName == value) ? null : value;
         $scope.getItem();
     };
 

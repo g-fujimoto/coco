@@ -2,21 +2,21 @@
 
     <div id="sidemenu">
 
-        <div class="sidemenu_box">
+        <div class="sidemenu_box" ng-show="areas">
             <h3>エリアから探す</h3>
             <ul ng-repeat="area in areas">
                 <li ng-class="{current:$parent.area==area.name}"><a href="" ng-click="findAddArea(area.name)">{{area.name}}</a></li>
             </ul>
         </div>
 
-        <div class="sidemenu_box">
+        <div class="sidemenu_box" ng-show="scenes">
             <h3>利用用途から探す</h3>
             <ul ng-repeat="scene in scenes">
                 <li ng-class="{current:$parent.sceneName==scene.name}"><a href="" ng-click="findAddScene(scene.name)">{{scene.name}}</a></li>
             </ul>
         </div>
 
-        <div class="sidemenu_box">
+        <div class="sidemenu_box" ng-show="genres">
             <h3>ジャンルから探す</h3>
             <ul ng-repeat="genre in genres">
                 <li ng-class="{current:$parent.genreName==genre.name}"><a href="" ng-click="findAddGenre(genre.name)">{{genre.name}}</a></li>

@@ -116,26 +116,17 @@
               </div>
           </div>
 
-    <div id="sidemenu">
-
-        <div class="sidemenu_box">
-            <h3>利用用途から探す</h3>
-            <ul>
-                <li ng-repeat="scenelist in scenes" ng-class="{current:$parent.scene==scenelist.name}"><a href="" ng-click="findAddScene(scenelist.name)">{{scenelist.name}}</a></li>
-            </ul>
-        </div>
+        <coco-sidebar-min></coco-sidebar-min>
 
     </div>
 
+    <div class="pager_box">
+        <ul>
+            <li><a href="" ng-click="currentPage=currentPage-1"><</a></li>
+            <li ng-repeat="page in pages" ng-class="{current:$parent.currentPage==page}"><a href="" ng-click="$parent.currentPage=page">{{page}}</a></li>
+            <li><a href="" ng-click="currentPage=currentPage+1">></a></li>
+        </ul>
     </div>
-
-        <div class="pager_box">
-            <ul>
-                <li><a href="" ng-click="currentPage=currentPage-1"><</a></li>
-                <li ng-repeat="page in pages" ng-class="{current:$parent.currentPage==page}"><a href="" ng-click="$parent.currentPage=page">{{page}}</a></li>
-                <li><a href="" ng-click="currentPage=currentPage+1">></a></li>
-            </ul>
-        </div>
 
 </div><!-- #main -->
 <coco-footer></coco-footer>

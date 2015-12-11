@@ -3,8 +3,8 @@
 </div>
 <div id="bg_black"> </div>
 <div id="main_contents">
-    <p class="settled_store">登録可能件数{{items.length}}件中10件登録済み</p>
-        <div ng-repeat="item in items">
+    <p class="settled_store">登録可能件数10件中{{items.length}}件登録済み</p>
+        <div ng-repeat="item in items | filter: {'sceneNames' : sceneName}">
             <div class="recommend_list" style="margin-bottom:20px;">
                 <div class="store_img">
                     <image class="store_img" src="./assets/./images/items/sample.jpg">
@@ -26,6 +26,6 @@
             </div>
         </div>
     </div>
-    <coco-sidebar></coco-sidebar>
+    <coco-sidebar-min></coco-sidebar-min>
     </div>
 </div>

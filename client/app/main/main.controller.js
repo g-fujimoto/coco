@@ -1,12 +1,10 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$Users', '$Comments',
-    function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $Users, $Comments) {
+app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Users', '$Comments',
+    function($scope, $http, $uibModal, Upload, $Users, $Comments) {
 
 // ----------------------------------------------- $scope ----------------------------------------------------//
         $scope.global_menu = 'main';
-        $scope.scenes      = $$Scenes;
-        $scope.genres      = $$Genres;
         $scope.pages       = [];
 
         $scope.upload = function(files) {

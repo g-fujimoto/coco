@@ -1,13 +1,11 @@
 var app = angular.module('webApp');
 
-app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Recommend',
-    function($scope, $http, $$Scenes, $$Genres, $uibModal, $timeout, $Users, $Comments, Upload, $Recommend) {
+app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Recommend',
+    function($scope, $http, $uibModal, $timeout, $Users, $Comments, Upload, $Recommend) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
 
     $scope.global_menu = 'myPage';
     $scope.apiName     = 'users';
-    $scope.scenes      = $$Scenes;
-    $scope.genres      = $$Genres;
     $scope.pages       = [];
     $scope.type        = [
                             {label: '行きたい', type: false},
@@ -69,6 +67,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
     };
 
     $scope.getRecommendItem = function() {
+
         var data = {};
         if ($scope.scene) data.scene   = $scope.scene;
 
@@ -148,6 +147,21 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
             }
         });
     };
+
+    $scope.findAddArea = function(value) {
+        $scope.area = ($scope.area == value) ? undefined : value;
+
+    };
+
+    $scope.findAddScene = function(value) {
+        $scope.sceneName = ($scope.sceneName == value) ? undefined : value;
+
+    };
+
+    $scope.findAddGenre = function(value) {
+        $scope.genreName = ($scope.genreName == value) ? undefined : value;
+
+    };
 // ----------------------------------------------- $watch ----------------------------------------------------//
 
     $scope.$watch('item_comments', (newValue) => {
@@ -162,22 +176,6 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         } else if (newValue != 1 && newValue > $scope.pages.length) {
             $scope.currentPage = $scope.pages.length;
         }
-    });
-
-    // 検索
-    $scope.$watch('area', function(newValue, oldValue) {
-        if (!newValue) return;
-        $scope.getItem();
-    });
-
-    $scope.$watch('scene', function(newValue, oldValue) {
-        if (!newValue) return;
-        $scope.getItem();
-    });
-
-    $scope.$watch('genre', function(newValue, oldValue) {
-        if (!newValue) return;
-        $scope.getItem();
     });
 
     // 通知
