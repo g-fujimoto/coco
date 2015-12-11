@@ -40,6 +40,22 @@ exports.get = function(req, res) {
     });
 };
 
+exports.went = function(req, res) {
+    Comments.find({user : req.session.loginUser._id, type : true})
+    .populate('item')
+    .exec(function(err, data) {
+        res.json(data);
+    });
+}
+
+exports.wantGo = function(req, res) {
+    Comments.find({user : req.session.loginUser._id, type : false})
+    .populate('item')
+    .exec(function(err, data) {
+        res.json(data);
+    });
+}
+
 exports.getByItemID = function(req, res) {
 
     if (req.body.itemId) {

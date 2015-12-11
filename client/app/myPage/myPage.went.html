@@ -1,6 +1,6 @@
 <div id="bg_black"> </div>
 <div id="main_contents">
-    <div ng-repeat="comment in comments | filter: {userId: loginUser._id}">
+    <div ng-repeat="comment in went_comments | limitTo:10:(currentPage-1)*10">
         <div id="went_list">
             <div class="went_list">
                 <div class="went_list_main">
@@ -13,8 +13,8 @@
                         <h5>【行った店の感想の題名】</h5>
                         <div class="box_header">
                            <ul>
-                                <li><h3><b>ジャンル</b>{{item.genreAve | number: 1}}</h3></li>
-                                <li><h3><b>シーン</b>{{item.sceneAve | number: 1}}</h3></li>
+                                <li><h3><b>ジャンル</b>{{comment.genreAve | number: 1}}</h3></li>
+                                <li><h3><b>シーン</b>{{comment.sceneAve | number: 1}}</h3></li>
                             </ul>
                         </div>
                     <button class="blue_btn recommendation" type="button"  ng-click="setItemRecomment(item._id);"><i class="fa fa-star-o"></i>&nbsp;推薦する</button>
@@ -22,7 +22,7 @@
                     </div>
                     <p class="gradation_thin_border"></p>
                     <p class="impressions">
-                        {{item.body}}
+                        {{comment.body}}
                     </p>
                     <p class="see_more"><a href="#">もっと見る</a></p>
                     <div class="went_img">

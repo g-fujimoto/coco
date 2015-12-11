@@ -13,12 +13,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
                             {label: '行きたい', type: false},
                             {label: '行った', type: true}
                         ];
-    if($scope.$root.loginUser.recommendItems) {
-        $Recommend.userRecommend($scope.$root.loginUser.recommendItems)
-            .success((data) => {
-                $scope.userRecommends = data;
-            });
-    }
+
 // ----------------------------------------------- RestfulAPI ------------------------------------------------//
 
     $scope.comments = $Comments.query();
@@ -28,7 +23,6 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
 
 
     $scope.saveUser = function () {
-
         if ($scope.files[0]) {
             Upload.upload({
                 url: 'api/upload/user',
@@ -62,15 +56,19 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
         });
     };
 
-    $scope.getComments = () => {
-        $http.get('/api/comments')
+    $scope.getWentComments = () => {
+        $http.post('/api/comments/went')
         .success((data) => {
-            $scope.item_comments = data;
+            $scope.went_comments = data;
         });
     };
 
-    $scope.getItem();
-
+    $scope.getWantGoComments = () => {
+        $http.post('/api/comments/wantGo')
+        .success((data) => {
+            $scope.wantgo_comments = data;
+        });
+    };
 // ----------------------------------------------- $watch ----------------------------------------------------//
 
     $scope.$watch('item_comments', (newValue) => {
@@ -84,8 +82,6 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
             $scope.currentPage = 1;
         } else if (newValue != 1 && newValue > $scope.pages.length) {
             $scope.currentPage = $scope.pages.length;
-        } else {
-            $scope.getComments();
         }
     });
 
