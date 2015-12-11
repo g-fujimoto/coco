@@ -77,6 +77,7 @@ angular.module('webApp')
 
                     //データ新規作成
                     $scope.saveAPI = () => {
+                        console.log($scope.newData);
                         $Users.save(
                             $scope.newData,
                             () => {
