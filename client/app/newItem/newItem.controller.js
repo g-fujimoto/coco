@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout', '$Users', '$Areas', '$$Prefs', '$stateParams', '$Items', '$state',
-    function($scope, $$Scenes, $$Genres, $timeout, $Users, $Areas, $$Prefs, $stateParams, $Items, $state) {
+app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout', '$Users', '$Areas', '$$Prefs', '$stateParams', '$Items', '$state', '$rootScope', '$Comments',
+    function($scope, $$Scenes, $$Genres, $timeout, $Users, $Areas, $$Prefs, $stateParams, $Items, $state, $rootScope, $Comments) {
 /* ----------------------------------------- $scope(value) -------------------------------- */
         $scope.global_menu = 'newItem';
         $scope.newData     = $stateParams.confirmData || {};
@@ -9,7 +9,8 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
         $scope.genres      = $$Genres;
         $scope.prefs       = $$Prefs;
         $scope.confirmData = $stateParams.newData || {};
-        $scope.registData  = $stateParams.confirmData || {};
+        $scope.newData  = $stateParams.registData || {};
+
 /* ----------------------------------------- $scope(function) ----------------------------- */
 
 /* ----------------------------------------- RestfulAPI ----------------------------------- */
@@ -17,14 +18,27 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
         $scope.areas = $Areas.query();
 
         //saveAPI
-        $scope.saveAPI = () => {
+        $scope.saveItemAPI = () => {
             $Items.save(
                 $scope.confirmData,
-                () => {
-                    $state.go('newItem.complete');
+                (data) => {
+                    $state.go('newItem.complete', {
+                        registData : data
+                    });
                 },
                 () => {
                     console.log('error');
+                }
+            );
+        };
+
+        // データ登録
+        $scope.saveAPI = (newData, scope) => {
+            newData.item = newData.item._id;
+            $Comments.save(
+                newData,
+                () => {
+                    scope.$dismiss();
                 }
             );
         };

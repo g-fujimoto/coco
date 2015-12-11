@@ -38,8 +38,9 @@ angular.module('webApp')
                 }
             },
             params: {
-                newData: null,
-                login: true
+                newData     : null,
+                confirmData : null,
+                login       : true
             }
         })
         .state('newItem.complete', {
@@ -51,7 +52,8 @@ angular.module('webApp')
                 }
             },
             params: {
-                login: true
+                login: true,
+                registData: null
             }
         })
         .state('newItem.went', {
@@ -59,12 +61,12 @@ angular.module('webApp')
             views: {
                 '': {
                     templateUrl: './app/newItem/newItem.went.html',
-                    controller: 'ShopDetailController'
+                    controller: 'NewItemController'
                 }
             },
             params: {
-                login: true,
-                item : null
+                login      : true,
+                registData : null
             }
         });
 }]);

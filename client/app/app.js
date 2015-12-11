@@ -9,12 +9,9 @@ angular.module('webApp', [
     ])
     .config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', ($stateProvider, $urlRouterProvider, $uiViewScrollProvider) => {
         $urlRouterProvider.when('/', '');
-        $uiViewScrollProvider.useAnchorScroll({
-            top: 1000
-        });
+        $uiViewScrollProvider.useAnchorScroll();
     }])
     .run(['$rootScope', '$state', '$http', '$Users', '$timeout', ($rootScope, $state, $http, $Users, $timeout) => {
-        window.scrollTo( 0, 0) ;
         $rootScope.logout = $Users.logout;
         $rootScope.$on('$stateChangeStart', (e, toState, toParams, fromState, fromParams) => {
             if(toState.name === 'admin') {
