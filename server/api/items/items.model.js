@@ -9,6 +9,8 @@ var ItemsSchema = mongoose.Schema({
     tel       : String,
     area      : String,
     introduce : String,
+    registerUser  : String,
+    registerId: mongoose.Schema.ObjectId,
     address   : {
         postalCode : String,
         pref       : String,

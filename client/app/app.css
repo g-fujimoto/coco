@@ -816,12 +816,12 @@ body.home #main { margin: -50px auto 94px; }
 .animate.ng-enter,
 .animate.ng-leave,
 .animate.ng-move {
-  -webkit-transition: opacity 0.35s linear;
-  transition: opacity 0.35s linear;
+  -webkit-transition: opacity 0.8s linear;
+  transition: opacity 0.8s linear;
 }
 /*表示モーション時の透明度*/
 .animate.ng-enter {
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 /*表示モーション終了時の透明度*/

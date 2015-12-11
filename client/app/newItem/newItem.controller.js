@@ -19,8 +19,12 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
 
         //saveAPI
         $scope.saveItemAPI = () => {
+            var registData = $scope.confirmData;
+            registData.registerId   = $rootScope.loginUser._id;
+            registData.registerUser = $rootScope.loginUser.lastName + ' ' + $rootScope.loginUser.firstName;
+            console.log(registData);
             $Items.save(
-                $scope.confirmData,
+                registData,
                 (data) => {
                     $state.go('newItem.complete', {
                         registData : data
