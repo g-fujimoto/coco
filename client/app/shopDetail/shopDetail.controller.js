@@ -6,7 +6,6 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     $scope.scenes      = $$Scenes;
     $scope.genres      = $$Genres;
     $scope.item        = $stateParams.item;
-    console.log($scope.item);
 
 // ----------------------------------------------- $scope(function) ----------------------------------------------------//
 
