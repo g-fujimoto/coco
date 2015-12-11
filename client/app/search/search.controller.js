@@ -4,8 +4,8 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
     function($scope, $http, $$Scenes, $uibModal, $timeout, $Users, $Recommend) {
 
     $scope.global_menu = 'search';
+    $scope.scenes = $$Scenes;
     $scope.pages      = [];
-
 
     $scope.recommendAdd = function(item) {
         $Recommend.add(item._id)
@@ -31,12 +31,13 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
 
         var data = {};
         if ($scope.word) data.name = $scope.word;
-        if ($scope.scene) data.scene   = $scope.scene;
+        if ($scope.sceneName) data.sceneNames   = $scope.sceneName;
+        if ($scope.genreName) data.genreName   = $scope.genreName;
+        if ($scope.area) data.area   = $scope.area;
 
         $http.post('/api/items/find', JSON.stringify(data))
-        .success(function(data) {
+        .success((data) => {
             $scope.items = data;
-
             $scope.getComments();
 
             $scope.currentPage = 1;
@@ -49,33 +50,47 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
 
     $scope.getComments = function() {
 
-        var item_ids = _.pluck($scope.items, '_id');
+        var data = {};
+        data.item = _.pluck($scope.items, '_id');
 
-        $http.get('/api/comments', JSON.stringify(item_ids))
-        .success(function(data) {
+        $http.post('/api/comments/find', JSON.stringify(data))
+        .success((data) => {
 
             // 店舗IDリスト作成
-            var item_comments = _.pluck($scope.items, '_id');
+            var item_ids = _.pluck($scope.items, '_id');
+
+            var item_comments = [];
 
             // 店舗毎にコメントを操作
-            for (var i in item_comments) {
+            for (var i in item_ids) {
 
-                var comments = _.filter(data, function(num) {return num._item_id === item_comments[i];});
+                var comments = _.filter(data, (num) => {
+                    return num.item._id === item_ids[i];
+                });
+
+                // 最新コメント情報作成
+                var comment = comments[0];
+
+                // 行きたいコメントに絞り込み①
+                comments = _.filter(comments, (num) => {
+                    return num.type === true;
+                });
 
                 // ジャンルポイント平均作成
                 var genreAvelist = _.pluck(comments, 'genreAve');
-                var genreAveSum = _.reduce(genreAvelist, function(memo, num){ return memo + num;}, 0);
-                var genreAves = genreAveSum / genreAvelist.length;
+                var genreAveSum = _.reduce(genreAvelist, (memo, num) => {
+                     return memo + num;
+                }, 0);
+                var genreAve = genreAveSum < 1 ? 0 : genreAveSum / genreAvelist.length;
 
                 // シーンポイント平均作成
                 var sceneAvelist = _.pluck(comments, 'sceneAve');
-                var sceneAveSum = _.reduce(sceneAvelist, function(memo, num){ return memo + num;}, 0);
-                var sceneAves = sceneAveSum / sceneAvelist.length;
+                var sceneAveSum = _.reduce(sceneAvelist, (memo, num) => {
+                     return memo + num;
+                }, 0);
+                var sceneAve = sceneAveSum < 1 ? 0 : sceneAveSum / sceneAvelist.length;
 
-                // 最新コメント情報作成
-                var topick = _.max(comments, function(comment){ return comment._id});
-
-                item_comments[item_comments[i]] = {topick : topick, genreAves : genreAves, sceneAves : sceneAves};
+                item_comments[item_ids[i]] = {comment, genreAve, sceneAve };
 
             }
 
@@ -112,7 +127,6 @@ app.controller('SearchController', ['$scope', '$http', '$$Scenes', '$uibModal', 
         $scope.getItem();
     });
 
-    $scope.scenes = $$Scenes;
     $scope.getItem();
 
 }]);

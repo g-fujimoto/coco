@@ -12,8 +12,8 @@ var _ = require('lodash');
 //index
 exports.add = function(req, res) {
 
-    Comments.update({_id: req.body._commentid, likeUsers : {$nin : [req.session.user._id]}},
-        {$push : {likeUsers : req.session.user._id}}, function(err, data) {
+    Comments.update({_id: req.body._commentid, likeUsers : {$nin : [req.session.loginUser._id]}},
+        {$push : {likeUsers : req.session.loginUser._id}}, function(err, data) {
 
         // 例外処理
 
@@ -29,8 +29,8 @@ exports.add = function(req, res) {
 // delete
 exports.delete = function(req, res) {
 
-  Comments.update({_id: req.body._commentid, likeUsers : {$in : [req.session.user._id]}},
-      {$pull :{likeUsers : req.session.user._id}}, function(err, data) {
+  Comments.update({_id: req.body._commentid, likeUsers : {$in : [req.session.loginUser._id]}},
+      {$pull :{likeUsers : req.session.loginUser._id}}, function(err, data) {
 
       // 例外処理
 

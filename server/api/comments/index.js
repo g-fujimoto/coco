@@ -14,5 +14,8 @@ router.put('/:_id', controller.update);
 
 router.post('/find', controller.index);
 router.post('/getByItemID', controller.getByItemID);
+router.post('/went', controller.went);
+router.post('/wantGo', controller.wantGo);
+
 
 module.exports = router;

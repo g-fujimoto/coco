@@ -19,7 +19,7 @@ exports.userRecommend = function(req, res) {
 //index
 exports.add = function(req, res) {
 
-    Users.update({_id: req.session.user._id, recommendItems : {$nin : [req.body._itemid]}},
+    Users.update({_id: req.session.loginUser._id, recommendItems : {$nin : [req.body._itemid]}},
         {$push : {recommendItems : req.body._itemid}}, function(err, data) {
 
         // 例外処理
@@ -36,7 +36,7 @@ exports.add = function(req, res) {
 // delete
 exports.delete = function(req, res) {
 
-    Users.update({_id: req.session.user._id, recommendItems : {$in : [req.body._itemid]}},
+    Users.update({_id: req.session.loginUser._id, recommendItems : {$in : [req.body._itemid]}},
         {$pull : {recommendItems : req.body._itemid}}, function(err, data) {
 
         // 例外処理

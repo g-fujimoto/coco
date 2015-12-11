@@ -26,9 +26,11 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
 
         $scope.getItem = function() {
 
+            console.log($scope.sceneName);
+
             var data = {};
             if ($scope.word) data.name = $scope.word;
-            if ($scope.scene) data.sceneName   = $scope.sceneName;
+            if ($scope.sceneName) data.sceneNames   = $scope.sceneName;
             if ($scope.genreName) data.genreName   = $scope.genreName;
             if ($scope.area) data.area   = $scope.area;
 
