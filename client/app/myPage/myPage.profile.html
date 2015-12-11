@@ -15,12 +15,14 @@
             </ul>
         </div>
         <div class="profile_img_box" ngf-drop ng-model="files" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+            <image class="profile_img" src="./assets/./images/users/sample.jpg">
+<!-- TODO 後で実装
             アップロードする画像をドラッグしてください。
             <div ng-repeat="file in files">
                 <img ngf-src="file" ngf-accept="'image/*'"  class="profile_img">
             </div>
         </div>
-
+-->
         <span ngf-no-file-drop style="float:right;">
             <div class="upload-button">
                 ファイルを選択
