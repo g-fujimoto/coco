@@ -9,8 +9,10 @@ angular.module('webApp')
                     controller: 'ShopDetailController'
                 }
             },
-            login: true,
-            item : null
+            params: {
+                login: true,
+                item : null
+            }
         })
         .state('shopDetail.main', {
             url: '/main/:itemid',
@@ -20,8 +22,10 @@ angular.module('webApp')
                     controller: 'ShopDetailController'
                 }
             },
-            login: true,
-            item : null
+            params: {
+                login: true,
+                item : null
+            }
         })
         .state('shopDetail.photos', {
             url: '/photos',
@@ -32,7 +36,8 @@ angular.module('webApp')
                 }
             },
             params: {
-                login: true
+                login: true,
+                item : null
             }
         })
         .state('shopDetail.reviews', {
@@ -44,7 +49,8 @@ angular.module('webApp')
                 }
             },
             params: {
-                login: true
+                login: true,
+                item : null
             }
         })
         .state('shopDetail.map', {
@@ -56,7 +62,21 @@ angular.module('webApp')
                 }
             },
             params: {
-                login: true
+                login: true,
+                item : null
             }
-        });
+        })
+        .state('shopDetail.went', {
+            url: '/went',
+            views: {
+                '': {
+                    templateUrl: './app/shopDetail/shopDetail.went.html',
+                    controller: 'ShopDetailController'
+                }
+            },
+            params: {
+                login: true,
+                item : null
+            }
+        })
 }]);

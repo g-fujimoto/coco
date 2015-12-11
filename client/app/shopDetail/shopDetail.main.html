@@ -20,12 +20,6 @@
             <div class="person_reviews">
                 <h3>ああああああああああああああああああ</h3>
                 <p class="fontSize12 top_reviews_impressions">ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ・・・<a href="#">続きを読む</a></p>
-                <div class="box_header_small">
-                   <ul>
-                        <li><h4><b>ジャンル</b>3.5</h4></li>
-                        <li><h4><b>シーン</b>3.0</h4></li>
-                    </ul>
-                </div>
             </div>
             <p class="person_reviews_img">PHOTO</p>
         </div>
@@ -95,7 +89,7 @@
                         店舗名
                     </th>
                     <td>
-                        やまっち
+                        {{item.name}}
                     </td>
                 </tr>
                 <tr>
@@ -103,7 +97,7 @@
                         ジャンル・シーン
                     </th>
                     <td>
-                        イタリアン、社内利用、家族利用、一人利用
+                        {{item.genreName}}<span ng-repeat="sceneName in item.sceneNames">,&nbsp;{{sceneName}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -111,7 +105,7 @@
                         電話番号
                     </th>
                     <td>
-                        00-0000-0000
+                        {{item.tel}}
                     </td>
                 </tr>
                 <tr>
@@ -119,7 +113,7 @@
                         住所
                     </th>
                     <td>
-                        大阪府大阪市北区堂山町 3-13 梅田レインボープラザビル1F</br>
+                        {{item.address.postalCode}}&nbsp;{{item.address.pref}}&nbsp;{{item.address.city}}&nbsp;{{item.address.town}}&nbsp;{{item.address.building}}</br>
                         <div class="map">地図</div>
                     </td>
                 </tr>
@@ -128,7 +122,7 @@
                         アクセス
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -136,8 +130,7 @@
                         営業時間
                     </th>
                     <td>
-                        あ<br>
-                        a
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -145,7 +138,7 @@
                         定休日
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -153,7 +146,7 @@
                         カード
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
             </table>
@@ -164,7 +157,7 @@
                         座席
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -172,7 +165,7 @@
                         個室
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -180,7 +173,7 @@
                         貸切
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -188,7 +181,7 @@
                         禁煙・喫煙
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -196,7 +189,7 @@
                         駐車場
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -204,7 +197,7 @@
                         空間・設備
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -212,7 +205,7 @@
                         携帯電話
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
             </table>
@@ -223,7 +216,7 @@
                         料理
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -231,7 +224,7 @@
                         ドリンク
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -239,7 +232,7 @@
                         コース
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
             </table>
@@ -250,7 +243,7 @@
                         ロケーション
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -258,7 +251,7 @@
                         サービス
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
                 <tr>
@@ -266,7 +259,7 @@
                         ホームページ
                     </th>
                     <td>
-                        あ
+                        null
                     </td>
                 </tr>
             </table>
