@@ -9,6 +9,8 @@ angular.module('webApp')
                     controller: 'SearchController'
                 }
             },
-            auth: true
+            params: {
+                login: true
+            }
         });
 }]);

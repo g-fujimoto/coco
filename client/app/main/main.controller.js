@@ -35,7 +35,6 @@ app.controller('MainController', ['$scope', '$http', '$$Scenes', '$$Genres', '$u
             $http.post('/api/items/find', JSON.stringify(data))
             .success((data) => {
                 $scope.items = data;
-console.log(data);
                 $scope.getComments();
 
                 $scope.currentPage = 1;

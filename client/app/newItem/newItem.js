@@ -8,24 +8,26 @@ angular.module('webApp')
             url: '/newItem',
             views: {
                 '': {
-                    templateUrl: './app/newItem/newItem.html',
-                    controller: 'NewItemController'
+                    templateUrl : './app/newItem/newItem.html',
+                    controller  : 'NewItemController'
                 }
             },
-            auth: true
+            params: {
+                login: true
+            }
         })
         .state('newItem.regist', {
             url: '/regist',
             views: {
                 '' : {
-                    controller: 'NewItemController',
-                    templateUrl: './app/newItem/newItem.regist.html'
+                    controller  : 'NewItemController',
+                    templateUrl : './app/newItem/newItem.regist.html'
                 }
             },
             params: {
-                confirmData: null
-            },
-            auth: true
+                confirmData : null,
+                login       : true
+            }
         })
         .state('newItem.confirm', {
             url: '/confirm',
@@ -36,9 +38,9 @@ angular.module('webApp')
                 }
             },
             params: {
-                newData: null
-            },
-            auth: true
+                newData: null,
+                login: true
+            }
         })
         .state('newItem.complete', {
             url: '/complete',
@@ -49,9 +51,7 @@ angular.module('webApp')
                 }
             },
             params: {
-
-            },
-
-            auth: true
+                login: true
+            }
         });
 }]);
