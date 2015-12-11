@@ -808,7 +808,7 @@ body.home #main { margin: -50px auto 94px; }
     0%, 100% { -moz-transform: translateY(-50px); }
     10%, 90% { -moz-transform: translateY(0px); }
 }
-
+
 /* -------------------------------- ngAnimate -------------------------------- */
 
 /* ---------------- All ----------------- */
@@ -816,17 +816,17 @@ body.home #main { margin: -50px auto 94px; }
 .animate.ng-enter,
 .animate.ng-leave,
 .animate.ng-move {
-  -webkit-transition: opacity 0.8s linear;
-  transition: opacity 0.8s linear;
+  -webkit-transition: opacity 0.6s linear;
+  transition: opacity 0.6s linear;
 }
 /*表示モーション時の透明度*/
 .animate.ng-enter {
-  opacity: 0.4;
+  opacity: 0.2;
 }
 
 /*表示モーション終了時の透明度*/
 .animate.ng-enter.ng-enter-active {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 /*非表示モーション時の透明度*/
