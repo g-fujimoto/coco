@@ -5,11 +5,18 @@ angular.module('webApp', [
         'ngAnimate',
         'ngFileUpload',
         'ngResource',
-        'cfp.loadingBar'
+        'cfp.loadingBar',
+        'uiGmapgoogle-maps'
     ])
-    .config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', ($stateProvider, $urlRouterProvider, $uiViewScrollProvider) => {
-        $urlRouterProvider.when('/', '');
-        $uiViewScrollProvider.useAnchorScroll();
+    .config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', 'uiGmapGoogleMapApiProvider',
+        ($stateProvider, $urlRouterProvider, $uiViewScrollProvider, GoogleMapApiProviders) => {
+            $urlRouterProvider.when('/', '');
+            $uiViewScrollProvider.useAnchorScroll();
+
+            GoogleMapApiProviders.configure({
+                china: true
+            });
+
     }])
     .run(['$rootScope', '$state', '$http', '$Users', '$timeout', ($rootScope, $state, $http, $Users, $timeout) => {
         $rootScope.logout = $Users.logout;

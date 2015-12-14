@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams', '$Users', '$Comments',
-  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users, $Comments) {
+app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams', '$Users', '$Comments', '$timeout',
+  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users, $Comments, $timeout) {
 
 // ----------------------------------------------- $scope(value) ----------------------------------------------------//
     $scope.scenes = $$Scenes;
@@ -59,18 +59,79 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
         .success((data) => {
             $scope.itemComments = data;
         });
+
     $scope.getSumAve();
 
+    $scope.wentFilter = () => {
+        if($scope.goFlg === true) {
+            $scope.goFlg = undefined;
+        } else {
+            $scope.goFlg = true;
+        }
+    };
 
     $scope.wantGoFilter = () => {
-        $scope.goFlg = false;
+        if($scope.goFlg === false) {
+            $scope.goFlg = undefined;
+
+        } else {
+            $scope.goFlg = false;
+        }
     };
 
-    $scope.wentFilter = () => {
-        $scope.goFlg = true;
+// ---------------------------------------------- GoogleMaps -------------------------------------------------//
+
+$scope.map = {
+    center: {
+         latitude  : 0,
+         longitude : 0
+    },
+    zoom: 17,
+    options: {
+        mapTypeId: google.maps.MapTypeId.SATELLITE
+    },
+    markers: [
+        {
+            id: 1,
+            latitude  : 0,
+            longitude : 0,
+            title: $scope.item.name,
+            content: $scope.item.name,
+            show: false
+        }
+    ]
+};
+
+$scope.codeAddress = function () {
+    const geocoder = new google.maps.Geocoder();
+    const address = {
+        pref       : $scope.item.address.pref,
+        city       : $scope.item.address.city,
+        town       : $scope.item.address.town,
+        building   : $scope.item.address.building
     };
-
-
+    geocoder.geocode(
+        {
+            address: address.pref + address.city + address.town + address.building,
+            'region'  : 'jp'
+        },
+        (results, status) => {
+      if (status == google.maps.GeocoderStatus.OK) {
+        $timeout(() => {
+            $scope.map.center.latitude      = results[0].geometry.viewport.O.O;
+            $scope.map.center.longitude     = results[0].geometry.viewport.j.j;
+            $scope.map.markers[0].latitude  = results[0].geometry.viewport.O.O;
+            $scope.map.markers[0].longitude = results[0].geometry.viewport.j.j;
+        });
+      } else {
+        alert('地図の読み込みに失敗しました。');
+      }
+    });
+    return;
+  };
+  $scope.$watch('item', () => {
+      $scope.codeAddress();
+  });
 
 // ----------------------------------------------- $watch ----------------------------------------------------//
 

@@ -387,13 +387,13 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
     width: 80%;
     margin: 0 auto;
 }
-.shopDetail_map{
+/*.shopDetail_map{
     width: 90%;
     margin: 0 auto;
     height: 500px;
     background-color: #ccc;
     margin-bottom: 30px;
-}
+}*/
 /********************************************************************/
 
 /************ font-size  class *************/
@@ -886,4 +886,17 @@ li {
   -webkit-box-sizing: content-box;
      -moz-box-sizing: content-box;
           box-sizing: content-box;
+}
+
+.selectBtn {
+    opacity: .5;
+}
+
+.angular-google-map-container {
+    width: 100%;
+    margin: 0 auto;
+    height:400px;
+    background-color: #ccc;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }

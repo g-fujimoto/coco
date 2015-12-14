@@ -36,6 +36,8 @@
     "animate.css": "~3.4.0",
     "d3": "~3.5.10",
     "bootstrap-material-design": "~0.5.4",
-    "bootswatch-dist": "flatly"
+    "bootswatch-dist": "flatly",
+    "angular-google-maps": "~2.2.1",
+    "angular-simple-logger": "~0.1.5"
   }
 }
