@@ -41,9 +41,9 @@
                     <p class="top_thumbnail">サムネ</p>
                     <p class="fontSize12 person_reviews_name">{{itemComment.user.lastName}}&nbsp;{{itemComment.user.firstName}}</p>
                 </div>
-                <div ng-class="{arrow_box_blue: itemComment.type}"">
+                <div ng-class="['arrow_box_blue', {'arrow_box_gray': !itemComment.type}]">
                     <div class="person_reviews">
-                        <p ng-class="{review_state_blue: itemComment.type}" ng-class="{review_state_gray: !itemComment.type}">{{itemComment.type ? '行った' : '行きたい'}}</p>
+                        <p ng-class="['review_state_blue', {'review_state_gray': !itemComment.type}]">{{itemComment.type ? '行った' : '行きたい'}}</p>
                         <h3>{{itemComment.title}}</h3>
                         <p class="review_date fontSize12">{{itemComment.create | date: 'yyyy-MM-dd'}}&nbsp;投稿</p>
                         <p class="fontSize12 top_reviews_impressions">
@@ -104,7 +104,11 @@
                     </th>
                     <td>
                         {{item.address.postalCode}}&nbsp;{{item.address.pref}}&nbsp;{{item.address.city}}&nbsp;{{item.address.town}}&nbsp;{{item.address.building}}</br>
-                        <div class="map">地図</div>
+                        <!-- <div class="map"> -->
+                            <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+                                <ui-gmap-markers models="map.markers" coords="'self'"></ui-gmap-markers>
+                            </ui-gmap-google-map>
+                        <!-- </div> -->
                     </td>
                 </tr>
                 <tr>

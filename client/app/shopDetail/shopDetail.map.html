@@ -1,6 +1,10 @@
 <div id="shopDetail_main">
     <div class="shopDetail_access">
-        <p class="shopDetail_map">MAP</p>
+        <!-- <p class="shopDetail_map"> -->
+            <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+                <ui-gmap-markers models="map.markers" coords="'self'"></ui-gmap-markers>
+            </ui-gmap-google-map>
+        <!-- </p> -->
         <div class="shopDetail_info">
             <table>
                 <tr>
@@ -8,7 +12,7 @@
                         住所
                     </th>
                     <td>
-                        {{item.address.postalCode}}&nbsp;{{item.address.pref}}&nbsp;{{item.address.city}}&nbsp;{{item.address.town}}&nbsp;{{item.address.building}}</br>                    
+                        {{item.address.postalCode}}&nbsp;{{item.address.pref}}&nbsp;{{item.address.city}}&nbsp;{{item.address.town}}&nbsp;{{item.address.building}}</br>
                     </td>
                 </tr>
                 <tr>
