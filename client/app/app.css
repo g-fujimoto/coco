@@ -304,8 +304,8 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .person_reviews { width: 100%;}
 #main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list  h3 { font-size: 14px; font-weight: 800; padding-bottom: 5px; padding-left: 10px; width: 400px; float: left;}
 #main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .top_reviews_img{ width: 10%; margin-left: 2%; float: left; height: 55px; background-color: #ccc; text-align: center; line-height: 55px; color: #fff; }
-#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .arrow_box_blue .person_reviews .reviews_text { width: 88%; float: left;}
-#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .arrow_box_gray .person_reviews .reviews_text { width: 100%; }
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .arrow_box_blue .person_reviews .reviews_text { width: 88%; float: left; overflow: hidden;}
+#main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .arrow_box_gray .person_reviews .reviews_text { width: 88%; float: left; overflow: hidden;}
 #main #shopDetail_main #shopDetail_main_reviews .shopDetail_main_reviews_list .person_reviews .review_date { width: auto; float: left;}
 .reviews_more{
     text-align: right;
@@ -348,6 +348,13 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
     width: 500px;
     height: 150px;
     background-color: #ccc;
+}
+.max_text{
+    height: 45px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }
 /********************************************/
 

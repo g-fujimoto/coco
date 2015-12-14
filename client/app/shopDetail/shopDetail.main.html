@@ -19,10 +19,11 @@
             </div>
             <div class="person_reviews">
                 <h3>{{item.title}}</h3>
-                <p class="fontSize12 top_reviews_impressions">
-                    {{item.introduce}}
-                    <!-- <a href="#">続きを読む</a> -->
-                </p>
+                <div class="fontSize12 top_reviews_impressions">
+                    <p ng-class="{'max_text':dottedFlg}">{{item.introduce}}</p>
+                    <p ng-click="moreFlg()" ng-show="dottedFlg"><a href="">もっと見る</a></p>
+                    <p ng-click="moreFlg()" ng-show="closeFlg"><a href="">閉じる</a></p>
+                </div>
             </div>
             <p class="person_reviews_img">PHOTO</p>
         </div>
@@ -46,12 +47,15 @@
                         <p ng-class="['review_state_blue', {'review_state_gray': !itemComment.type}]">{{itemComment.type ? '行った' : '行きたい'}}</p>
                         <h3>{{itemComment.title}}</h3>
                         <p class="review_date fontSize12">{{itemComment.create | date: 'yyyy-MM-dd'}}&nbsp;投稿</p>
-                        <p class="fontSize12 top_reviews_impressions">
+                        <div class="fontSize12 top_reviews_impressions">
                             <span class="reviews_text">
-                                {{itemComment.body}}
-                                <a href="#">続きを読む</a></span>
-                                <span class="top_reviews_img">PHOTO</span>
-                            </p>
+                                <p class="max_text" ng-class="{'max_text':dottedFlg}">{{itemComment.body}}</p>
+                            </span>
+                            <p class="top_reviews_img">PHOTO</p>
+                            <p ng-click="moreFlg()" ng-show="dottedFlg"><a href="">もっと見る</a></p>
+                            <p ng-click="moreFlg()" ng-show="closeFlg"><a href="">閉じる</a></p>
+
+                        </div>
                             <div class="box_header_small">
                                 <ul>
                                     <li><h4><b>ジャンル</b>{{itemComment.genreAve | number: 1}}</h4></li>
