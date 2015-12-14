@@ -8,9 +8,9 @@
 
 // Dependences Modules
 var Comments = require('./comments.model');
-var Items = require('./../items/items.model');
-var Users = require('./../users/users.model');
-var _ = require('lodash');
+var Items    = require('./../items/items.model');
+var Users    = require('./../users/users.model');
+var _        = require('lodash');
 
 //index
 exports.index = function(req, res) {
@@ -41,7 +41,17 @@ exports.went_items = function(req, res) {
           if(err) throw Error(err);
           res.json(data);
       });
-}
+};
+
+exports.itemComments = function(req, res) {
+    Comments.find({item: req.body._id})
+        .populate('user')
+        .populate('item')
+        .exec(function(err, data) {
+            if(err) throw Error(err);
+            res.json(data);
+        });
+};
 
 //get
 exports.get = function(req, res) {

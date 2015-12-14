@@ -15,12 +15,12 @@
             <div class="top_person_info">
                 <p class="fontSize12">登録者</p>
                 <p class="top_thumbnail">サムネ</p>
-                <p class="fontSize12">○○ ○○</p>
+                <p class="fontSize12">{{item.registerUser}}</p>
             </div>
             <div class="person_reviews">
                 <h3>{{item.title}}</h3>
                 <p class="fontSize12 top_reviews_impressions">
-                    {{item.body}}
+                    {{item.introduce}}
                     <!-- <a href="#">続きを読む</a> -->
                 </p>
             </div>
@@ -30,54 +30,41 @@
     <div id="item_title">
         <div id="title_background">
             <h3>口コミ・評価</h3>
-            <p class="white_btn shopDetail_btn"><a href="#"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
-            <p class="white_btn shopDetail_btn"><a href="#"><i class="fa fa-star"></i>&nbsp;行った(口コミ)</a></p>
+            <p class="white_btn shopDetail_btn" ng-click="wantGoFilter()"><a href="#"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
+            <p class="white_btn shopDetail_btn" ng-click="wentFilter()"><a href="#"><i class="fa fa-star"></i>&nbsp;行った(口コミ)</a></p>
         </div>
     </div>
     <div id="shopDetail_main_reviews">
-        <div class="shopDetail_main_reviews_list">
-            <div class="top_person_info">
-                <p class="top_thumbnail">サムネ</p>
-                <p class="fontSize12 person_reviews_name">○○ ○○</p>
-            </div>
-            <div class="arrow_box_blue">
-                <div class="person_reviews">
-                    <p class="review_state_blue">行った</p>
-                    <h3>ああああああああああああああああああ</h3>
-                    <p class="review_date fontSize12">2015/00/00&nbsp;投稿</p>
-                    <p class="fontSize12 top_reviews_impressions">
-                        <span class="reviews_text">ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ・・・
-                        <a href="#">続きを読む</a></span>
-                        <span class="top_reviews_img">PHOTO</span>
-                    </p>
-                    <div class="box_header_small">
-                       <ul>
-                            <li><h4><b>ジャンル</b>3.5</h4></li>
-                            <li><h4><b>シーン</b>3.0</h4></li>
-                        </ul>
+        <div ng-repeat="itemComment in itemComments | filter: {'type': goFlg}">
+            <div class="shopDetail_main_reviews_list">
+                <div class="top_person_info">
+                    <p class="top_thumbnail">サムネ</p>
+                    <p class="fontSize12 person_reviews_name">{{itemComment.user.lastName}}&nbsp;{{itemComment.user.firstName}}</p>
+                </div>
+                <div ng-class="{arrow_box_blue: itemComment.type}"">
+                    <div class="person_reviews">
+                        <p ng-class="{review_state_blue: itemComment.type}" ng-class="{review_state_gray: !itemComment.type}">{{itemComment.type ? '行った' : '行きたい'}}</p>
+                        <h3>{{itemComment.title}}</h3>
+                        <p class="review_date fontSize12">{{itemComment.create | date: 'yyyy-MM-dd'}}&nbsp;投稿</p>
+                        <p class="fontSize12 top_reviews_impressions">
+                            <span class="reviews_text">
+                                {{itemComment.body}}
+                                <a href="#">続きを読む</a></span>
+                                <span class="top_reviews_img">PHOTO</span>
+                            </p>
+                            <div class="box_header_small">
+                                <ul>
+                                    <li><h4><b>ジャンル</b>{{itemComment.genreAve | number: 1}}</h4></li>
+                                    <li><h4><b>シーン</b>{{itemComment.sceneAve | number: 1}}</h4></li>
+                                </ul>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="shopDetail_main_reviews_list">
-            <div class="top_person_info">
-                <p class="top_thumbnail">サムネ</p>
-                <p class="fontSize12 person_reviews_name">○○ ○○</p>
-            </div>
-            <div class="arrow_box_gray">
-                <div class="person_reviews">
-                    <p class="review_state_gray">行きたい</p>
-                    <h3>ああああああああああああああああああ</h3>
-                    <p class="review_date fontSize12">2015/00/00&nbsp;投稿</p>
-                    <p class="fontSize12 top_reviews_impressions">
-                        <span class="reviews_text">ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ・・・
-                        <a href="#">続きを読む</a></span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <p class="reviews_more"><a href="#">口コミをもっと見る>>></a></p>
     </div>
+    <p class="reviews_more"><a href="#">口コミをもっと見る>>></a></p>
+
     <div id="item_title">
         <div id="title_background">
             <h3>店舗情報（詳細）</h3>

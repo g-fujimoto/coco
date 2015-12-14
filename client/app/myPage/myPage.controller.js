@@ -27,7 +27,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
                 $scope.pop = {
                     show : true,
                     message : '推薦店舗を追加しました。'
-                }
+                };
             }
         });
     };
@@ -123,7 +123,7 @@ app.controller('MyPageController', ['$scope', '$http', '$$Scenes', '$$Genres', '
 
             $scope.sum_ave = sum_ave;
         });
-    }
+    };
 
     $scope.getWentComments = () => {
         $http.post('/api/comments/went')

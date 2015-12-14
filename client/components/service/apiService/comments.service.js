@@ -9,7 +9,14 @@ angular.module('webApp')
         this.Comments.went_items = function(items) {
             var data = {};
             data.item = items;
-            return $http.post('/api/comments/went_items', JSON.stringify(data))
+            return $http.post('/api/comments/went_items', JSON.stringify(data));
+        };
+
+        this.Comments.itemComments = (itemId) => {
+            var item = {
+                _id: itemId
+            };
+            return $http.post('/api/comments/itemComments', item);
         };
 
         return this.Comments;

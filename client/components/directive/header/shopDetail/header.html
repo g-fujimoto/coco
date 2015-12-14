@@ -11,12 +11,12 @@
                 <li style="width:60px;">{{sceneName}}</li>
             </span>
         </ul>
-        <p class="white_btn shopDetail_header_btn"><a href="#"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
-        <p class="white_btn shopDetail_header_btn"><a href="#"><i class="fa fa-star"></i>&nbsp;行った</a></p>
+        <p class="white_btn shopDetail_header_btn"><a href="#" want-go-modal="{{item}}"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
+        <p class="white_btn shopDetail_header_btn"><a href="#" went-modal="{{item}}"><i class="fa fa-star"></i>&nbsp;行った</a></p>
         <div class="box_header">
            <ul>
-                <li><h4><b>ジャンル</b>null</h4></li>
-                <li><h4><b>シーン</b>null</h4></li>
+                <li><h4><b>ジャンル</b>{{sum_ave.genreAve || 0.0 | number: 1}}</h4></li>
+                <li><h4><b>シーン</b>{{sum_ave.sceneAve || 0.0 | number: 1}}</h4></li>
             </ul>
         </div>
     </div>
