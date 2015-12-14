@@ -25,4 +25,17 @@ angular.module('webApp')
              $uibModalInstance.dismiss();
          };
 
+
+        $scope.$watch('files', (newValue, oldValue) => {
+
+            if (oldValue) {
+                for (var i in oldValue) {
+                  $scope.files.push(oldValue[i]);
+                }
+            }
+
+            if ($scope.files && $scope.files.length > 5) {
+                $scope.files.splice(0, $scope.files.length - 5);
+            }
+        });
 }]);

@@ -106,12 +106,17 @@
             <div class="col-sm-3">
                 画像登録：
             </div>
-            <div class="col-sm-9 text-sm">
-                <div class="upload-area" ngf-drop ng-model="modalOption.files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+            <div class="col-sm-11 text-sm">
+                <div class="upload-area" ngf-drop ng-model="files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
                     <div clss="upload-drop">アップロードする画像をドラッグしてください。</div>
                 </div>
-                <div ng-repeat="file in modalOption.files">
-                    <img ngf-src="file" ngf-accept="'image/*'"  class="upload-show-image">
+                <div ng-repeat="file in files track by $index | limitTo: 5" style="float:left;">
+                    <div>
+                      <img ngf-src="file" ngf-accept="'image/*'" class="upload-show-image">
+                    </div>
+                    <div style="text-align: center;">
+                      <button ng-click="files.splice($index, 1)">削除</button>
+                    </div>
                 </div>
                 <span ngf-no-file-drop>
                     <div class="upload-button">
@@ -125,6 +130,9 @@
             </div>
         </div>
     </div><!-- /row -->
+    <div class="row">
+
+    </div>
 </div>
 
 </div><!-- /modal-body -->
