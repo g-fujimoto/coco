@@ -138,7 +138,6 @@ exports.save = function(req, res) {
                   });
             }
 
-            console.log(newComment);
             res.json(newComment);
 
         }

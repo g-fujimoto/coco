@@ -37,12 +37,7 @@
 
                     <div class="left_box">
                         <ul>
-    <!-- TODO データが入ってから確認
-                            <li ng-repeat="image in images | filter : {'deleteFlg': 0} | orderBy : 'sortNo'"><img src="{{image.path}}" /></li>
-    -->
-                            <li><img src="./assets/./images/main/top/test01.jpg" /></li>
-                            <li><img src="./assets/./images/main/top/test02.jpg" /></li>
-                            <li><img src="./assets/./images/main/top/test03.jpg" /></li>
+                            <li ng-repeat="image in item_comments[item._id].comment.images | limitTo:2:0"><img src="{{image.path}}" ng-class="{top:$first}"/></li>
                         </ul>
                     </div>
 
@@ -102,8 +97,8 @@
                     <div class="footer_box">
                         <ul>
                             <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikeCounter.count}}人がいいねといっています</h6></li>
-                            <li style="float:right;"><p class="white_btn size text-sm"><a href="#" want-go-modal="{{item}}" class="padding-none"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p></li>
-                            <li style="float:right;"><p class="white_btn size text-sm"><a href="#" went-modal="{{item}}" class="padding-none"><i class="fa fa-star"></i>&nbsp;行った</a></p></li>
+                            <li style="float:right;"><p class="white_btn size text-sm"><a want-go-modal="{{item}}" class="padding-none"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p></li>
+                            <li style="float:right;"><p class="white_btn size text-sm"><a went-modal="{{item}}" class="padding-none"><i class="fa fa-star"></i>&nbsp;行った</a></p></li>
                         </ul>
                     </div>
                   </div>

@@ -25,7 +25,6 @@ angular.module('webApp')
              $uibModalInstance.dismiss();
          };
 
-
         $scope.$watch('files', (newValue, oldValue) => {
 
             if (oldValue) {

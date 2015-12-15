@@ -110,9 +110,9 @@
                 <div class="upload-area" ngf-drop ng-model="files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
                     <div clss="upload-drop">アップロードする画像をドラッグしてください。</div>
                 </div>
-                <div ng-repeat="file in files track by $index | limitTo: 5" style="float:left;">
+                <div ng-repeat="image in files track by $index | limitTo: 5" style="float:left;">
                     <div>
-                      <img ngf-src="file" ngf-accept="'image/*'" class="upload-show-image">
+                      <img ngf-src="image" ngf-accept="'image/*'" class="upload-show-image">
                     </div>
                     <div style="text-align: center;">
                       <button ng-click="files.splice($index, 1)">削除</button>

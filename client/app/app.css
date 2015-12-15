@@ -52,7 +52,8 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #main_side_wrap #main_contents .loop_contents_box .left_box { width: 180px; float: left; }
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul { overflow: hidden; }
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul li { float: left; margin-bottom: 0px; margin-right: 10px; }
-#main #main_side_wrap #main_contents .loop_contents_box .left_box ul li img { display: block; }
+#main #main_side_wrap #main_contents .loop_contents_box .left_box ul li img { display: block; width: 85px; height: 85px;}
+#main #main_side_wrap #main_contents .loop_contents_box .left_box ul li img.top { display: block; width: 180px; height: 180px;}
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul li:first-child { margin-bottom: 10px; margin-right: 0px; }
 #main #main_side_wrap #main_contents .loop_contents_box .left_box ul li:last-child { margin: 0px; }
 #main #main_side_wrap #main_contents .loop_contents_box .right_box { width: 490px; float: right; }
