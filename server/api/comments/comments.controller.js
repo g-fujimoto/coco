@@ -71,7 +71,7 @@ exports.went = function(req, res) {
     .exec(function(err, data) {
         res.json(data);
     });
-}
+};
 
 exports.wantGo = function(req, res) {
     Comments.find({user : req.session.loginUser._id, type : false})
@@ -80,7 +80,7 @@ exports.wantGo = function(req, res) {
     .exec(function(err, data) {
         res.json(data);
     });
-}
+};
 
 exports.getByItemID = function(req, res) {
 
@@ -147,22 +147,31 @@ exports.save = function(req, res) {
 };
 
 exports.update = function(req, res) {
-    Users.findOne({_id: req.params._id}, function(err, data) {
-        data.itemLikesCounter.count = req.body.itemLikesCounter.count;
-        if(!req.session.loginUser) {
-            _.extend(data, req.body);
-        }
-        data.modified = new Date();
-
-        data.save(function(err, data) {
-            if(err) {
-                console.log(err.message);
-            }
-            console.log(data);
-            res.json(data);
+    if(req.body.updateFlg) {
+        Comments.findOne({_id: req.params._id}, function(err, data) {
+            data = _.extend(data, req.body);
+            data.save(function(err, data) {
+                res.json(data);
+            });
         });
+    } else {
+        Users.findOne({_id: req.params._id}, function(err, data) {
+            data.itemLikesCounter.count = req.body.itemLikesCounter.count;
+            if(!req.session.loginUser) {
+                _.extend(data, req.body);
+            }
+            data.modified = new Date();
 
-    });
+            data.save(function(err, data) {
+                if(err) {
+                    console.log(err.message);
+                }
+                console.log(data);
+                res.json(data);
+            });
+        });
+    }
+
 };
 
 // delete

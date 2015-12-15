@@ -13,7 +13,7 @@ angular.module('webApp')
             });
         };
     })
-    // 更新モーダル表示属性
+    // 管理者更新モーダル表示属性
     .directive('editModal', ($uibModal) => {
         return (scope, element, attr) => {
             element.on('click', () => {
@@ -23,6 +23,21 @@ angular.module('webApp')
                     controller :'ModalController',
                     backdrop   : 'static',
                     templateUrl: `./components/directive/modal/admin/${scope.apiName}/modal.edit.html`,
+                    size: 'lg'
+                });
+            });
+        };
+    })
+    // プロフィール更新モーダル表示属性
+    .directive('editProfileModal', ($uibModal) => {
+        return (scope, element, attr) => {
+            element.on('click', () => {
+                scope.editData = angular.fromJson(attr.editProfileModal);
+                $uibModal.open({
+                    scope,
+                    controller :'ModalController',
+                    backdrop   : 'static',
+                    templateUrl: `./components/directive/modal/modal.edit.html`,
                     size: 'lg'
                 });
             });
@@ -65,14 +80,31 @@ angular.module('webApp')
             });
         };
     })
+    // 「行った店」編集モーダル表示属性
+    .directive('wentEditModal', ($uibModal) => {
+        return (scope, element, attr) => {
+            element.on('click', () => {
+                scope.editData = {};
+                scope.editData = angular.fromJson(attr.wentEditModal);
+                scope.editData.updateFlg = true;
+                $uibModal.open({
+                    scope,
+                    controller  : 'ModalController',
+                    backdrop    : 'static',
+                    templateUrl : './components/directive/modal/modal.went.edit.html'
+                });
+            });
+        };
+    })
     // 「行きたい店」モーダル表示属性
     .directive('wantGoModal', ($uibModal) => {
         return (scope, element, attr) => {
             element.on('click', () => {
                 scope.newData = {};
                 scope.newData.item = angular.fromJson(attr.wantGoModal);
+
                 scope.newData.type = false;
-                
+
                 var wantGoModal = angular.fromJson(attr.wantGoModal);
 
                 $uibModal.open({

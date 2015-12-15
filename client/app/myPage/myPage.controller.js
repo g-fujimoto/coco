@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Recommend',
-    function($scope, $http, $uibModal, $timeout, $Users, $Comments, Upload, $Recommend) {
+app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Recommend', '$state',
+    function($scope, $http, $uibModal, $timeout, $Users, $Comments, Upload, $Recommend, $state) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
 
     $scope.global_menu = 'myPage';
@@ -15,6 +15,32 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
 // ----------------------------------------------- RestfulAPI ------------------------------------------------//
 
     $scope.comments = $Comments.query();
+
+
+    //データ更新
+    $scope.updateAPI = (editData, scope) => {
+        if(editData.updateFlg) {
+            $Comments.update(
+                editData,
+                () => {
+                    $timeout(() => {
+                        scope.comments = $Comments.query();
+                        $state.go('main');
+                    });
+                }
+            );
+
+        } else {
+            editData.updateFlg = true;
+            $Users.update(
+                editData,
+                (data) => {
+                    $scope.$root.loginUser = data;
+                    scope.$dismiss();
+                }
+            );
+        }
+    };
 
 // ----------------------------------------------- $scope(function) --------------------------------------------//
 
@@ -175,13 +201,13 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
     };
 
     const modPop = () =>  {
-        $timeout(function() {
+        $timeout(() => {
             if ($scope.pop.show) {
               $scope.pop.show =false;
             } else {
                 modPop();
             }
         },3000);
-    }
+    };
 
 }]);

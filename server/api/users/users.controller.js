@@ -116,23 +116,41 @@ exports.create = function(req, res) {
 
 exports.update = function(req, res) {
     Users.findOne({_id: req.params._id}, function(err, data) {
-        data.itemRegisterCounter.count = req.body.itemRegisterCounter.count;
-        if(!req.session.loginUser) {
-            _.extend(data, req.body);
+        if(req.body.updateFlg) {
+            var email    = data.email;
+            var password = data.password;
+            data = _.extend(data, req.body);
+            
+            req.session.loginUser = data;
+
+            data.email            = email;
+            data.password         = password;
+
+            data.save(function(err, data) {
+                if(err) {
+                    console.log(err.message);
+                } else {
+                    res.json(data);
+                }
+            });
+        } else {
+            data.itemRegisterCounter.count = req.body.itemRegisterCounter.count;
+            if(!req.session.loginUser) {
+                _.extend(data, req.body);
+            }
+
+            data.modified = new Date();
+
+            data.save(function(err, data) {
+                if(err) {
+                    console.log(err.message);
+                }
+                if(req.session.loginUser) {
+                    req.session.loginUser = data;
+                }
+                res.json(data);
+            });
         }
-
-        data.modified = new Date();
-
-        data.save(function(err, data) {
-            if(err) {
-                console.log(err.message);
-            }
-            if(req.session.loginUser) {
-                req.session.loginUser = data;
-            }
-            res.json(data);
-        });
-
     });
 };
 

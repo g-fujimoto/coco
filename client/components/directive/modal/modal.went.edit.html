@@ -1,0 +1,142 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{editData.item.name}}の「行った」を登録</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="container-fluid text-sm">
+            <div class="row">
+                <div class="container-fluid">
+                    ジャンル：{{editData.genre.name}}
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="container-fluid">
+                    <div ng-repeat="option in editData.genre.options">
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-sm-5">
+                                    <label for="name" style="padding-top:10px;">{{option.label}}の評価基準</label>
+                                </div>
+                                <div class="col-sm-7" id="sample">
+                                    <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="option.rate">
+                                    <label for="rate1">1</label>
+                                    <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate2">2</label>
+                                    <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate3">3</label>
+                                    <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate4">4</label>
+                                    <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate5">5</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>
+        <hr>
+    </p>
+    <div class="row">
+        <div class="container-fluid text-sm">
+            <div class="row">
+                <div class="container-fluid">
+                    <label>シーン：</label>
+                    <select class="" name="" ng-model="editData.scene" ng-options="scene as scene.name for scene in scenes">
+                        <option value="">以下のシーンから選択して下さい</option>
+                    </select>
+                    <div ng-show="editData.scene" ng-repeat="option in editData.scene.options">
+                        <div class="col-sm-5">
+                            <label for="name" style="padding-top:10px;">{{option.label}}の評価基準</label>
+                        </div>
+                        <div class="col-sm-7" id="sample">
+                            <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="option.rate">
+                            <label for="rate1" checked>1</label>
+                            <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate2">2</label>
+                            <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate3">3</label>
+                            <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate4">4</label>
+                            <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate5">5</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>
+        <hr>
+    </p>
+    <div class="row">
+        <div class="col-sm-5">
+            <label for="name" class="text-sm">タイトル</label>
+        </div>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="col-sm-8">
+                <input type="text" class="form-control" ng-model="editData.title">
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-5">
+            <label for="name" class="text-sm">コメント</label>
+        </div>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="col-sm-8">
+                <textarea name="name" rows="4" class="form-control" ng-model="editData.body"></textarea>
+            </div>
+        </div>
+    </div>
+    <p>
+        <hr>
+    </p>
+    <div class="row">
+        <div class="container-fluid text-sm">
+            <div class="col-sm-3">
+                画像登録：
+            </div>
+            <div class="col-sm-11 text-sm">
+                <div class="upload-area" ngf-drop ng-model="files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+                    <div clss="upload-drop">アップロードする画像をドラッグしてください。</div>
+                </div>
+                <div ng-repeat="image in files track by $index | limitTo: 5" style="float:left;">
+                    <div>
+                      <img ngf-src="image" ngf-accept="'image/*'" class="upload-show-image">
+                    </div>
+                    <div style="text-align: center;">
+                      <button ng-click="files.splice($index, 1)">削除</button>
+                    </div>
+                </div>
+                <span ngf-no-file-drop>
+                    <div class="upload-button">
+                        ファイルを選択
+                        <input type="file" onchange="uv.style.display='inline-block'; uv.value = this.value;" />
+                    </div>
+                    <div class="upload-value">
+                        <input class="upload-text" type="text" id="uv"/>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div><!-- /row -->
+    <div class="row">
+
+    </div>
+</div>
+
+</div><!-- /modal-body -->
+<div class="modal-footer">
+    <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
+    <button class="btn" type="button" ng-click="update(editData)">登録する</button>
+</div>
