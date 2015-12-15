@@ -19,7 +19,7 @@
                                 <li><h3><b>シーン</b>{{sum_ave[item._id].sceneAve | number:1}}</h3></li>
                             </ul>
                         </div>
-                        <p class="see_store_info black_btn"><a ui-sref="shopDetail.main({itemid: item._id})">店舗情報を見る</a></p>
+                        <p class="see_store_info black_btn"><a ui-sref="shopDetail.main({item: item})">店舗情報を見る</a></p>
                         <button type="button" class="blue_btn circle delete" ng-click="recommendDelete(item._id);"><i class="fa fa-times"></i>&nbsp;削除する</button>
                     </div>
                 </div>

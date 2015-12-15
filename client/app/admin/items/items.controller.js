@@ -1,6 +1,6 @@
 angular.module('webApp')
-    .controller('ItemsController', ['$scope', '$Areas', '$$Genres', '$$Prefs', '$Items', '$$Alerts', '$timeout', '$state', '$stateParams',
-            function($scope, $Areas, $$Genres, $$Prefs, $Items, $$Alerts, $timeout, $state, $stateParams) {
+    .controller('ItemsController', ['$scope', '$Areas', '$$Genres', '$$Prefs', '$Items', '$$Alerts', '$timeout', '$state', '$stateParams', '$$Exists', '$$Weeks',
+            function($scope, $Areas, $$Genres, $$Prefs, $Items, $$Alerts, $timeout, $state, $stateParams, $$Exists, $$Weeks) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
                     $scope.alerts       = [];
                     if($stateParams.alert) {
@@ -12,6 +12,22 @@ angular.module('webApp')
                     $scope.apiName = 'items';
                     $scope.genres  = $$Genres;
                     $scope.prefs   = $$Prefs;
+                    $scope.exists  = $$Exists;
+                    $scope.weeks   = $$Weeks;
+                    $scope.smokes = [
+                        {
+                            label: '禁煙',
+                            value: 0
+                        },
+                        {
+                            label: '分煙',
+                            value: 1
+                        },
+                        {
+                            label: '喫煙',
+                            value: 2
+                        }
+                    ];
 
 // ----------------------------------------------- RESTful API -----------------------------------------------//
                 //データ全件取得
@@ -20,6 +36,8 @@ angular.module('webApp')
 
                 //データ新規作成
                 $scope.saveAPI = () => {
+                    $scope.newData.registerId = $scope.$root.adminLoginUser._id;
+                    $scope.newData.registerUser = $scope.$root.adminLoginUser.lastName + ' ' + $scope.$root.adminLoginUser.firstName;
                     $Items.save(
                         $scope.newData,
                         () => {
