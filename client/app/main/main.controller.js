@@ -1,28 +1,70 @@
 var app = angular.module('webApp');
 
-app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Users', '$Comments',
-    function($scope, $http, $uibModal, Upload, $Users, $Comments) {
+app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Users', '$Comments', '$$Scenes', '$$Genres', '$timeout',
+    function($scope, $http, $uibModal, Upload, $Users, $Comments, $$Scenes, $$Genres, $timeout) {
 
 // ----------------------------------------------- $scope ----------------------------------------------------//
         $scope.global_menu = 'main';
         $scope.pages       = [];
+        $scope.genres = $$Genres;
+        $scope.scenes = $$Scenes;
 
-        $scope.upload = function(files) {
-            if(files && files.length) {
-                for(var i = 0; i < files.length; i++) {
-                    var file = files[i];
-                    Upload.upload({
-                        file,
-                        url: '/api/upload'
-                    })
-                    .success((data, status, header, config) => {
-                        console.log(`アップデート完了：${config.file.name}`);
-                    });
-                }
-            }
+        $scope.findAddArea = function(value) {
+            $scope.area = ($scope.area == value) ? null : value;
+            getItem();
         };
 
-        $scope.getItem = function() {
+        $scope.findAddScene = function(value) {
+            $scope.sceneName = ($scope.sceneName == value) ? null : value;
+            getItem();
+        };
+
+        $scope.findAddGenre = function(value) {
+            $scope.genreName = ($scope.genreName == value) ? null : value;
+            getItem();
+        };
+
+// ----------------------------------------------- RESTful API -----------------------------------------------//
+
+        $scope.saveAPI = (newData, scope) => {
+            newData.item = newData.item._id;
+            if (newData.type) calcAve(newData);
+            $Comments.save(
+                newData,
+                (data) => {
+                    $scope.comments = $Comments.query();
+
+                  　if (scope.files) {
+                        upload(scope.files, data._id);
+                    } else {
+                        getComments();
+                    }
+
+                    scope.$dismiss();
+                }
+            );
+        };
+// ----------------------------------------------- $watch ----------------------------------------------------//
+
+        // ページャー処理
+        $scope.$watch('currentPage', (newValue, oldValue) => {
+            if (!newValue) {
+                $scope.currentPage = 1;
+            } else if (newValue != 1 && newValue > $scope.pages.length) {
+                $scope.currentPage = $scope.pages.length;
+            } else if(oldValue){
+                getComments();
+            }
+        });
+
+        $scope.$watch('word', (newValue, oldValue) => {
+            if (!newValue && !oldValue) return;
+            getItem();
+        });
+
+// ----------------------------------------------- LocalFunction -----------------------------------------------//
+
+        const getItem = () => {
 
             var data = {};
             if ($scope.word) data.name = $scope.word;
@@ -33,7 +75,7 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
             $http.post('/api/items/find', JSON.stringify(data))
             .success((data) => {
                 $scope.items = data;
-                $scope.getComments();
+                getComments();
 
                 $scope.currentPage = 1;
                 $scope.pages       = [];
@@ -43,7 +85,7 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
             });
         };
 
-        $scope.getComments = function() {
+        const getComments = () => {
 
             var data = {};
             data.item = _.pluck($scope.items, '_id');
@@ -65,7 +107,7 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
 
                     // 最新コメント情報作成
                     var comment = comments[0];
-
+                    
                     // 行きたいコメントに絞り込み①
                     comments = _.filter(comments, (num) => {
                         return num.type === true;
@@ -95,60 +137,6 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
             });
         };
 
-        $scope.findAddArea = function(value) {
-            $scope.area = ($scope.area == value) ? null : value;
-            $scope.getItem();
-        };
-
-        $scope.findAddScene = function(value) {
-            $scope.sceneName = ($scope.sceneName == value) ? null : value;
-            $scope.getItem();
-        };
-
-        $scope.findAddGenre = function(value) {
-            $scope.genreName = ($scope.genreName == value) ? null : value;
-            $scope.getItem();
-        };
-
-        $scope.getItem();
-
-// ----------------------------------------------- $watch ----------------------------------------------------//
-
-        // ページャー処理
-        $scope.$watch('currentPage', (newValue, oldValue) => {
-            if (!newValue) {
-                $scope.currentPage = 1;
-            } else if (newValue != 1 && newValue > $scope.pages.length) {
-                $scope.currentPage = $scope.pages.length;
-            } else if(oldValue){
-                $scope.getComments();
-            }
-        });
-
-        $scope.$watch('word', (newValue, oldValue) => {
-            if (!newValue && !oldValue) return;
-            $scope.getItem();
-        });
-
-
-// ----------------------------------------------- RESTful API -----------------------------------------------//
-
-        // データ登録
-        $scope.saveAPI = (newData, scope) => {
-            newData.item = newData.item._id;
-            if (newData.type) calcAve(newData);
-            $Comments.save(
-                newData,
-                () => {
-                    $scope.comments = $Comments.query();
-                    scope.$dismiss();
-                    $scope.getComments();
-                }
-            );
-        };
-
-// ----------------------------------------------- LocalFunction -----------------------------------------------//
-
         const calcAve = (newData) => {
             //ジャンル平均点
             const genreRate = _.map(newData.genre.options, (element) => {
@@ -169,4 +157,27 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
             newData.sceneAve = (sceneRateSum / 5).toFixed(1);
         };
 
+        const upload = (files, comment_id) => {
+
+            if(files && files.length) {
+                for(var sortNo = 0; sortNo < files.length; sortNo++) {
+                    var file = files[sortNo];
+                    var data = {file, comment_id, sortNo};
+                    Upload.upload({
+                        url: '/api/upload/comment',
+                        data
+                    })
+                    .success((data, status, header, config) => {
+                        // TODO
+                    });
+                }
+            }
+
+            $timeout(function() {
+                getComments();
+            },1000);
+        };
+
+// ----------------------------------------------- Immediately Function -----------------------------------------------//
+        getItem();
 }]);
