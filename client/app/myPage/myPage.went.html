@@ -30,11 +30,7 @@
                     <p class="see_more"><a href="#">もっと見る</a></p>
                     <div class="went_img">
                         <ul>
-                            <li><image src="./assets/./images/items/sample.jpg" style="height:100px;width:100px"></li>
-                            <li><image src="./assets/./images/items/sample.jpg" style="height:100px;width:100px"></li>
-                            <li><image src="./assets/./images/items/sample.jpg" style="height:100px;width:100px"></li>
-                            <li><image src="./assets/./images/items/sample.jpg" style="height:100px;width:100px"></li>
-                            <li><image src="./assets/./images/items/sample.jpg" style="height:100px;width:100px"></li>
+                            <li ng-repeat="image in comment.images | limitTo:5:0"><img src="{{image.path}}" style="height:100px;width:100px"/></li>
                         </ul>
                     </div>
                 </div>

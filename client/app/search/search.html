@@ -39,9 +39,9 @@
                 <div class="left_box">
                     <ul>
 <!-- TODO データが入ってから確認
-                        <li ng-repeat="image in images | filter : {'deleteFlg': 0} | orderBy : 'sortNo'"><img src="{{image.path}}" /></li>
+                        <li ng-repeat="image in item_comments[item._id].comment.images | limitTo:2:0"><img src="{{image.path}}" ng-class="{top:$first}"/></li>
 -->
-                        <li><img src="./assets/./images/main/top/test01.jpg" /></li>
+                        <li><img src="./assets/./images/main/top/test01.jpg" class="top"/></li>
                         <li><img src="./assets/./images/main/top/test02.jpg" /></li>
                         <li><img src="./assets/./images/main/top/test03.jpg" /></li>
                     </ul>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
 
-                    <div class="text_box" ng-init="$parent.show_loading=true;">
+                    <div class="text_box" ng-init="$parent.show_loading=true;" ng-show="item_comments[item._id].comment">
 
                       <div class="sk-three-bounce" ng-show="show_loading">
                           <div class="sk-child sk-bounce1"></div>

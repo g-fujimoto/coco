@@ -3,6 +3,8 @@ var app = angular.module('webApp');
 app.controller('SearchController', ['$scope', '$http', '$uibModal', '$timeout', '$Users', '$Recommend',
     function($scope, $http, $uibModal, $timeout, $Users, $Recommend) {
 
+// ----------------------------------------------- $scope ----------------------------------------------------//
+
     $scope.global_menu = 'search';
     $scope.pages      = [];
 
@@ -19,17 +21,48 @@ app.controller('SearchController', ['$scope', '$http', '$uibModal', '$timeout', 
         });
     };
 
-    $scope.modPop = function() {
+    $scope.findAddScene = function(value) {
+        $scope.sceneName = ($scope.sceneName == value) ? null : value;
+        getItem();
+    };
+
+// ----------------------------------------------- $watch ----------------------------------------------------//
+
+    // ページャー処理
+    $scope.$watch('currentPage', function(newValue, oldValue) {
+        if (!newValue) {
+            $scope.currentPage = 1;
+        } else if (newValue != 1 && newValue > $scope.pages.length) {
+            $scope.currentPage = $scope.pages.length;
+        } else if(oldValue){
+            getComments();
+        }
+    });
+
+    $scope.$watch('word', function(newValue, oldValue) {
+        if (!newValue && !oldValue) return;
+        getItem();
+    });
+
+    $scope.$watch('pop', function(newValue, oldValue) {
+        if (newValue) {
+            modPop();
+        }
+    });
+
+// ----------------------------------------------- LocalFunction -----------------------------------------------//
+
+    const modPop = () =>  {
         $timeout(function() {
             if ($scope.pop.show) {
               $scope.pop.show =false;
             } else {
-                scope.modPop();
+                modPop();
             }
         },3000);
     }
 
-    $scope.getItem = function() {
+    const getItem = () =>  {
 
         var data = {};
         if ($scope.word) data.name = $scope.word;
@@ -38,7 +71,7 @@ app.controller('SearchController', ['$scope', '$http', '$uibModal', '$timeout', 
         $http.post('/api/items/find', JSON.stringify(data))
         .success((data) => {
             $scope.items = data;
-            $scope.getComments();
+            getComments();
 
             $scope.currentPage = 1;
             $scope.pages       = [];
@@ -48,7 +81,7 @@ app.controller('SearchController', ['$scope', '$http', '$uibModal', '$timeout', 
         });
     };
 
-    $scope.getComments = function() {
+    const getComments = () =>  {
 
         var data = {};
         data.item = _.pluck($scope.items, '_id');
@@ -100,33 +133,8 @@ app.controller('SearchController', ['$scope', '$http', '$uibModal', '$timeout', 
         });
     };
 
-    $scope.findAddScene = function(value) {
-        $scope.sceneName = ($scope.sceneName == value) ? null : value;
-        $scope.getItem();
-    };
+// ----------------------------------------------- Immediately Function -----------------------------------------------//
 
-    // ページャー処理
-    $scope.$watch('currentPage', function(newValue, oldValue) {
-        if (!newValue) {
-            $scope.currentPage = 1;
-        } else if (newValue != 1 && newValue > $scope.pages.length) {
-            $scope.currentPage = $scope.pages.length;
-        } else if(oldValue){
-            scope.getComments();
-        }
-    });
-
-    $scope.$watch('word', function(newValue, oldValue) {
-        if (!newValue && !oldValue) return;
-        $scope.getItem();
-    });
-
-    $scope.$watch('pop', function(newValue, oldValue) {
-        if (newValue) {
-            $scope.modPop();
-        }
-    });
-
-    $scope.getItem();
+    getItem();
 
 }]);

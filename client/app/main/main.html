@@ -37,7 +37,12 @@
 
                     <div class="left_box">
                         <ul>
+<!--
                             <li ng-repeat="image in item_comments[item._id].comment.images | limitTo:2:0"><img src="{{image.path}}" ng-class="{top:$first}"/></li>
+-->
+                            <li><img src="./assets/./images/main/top/test01.jpg" class="top"/></li>
+                            <li><img src="./assets/./images/main/top/test02.jpg" /></li>
+                            <li><img src="./assets/./images/main/top/test03.jpg" /></li>
                         </ul>
                     </div>
 
@@ -84,7 +89,7 @@
                               <div class="img_box"><img src="./assets/./images/users/{{item_comments[item._id].comment.user._id}}" /></div>
 -->
                               <div class="img_box"><img src="./assets/./images/users/sample.jpg" /></div>
-                              <p>{{item_comments[item._id].comment.user.firsName}} {{item_comments[item._id].comment.user.lastName}}</p>
+                              <p>{{item_comments[item._id].comment.user.lastName}} {{item_comments[item._id].comment.user.firstName}}</p>
                           </div>
                           <div class="right">
                               <h6>最新コメント</h6>
