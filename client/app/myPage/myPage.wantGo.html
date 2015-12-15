@@ -1,7 +1,7 @@
 
     <div id="bg_black"></div>
     <div id="main_contents">
-    <div ng-repeat="comment in wantgo_comments | filter: {'genre' : {'name' : genreName}, 'item' : {'area' : area, 'sceneNames' : sceneName}} | limitTo:10:(currentPage-1)*10">
+    <div ng-repeat="comment in wantgo_comments | filter: {'item' : {'area' : area, 'sceneNames' : sceneName, 'genreName' : genreName}} | limitTo:10:(currentPage-1)*10">
             <div class="want_go_store_list" style="margin-bottom:20px;">
                 <div class="store_img">
                     <image class="store_img" src="./assets/./images/items/sample.jpg">

@@ -17,7 +17,6 @@ exports.index = function(req, res) {
 
     Areas.find(req.body, function(err, data) {
         console.log(err);
-        console.log(data);
         res.json(data);
     });
 };

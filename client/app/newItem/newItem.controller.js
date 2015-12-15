@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout', '$Users', '$Areas', '$$Prefs', '$stateParams', '$Items', '$state', '$rootScope', '$Comments',
-    function($scope, $$Scenes, $$Genres, $timeout, $Users, $Areas, $$Prefs, $stateParams, $Items, $state, $rootScope, $Comments) {
+app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout', '$Users', '$Areas', '$$Prefs', '$stateParams', '$Items', '$state', '$rootScope', '$Comments', 'Upload',
+    function($scope, $$Scenes, $$Genres, $timeout, $Users, $Areas, $$Prefs, $stateParams, $Items, $state, $rootScope, $Comments, Upload) {
 /* ----------------------------------------- $scope(value) -------------------------------- */
         $scope.global_menu = 'newItem';
         $scope.newData     = $stateParams.confirmData || {};
@@ -26,6 +26,9 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
             $Items.save(
                 registData,
                 (data) => {
+                    if ($scope.files) {
+                        item_upload(scope.files, data._id);
+                    }
                     $state.go('newItem.complete', {
                         registData : data
                     });
@@ -41,7 +44,10 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
             newData.item = newData.item._id;
             $Comments.save(
                 newData,
-                () => {
+                (data) => {
+                    if (scope.files) {
+                        comment_upload(scope.files, data._id);
+                    }
                     scope.$dismiss();
                 }
             );
@@ -51,4 +57,40 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
 
 
 /* ----------------------------------------- modal ---------------------------------------- */
+
+// ----------------------------------------------- LocalFunction -----------------------------------------------//
+
+        const comment_upload = (files, comment_id) => {
+
+            if(files && files.length) {
+                for(var sortNo = 0; sortNo < files.length; sortNo++) {
+                    var file = files[sortNo];
+                    var data = {file, comment_id, sortNo};
+                    Upload.upload({
+                        url: '/api/upload/comment',
+                        data
+                    })
+                    .success((data, status, header, config) => {
+                        // TODO
+                    });
+                }
+            }
+        };
+
+        const item_upload = (files, item_id) => {
+
+            if(files && files.length) {
+                for(var sortNo = 0; sortNo < files.length; sortNo++) {
+                    var file = files[sortNo];
+                    var data = {file, item_id, sortNo};
+                    Upload.upload({
+                        url: '/api/upload/item',
+                        data
+                    })
+                    .success((data, status, header, config) => {
+                        // TODO
+                    });
+                }
+            }
+        };
 }]);

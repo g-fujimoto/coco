@@ -44,16 +44,6 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
         });
     };
 
-    $scope.modPop = function() {
-        $timeout(() => {
-            if ($scope.pop.show) {
-              $scope.pop.show =false;
-            } else {
-                $scope.modPop();
-            }
-        },3000);
-    };
-
     $scope.saveUser = function () {
         if ($scope.files[0]) {
             Upload.upload({
@@ -75,7 +65,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
         .success((data) => {
 
             $scope.items = data;
-            $scope.getSumAve();
+            getSumAve();
 
             $scope.currentPage = 1;
             $scope.pages       = [];
@@ -85,7 +75,67 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
         });
     };
 
-    $scope.getSumAve = () => {
+    $scope.getWentComments = () => {
+        $http.post('/api/comments/went')
+        .success((data) => {
+            $scope.went_comments = data;
+            $scope.currentPage = 1;
+            $scope.pages       = [];
+            for(var i = Math.ceil(data.length/10) + 1;--i;) {
+                $scope.pages.unshift(i);
+            }
+        });
+    };
+
+    $scope.getWantGoComments = () => {
+        $http.post('/api/comments/wantGo')
+        .success((data) => {
+            $scope.wantgo_comments = data;
+            $scope.currentPage = 1;
+            $scope.pages       = [];
+            for(var i = Math.ceil(data.length/10) + 1;--i;) {
+                $scope.pages.unshift(i);
+            }
+        });
+    };
+
+    $scope.findAddArea = function(value) {
+        $scope.area = ($scope.area == value) ? undefined : value;
+    };
+
+    $scope.findAddScene = function(value) {
+        $scope.sceneName = ($scope.sceneName == value) ? undefined : value;
+    };
+
+    $scope.findAddGenre = function(value) {
+        $scope.genreName = ($scope.genreName == value) ? undefined : value;
+    };
+// ----------------------------------------------- $watch ----------------------------------------------------//
+
+    $scope.$watch('item_comments', (newValue) => {
+        if (!newValue) return;
+        $scope.show_loading = false;
+    });
+
+    // ページャー処理
+    $scope.$watch('currentPage', (newValue) => {
+        if (!newValue) {
+            $scope.currentPage = 1;
+        } else if (newValue != 1 && newValue > $scope.pages.length) {
+            $scope.currentPage = $scope.pages.length;
+        }
+    });
+
+    // 通知
+    $scope.$watch('pop', (newValue) => {
+        if (newValue) {
+            modPop();
+        }
+    });
+
+// ----------------------------------------------- LocalFunction -----------------------------------------------//
+
+    const getSumAve = () =>  {
 
         var items = _.pluck($scope.items, '_id');
         $Comments.went_items(items)
@@ -124,65 +174,14 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
         });
     };
 
-    $scope.getWentComments = () => {
-        $http.post('/api/comments/went')
-        .success((data) => {
-            $scope.went_comments = data;
-            $scope.currentPage = 1;
-            $scope.pages       = [];
-            for(var i = Math.ceil(data.length/10) + 1;--i;) {
-                $scope.pages.unshift(i);
+    const modPop = () =>  {
+        $timeout(function() {
+            if ($scope.pop.show) {
+              $scope.pop.show =false;
+            } else {
+                modPop();
             }
-        });
-    };
-
-    $scope.getWantGoComments = () => {
-        $http.post('/api/comments/wantGo')
-        .success((data) => {
-            $scope.wantgo_comments = data;
-            $scope.currentPage = 1;
-            $scope.pages       = [];
-            for(var i = Math.ceil(data.length/10) + 1;--i;) {
-                $scope.pages.unshift(i);
-            }
-        });
-    };
-
-    $scope.findAddArea = function(value) {
-        $scope.area = ($scope.area == value) ? undefined : value;
-
-    };
-
-    $scope.findAddScene = function(value) {
-        $scope.sceneName = ($scope.sceneName == value) ? undefined : value;
-
-    };
-
-    $scope.findAddGenre = function(value) {
-        $scope.genreName = ($scope.genreName == value) ? undefined : value;
-
-    };
-// ----------------------------------------------- $watch ----------------------------------------------------//
-
-    $scope.$watch('item_comments', (newValue) => {
-        if (!newValue) return;
-        $scope.show_loading = false;
-    });
-
-    // ページャー処理
-    $scope.$watch('currentPage', (newValue) => {
-        if (!newValue) {
-            $scope.currentPage = 1;
-        } else if (newValue != 1 && newValue > $scope.pages.length) {
-            $scope.currentPage = $scope.pages.length;
-        }
-    });
-
-    // 通知
-    $scope.$watch('pop', (newValue) => {
-        if (newValue) {
-            $scope.modPop();
-        }
-    });
+        },3000);
+    }
 
 }]);
