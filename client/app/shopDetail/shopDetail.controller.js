@@ -7,6 +7,8 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     $scope.scenes = $$Scenes;
     $scope.genres = $$Genres;
     $scope.item   = $stateParams.item;
+    $scope.dottedFlg = true;
+    $scope.closeFlg = false;
 // ----------------------------------------------- $scope(function) ----------------------------------------------------//
 
     //item._idで絞ったコメントを全件取得
@@ -76,6 +78,16 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
 
         } else {
             $scope.itemComment.goFlg = false;
+        }
+    };
+
+    $scope.moreFlg = () => {
+        if($scope.dottedFlg){
+            $scope.dottedFlg = false;
+            $scope.closeFlg = true;
+        } else {
+            $scope.dottedFlg = true;
+            $scope.closeFlg = false;
         }
     };
 

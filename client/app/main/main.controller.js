@@ -130,9 +130,6 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
             $scope.getItem();
         });
 
-        $scope.$watch('files', () => {
-            $scope.upload($scope.files);
-        });
 
 // ----------------------------------------------- RESTful API -----------------------------------------------//
 

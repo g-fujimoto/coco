@@ -71,14 +71,10 @@ angular.module('webApp')
             element.on('click', () => {
                 scope.newData = {};
                 scope.newData.item = angular.fromJson(attr.wantGoModal);
-                scope.newData.type = false
-                ;
+                scope.newData.type = false;
+                
                 var wantGoModal = angular.fromJson(attr.wantGoModal);
-                const genreArr = _.filter(scope.genres, (element) => {
-                    return element.name === wantGoModal.genreName;
-                });
 
-                scope.newData.genre = genreArr[0];
                 $uibModal.open({
                     scope,
                     controller  : 'ModalController',
