@@ -30,6 +30,16 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 }
             );
 
+        } else if(editData.passwordFlg) {
+            $http({
+                method: 'POST',
+                url: '/api/users/check',
+                data: editData
+            })
+            .success((data) => {
+                console.log(data);
+                scope.$dismiss();
+            });
         } else {
             editData.updateFlg = true;
             $Users.update(
@@ -37,8 +47,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 (data) => {
                     $scope.$root.loginUser = data;
                     scope.$dismiss();
-                }
-            );
+                });
         }
     };
 

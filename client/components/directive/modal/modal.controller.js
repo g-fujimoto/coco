@@ -1,6 +1,6 @@
 angular.module('webApp')
-    .controller('ModalController', ['$scope', 'Upload', '$uibModalInstance',
-     function($scope, Upload, $uibModalInstance) {
+    .controller('ModalController', ['$scope', 'Upload', '$uibModalInstance', '$http',
+     function($scope, Upload, $uibModalInstance, $http) {
 
 //--------------------- Kick -------------------- //
         //saveAPIをキック
@@ -16,6 +16,26 @@ angular.module('webApp')
         //deleteAPIをキック
         $scope.delete = (data) => {
             $scope.deleteAPI(data, $scope);
+        };
+
+
+        $scope.checkPassword = (editData) => {
+            $http({
+                method: 'POST',
+                data: editData,
+                url : '/api/users/checkPassword'
+            })
+            .success((data) => {
+                if(data.message === 'success') {
+                    editData.passwordFlg = true;
+                    editData.password = editData.newPassword;
+                    $scope.updateAPI(editData, $scope);
+                } else {
+                    $scope.errors = {
+                        message: '現在のパスワードに誤りがあります。'
+                    };
+                }
+            });
         };
 
 // ------------------- OtherFunction -------------------- //

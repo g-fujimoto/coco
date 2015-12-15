@@ -117,10 +117,11 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
     Users.findOne({_id: req.params._id}, function(err, data) {
         if(req.body.updateFlg) {
+            console.log('update');
             var email    = data.email;
             var password = data.password;
             data = _.extend(data, req.body);
-            
+
             req.session.loginUser = data;
 
             data.email            = email;
@@ -134,6 +135,7 @@ exports.update = function(req, res) {
                 }
             });
         } else {
+
             data.itemRegisterCounter.count = req.body.itemRegisterCounter.count;
             if(!req.session.loginUser) {
                 _.extend(data, req.body);
@@ -161,5 +163,34 @@ exports.delete = function(req, res) {
             res.json(err);
         }
         res.json({message: 'success'});
+    });
+};
+
+exports.checkPassword = function(req, res) {
+    Users.findOne({'_id': req.session.loginUser._id}, function(err, data) {
+        if(req.body.oldPassword === data.password) {
+            res.json({
+                message: 'success'
+            });
+        } else {
+            res.json({
+                message: 'notMatch'
+            });
+        }
+    });
+};
+
+exports.check = function(req, res) {
+    console.log(req.body);
+    Users.findOne({'_id': req.session.loginUser._id}, function(err, data) {
+        data.password = req.body.newPassword;
+        data.save(function(err, data) {
+            if(err) {
+                res.json(err.message);
+            } else {
+                req.session.loginUser.password = undefined;
+                res.json(req.session.loginUser);
+            }
+        });
     });
 };

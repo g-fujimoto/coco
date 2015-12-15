@@ -15,5 +15,7 @@ router.post('/login', controller.login);
 router.post('/adminLogin', controller.adminLogin);
 router.post('/logout', controller.logout);
 router.post('/stateCheck', controller.stateCheck);
+router.post('/checkPassword', controller.checkPassword);
+router.post('/check', controller.check);
 
 module.exports = router;
