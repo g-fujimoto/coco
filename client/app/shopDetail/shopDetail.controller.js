@@ -91,6 +91,17 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
         }
     };
 
+    $scope.like = (itemComment) => {
+        $http({
+            method: 'POST',
+            url: '/api/like/add',
+            data: itemComment
+        })
+        .success((data) => {
+            console.log(data);
+        });
+    };
+
 // ---------------------------------------------- GoogleMaps -------------------------------------------------//
 
 $scope.map = {

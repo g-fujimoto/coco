@@ -117,7 +117,6 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
     Users.findOne({_id: req.params._id}, function(err, data) {
         data.itemRegisterCounter.count = req.body.itemRegisterCounter.count;
-        
         if(!req.session.loginUser) {
             _.extend(data, req.body);
         }
