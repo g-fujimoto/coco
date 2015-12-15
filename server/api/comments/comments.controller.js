@@ -147,15 +147,18 @@ exports.save = function(req, res) {
 };
 
 exports.update = function(req, res) {
-    Comments.findOne({_id: req.params._id}, function(err, data) {
-
-        _.extend(data, req.body);
+    Users.findOne({_id: req.params._id}, function(err, data) {
+        data.itemLikesCounter.count = req.body.itemLikesCounter.count;
+        if(!req.session.loginUser) {
+            _.extend(data, req.body);
+        }
         data.modified = new Date();
 
         data.save(function(err, data) {
             if(err) {
-            console.log(err.message);
+                console.log(err.message);
             }
+            console.log(data);
             res.json(data);
         });
 

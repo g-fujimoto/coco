@@ -7,7 +7,6 @@
 var Items = require('./../items/items.model');
 var Users = require('./../users/users.model');
 
-var _ = require('lodash');
 
 exports.userRecommend = function(req, res) {
     console.log(req.body);

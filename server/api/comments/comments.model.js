@@ -59,9 +59,13 @@ var CommentsSchema = mongoose.Schema({
             }
         }
     },
-    itemLikesCounter : {
-        count : {type: Number, default: 0}
-    },
+    itemLikesUsers : [
+        {
+            type   : mongoose.Schema.ObjectId,
+            ref    : 'Users',
+            unique : true
+        }
+    ],
     images : [
         {
             path      : String,

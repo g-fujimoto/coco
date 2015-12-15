@@ -40,7 +40,7 @@
             </div>
             <div ng-class="['reviews_list_footer_blue', {'reviews_list_footer_gray': !itemComment.type}]">
                 <p class="go_button white_btn" want-go-modal="{{itemComment.item}}"><a href="#"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
-                <p class="nice_button blue_btn"><a href="#"><i class="fa fa-thumbs-o-up"></i>&nbsp;いいね</a></p>
+                <p class="nice_button blue_btn" ng-click="like(itemComment)"><a href="#"><i class="fa fa-thumbs-o-up"></i>&nbsp;いいね</a></p>
             </div>
         </div>
     </div>
