@@ -124,6 +124,9 @@ exports.update = function(req, res) {
             if(err) {
             console.log(err.message);
             }
+            if(req.session.loginUser) {
+                req.session.loginUser.itemRegisterCounter.count = data.itemRegisterCounter.count;
+            }
             res.json(data);
         });
 

@@ -21,14 +21,21 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
         $scope.saveItemAPI = () => {
             var registData = $scope.confirmData;
             registData.registerId   = $rootScope.loginUser._id;
-            registData.registerUser = $rootScope.loginUser.lastName + ' ' + $rootScope.loginUser.firstName;
-            console.log(registData);
+            registData.registerUser = `${$rootScope.loginUser.lastName} ${$rootScope.loginUser.firstName}`;
             $Items.save(
                 registData,
-                (data) => {
-                    $state.go('newItem.complete', {
-                        registData : data
-                    });
+                (item) => {
+                    const registerUser = $rootScope.loginUser;
+                    registerUser.itemRegisterCounter.count = registerUser.itemRegisterCounter.count + 1;
+                    $rootScope.loginUser = registerUser;
+                    $Users.update(
+                        registerUser,
+                        () => {
+                            $state.go('newItem.complete', {
+                                registData : item
+                            });
+                        }
+                    );
                 },
                 () => {
                     console.log('error');
