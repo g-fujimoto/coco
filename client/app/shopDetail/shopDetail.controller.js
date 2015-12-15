@@ -1,12 +1,14 @@
 var app = angular.module('webApp');
 
-app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams', '$Users', '$Comments', '$timeout',
-  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users, $Comments, $timeout) {
+app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams', '$Users', '$Comments', '$timeout', '$state',
+  function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users, $Comments, $timeout, $state) {
 
 // ----------------------------------------------- $scope(value) ----------------------------------------------------//
     $scope.scenes = $$Scenes;
     $scope.genres = $$Genres;
     $scope.item   = $stateParams.item;
+    $scope.dottedFlg = true;
+    $scope.closeFlg = false;
 // ----------------------------------------------- $scope(function) ----------------------------------------------------//
 
     //item._idで絞ったコメントを全件取得
@@ -64,18 +66,28 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
 
     $scope.wentFilter = () => {
         if($scope.goFlg === true) {
-            $scope.goFlg = undefined;
+            $scope.itemComment.goFlg = undefined;
         } else {
-            $scope.goFlg = true;
+            $scope.itemComment.goFlg = true;
         }
     };
 
     $scope.wantGoFilter = () => {
         if($scope.goFlg === false) {
-            $scope.goFlg = undefined;
+            $scope.itemComment.goFlg = undefined;
 
         } else {
-            $scope.goFlg = false;
+            $scope.itemComment.goFlg = false;
+        }
+    };
+
+    $scope.moreFlg = () => {
+        if($scope.dottedFlg){
+            $scope.dottedFlg = false;
+            $scope.closeFlg = true;
+        } else {
+            $scope.dottedFlg = true;
+            $scope.closeFlg = false;
         }
     };
 
@@ -96,8 +108,8 @@ $scope.map = {
             latitude  : 0,
             longitude : 0,
             title: $scope.item.name,
-            content: $scope.item.name,
-            show: false
+            content: $scope.item.address.pref + $scope.item.address.city + $scope.item.address.town + $scope.item.address.building,
+            show: true
         }
     ]
 };
@@ -112,8 +124,8 @@ $scope.codeAddress = function () {
     };
     geocoder.geocode(
         {
-            address: address.pref + address.city + address.town + address.building,
-            'region'  : 'jp'
+            address  : address.pref + address.city + address.town + address.building,
+            'region' : 'jp'
         },
         (results, status) => {
       if (status == google.maps.GeocoderStatus.OK) {
@@ -129,10 +141,33 @@ $scope.codeAddress = function () {
     });
     return;
   };
-  $scope.$watch('item', () => {
-      $scope.codeAddress();
-  });
+
+angular.forEach('$scope.map.markers', (marker) => {
+    marker.onclick = () => {
+        marker.show = !marker.show;
+    };
+});
 
 // ----------------------------------------------- $watch ----------------------------------------------------//
+
+    $scope.$watch('item', (newValue) => {
+        if(!newValue) {
+            $state.go('main');
+        }
+        $scope.codeAddress();
+    });
+
+// ----------------------------------------------- RESTful ---------------------------------------------------//
+
+// データ登録
+$scope.saveAPI = (newData, scope) => {
+    newData.item = newData.item._id;
+    $Comments.save(
+        newData,
+        () => {
+            scope.$dismiss();
+        }
+    );
+};
 
 }]);

@@ -19,10 +19,11 @@
             </div>
             <div class="person_reviews">
                 <h3>{{item.title}}</h3>
-                <p class="fontSize12 top_reviews_impressions">
-                    {{item.introduce}}
-                    <!-- <a href="#">続きを読む</a> -->
-                </p>
+                <div class="fontSize12 top_reviews_impressions">
+                    <p ng-class="{'max_text':dottedFlg}">{{item.introduce}}</p>
+                    <p ng-click="moreFlg()" ng-show="dottedFlg"><a href="">もっと見る</a></p>
+                    <p ng-click="moreFlg()" ng-show="closeFlg"><a href="">閉じる</a></p>
+                </div>
             </div>
             <p class="person_reviews_img">PHOTO</p>
         </div>
@@ -35,6 +36,7 @@
         </div>
     </div>
     <div id="shopDetail_main_reviews">
+        <!-- <div ng-repeat="itemComment in itemComments"> -->
         <div ng-repeat="itemComment in itemComments | filter: {'type': goFlg}">
             <div class="shopDetail_main_reviews_list">
                 <div class="top_person_info">
@@ -46,12 +48,15 @@
                         <p ng-class="['review_state_blue', {'review_state_gray': !itemComment.type}]">{{itemComment.type ? '行った' : '行きたい'}}</p>
                         <h3>{{itemComment.title}}</h3>
                         <p class="review_date fontSize12">{{itemComment.create | date: 'yyyy-MM-dd'}}&nbsp;投稿</p>
-                        <p class="fontSize12 top_reviews_impressions">
+                        <div class="fontSize12 top_reviews_impressions">
                             <span class="reviews_text">
-                                {{itemComment.body}}
-                                <a href="#">続きを読む</a></span>
-                                <span class="top_reviews_img">PHOTO</span>
-                            </p>
+                                <p class="max_text" ng-class="{'max_text':dottedFlg}">{{itemComment.body}}</p>
+                            </span>
+                            <p class="top_reviews_img">PHOTO</p>
+                            <p ng-click="moreFlg()" ng-show="dottedFlg"><a href="">もっと見る</a></p>
+                            <p ng-click="moreFlg()" ng-show="closeFlg"><a href="">閉じる</a></p>
+
+                        </div>
                             <div class="box_header_small">
                                 <ul>
                                     <li><h4><b>ジャンル</b>{{itemComment.genreAve | number: 1}}</h4></li>
@@ -63,7 +68,7 @@
             </div>
         </div>
     </div>
-    <p class="reviews_more"><a href="#">口コミをもっと見る>>></a></p>
+    <p class="reviews_more"><a ui-sref="shopDetail.reviews({item: item})">口コミをもっと見る>>></a></p>
 
     <div id="item_title">
         <div id="title_background">
@@ -106,7 +111,16 @@
                         {{item.address.postalCode}}&nbsp;{{item.address.pref}}&nbsp;{{item.address.city}}&nbsp;{{item.address.town}}&nbsp;{{item.address.building}}</br>
                         <!-- <div class="map"> -->
                             <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-                                <ui-gmap-markers models="map.markers" coords="'self'"></ui-gmap-markers>
+                                <ui-gmap-markers models="map.markers" coords="'self'">
+                                    <ui-gmap-windows>
+                                        <div>
+                                            <br>
+                                            {{map.markers[0].title}}
+                                            <hr>
+                                            {{map.markers[0].content}}
+                                        </div>
+                                    </ui-gmap-windows>
+                                </ui-gmap-markers>
                             </ui-gmap-google-map>
                         <!-- </div> -->
                     </td>
@@ -116,7 +130,7 @@
                         アクセス
                     </th>
                     <td>
-                        null
+                        {{item.access || '-'}}
                     </td>
                 </tr>
                 <tr>
@@ -124,7 +138,15 @@
                         営業時間
                     </th>
                     <td>
-                        null
+                        <p>
+                            【ランチ】&nbsp;&nbsp;{{item.fundation.lunch.start || '-'}}&nbsp;~&nbsp;{{item.fundation.lunch.finish || '-'}}&nbsp;(L.O{{item.fundation.lunch.last || '-'}})
+                        </p>
+                        <p>
+                            【ディナー】{{item.fundation.diner.start || '-'}}&nbsp;~&nbsp;{{item.fundation.diner.finish || '-'}}&nbsp;(L.O{{item.fundation.diner.last || '-'}})
+                        </p>
+                        <p>
+                            【土日祝】&nbsp;&nbsp;{{item.fundation.holiday.start || '-'}}&nbsp;~&nbsp;{{item.fundation.holiday.finish || '-'}}&nbsp;(L.O{{item.fundation.holiday.last || '-'}})
+                        </p>
                     </td>
                 </tr>
                 <tr>
@@ -132,7 +154,7 @@
                         定休日
                     </th>
                     <td>
-                        null
+                        {{item.fundation.regularHoliday || '無'}}
                     </td>
                 </tr>
                 <tr>
@@ -140,7 +162,7 @@
                         カード
                     </th>
                     <td>
-                        null
+                        {{item.fundation.creditCard ? '可' : '不可'}}
                     </td>
                 </tr>
             </table>
@@ -151,7 +173,7 @@
                         座席
                     </th>
                     <td>
-                        null
+                        {{item.sheat.count}}席/{{item.sheat.sofa ? 'ソファ席あり' : 'ソファ席なし'}}
                     </td>
                 </tr>
                 <tr>
@@ -159,7 +181,7 @@
                         個室
                     </th>
                     <td>
-                        null
+                        {{item.sheat.privateRoom ? 'あり' : 'なし'}}
                     </td>
                 </tr>
                 <tr>
@@ -167,15 +189,24 @@
                         貸切
                     </th>
                     <td>
-                        null
+                        {{item.sheat.charter ? 'あり' : 'なし'}}
                     </td>
                 </tr>
-                <tr>
+                <tr ng-switch="item.sheat.smoke">
                     <th>
                         禁煙・喫煙
                     </th>
-                    <td>
-                        null
+                    <td ng-switch-when="0">
+                        禁煙
+                    </td>
+                    <td ng-switch-when="1">
+                        分煙
+                    </td>
+                    <td ng-switch-when="2">
+                        喫煙
+                    </td>
+                    <td ng-switch-default>
+                        選択されていません
                     </td>
                 </tr>
                 <tr>
@@ -183,7 +214,7 @@
                         駐車場
                     </th>
                     <td>
-                        null
+                        {{item.sheat.parking ? 'あり' : 'なし'}}
                     </td>
                 </tr>
                 <tr>
@@ -191,7 +222,7 @@
                         空間・設備
                     </th>
                     <td>
-                        null
+                        {{item.sheat.spaceFeature || '-'}}
                     </td>
                 </tr>
                 <tr>
@@ -199,7 +230,7 @@
                         携帯電話
                     </th>
                     <td>
-                        null
+                        {{item.sheat.mobilePhone || '-'}}
                     </td>
                 </tr>
             </table>
@@ -210,7 +241,7 @@
                         料理
                     </th>
                     <td>
-                        null
+                        {{item.menu.cuisine || '-'}}
                     </td>
                 </tr>
                 <tr>
@@ -218,7 +249,7 @@
                         ドリンク
                     </th>
                     <td>
-                        null
+                        {{item.menu.drink || '-'}}
                     </td>
                 </tr>
                 <tr>
@@ -226,7 +257,7 @@
                         コース
                     </th>
                     <td>
-                        null
+                        {{item.menu.cource || '-'}}
                     </td>
                 </tr>
             </table>
@@ -237,7 +268,7 @@
                         ロケーション
                     </th>
                     <td>
-                        null
+                        {{item.feature.location || '-'}}
                     </td>
                 </tr>
                 <tr>
@@ -245,7 +276,7 @@
                         サービス
                     </th>
                     <td>
-                        null
+                        {{item.feature.service || '-'}}
                     </td>
                 </tr>
                 <tr>
@@ -253,7 +284,7 @@
                         ホームページ
                     </th>
                     <td>
-                        null
+                        {{item.feature.url || '-'}}
                     </td>
                 </tr>
             </table>

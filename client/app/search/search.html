@@ -15,7 +15,6 @@
             <ul>
                 <li><h6>フリーワードで絞り込む</h6></li>
                 <li><input type="text" value="Freeword" ng-model="word" ng-model-options="{debounce: 750}"/></li>
-                <!-- <li><a href=""><img src="./assets/./images/main/parts/search.svg" alt="" /></a></li> -->
             </ul>
         </div>
 
@@ -96,7 +95,7 @@
                       <div class="right">
                           <h6>最新コメント</h6>
                           <p>{{item_comments[item._id].comment.body}}</p>
-                          <a ui-sref="shopDetail.reviews({itemid:item._id})">もっと詳しく見る.</a>
+                          <a ui-sref="shopDetail.reviews({item:item})">もっと詳しく見る</a>
                       </div>
 
                     </div>

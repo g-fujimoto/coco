@@ -89,7 +89,7 @@
                           <div class="right">
                               <h6>最新コメント</h6>
                               <p>{{item_comments[item._id].comment.body}}</p>
-                              <a ui-sref="shopDetail.reviews({itemid:item._id})">もっと詳しく見る.</a>
+                              <a ui-sref="shopDetail.reviews({item:item})">もっと詳しく見る.</a>
                           </div>
 
                         </div>
@@ -106,7 +106,7 @@
                   <!--------->
                   <div ng-show="items.length==0">
                       ご指定の条件に該当する店舗が見つかりませんでした。<br>
-                      お店の新規登録は<a ui-sref="newItem" ng-click="global_menu='newItem'">新規登録ページ</a>から行うことができます。
+                      お店の新規登録は<a ui-sref="newItem.regist" ng-click="global_menu='newItem'">新規登録ページ</a>から行うことができます。
                   </div>
               </div>
 

@@ -2,7 +2,16 @@
     <div class="shopDetail_access">
         <!-- <p class="shopDetail_map"> -->
             <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-                <ui-gmap-markers models="map.markers" coords="'self'"></ui-gmap-markers>
+                <ui-gmap-markers models="map.markers" coords="'self'">
+                    <ui-gmap-windows>
+                        <div>
+                            <br>
+                            {{map.markers[0].title}}
+                            <hr>
+                            {{map.markers[0].content}}
+                        </div>
+                    </ui-gmap-windows>
+                </ui-gmap-markers>
             </ui-gmap-google-map>
         <!-- </p> -->
         <div class="shopDetail_info">

@@ -20,7 +20,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
 
     $scope.recommendAdd = function(item) {
         $Recommend.add(item)
-        .success(function (data) {
+        .success((data) => {
             if (data.ok === 1) {
                 $scope.pop = {
                     show : true,
@@ -33,26 +33,26 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
     $scope.recommendDelete = function(item) {
 
         $Recommend.delete(item)
-        .success(function (data) {
+        .success((data) => {
             if (data.ok === 1) {
                 $scope.pop = {
                     show : true,
                     message : '推薦店舗を削除しました。'
-                }
+                };
                 $scope.getRecommendItem();
             }
         });
     };
 
     $scope.modPop = function() {
-        $timeout(function() {
+        $timeout(() => {
             if ($scope.pop.show) {
               $scope.pop.show =false;
             } else {
-                scope.modPop();
+                $scope.modPop();
             }
         },3000);
-    }
+    };
 
     $scope.saveUser = function () {
         if ($scope.files[0]) {
@@ -60,7 +60,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 url: 'api/upload/user',
                 file: $scope.files[0]
             })
-            .success(function(data, status, header, config){
+            .success(() => {
                 console.log('OK');
             });
         }
@@ -179,7 +179,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
     });
 
     // 通知
-    $scope.$watch('pop', function(newValue, oldValue) {
+    $scope.$watch('pop', (newValue) => {
         if (newValue) {
             $scope.modPop();
         }

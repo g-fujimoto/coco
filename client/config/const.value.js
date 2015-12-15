@@ -478,6 +478,16 @@ angular.module('webApp')
             }
         }
     ])
+    .value('$$Exists',  [
+            {
+                label: '有',
+                value: true
+            },
+            {
+                label: '無',
+                value: false
+            }
+    ])
     .value('$$Rates', [
             {
                 value: 1
@@ -494,6 +504,29 @@ angular.module('webApp')
             {
                 value: 5
             }
+    ])
+    .value('$$Weeks', [
+        {
+            label: '日'
+        },
+        {
+            label: '月'
+        },
+        {
+            label: '火'
+        },
+        {
+            label: '水'
+        },
+        {
+            label: '木'
+        },
+        {
+            label: '金'
+        },
+        {
+            label: '土'
+        }
     ])
     .value('$$Alerts', {
             successSave: {
