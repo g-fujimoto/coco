@@ -23,10 +23,11 @@
                         </ul>
                     </div>
                     <p class="gradation_thin_border"></p>
-                    <p class="impressions">
+                    <p class="impressions" ng-class="{'max_text':!more}">
                         {{itemComment.body}}
                     </p>
-                    <p class="see_more"><a href="#">もっと見る</a></p>
+                    <p ng-click="more=true" ng-model="more" ng-show="!more" class="see_more" id="seeMore"><a href="">もっと見る</a></p>
+                    <p ng-click="more=false" ng-show="more" class="see_more"><a href="">閉じる</a></p>
                     <div class="reviews_img">
                         <ul>
                             <li>画像</li>

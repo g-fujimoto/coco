@@ -107,7 +107,6 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
 
                     // 最新コメント情報作成
                     var comment = comments[0];
-                    
                     // 行きたいコメントに絞り込み①
                     comments = _.filter(comments, (num) => {
                         return num.type === true;
@@ -177,7 +176,7 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
                 getComments();
             },1000);
         };
-
 // ----------------------------------------------- Immediately Function -----------------------------------------------//
         getItem();
+
 }]);

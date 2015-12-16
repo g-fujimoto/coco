@@ -357,6 +357,13 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
 }
+.max_text_top{
+    height: 45px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
 /********************************************/
 
 /*******************　shopDetail.photo.htmlでの変更点　******************/

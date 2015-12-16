@@ -7,15 +7,12 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     $scope.scenes = $$Scenes;
     $scope.genres = $$Genres;
     $scope.item   = $stateParams.item;
-    $scope.dottedFlg = true;
-    $scope.closeFlg = false;
 // ----------------------------------------------- $scope(function) ----------------------------------------------------//
 
     //item._idで絞ったコメントを全件取得
     $scope.itemComments = (_id) => {
         $Comments.itemComments(_id);
     };
-
     $scope.getSumAve = () => {
 
         $Comments.went_items($scope.item._id)
@@ -56,7 +53,6 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
 
         });
     };
-
     $Comments.itemComments($stateParams.item._id)
         .success((data) => {
             $scope.itemComments = data;
@@ -81,7 +77,25 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
         }
     };
 
-    $scope.moreFlg = () => {
+        $scope.like = (itemComment) => {
+            $http({
+                method: 'POST',
+                url: '/api/like/add',
+                data: itemComment
+            })
+            .success((data) => {
+                console.log(data);
+            });
+        };
+
+// ---------------------------------------------- もっと見る機能 -------------------------------------------------//
+    if($scope.item.introduce.length <= 120 && $scope.item.introduce.split('\n').length <= 3){
+        $("#seeMore").css("display","none");
+    }
+    if($scope.itemComment.body.length <= 120 && $scope.itemComment.body.split('\n').length <= 3){
+        $("#seeMore").css("display","none");
+    }
+    $scope.moreFlg = (index) => {
         if($scope.dottedFlg){
             $scope.dottedFlg = false;
             $scope.closeFlg = true;
@@ -90,16 +104,14 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
             $scope.closeFlg = false;
         }
     };
-
-    $scope.like = (itemComment) => {
-        $http({
-            method: 'POST',
-            url: '/api/like/add',
-            data: itemComment
-        })
-        .success((data) => {
-            console.log(data);
-        });
+    $scope.roopMoreFlg = (index) => {
+        if($scope.roopDottedFlg){
+            $scope.roopDottedFlg = false;
+            $scope.roopCloseFlg = true;
+        } else {
+            $scope.roopDottedFlg[index] = true;
+            $scope.roopCloseFlg[index] = false;
+        }
     };
 
 // ---------------------------------------------- GoogleMaps -------------------------------------------------//
