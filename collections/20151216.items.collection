@@ -1,0 +1,536 @@
+/* 1 */
+{
+    "_id" : ObjectId("5670b755d27502780e2ee5e9"),
+    "name" : "個室和食 ほたる 北新地店",
+    "kana" : "コシツワショクホタル キタシンチテン",
+    "tel" : "06-6442-0101",
+    "area" : "梅田・北新地",
+    "genreName" : "焼肉・ホルモン・鉄板焼き",
+    "title" : "寛ぎの和個室",
+    "introduce" : "掘りごたつ＆和のテーブルと色々なタイプの【完全個室】\n会社宴会やおもてなしの席・デートなど様々な飲み会・食事会にぜひご利用下さい。",
+    "registerId" : ObjectId("5670b224d27502780e2ee5dd"),
+    "registerUser" : "矢島 慎",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 13
+    },
+    "itemRecommendCounter" : {
+        "count" : 1
+    },
+    "sceneNames" : [
+        "通常接待",
+        "高級接待",
+        "一人利用",
+        null
+    ],
+    "address" : {
+        "postalCode" : "530-0002",
+        "pref" : "大阪府",
+        "city" : "大阪市北区",
+        "town" : "曽根崎新地1-5-23",
+        "building" : "吉紹ビル4F"
+    },
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5670b916d27502780e2ee5ed"),
+    "name" : "隠れ家ダイニング 和楽",
+    "kana" : "カクレガダイニングワラク",
+    "tel" : "06-6442-0505",
+    "area" : "梅田・北新地",
+    "genreName" : "魚介・海鮮料理",
+    "title" : "全席完全個室",
+    "introduce" : "大小掘りごたつ個室！テーブル個室もございます。プライベートの飲み会・会社宴会・歓送迎会などさまざまなシーンに合わせてお使いいただけます。",
+    "registerId" : ObjectId("5670b224d27502780e2ee5dd"),
+    "registerUser" : "矢島 慎",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 4
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "社内利用",
+        "家族利用"
+    ],
+    "address" : {
+        "postalCode" : "530-0002",
+        "pref" : "大阪府",
+        "city" : "大阪市北区",
+        "town" : "曽根崎新地1-5-23",
+        "building" : "吉紹ビル4F"
+    },
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5670baaad27502780e2ee5f0"),
+    "name" : "黒毛和牛炭火焼肉 清次郎 北新地",
+    "kana" : "クロゲワギュウスミビヤキニクセイジロウ キタシンチ",
+    "tel" : "050-5799-0994",
+    "area" : "梅田・北新地",
+    "genreName" : "焼肉・ホルモン・鉄板焼き",
+    "introduce" : "好きなお肉をとことん楽しむなら、断然食べ放題！黒毛和牛の赤身にホルモン、副菜、ご飯ものをテーブルオーダーバイキングで時間いっぱい、お好きなだけお召し上がりいただけます♪",
+    "title" : "黒毛和牛も好きなだけ",
+    "registerId" : ObjectId("5670b44dd27502780e2ee5e3"),
+    "registerUser" : "矢野 永子",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 1
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "通常接待"
+    ],
+    "address" : {
+        "postalCode" : "530-0003",
+        "pref" : "大阪府",
+        "city" : "大阪市北区",
+        "town" : "曽根崎新地1-10-16",
+        "building" : "永楽ビルB1"
+    },
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5670bb6bd27502780e2ee5f1"),
+    "area" : "心斎橋",
+    "name" : "宮崎尾崎牛 肉割烹 吟～ぎん～",
+    "kana" : "ミヤザキオザキギュウニクカッポウギン",
+    "tel" : "050-5798-1315",
+    "genreName" : "焼肉・ホルモン・鉄板焼き",
+    "title" : "尾崎牛を大阪で",
+    "introduce" : "尾崎牛は赤身が特徴。柔らかさと旨味、そして脂身がしつこくなく、どれだけ食べても胃がもたれません。半頭買いすることによって貴重部位までリーズナブルに提供することができます。",
+    "registerId" : ObjectId("5670b44dd27502780e2ee5e3"),
+    "registerUser" : "矢野 永子",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 1
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "高級接待"
+    ],
+    "address" : {
+        "postalCode" : "542-0076",
+        "pref" : "大阪府",
+        "city" : "大阪市中央区",
+        "town" : "難波1-8-16",
+        "building" : "難波HIPS10F"
+    },
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("566a990a143062e619c56bb2"),
+    "name" : "本湖月",
+    "kana" : "ホンコゲツ",
+    "area" : "難波・道頓堀",
+    "tel" : "06-6211-0201",
+    "genreName" : "魚介・海鮮料理",
+    "title" : "高級感あふれる店",
+    "introduce" : "大阪は法善寺横丁にある、日本を代表する（と思っている）和食屋さん。\n\n今から20年前、\n吉兆のスゴ腕料理人が独立した、\nと聞いて初めてお店の暖簾をくぐりました。\n\n当時いくつか頂いたお料理に驚いた記憶があります。\n最初のびっくりは\nお椀のこわいほどの完成度。\n味わいの深さ、けれども濃過ぎることのない出汁の澄み切った味。",
+    "otherName" : "本湖月",
+    "branch" : "大阪支店",
+    "registerId" : ObjectId("56668c34c0197d630d5bbfa9"),
+    "registerUser" : "アド ミン",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-11T09:33:47.104Z"),
+    "created" : ISODate("2015-12-11T09:33:47.104Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 3
+    },
+    "itemRecommendCounter" : {
+        "count" : 1
+    },
+    "sceneNames" : [
+        "通常接待",
+        "社内利用",
+        "家族利用",
+        "お土産利用",
+        "一人利用",
+        "高級接待"
+    ],
+    "address" : {
+        "pref" : "大阪府",
+        "city" : "大阪市中央区道頓堀",
+        "town" : "1-7-11",
+        "postalCode" : "536-0018",
+        "building" : "スマーティービル"
+    },
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5670bbf8d27502780e2ee5f2"),
+    "name" : "踊りふぐ 個室料理 神ぷく亭",
+    "kana" : "オドリフグコシツリョウリシンプクテイ",
+    "tel" : "06-6244-0629",
+    "genreName" : "魚介・海鮮料理",
+    "title" : "贅沢なひと時",
+    "introduce" : "安心の専門店だからこそできるこだわりの鮮度と安さです。本物上質なふぐを是非是非ご堪能下さい。",
+    "area" : "心斎橋",
+    "registerId" : ObjectId("5670b44dd27502780e2ee5e3"),
+    "registerUser" : "矢野 永子",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 1
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "家族利用"
+    ],
+    "address" : {
+        "postalCode" : "542-0083",
+        "pref" : "大阪府",
+        "city" : "大阪市中央区",
+        "town" : "東心斎橋1-18-15",
+        "building" : "勇拓ビル1F"
+    },
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5670be09d27502780e2ee5f7"),
+    "name" : "NINO TRAVIESO SHINSAIBASHI",
+    "kana" : "ニニョトラヴィエソ シンサイバシ",
+    "tel" : "050-5796-0285",
+    "area" : "心斎橋",
+    "genreName" : "イタリアン・フレンチ",
+    "title" : "本格スペイン料理とワインを楽しむ",
+    "introduce" : "ハモン・セラーノ、ハモン・イベリコの生ハム盛り合わせ、名物アヒージョ、自慢のパエリア等、名物メニューが楽しめます。",
+    "registerId" : ObjectId("5670b44dd27502780e2ee5e3"),
+    "registerUser" : "矢野 永子",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 1
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "家族利用"
+    ],
+    "address" : {
+        "postalCode" : "542-0085",
+        "city" : "大阪市中央区",
+        "pref" : "大阪府",
+        "town" : "心斎橋筋1-10-12",
+        "building" : "トレスビル9F"
+    },
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5670c24ad27502780e2ee5fd"),
+    "name" : "鮨 神楽",
+    "kana" : "スシカグラ",
+    "tel" : "050-5786-8284",
+    "area" : "心斎橋",
+    "genreName" : "魚介・海鮮料理",
+    "title" : "美味しい魚介は東京築地に集まる",
+    "introduce" : "江戸前の代名詞コハダなど東京湾近海の魚はもちろん、日本各地で水揚げされる魚介の中で良い物は、値段がつく築地へと送られます。鮨神楽では、江戸前ならではの最高のネタをご提供するため、主要な魚介は築地市場の仲買から直送で仕入れています。天然本マグロ、生うに、コハダなど",
+    "registerId" : ObjectId("5670b358d27502780e2ee5e0"),
+    "registerUser" : "澤田 友宏",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 0
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "高級接待",
+        "社内利用"
+    ],
+    "address" : {
+        "postalCode" : "542-0083",
+        "pref" : "大阪府",
+        "city" : "大阪市中央区",
+        "town" : "東心斎橋1-15-2",
+        "building" : "松村ビル1F"
+    },
+    "__v" : 0
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("5670c3add27502780e2ee600"),
+    "name" : "与太呂",
+    "kana" : "ヨタロ",
+    "tel" : "050-5786-0928",
+    "area" : "淀屋橋・本町・北浜",
+    "genreName" : "和食",
+    "title" : "昭和2年創業 大阪きっての老舗",
+    "introduce" : "『与太呂 本店』は、昭和2年創業。もともと天ぷらは、ごま油で揚げて天つゆで食べるスタイルが主流の関東の食べ物でしたが、初代が試行錯誤を重ね、あっさりした綿実油で揚げる調理法にたどり着きました。この揚げ方がいつしか“関西風天ぷら”といわれるようになり、現在もその伝統が受け継がれています。",
+    "registerId" : ObjectId("5670b358d27502780e2ee5e0"),
+    "registerUser" : "澤田 友宏",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 0
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "高級接待"
+    ],
+    "address" : {
+        "postalCode" : "530-6103",
+        "pref" : "大阪府",
+        "city" : "大阪市北区",
+        "town" : "中之島3-3-23",
+        "building" : "中之島ダイビル3F"
+    },
+    "__v" : 0
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("5670c7e9d27502780e2ee609"),
+    "name" : "地頭鶏 播鳥",
+    "kana" : "ジドッコバンチョウ",
+    "tel" : "050-5798-6235",
+    "area" : "淀屋橋・本町・北浜",
+    "genreName" : "居酒屋",
+    "title" : "播鳥社長が惚れ込んだ宮崎県・地頭鶏",
+    "introduce" : "当店社長が全国津々浦々、様々な土地を巡り、一瞬でその美味しさに惚れ込んだ宮崎県のブランド鳥『地頭鶏（じとっこ）』。きれいな空気と雄大な大地がまさに大自然と言える宮崎県南西端・都城市の農家より直送で仕入れている。生でも食べられる鮮度はもちろん、地鶏ならではの野趣あふれる食感と凝縮した旨味が魅力！",
+    "registerId" : ObjectId("5670b5a2d27502780e2ee5e6"),
+    "registerUser" : "白井 恵津子",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 0
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "一人利用"
+    ],
+    "address" : {
+        "pref" : "大阪府",
+        "city" : "大阪市",
+        "town" : "西区土佐堀1-1-11",
+        "postalCode" : "550-0001",
+        "building" : "東宝ビルF11"
+    },
+    "__v" : 0
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("5670c04fd27502780e2ee5f9"),
+    "name" : "Aloha Amigo 南船場",
+    "kana" : "アロハアミーゴ ミナミセンバ",
+    "area" : "心斎橋",
+    "tel" : "050-5786-9476",
+    "genreName" : "居酒屋",
+    "title" : "リゾート感たっぷり",
+    "introduce" : "1Fエントランスもテラス席になっていて、その上に2Fテラス席があります♪大きなシンボルツリーや温かみ溢れる間接照明が独特の雰囲気を演出しています！また、テラス席はペット同伴OKでカフェの利用もできます。是非お気軽にご来店ください。",
+    "registerId" : ObjectId("5670b44dd27502780e2ee5e3"),
+    "registerUser" : "矢野 永子",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 0
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "家族利用"
+    ],
+    "address" : {
+        "postalCode" : "542-0081",
+        "pref" : "大阪府",
+        "city" : "大阪市中央区",
+        "town" : "南船場4-10-5",
+        "building" : "南船場SOHO1F"
+    },
+    "__v" : 0
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("5670c18dd27502780e2ee5fb"),
+    "name" : "若の台所 PREMIUM ～こだわり野菜～",
+    "kana" : "ワカノダイドコロプレミアムコダワリヤサイ",
+    "area" : "心斎橋",
+    "tel" : "050-5785-9963",
+    "genreName" : "和食",
+    "introduce" : "夜景が見えてデートにぴったりのお店。\n食事も野菜がメインなのでヘルシーで健康的です。",
+    "title" : "夜景が見える個室",
+    "registerId" : ObjectId("5670b358d27502780e2ee5e0"),
+    "registerUser" : "澤田 友宏",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 0
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "デート利用"
+    ],
+    "address" : {
+        "postalCode" : "542-0086",
+        "city" : "大阪市中央区",
+        "pref" : "大阪府",
+        "town" : "西心斎橋1-4-3",
+        "building" : "心斎橋OPA10F"
+    },
+    "__v" : 0
+}
+
+/* 13 */
+{
+    "_id" : ObjectId("5670c4cdd27502780e2ee602"),
+    "name" : "江戸菊",
+    "kana" : "エドギク",
+    "tel" : "050-5797-8923",
+    "area" : "淀屋橋・本町・北浜",
+    "genreName" : "和食",
+    "title" : "創業101年",
+    "introduce" : "大正３年から船場の方々をはじめ、多くのお客様にお越しいただいております。\n長年受け継がれた伝統の味を、是非お楽しみください。",
+    "registerId" : ObjectId("5670b5a2d27502780e2ee5e6"),
+    "registerUser" : "白井 恵津子",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 0
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "家族利用"
+    ],
+    "address" : {
+        "postalCode" : "541-0048",
+        "pref" : "大阪府",
+        "city" : "大阪市中央区",
+        "town" : "瓦町2-4-12",
+        "building" : "プラダビル2F"
+    },
+    "__v" : 0
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("5670c5e8d27502780e2ee605"),
+    "name" : "北海のしずく",
+    "kana" : "ホッカイノシズク",
+    "tel" : "06-6208-0244",
+    "area" : "淀屋橋・本町・北浜",
+    "genreName" : "居酒屋",
+    "title" : "北海郷土料理を取り入れたコース料理",
+    "introduce" : "新鮮な郷土料理はモチロンの事、全てのコース内容に飲み放題が付いております！",
+    "registerId" : ObjectId("5670b5a2d27502780e2ee5e6"),
+    "registerUser" : "白井 恵津子",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 0
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "家族利用"
+    ],
+    "address" : {
+        "postalCode" : "541-0051",
+        "pref" : "大阪府",
+        "city" : "大阪市中央区",
+        "town" : "備後町3-1-11",
+        "building" : "メイソンビルB1"
+    },
+    "__v" : 0
+}
+
+/* 15 */
+{
+    "_id" : ObjectId("5670c6b8d27502780e2ee607"),
+    "name" : "Beer dining マヤジカ",
+    "kana" : "ビアダイニングマヤジカ",
+    "tel" : "06-6121-2188",
+    "area" : "難波・道頓堀",
+    "genreName" : "居酒屋",
+    "title" : "選べる4種類の飲み放題！",
+    "introduce" : "3時間たっぷり楽しみたい方！ちょっと贅沢に全ドリンクメニューから選びたい方！その時の気分やお集まりの方々に合わせて、時間や内容を4種類の中からお選び頂けるのがマヤジカの飲み放題です！今回はどちらの飲み放題になさいますか？",
+    "registerId" : ObjectId("5670b5a2d27502780e2ee5e6"),
+    "registerUser" : "白井 恵津子",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T00:27:26.046Z"),
+    "created" : ISODate("2015-12-16T00:27:26.046Z"),
+    "images" : [],
+    "itemLikeCounter" : {
+        "count" : 0
+    },
+    "itemRecommendCounter" : {
+        "count" : 0
+    },
+    "sceneNames" : [
+        "社内利用"
+    ],
+    "address" : {
+        "postalCode" : "541-0056",
+        "pref" : "大阪府",
+        "city" : "大阪市中央区",
+        "town" : "久太郎町2-3-8",
+        "building" : "ハイム船場1F"
+    },
+    "__v" : 0
+}

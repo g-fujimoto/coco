@@ -1,0 +1,339 @@
+/* 1 */
+{
+    "_id" : ObjectId("56668c34c0197d630d5bbfa9"),
+    "email" : "admin@gmail.com",
+    "password" : "a123456789",
+    "lastName" : "アド",
+    "firstName" : "ミン",
+    "birthYear" : 2000,
+    "birthPref" : "大阪府",
+    "highSchoolYear" : 2010,
+    "highSchoolName" : "アドミン高等学校",
+    "universityYear" : 2015,
+    "universityName" : "アドミン大学",
+    "specialized" : "管理者学",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-08T07:52:20.310Z"),
+    "created" : ISODate("2015-12-08T07:52:20.310Z"),
+    "wantGoItems" : [],
+    "wentItems" : [
+        ObjectId("566a990a143062e619c56bb2")
+    ],
+    "recommendItems" : [],
+    "itemRegisterCounter" : {
+        "count" : 0
+    },
+    "itemCommontCounter" : {
+        "count" : 0
+    },
+    "company" : {
+        "name" : "アドミン 株式会社",
+        "postalCode" : "555-5555",
+        "address" : "大阪府大阪市",
+        "tel" : "06-9874-6541",
+        "deleteFlg" : 0,
+        "modified" : ISODate("2015-12-08T07:43:42.811Z"),
+        "created" : ISODate("2015-12-08T07:43:42.811Z")
+    },
+    "images" : [],
+    "aboutWorks" : [
+        {
+            "title" : "アドミン",
+            "body" : "アドミンユーザーです。",
+            "_id" : ObjectId("56668c34c0197d630d5bbfab"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-08T07:43:42.811Z"),
+            "created" : ISODate("2015-12-08T07:43:42.811Z"),
+            "sortNo" : 0
+        }
+    ],
+    "others" : [
+        {
+            "title" : "アドミンの特徴",
+            "body" : "管理者です。",
+            "_id" : ObjectId("56668c34c0197d630d5bbfaa"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-08T07:43:42.811Z"),
+            "created" : ISODate("2015-12-08T07:43:42.811Z")
+        }
+    ],
+    "lastLogin" : ISODate("2015-12-08T07:43:42.811Z"),
+    "admin" : 1,
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5670b224d27502780e2ee5dd"),
+    "email" : "yazima@gmail.com",
+    "password" : "a123456789",
+    "lastName" : "矢島",
+    "firstName" : "慎",
+    "birthYear" : "1995",
+    "birthPref" : "大阪府",
+    "highSchoolYear" : "2013",
+    "highSchoolName" : "大阪府立和泉高等学校",
+    "universityYear" : "2017",
+    "universityName" : "関西大学",
+    "specialized" : "営業",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T01:06:30.764Z"),
+    "created" : ISODate("2015-12-16T00:36:52.549Z"),
+    "wantGoItems" : [
+        ObjectId("5670b755d27502780e2ee5e9")
+    ],
+    "wentItems" : [
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670b916d27502780e2ee5ed")
+    ],
+    "recommendItems" : [
+        ObjectId("5670b755d27502780e2ee5e9")
+    ],
+    "itemRegisterCounter" : {
+        "count" : 2
+    },
+    "itemCommontCounter" : {
+        "count" : 0
+    },
+    "company" : {
+        "name" : "株式会社TLG",
+        "postalCode" : "543-0022",
+        "tel" : "06-1321-0231",
+        "address" : "大阪府 大阪市天王寺区 味原本町　8-89",
+        "deleteFlg" : 0,
+        "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+        "created" : ISODate("2015-12-16T00:27:26.073Z")
+    },
+    "images" : [],
+    "aboutWorks" : [
+        {
+            "title" : "",
+            "_id" : ObjectId("5670b224d27502780e2ee5df"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+            "created" : ISODate("2015-12-16T00:27:26.073Z"),
+            "sortNo" : 0
+        }
+    ],
+    "others" : [
+        {
+            "_id" : ObjectId("5670b224d27502780e2ee5de"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+            "created" : ISODate("2015-12-16T00:27:26.073Z")
+        }
+    ],
+    "lastLogin" : ISODate("2015-12-16T00:27:26.073Z"),
+    "admin" : 0,
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5670b358d27502780e2ee5e0"),
+    "email" : "sawada@gmail.com",
+    "password" : "a123456789",
+    "lastName" : "澤田",
+    "firstName" : "友宏",
+    "birthYear" : "1975",
+    "birthPref" : "京都府",
+    "highSchoolYear" : "1993",
+    "highSchoolName" : "洛南高校",
+    "universityYear" : "1997",
+    "universityName" : "東京大学",
+    "oAuthName" : "",
+    "specialized" : "統計学",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T01:51:41.729Z"),
+    "created" : ISODate("2015-12-16T00:42:00.839Z"),
+    "wantGoItems" : [],
+    "wentItems" : [
+        ObjectId("5670c18dd27502780e2ee5fb"),
+        ObjectId("5670c24ad27502780e2ee5fd"),
+        ObjectId("5670c24ad27502780e2ee5fd"),
+        ObjectId("5670c3add27502780e2ee600")
+    ],
+    "recommendItems" : [],
+    "itemRegisterCounter" : {
+        "count" : 3
+    },
+    "itemCommontCounter" : {
+        "count" : 0
+    },
+    "company" : {
+        "name" : "株式会社システムインテグラ",
+        "postalCode" : "530-0025",
+        "address" : "大阪府 大阪市北区 扇町 8-2",
+        "tel" : "06-2032-5902",
+        "deleteFlg" : 0,
+        "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+        "created" : ISODate("2015-12-16T00:27:26.073Z")
+    },
+    "images" : [],
+    "aboutWorks" : [
+        {
+            "_id" : ObjectId("5670b358d27502780e2ee5e2"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+            "created" : ISODate("2015-12-16T00:27:26.073Z"),
+            "sortNo" : 0
+        }
+    ],
+    "others" : [
+        {
+            "_id" : ObjectId("5670b358d27502780e2ee5e1"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+            "created" : ISODate("2015-12-16T00:27:26.073Z")
+        }
+    ],
+    "lastLogin" : ISODate("2015-12-16T00:27:26.073Z"),
+    "admin" : 1,
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5670b44dd27502780e2ee5e3"),
+    "lastName" : "矢野",
+    "firstName" : "永子",
+    "email" : "yano@gmail.com",
+    "password" : "a123456789",
+    "birthYear" : "1983",
+    "birthPref" : "静岡県",
+    "highSchoolYear" : "2001",
+    "highSchoolName" : "清水東",
+    "universityYear" : "2005",
+    "universityName" : "京都大学",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T01:37:19.294Z"),
+    "created" : ISODate("2015-12-16T00:46:05.961Z"),
+    "wantGoItems" : [
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670bb6bd27502780e2ee5f1"),
+        ObjectId("5670bb6bd27502780e2ee5f1")
+    ],
+    "wentItems" : [
+        ObjectId("5670baaad27502780e2ee5f0"),
+        ObjectId("5670bb6bd27502780e2ee5f1"),
+        ObjectId("5670bbf8d27502780e2ee5f2"),
+        ObjectId("5670be09d27502780e2ee5f7"),
+        ObjectId("5670c04fd27502780e2ee5f9"),
+        ObjectId("5670c7e9d27502780e2ee609"),
+        ObjectId("5670b916d27502780e2ee5ed"),
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670b755d27502780e2ee5e9")
+    ],
+    "recommendItems" : [],
+    "itemRegisterCounter" : {
+        "count" : 5
+    },
+    "itemCommontCounter" : {
+        "count" : 0
+    },
+    "company" : {
+        "name" : "株式会社プロダクト",
+        "postalCode" : "530-0043",
+        "address" : "大阪府 大阪市北区 天満 9-1",
+        "tel" : "06-0321-3201",
+        "deleteFlg" : 0,
+        "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+        "created" : ISODate("2015-12-16T00:27:26.073Z")
+    },
+    "images" : [],
+    "aboutWorks" : [
+        {
+            "_id" : ObjectId("5670b44dd27502780e2ee5e5"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+            "created" : ISODate("2015-12-16T00:27:26.073Z"),
+            "sortNo" : 0
+        }
+    ],
+    "others" : [
+        {
+            "_id" : ObjectId("5670b44dd27502780e2ee5e4"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+            "created" : ISODate("2015-12-16T00:27:26.073Z")
+        }
+    ],
+    "lastLogin" : ISODate("2015-12-16T00:27:26.073Z"),
+    "admin" : 0,
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5670b5a2d27502780e2ee5e6"),
+    "email" : "sirai@gmail.com",
+    "password" : "a123456789",
+    "lastName" : "白井",
+    "firstName" : "恵津子",
+    "birthYear" : "1995",
+    "birthPref" : "大阪府",
+    "highSchoolYear" : "2013",
+    "highSchoolName" : "岸和田高校",
+    "universityYear" : "2017",
+    "universityName" : "京都大学",
+    "deleteFlg" : 0,
+    "modified" : ISODate("2015-12-16T02:09:45.189Z"),
+    "created" : ISODate("2015-12-16T00:51:46.248Z"),
+    "wantGoItems" : [
+        ObjectId("5670c18dd27502780e2ee5fb"),
+        ObjectId("5670b916d27502780e2ee5ed"),
+        ObjectId("5670bb6bd27502780e2ee5f1"),
+        ObjectId("5670be09d27502780e2ee5f7")
+    ],
+    "wentItems" : [
+        ObjectId("5670c4cdd27502780e2ee602"),
+        ObjectId("5670c5e8d27502780e2ee605"),
+        ObjectId("5670c6b8d27502780e2ee607"),
+        ObjectId("5670b755d27502780e2ee5e9"),
+        ObjectId("5670b755d27502780e2ee5e9"),
+        null
+    ],
+    "recommendItems" : [],
+    "itemRegisterCounter" : {
+        "count" : 4
+    },
+    "itemCommontCounter" : {
+        "count" : 0
+    },
+    "company" : {
+        "name" : "株式会社AGC",
+        "postalCode" : "553-0004",
+        "address" : "大阪府 大阪市福島区 玉川 8-89",
+        "tel" : "06-0021-0321",
+        "deleteFlg" : 0,
+        "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+        "created" : ISODate("2015-12-16T00:27:26.073Z")
+    },
+    "images" : [],
+    "aboutWorks" : [
+        {
+            "_id" : ObjectId("5670b5a2d27502780e2ee5e8"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+            "created" : ISODate("2015-12-16T00:27:26.073Z"),
+            "sortNo" : 0
+        }
+    ],
+    "others" : [
+        {
+            "_id" : ObjectId("5670b5a2d27502780e2ee5e7"),
+            "deleteFlg" : 0,
+            "modified" : ISODate("2015-12-16T00:27:26.073Z"),
+            "created" : ISODate("2015-12-16T00:27:26.073Z")
+        }
+    ],
+    "lastLogin" : ISODate("2015-12-16T00:27:26.073Z"),
+    "admin" : 1,
+    "__v" : 0
+}

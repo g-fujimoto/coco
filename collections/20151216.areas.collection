@@ -1,0 +1,35 @@
+/* 1 */
+{
+    "_id" : ObjectId("56613bf9a179c11c1f73148c"),
+    "name" : "梅田・北新地",
+    "created" : ISODate("2015-12-04T12:04:00.201Z"),
+    "modified" : ISODate("2015-12-04T12:04:00.201Z"),
+    "deleteFlg" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("56613c27a179c11c1f73148d"),
+    "name" : "難波・道頓堀",
+    "created" : ISODate("2015-12-04T12:04:00.201Z"),
+    "modified" : ISODate("2015-12-04T12:04:00.201Z"),
+    "deleteFlg" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("56613c4da179c11c1f73148e"),
+    "name" : "心斎橋",
+    "created" : ISODate("2015-12-04T12:04:00.201Z"),
+    "modified" : ISODate("2015-12-04T12:04:00.201Z"),
+    "deleteFlg" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("56613c68a179c11c1f73148f"),
+    "name" : "淀屋橋・本町・北浜",
+    "created" : ISODate("2015-12-04T12:04:00.201Z"),
+    "modified" : ISODate("2015-12-04T12:04:00.201Z"),
+    "deleteFlg" : 0
+}
