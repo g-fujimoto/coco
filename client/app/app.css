@@ -433,6 +433,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
     box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
     -webkit-box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
     -moz-box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
+    cursor: pointer;
 }
 .black_btn a:hover {
     opacity: 0.8;
@@ -473,26 +474,26 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
     box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
     -webkit-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
     -moz-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+    cursor: pointer;
 }
 .white_btn a:hover {
     opacity: 0.8;
 }
-.black_btn a:active {
+.white_btn a:active {
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #fff;
-    background-color: #333;
-    padding: 10px 25px;
-    letter-spacing: 2px;
-    background-image: -moz-linear-gradient(bottom, #777, #000);
-    background-image: -ms-linear-gradient(bottom, #777, #000);
-    background-image: -webkit-linear-gradient(bottom, #777, #000);
-    background-image: linear-gradient(bottom, #777, #000);
+    color: #333;
+    background-color: #fff;
+    background-image: -moz-linear-gradient(bottom, #fff, #ddd);
+    background-image: -ms-linear-gradient(bottom, #fff, #ddd);
+    background-image: -webkit-linear-gradient(bottom, #fff, #ddd);
+    background-image: linear-gradient(bottom, #fff, #ddd);
     background-clip: padding-box;
     box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
     -webkit-box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
     -moz-box-shadow:rgba(113, 135, 164, 0.290196) 1px 2px 4px 2px;
+    cursor: pointer;
 }
 /**********************************************/
 .blue_btn{
@@ -553,6 +554,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
     box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
     -webkit-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
     -moz-box-shadow:rgba(0, 0, 0, 0.521569) 1px 2px 3px 1px;
+    cursor: pointer;
 }
 .lightBlue_btn a:hover{
     opacity: 0.8;
@@ -621,8 +623,9 @@ body.home #main { margin: -50px auto 94px; }
 #footer .footer_box h3 { width: 192px; height: 55px; padding-right: 21px; }
 #footer .footer_box h3 img { width: 192px; display: block; }
 #footer .footer_main { width: 706px; position: absolute; right: 45px; top: 42px; }
-#footer .footer_main ul { border-right: 1px solid #3f220e; overflow: hidden; }
-#footer .footer_main ul li { display: block; border-left: 1px solid #3f220e; width: 140px; float: left; }
+#footer .footer_main ul { overflow: hidden; }
+#footer .footer_main ul li { display: block; border-right: 1px solid #3f220e; width: 140px; float: left; }
+#footer .footer_main ul li:first-child { border-left: 1px solid #3f220e; }
 #footer .footer_main ul li a { text-align: center; text-decoration: none; display: block; color: #3f220e; font-size: 11px; width: 140px; line-height: 25px; }
 #footer .footer_main ul li a:hover { opacity: 0.6 }
 
