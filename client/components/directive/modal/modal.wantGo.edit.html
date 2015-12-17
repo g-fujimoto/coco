@@ -4,28 +4,30 @@
 <div class="modal-body">
     <div class="row">
         <div class="container-fluid text-sm">
+            <form novalidate name="myForm">
             <div>
                 <div class="col-sm-3">
-                    タイトル
+                    タイトル&nbsp;<span class="text-danger text-xs">※</span>
                 </div>
                 <br>
                 <br>
                 <div class="col-sm-9 text-sm">
-                    <input type="text" class="form-control margin-bottom-sm" ng-model='editData.title'>
+                    <input type="text" class="form-control margin-bottom-sm" ng-model='editData.title' required>
                 </div>
             </div>
             <div>
                 <div class="col-sm-3">
-                    コメント
+                    コメント&nbsp;<span class="text-danger text-xs">※</span>
                 </div>
                 <br>
                 <br>
                 <div class="col-sm-9 text-sm">
-                    <textarea name="name" rows="8" cols="40" class="form-control margin-bottom-sm" ng-model='editData.body'></textarea>
+                    <textarea name="name" rows="8" cols="40" class="form-control margin-bottom-sm" ng-model='editData.body' required></textarea>
                 </div>
             </div>
 </div><!-- /modal-body -->
 <div class="modal-footer">
-    <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
-    <button class="btn" type="button" ng-click="update(editData)">編集する</button>
+    <button class="btn" type="button" ng-click="cancel()">戻る</button>
+    <button class="btn" type="button" ng-click="update(editData)" ng-disabled="myForm.$invalid">編集する</button>
 </div>
+</form>

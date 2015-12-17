@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="form-group">
                     <div class="col-sm-4 text-left">
-                        <label for="editData.lastName" class="control-label">名前(姓)</label>
+                        <label for="editData.lastName" class="control-label">名前(姓)&nbsp;<span class="text-danger text-xs">※</span></label>
                     </div>
                     <div class="col-sm-8">
                         <input type="text" name="editData.lastName" value="" ng-model="editData.lastName" id="editData.lastName" class="form-control" placeholder="名前(姓)" required>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 text-left">
-                        <label for="editData.firstName" class="control-label">名前(名)</label>
+                        <label for="editData.firstName" class="control-label">名前(名)&nbsp;<span class="text-danger text-xs">※</span></label>
                     </div>
                     <div class="col-sm-8">
                         <input type="text" name="editData.firstName" value="" ng-model="editData.firstName" id="editData.firstName" class="form-control" placeholder="名前(名)" required>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 text-left">
-                        <label for="editData.company.name" class="control-label">会社名</label>
+                        <label for="editData.company.name" class="control-label">会社名&nbsp;<span class="text-danger text-xs">※</span></label>
                     </div>
                     <div class="col-sm-8">
                         <input type="text" name="editData.company.name" value="" ng-model="editData.company.name" id="editData.company.name" class="form-control" placeholder="会社名" required>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 text-left">
-                        <label for="editData.company.postalCode" class="control-label">郵便番号(会社)</label>
+                        <label for="editData.company.postalCode" class="control-label">郵便番号(会社)&nbsp;<span class="text-danger text-xs">※</span></label>
                     </div>
                     <div class="col-sm-8">
                         <input type="text" name="editData.company.postalCode" value="" ng-model="editData.company.postalCode" id="editData.company.postalCode" class="form-control" placeholder="郵便番号(会社)" required>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 text-left">
-                        <label for="editData.company.address" class="control-label">住所(会社)</label>
+                        <label for="editData.company.address" class="control-label">住所(会社)&nbsp;<span class="text-danger text-xs">※</span></label>
                     </div>
                     <div class="col-sm-8">
                         <input type="text" name="editData.company.address" value="" ng-model="editData.company.address" id="editData.company.address" class="form-control" placeholder="住所(会社)" required>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 text-left">
-                        <label for="editData.company.tel" class="control-label">電話番号(会社)</label>
+                        <label for="editData.company.tel" class="control-label">電話番号(会社)&nbsp;<span class="text-danger text-xs">※</span></label>
                     </div>
                     <div class="col-sm-8">
                         <input type="text" name="editData.company.tel" value="" ng-model="editData.company.tel" id="editData.company.tel" class="form-control" placeholder="電話番号(会社)" required>
@@ -83,7 +83,7 @@
                         <label for="editData.company.email" class="control-label">E-mail(会社)</label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" name="editData.company.email" value="" ng-model="editData.company.email" id="editData.company.email" class="form-control" placeholder="E-mail(会社)" required>
+                        <input type="text" name="editData.company.email" value="" ng-model="editData.company.email" id="editData.company.email" class="form-control" placeholder="E-mail(会社)">
                     </div>
                 </div>
                 <div class="form-group">
@@ -120,6 +120,6 @@
         </div>
 
 <div class="modal-footer">
-    <button class="btn btn-success" type="button" ng-click="update(editData)">更新</button>
+    <button class="btn btn-success" type="button" ng-click="update(editData)" ng-disabled="myForm.$invalid">更新</button>
     <button class="btn btn-default" type="button" ng-click="cancel()">キャンセル</button>
 </div>

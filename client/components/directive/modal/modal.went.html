@@ -7,6 +7,7 @@
             <div class="row">
                 <div class="container-fluid">
                     ジャンル：{{newData.genre.name}}
+                    &nbsp;<span class="text-danger text-xs">※</span>
                 </div>
             </div>
             <br>
@@ -40,14 +41,16 @@
     <p>
         <hr>
     </p>
+    <form name="myForm" novalidate>
     <div class="row">
         <div class="container-fluid text-sm">
             <div class="row">
                 <div class="container-fluid">
                     <label>シーン：</label>
-                    <select class="" name="" ng-model="newData.scene" ng-options="scene as scene.name for scene in scenes">
+                    <select class="" name="" ng-model="newData.scene" ng-options="scene as scene.name for scene in scenes" required>
                         <option value="">以下のシーンから選択して下さい</option>
                     </select>
+                    &nbsp;<span class="text-danger text-xs">※</span>
                     <div ng-show="newData.scene" ng-repeat="option in newData.scene.options">
                         <div class="col-sm-5">
                             <label for="name" style="padding-top:10px;">{{option.label}}の評価基準</label>
@@ -74,13 +77,13 @@
     </p>
     <div class="row">
         <div class="col-sm-5">
-            <label for="name" class="text-sm">タイトル</label>
+            <label for="name" class="text-sm">タイトル&nbsp;<span class="text-danger text-xs">※</span></label>
         </div>
         <br>
         <br>
         <div class="container-fluid">
             <div class="col-sm-8">
-                <input type="text" class="form-control" ng-model="newData.title">
+                <input type="text" class="form-control" ng-model="newData.title" required>
             </div>
         </div>
     </div>
@@ -88,13 +91,13 @@
     <br>
     <div class="row">
         <div class="col-sm-5">
-            <label for="name" class="text-sm">コメント</label>
+            <label for="name" class="text-sm">コメント&nbsp;<span class="text-danger text-xs">※</span></label>
         </div>
         <br>
         <br>
         <div class="container-fluid">
             <div class="col-sm-8">
-                <textarea name="name" rows="4" class="form-control" ng-model="newData.body"></textarea>
+                <textarea name="name" rows="4" class="form-control" ng-model="newData.body" required></textarea>
             </div>
         </div>
     </div>
@@ -130,13 +133,11 @@
             </div>
         </div>
     </div><!-- /row -->
-    <div class="row">
-
-    </div>
 </div>
 
 </div><!-- /modal-body -->
 <div class="modal-footer">
-    <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
-    <button class="btn" type="button" ng-click="save(newData)">登録する</button>
+    <button class="btn" type="button" ng-click="cancel()">戻る</button>
+    <button class="btn" type="button" ng-click="save(newData)" ng-disabled="myForm.$invalid">登録する</button>
 </div>
+</form>

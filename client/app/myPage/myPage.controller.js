@@ -1,7 +1,7 @@
 var app = angular.module('webApp');
 
-app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Recommend', '$state',
-    function($scope, $http, $uibModal, $timeout, $Users, $Comments, Upload, $Recommend, $state) {
+app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Recommend', '$state', '$$Scenes',
+    function($scope, $http, $uibModal, $timeout, $Users, $Comments, Upload, $Recommend, $state, $$Scenes) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
 
     $scope.global_menu = 'myPage';
@@ -11,6 +11,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                             {label: '行きたい', type: false},
                             {label: '行った', type: true}
                         ];
+    $scope.scenes = $$Scenes;
 
 // ----------------------------------------------- RestfulAPI ------------------------------------------------//
 
