@@ -52,6 +52,11 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
                     if (scope.files) {
                         comment_upload(scope.files, data._id);
                     }
+                    $scope.pop = {
+                        show : true,
+                        message : '「行った」コメントを登録しました。'
+                    };
+                    modPop();
                     scope.$dismiss();
                 }
             );
@@ -96,5 +101,15 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
                     });
                 }
             }
+        };
+
+        const modPop = () =>  {
+            $timeout(() => {
+                if ($scope.pop.show) {
+                  $scope.pop.show =false;
+                } else {
+                    modPop();
+                }
+            },3000);
         };
 }]);
