@@ -149,7 +149,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #shopDetail_main .box_header ul li h4 { color: #1d2087; font-size: 25px; font-weight: bold; line-height: 44px; }
 #main #shopDetail_main .box_header ul li h4 b { padding-right: 4px; font-size: 14px; font-weight: normal; }
 #main #shopDetail_main .impressions { line-height: 20px; font-size: 12px; padding: 10px 0;}
-#main #shopDetail_main .see_more a { text-decoration: none; color: #335ad0; font-size: 12px; font-weight: 900; }
+#main #shopDetail_main .see_more a { text-decoration: none; color: #335ad0; font-size: 12px; font-weight: 900; cursor: pointer;}
 #main #shopDetail_main .reviews_img { width: 620px; overflow: hidden; margin-top: 15px;}
 #main #shopDetail_main .reviews_img li { width: 100px; margin-right: 30px; height: 100px; float: left; background-color: #ccc;}
 #main #shopDetail_main .reviews_img li:last-child { margin-right: 0;}
@@ -169,7 +169,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main .went_title { font-size: 22px; font-weight: 800;}
 #main #went_list .went_list h5 { font-size: 15px; font-weight: 800; padding-top: 10px;}
 #main #went_list .impressions { line-height: 20px; font-size: 12px; padding: 10px 0;}
-#main #went_list .see_more a { text-decoration: none; color: #335ad0; font-size: 12px; font-weight: 900; }
+#main #went_list .see_more a { text-decoration: none; color: #335ad0; font-size: 12px; font-weight: 900; cursor: pointer;}
 #main #went_list .went_img { width: 620px; overflow: hidden; margin-top: 15px;}
 #main #went_list .went_img li { width: 100px; margin-right: 30px; height: 100px; float: left; background-color: #ccc;}
 #main #went_list .went_img li:last-child { margin-right: 0;}
