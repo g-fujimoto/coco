@@ -35,8 +35,10 @@
                 <h3>{{item.title}}</h3>
                 <div class="fontSize12 top_reviews_impressions">
                     <p ng-class="{'max_text': moreMain}">{{item.introduce}}</p>
-                    <p ng-show="moreMain && !moreFlg"><a href="#">もっと見る</a></p>
-                    <p ng-show="!moreMain && moreFlg"><a href="#">閉じる</a></p>
+                    <div ng-show="item.introduce.length > 100">
+                        <p><a ng-show="moreMain && !moreMainFlg" ng-click="moreMainRead()" href="javascript:void(0)">もっと見る</a></p>
+                        <p><a ng-show="!moreMain && moreMainFlg" ng-click="closeMainRead()" href="javascript:void(0)">閉じる</a></p>
+                    </div>
                 </div>
             </div>
             <div ng-repeat="image in item.images | limitTo :1 | orderBy: 'created': reverse">
@@ -77,7 +79,11 @@
                         <p class="review_date fontSize12">{{itemComment.create | date: 'yyyy-MM-dd'}}&nbsp;投稿</p>
                         <div class="fontSize12 top_reviews_impressions">
                             <span class="reviews_text">
-                                <p class="max_text" ng-class="{'max_text':!roopMore}">{{itemComment.body}}</p>
+                                <p class="max_text" ng-class="{'max_text': !itemComment.more}">{{itemComment.body}}</p>
+                                <div ng-show="itemComment.body.length > 20">
+                                    <p><a ng-show="!itemComment.more && !itemComment.moreFlg" ng-click="moreRead($index)" href="javascript:void(0)">もっと見る</a></p>
+                                    <p><a ng-show="itemComment.more && itemComment.moreFlg" ng-click="closeRead($index)" href="javascript:void(0)">閉じる</a></p>
+                                </div>
                             </span>
                             <div ng-repeat="image in itemComment.images | limitTo: 1">
                                 <p class="top_reviews_img">

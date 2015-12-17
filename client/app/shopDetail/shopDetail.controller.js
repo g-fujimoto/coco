@@ -4,12 +4,34 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
   function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users, $Comments, $timeout, $state, $Items) {
 
 // ----------------------------------------------- $scope(value) ----------------------------------------------------//
-    $scope.scenes = $$Scenes;
-    $scope.genres = $$Genres;
-    $scope.item   = $stateParams.item;
-    $scope.items  = $Items.query();
-    $scope.moreMain = true;
+    $scope.scenes      = $$Scenes;
+    $scope.genres      = $$Genres;
+    $scope.item        = $stateParams.item;
+    $scope.items       = $Items.query();
+    $scope.moreMain    = true;
+    $scope.moreMainFlg = false;
 // ----------------------------------------------- $scope(function) ----------------------------------------------------//
+    $scope.moreMainRead = () => {
+        $scope.moreMain    = false;
+        $scope.moreMainFlg = true;
+    };
+
+    $scope.closeMainRead = () => {
+        $scope.moreMain    = true;
+        $scope.moreMainFlg = false;
+    };
+
+    $scope.moreRead = ($index) => {
+        $scope.itemComments[$index].more    = true;
+        $scope.itemComments[$index].moreFlg = true;
+    };
+
+    $scope.closeRead = ($index) => {
+        $scope.itemComments[$index].more    = false;
+        $scope.itemComments[$index].moreFlg = false;
+    };
+
+
 
     //item._idで絞ったコメントを全件取得
     $scope.itemComments = (_id) => {
@@ -77,6 +99,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     };
 
 // ---------------------------------------------- もっと見る機能 -------------------------------------------------//
+
 
 
 // ---------------------------------------------- GoogleMaps -------------------------------------------------//
