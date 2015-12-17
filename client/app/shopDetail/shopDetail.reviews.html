@@ -33,8 +33,8 @@
                     <p class="impressions" ng-class="{'max_text':!more}">
                         {{itemComment.body}}
                     </p>
-                    <p ng-click="more=true" ng-model="more" ng-show="!more" class="see_more" id="seeMore"><a href="">もっと見る</a></p>
-                    <p ng-click="more=false" ng-show="more" class="see_more"><a href="">閉じる</a></p>
+                    <p ng-click="more=true" ng-model="more" ng-show="!more" class="see_more" id="seeMore"><a >もっと見る</a></p>
+                    <p ng-click="more=false" ng-show="more" class="see_more"><a >閉じる</a></p>
 
                     <div class="reviews_img">
                         <ul ng-repeat="image in itemComment.images">
@@ -47,8 +47,8 @@
                 </div>
             </div>
             <div ng-class="['reviews_list_footer_blue', {'reviews_list_footer_gray': !itemComment.type}]">
-                <p class="go_button white_btn" want-go-modal="{{itemComment.item}}"><a href="#"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
-                <p class="nice_button blue_btn" ng-click="like(itemComment)"><a href="#"><i class="fa fa-thumbs-o-up"></i>&nbsp;いいね</a></p>
+                <p class="go_button white_btn" want-go-modal="{{itemComment.item}}"><a ><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
+                <p class="nice_button blue_btn" ng-click="like(itemComment)"><a ><i class="fa fa-thumbs-o-up"></i>&nbsp;いいね</a></p>
             </div>
         </div>
     </div>
