@@ -1,4 +1,6 @@
-
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
 <div id="shopDetail_main">
     <div id="shopDetail_top">
         <div ng-repeat="itemComment in itemComments | filter: {'type': goFlg}">
@@ -23,7 +25,7 @@
                     </div>
                     <p class="gradation_thin_border"></p>
                     <h5>{{itemComment.title}}</h5>
-                    <div class="box_header">
+                    <div class="box_header" ng-show="itemComment.type">
                         <ul>
                             <li><h4><b>ジャンル</b>{{itemComment.genreAve | number: 1}}</h4></li>
                             <li><h4><b>シーン</b>{{itemComment.sceneAve | number: 1}}</h4></li>

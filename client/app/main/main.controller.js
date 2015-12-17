@@ -50,7 +50,7 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
                     } else {
                         getComments();
                     }
-
+                    modPop();
                     scope.$dismiss();
                 }
             );
@@ -191,7 +191,7 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
         const modPop = () =>  {
             $timeout(() => {
                 if ($scope.pop.show) {
-                  $scope.pop.show =false;
+                  $scope.pop.show = false;
                 } else {
                     modPop();
                 }

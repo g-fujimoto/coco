@@ -35,9 +35,9 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                         };
                     }
                     $timeout(() => {
-                        console.log(scope.comment);
-                        console.log(data.body);
+
                         scope.comment.body = data.body;
+                        modPop();
                         scope.$dismiss();
                     });
                 }
@@ -49,8 +49,12 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 url: '/api/users/check',
                 data: editData
             })
-            .success((data) => {
-                console.log(data);
+            .success(() => {
+                $scope.pop = {
+                    show : true,
+                    message : 'パスワードを更新しました。'
+                };
+                modPop();
                 scope.$dismiss();
             });
         } else {
@@ -58,7 +62,12 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
             $Users.update(
                 editData,
                 (data) => {
+                    $scope.pop = {
+                        show : true,
+                        message : 'プロフィールを更新しました。'
+                    };
                     $scope.$root.loginUser = data;
+                    modPop();
                     scope.$dismiss();
                 });
         }

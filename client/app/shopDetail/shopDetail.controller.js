@@ -67,6 +67,11 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
         })
         .success((data) => {
             console.log(data);
+            $scope.pop = {
+                show : true,
+                message : '「いいね」しました。'
+            };
+            modPop();
         });
     };
 
@@ -169,18 +174,26 @@ $scope.saveAPI = (newData, scope) => {
     newData.item = newData.item._id;
     $Comments.save(
         newData,
-        () => {
+        (data) => {
+            if(data.type === true) {
+                $scope.pop = {
+                    show : true,
+                    message : '「行った」コメントを登録しました。'
+                };
+            } else {
+                $scope.pop = {
+                    show : true,
+                    message : '「行きたい」コメントを登録しました。'
+                };
+            }
+            modPop();
             scope.$dismiss();
         }
     );
 };
 
 // ----------------------------------------------- OtherFunction ---------------------------------------------------//
-/**
- * modPop[$scope.popがshow = true ならfalseにする]
- * @author [author]
- * @return {[type]} [description]
- */
+
 const modPop = () =>  {
     $timeout(() => {
         if ($scope.pop.show) {

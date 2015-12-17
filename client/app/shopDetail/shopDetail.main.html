@@ -91,12 +91,12 @@
                             <p ng-click="roopMore=false" ng-show="roopMore"><a href="">閉じる</a></p>
 
                         </div>
-                            <div class="box_header_small">
-                                <ul>
-                                    <li><h4><b>ジャンル</b>{{itemComment.genreAve | number: 1}}</h4></li>
-                                    <li><h4><b>シーン</b>{{itemComment.sceneAve | number: 1}}</h4></li>
-                                </ul>
-                            </div>
+                        <div class="box_header_small" ng-show="itemComment.type">
+                            <ul>
+                                <li><h4><b>ジャンル</b>{{itemComment.genreAve | number: 1}}</h4></li>
+                                <li><h4><b>シーン</b>{{itemComment.sceneAve | number: 1}}</h4></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
