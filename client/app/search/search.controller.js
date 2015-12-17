@@ -20,7 +20,10 @@ app.controller('SearchController', ['$scope', '$http', '$uibModal', '$timeout', 
             }
         });
     };
-
+    // $scope.recommendDisabled = function() {
+    //     alert($scope.item.itemRecommendCounter.count)
+    //     //return "disabled" : "";
+    // };
     $scope.findAddScene = function(value) {
         $scope.sceneName = ($scope.sceneName == value) ? null : value;
         getItem();

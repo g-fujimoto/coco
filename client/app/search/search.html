@@ -34,7 +34,7 @@
 
           <div id="main_contents" >
 
-            <div class="loop_contents_box" ng-repeat="item in items | limitTo:10:(currentPage-1)*10">
+            <div class="loop_contents_box" ng-repeat="item in items | limitTo:10:(currentPage-1)*10 as results">
 
                 <div class="left_box">
                     <ul>
@@ -103,15 +103,14 @@
                     <div class="footer_box">
                         <ul>
                             <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikeCounter.count}}人がいいねといっています</h6></li>
-                            <li><button class="blue_btn recommendation margin-top-xs" type="button"  ng-click="recommendAdd(item);"><i class="fa fa-star-o"></i>&nbsp;推薦する</button></li>
+                            <li><button class="blue_btn recommendation margin-top-xs" type="button"  ng-click="recommendAdd(item);" ng-class="recommendDisabled()"><i class="fa fa-star-o"></i>&nbsp;推薦する</button></li>
                         </ul>
                     </div>
                   </div>
               </div>
               <!--------->
-              <div ng-show="items.length==0">
+              <div ng-show="results == 0">
                   ご指定の条件に該当する店舗が見つかりませんでした。<br>
-                  お店の新規登録は<a ui-sref="newItem" ng-class="{current:global_menu=='newItem'}" ng-click="global_menu='newItem'">新規登録ページ</a>から行うことができます。
               </div>
           </div>
 

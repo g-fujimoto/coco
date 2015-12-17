@@ -3,7 +3,7 @@
 </div>
 <div id="bg_black"> </div>
 <div id="main_contents">
-    <div ng-repeat="comment in went_comments | filter: {'genre' : {'name' : genreName}, 'scene' : {'name' : sceneName}, 'item' : {'area' : area}} | limitTo:10:(currentPage-1)*10">
+    <div ng-repeat="comment in went_comments | filter: {'genre' : {'name' : genreName}, 'scene' : {'name' : sceneName}, 'item' : {'area' : area}} | limitTo:10:(currentPage-1)*10 as results">
         <div id="went_list">
             <div class="went_list">
                 <div class="went_list_main">
@@ -37,8 +37,8 @@
             </div>
         </div>
     </div>
-    <div ng-show="went_comments.length==0">
-        現在、推薦店舗に登録されている店舗がございません。
+    <div ng-show="results == 0">
+        ご指定の条件に該当する店舗が見つかりませんでした。
     </div>
 </div><!-- #main -->
 <coco-sidebar></coco-sidebar>

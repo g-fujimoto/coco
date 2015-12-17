@@ -3,7 +3,7 @@
 </div>
 <div id="shopDetail_main">
     <div id="shopDetail_top">
-        <div ng-repeat="itemComment in itemComments | filter: {'type': goFlg}">
+        <div ng-repeat="itemComment in itemComments | filter: {'type': goFlg} as results">
             <div ng-class="['reviews_list_blue', {'reviews_list_gray': !itemComment.type}]">
                 <div class="reviews_list_main">
                     <div class="reviews_top">
@@ -52,6 +52,9 @@
                 <p class="go_button white_btn" want-go-modal="{{itemComment.item}}"><a ><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
                 <p class="nice_button blue_btn" ng-click="like(itemComment)"><a ><i class="fa fa-thumbs-o-up"></i>&nbsp;いいね</a></p>
             </div>
+        </div>
+        <div ng-show="results == 0">
+            口コミ・評価が見つかりませんでした。
         </div>
     </div>
 </div>
