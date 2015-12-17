@@ -1,20 +1,31 @@
 <div id="shopDetail_main">
     <div id="shopDetail_top">
-        <p class="main_photo"><img class="withParent" ng-src="./../../assets/images/comments/566f9c2cfcb58a8409f65d6d/43fe602a73489668c4614a84592bf27f.jpg"</p>
-        <ul class="sub_photo">
-            <li>PHOTO</li>
-            <li>PHOTO</li>
-            <li>PHOTO</li>
-            <li>PHOTO</li>
-            <li>PHOTO</li>
-            <li>PHOTO</li>
-            <li>PHOTO</li>
-            <li>PHOTO</li>
-        </ul>
+        <div ng-repeat="image in item.images | limitTo :1 | orderBy: 'created'">
+            <p class="main_photo">
+                <img class="withParent" ng-src="image.path">
+            </p>
+        </div>
+        <p class="main_photo no-photo text-muted" ng-show="item.images.length == 0">
+            No Photo
+        </p>
+        <div ng-repeat="image in itemComments.images">
+            <ul class="sub_photo">
+                <li>
+                    <img class="withParent" ng-src="image.path">
+                </li>
+            </ul>
+        </div>
         <div id="top_person">
             <div class="top_person_info">
                 <p class="fontSize12">登録者</p>
-                <p class="top_thumbnail">サムネ</p>
+                <div ng-repeat="image in itemComment.user.images">
+                    <p class="top_thumbnail">
+                        <img class="withParent" ng-src="image.path">
+                    </p>
+                </div>
+                <p class="top_thumbnail no-photo text-muted">
+                    No Photo
+                </p>
                 <p class="fontSize12">{{item.registerUser}}</p>
             </div>
             <div class="person_reviews">
@@ -25,22 +36,35 @@
                     <p ng-click="more=false" ng-show="more"><a href="">閉じる</a></p>
                 </div>
             </div>
-            <p class="person_reviews_img"><img class="withParent" ng-src="./../../assets/images/comments/566f9c2cfcb58a8409f65d6d/369258974e48b69e44115b0de713f95d.jpg"</p>
+            <div ng-repeat="image in item.images | limitTo :1 | orderBy: 'created': reverse">
+                <p class="person_reviews_img">
+                    <img class="withParent" ng-src="image.path">
+                </p>
+            </div>
+            <p class="person_reviews_img no-photo text-muted" ng-show="item.images.length == 0">
+                No Photo
+            </p>
         </div>
     </div>
     <div id="item_title">
         <div id="title_background">
             <h3>口コミ・評価</h3>
-            <p class="white_btn shopDetail_btn" ng-click="wantGoFilter()"><a href="#"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
-            <p class="white_btn shopDetail_btn" ng-click="wentFilter()"><a href="#"><i class="fa fa-star"></i>&nbsp;行った(口コミ)</a></p>
+            <p class="white_btn shopDetail_btn" ng-click="wantGoFilter();"><a href="#"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
+            <p class="white_btn shopDetail_btn" ng-click="wentFilter();"><a href="#"><i class="fa fa-star"></i>&nbsp;行った(口コミ)</a></p>
         </div>
     </div>
     <div id="shopDetail_main_reviews">
-        <!-- <div ng-repeat="itemComment in itemComments"> -->
-        <div ng-repeat="itemComment in itemComments | filter: {'type': goFlg}">
+        <div ng-repeat="itemComment in itemComments | filter: {type: goFlg}">
             <div class="shopDetail_main_reviews_list">
                 <div class="top_person_info">
-                    <p class="top_thumbnail">サムネ</p>
+                    <div ng-repeat="image in itemComment.user.images | limitTo: 1">
+                        <p class="top_thumbnail">
+                            <img ng-src="image.path" alt="" />
+                        </p>
+                    </div>
+                    <p class="top_thumbnail" ng-show="itemComment.user.images.length == 0">
+                        <span class="text-sm  text-muted no-photo">No Photo</span>
+                    </p>
                     <p class="fontSize12 person_reviews_name">{{itemComment.user.lastName}}&nbsp;{{itemComment.user.firstName}}</p>
                 </div>
                 <div ng-class="['arrow_box_blue', {'arrow_box_gray': !itemComment.type}]">
@@ -52,7 +76,14 @@
                             <span class="reviews_text">
                                 <p class="max_text" ng-class="{'max_text':!roopMore}">{{itemComment.body}}</p>
                             </span>
-                            <p class="top_reviews_img">PHOTO</p>
+                            <div ng-repeat="image in itemComment.images | limitTo: 1">
+                                <p class="top_reviews_img">
+                                    <img ng-src="{{image.path}}" alt="" />
+                                </p>
+                            </div>
+                            <p class="top_reviews_img no-photo text-muted" ng-show="itemComment.images.length == 0">
+                                No Photo
+                            </p>
                             <p ng-click="roopMore=true" ng-model="roopMore" ng-show="!roopMore" id="seeMore"><a href="">もっと見る</a></p>
                             <p ng-click="roopMore=false" ng-show="roopMore"><a href="">閉じる</a></p>
 

@@ -105,13 +105,29 @@ angular.module('webApp')
 
                 scope.newData.type = false;
 
-                var wantGoModal = angular.fromJson(attr.wantGoModal);
-
                 $uibModal.open({
                     scope,
                     controller  : 'ModalController',
                     backdrop    : 'static',
                     templateUrl : './components/directive/modal/modal.wantGo.html'
+                });
+            });
+        };
+    })
+    // 「行きたい店」モーダル表示属性
+    .directive('wantGoModalEdit', ($uibModal) => {
+        return (scope, element, attr) => {
+            element.on('click', () => {
+                scope.editData = angular.fromJson(attr.wantGoModalEdit);
+
+                scope.editData.type = false;
+                scope.editData.updateFlg = true;
+
+                $uibModal.open({
+                    scope,
+                    controller  : 'ModalController',
+                    backdrop    : 'static',
+                    templateUrl : './components/directive/modal/modal.wantGo.edit.html'
                 });
             });
         };

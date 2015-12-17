@@ -102,8 +102,8 @@
                     <div class="footer_box">
                         <ul>
                             <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikeCounter.count}}人がいいねといっています</h6></li>
-                            <li style="float:right;"><p class="white_btn size text-sm"><a want-go-modal="{{item}}" class="padding-none"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p></li>
-                            <li style="float:right;"><p class="white_btn size text-sm"><a went-modal="{{item}}" class="padding-none"><i class="fa fa-star"></i>&nbsp;行った</a></p></li>
+                            <li style="float:right;"><p class="white_btn size text-sm"><a want-go-modal="{{item}}" href="#" class="padding-none"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p></li>
+                            <li style="float:right;"><p class="white_btn size text-sm"><a went-modal="{{item}}" href="#" class="padding-none"><i class="fa fa-star"></i>&nbsp;行った</a></p></li>
                         </ul>
                     </div>
                   </div>
@@ -111,7 +111,7 @@
                   <!--------->
                   <div ng-show="items.length==0">
                       ご指定の条件に該当する店舗が見つかりませんでした。<br>
-                      お店の新規登録は<a ui-sref="newItem.regist" ng-click="global_menu='newItem'">新規登録ページ</a>から行うことができます。
+                      お店の新規登録は<a ui-sref="newItem.regist" href="#" ng-click="global_menu='newItem'">新規登録ページ</a>から行うことができます。
                   </div>
               </div>
 

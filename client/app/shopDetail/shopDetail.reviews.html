@@ -9,7 +9,14 @@
                         <p class="reviews_date">{{itemComment.create | date: 'yyyy-MM-dd'}}</p>
                     </div>
                     <p class="gradation_thick_border"></p>
-                    <p class="reviews_thumbnail">サムネ</p>
+                    <div ng-repeat="image in itemComment.user.images">
+                        <p class="reviews_thumbnail">
+                            <img class="withParent" ng-src="image.path">
+                        </p>
+                    </div>
+                    <p class="reviews_thumbnail no-photo text-muted">
+                        No Photo
+                    </p>
                     <div class="person_info">
                         <p class="person_name">{{itemComment.user.lastName}}&nbsp;{{itemComment.user.firstName}}さんの口コミ</p>
                         <p class="person_state">{{itemComment.type ? '行った' : '行きたい'}}</p>
@@ -28,14 +35,14 @@
                     </p>
                     <p ng-click="more=true" ng-model="more" ng-show="!more" class="see_more" id="seeMore"><a href="">もっと見る</a></p>
                     <p ng-click="more=false" ng-show="more" class="see_more"><a href="">閉じる</a></p>
+
                     <div class="reviews_img">
-                        <ul>
-                            <li>画像</li>
-                            <li>画像</li>
-                            <li>画像</li>
-                            <li>画像</li>
-                            <li>画像</li>
+                        <ul ng-repeat="image in itemComment.images">
+                            <img ng-src="image.path" alt="" />
                         </ul>
+                    </div>
+                    <div class="reviews_img text-muted no-photo" ng-show="itemComment.images.length == 0">
+                            No Photo
                     </div>
                 </div>
             </div>

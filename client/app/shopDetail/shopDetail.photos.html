@@ -1,52 +1,25 @@
 <div id="shopDetail_main">
     <div id="shopDetail_photo_list">
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
+        <div ng-repeat="image in item.images">
+            <div class="shopDetail_photo">
+                <p class="photo_img">
+                    <img class="withParent" ng-src="image.path">
+                </p>
+                <p>{{item.introduce}}({{item.registerUser}})</p>
+            </div>
         </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
-        </div>
-        <div class="shopDetail_photo">
-            <p class="photo_img">PHOTO</p>
-            <p>ああああああ(投稿者)</p>
+        <div ng-repeat="itemComment in itemComments">
+            <div ng-repeat="image in itemComment.images">
+                <div class="shopDetail_photo">
+                    <p class="photo_img">
+                        <img class="withParent" ng-src="image.path">
+                    </p>
+                    <p>{{image.title || 'No Title'}}({{image.registerUser || '名無しさん'}})</p>
+                </div>
+                <p class="text-muted no-photo h3" ng-show="item.images.length == 0 && itemComment.images == 0">
+                    No Photo
+                </p>
+            </div>
         </div>
     </div>
 </div>

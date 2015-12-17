@@ -53,6 +53,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
 
         });
     };
+
     $Comments.itemComments($stateParams.item._id)
         .success((data) => {
             $scope.itemComments = data;
@@ -62,39 +63,39 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
 
     $scope.wentFilter = () => {
         if($scope.goFlg === true) {
-            $scope.itemComment.goFlg = undefined;
+            $scope.goFlg = undefined;
         } else {
-            $scope.itemComment.goFlg = true;
+            $scope.goFlg = true;
         }
     };
 
     $scope.wantGoFilter = () => {
         if($scope.goFlg === false) {
-            $scope.itemComment.goFlg = undefined;
+            $scope.goFlg = undefined;
 
         } else {
-            $scope.itemComment.goFlg = false;
+            $scope.goFlg = false;
         }
     };
 
-        $scope.like = (itemComment) => {
-            $http({
-                method: 'POST',
-                url: '/api/like/add',
-                data: itemComment
-            })
-            .success((data) => {
-                console.log(data);
-            });
-        };
+    $scope.like = (itemComment) => {
+        $http({
+            method: 'POST',
+            url: '/api/like/add',
+            data: itemComment
+        })
+        .success((data) => {
+            console.log(data);
+        });
+    };
 
 // ---------------------------------------------- もっと見る機能 -------------------------------------------------//
-    if($scope.item.introduce.length <= 120 && $scope.item.introduce.split('\n').length <= 3){
-        $("#seeMore").css("display","none");
-    }
-    if($scope.itemComment.body.length <= 120 && $scope.itemComment.body.split('\n').length <= 3){
-        $("#seeMore").css("display","none");
-    }
+    // if($scope.item.introduce.length <= 120 && $scope.item.introduce.split('\n').length <= 3){
+    //     $("#seeMore").css("display","none");
+    // }
+    // if($scope.itemComment.body.length <= 120 && $scope.itemComment.body.split('\n').length <= 3){
+    //     $("#seeMore").css("display","none");
+    // }
     $scope.moreFlg = (index) => {
         if($scope.dottedFlg){
             $scope.dottedFlg = false;

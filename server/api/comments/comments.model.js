@@ -68,11 +68,13 @@ var CommentsSchema = mongoose.Schema({
     ],
     images : [
         {
-            path      : String,
-            sortNo    : {type: Number, default: 0},
-            created   : {type: Date, default: Date.now()},
-            modified  : {type: Date, default: Date.now()},
-            deleteFlg : {type: Number, default: 0}
+            path         : String,
+            registerUser : String,
+            title        : String,
+            sortNo       : {type: Number, default: 0},
+            created      : {type: Date, default: Date.now()},
+            modified     : {type: Date, default: Date.now()},
+            deleteFlg    : {type: Number, default: 0}
         }
     ],
     created   : {type : Date, default   : Date.now()},

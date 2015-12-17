@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title">{{newData.item.name}}の「行きたい」を登録</h4>
+    <h4 class="modal-title">{{editData.item.name}}の「行きたい」を登録</h4>
 </div>
 <div class="modal-body">
     <div class="row">
@@ -11,7 +11,7 @@
                 <br>
                 <br>
                 <div class="col-sm-9 text-sm">
-                    <input type="text" class="form-control margin-bottom-sm" ng-model='newData.title'>
+                    <input type="text" class="form-control margin-bottom-sm" ng-model='editData.title'>
                 </div>
             </div>
             <div>
@@ -21,11 +21,11 @@
                 <br>
                 <br>
                 <div class="col-sm-9 text-sm">
-                    <textarea name="name" rows="8" cols="40" class="form-control margin-bottom-sm" ng-model='newData.body'></textarea>
+                    <textarea name="name" rows="8" cols="40" class="form-control margin-bottom-sm" ng-model='editData.body'></textarea>
                 </div>
             </div>
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()" ng-disabled="myForm.$invalid">戻る</button>
-    <button class="btn" type="button" ng-click="save(newData)">登録する</button>
+    <button class="btn" type="button" ng-click="update(editData)">編集する</button>
 </div>
