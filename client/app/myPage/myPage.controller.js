@@ -13,6 +13,16 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                         ];
     $scope.scenes = $$Scenes;
 
+    $scope.moreRead = ($index) => {
+        $scope.went_comments[$index].more    = true;
+        $scope.went_comments[$index].moreFlg = true;
+    };
+
+    $scope.closeRead = ($index) => {
+        $scope.went_comments[$index].more    = false;
+        $scope.went_comments[$index].moreFlg = false;
+    };
+
 // ----------------------------------------------- RestfulAPI ------------------------------------------------//
 
     $scope.comments = $Comments.query();

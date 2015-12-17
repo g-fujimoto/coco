@@ -80,7 +80,7 @@
                         <div class="fontSize12 top_reviews_impressions">
                             <span class="reviews_text">
                                 <p class="max_text" ng-class="{'max_text': !itemComment.more}">{{itemComment.body}}</p>
-                                <div ng-show="itemComment.body.length > 20">
+                                <div ng-show="itemComment.body.length > 100">
                                     <p><a ng-show="!itemComment.more && !itemComment.moreFlg" ng-click="moreRead($index)" href="javascript:void(0)">もっと見る</a></p>
                                     <p><a ng-show="itemComment.more && itemComment.moreFlg" ng-click="closeRead($index)" href="javascript:void(0)">閉じる</a></p>
                                 </div>
