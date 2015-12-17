@@ -123,15 +123,14 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
 
             $scope.items = data;
             getSumAve();
-
             $scope.currentPage = 1;
             $scope.pages       = [];
             for(var i = Math.ceil(data.length/10) + 1;--i;) {
                 $scope.pages.unshift(i);
             }
+
         });
     };
-
     $scope.getWentComments = () => {
         $http.post('/api/comments/went')
         .success((data) => {
@@ -223,7 +222,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 }, 0);
                 var sceneAve = sceneAveSum < 1 ? 0 : sceneAveSum / sceneAvelist.length;
 
-                sum_ave[item_ids[i]] = {genreAve, sceneAve };
+                sum_ave[item_ids[i]] = { genreAve, sceneAve };
 
             }
 

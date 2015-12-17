@@ -3,6 +3,7 @@
 </div>
     <div id="bg_black"></div>
     <div id="main_contents">
+
     <div ng-repeat="comment in wantgo_comments | filter: {'item' : {'area' : area, 'sceneNames' : sceneName, 'genreName' : genreName}} | limitTo:10:(currentPage-1)*10">
             <div class="want_go_store_list" style="margin-bottom:20px;">
                 <div class="store_img">
@@ -17,6 +18,9 @@
                         <p class="edit white_btn"><a want-go-modal-edit="{{comment}}">編集する</a></p>
                     </div>
                 </div>
+            </div>
+            <div ng-show="wantgo_comments.length==0">
+                現在、推薦店舗に登録されている店舗がございません。
             </div>
         </div>
     </div>
