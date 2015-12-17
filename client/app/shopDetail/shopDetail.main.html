@@ -34,9 +34,9 @@
             <div class="person_reviews">
                 <h3>{{item.title}}</h3>
                 <div class="fontSize12 top_reviews_impressions">
-                    <p ng-class="{'max_text':!more}">{{item.introduce}}</p>
-                    <p ng-click="more=true" ng-model="more" ng-show="!more" id="seeMore"><a href="#">もっと見る</a></p>
-                    <p ng-click="more=false" ng-show="more"><a href="#">閉じる</a></p>
+                    <p ng-class="{'max_text': moreMain}">{{item.introduce}}</p>
+                    <p ng-show="moreMain && !moreFlg"><a href="#">もっと見る</a></p>
+                    <p ng-show="!moreMain && moreFlg"><a href="#">閉じる</a></p>
                 </div>
             </div>
             <div ng-repeat="image in item.images | limitTo :1 | orderBy: 'created': reverse">
@@ -87,8 +87,6 @@
                             <p class="top_reviews_img no-photo text-muted" ng-show="itemComment.images.length == 0">
                                 No Photo
                             </p>
-                            <p ng-click="roopMore=true" ng-model="roopMore" ng-show="!roopMore" id="seeMore"><a href="">もっと見る</a></p>
-                            <p ng-click="roopMore=false" ng-show="roopMore"><a href="">閉じる</a></p>
 
                         </div>
                         <div class="box_header_small" ng-show="itemComment.type">

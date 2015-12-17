@@ -8,6 +8,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     $scope.genres = $$Genres;
     $scope.item   = $stateParams.item;
     $scope.items  = $Items.query();
+    $scope.moreMain = true;
 // ----------------------------------------------- $scope(function) ----------------------------------------------------//
 
     //item._idで絞ったコメントを全件取得
@@ -76,30 +77,7 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
     };
 
 // ---------------------------------------------- もっと見る機能 -------------------------------------------------//
-    // if($scope.item.introduce.length <= 120 && $scope.item.introduce.split('\n').length <= 3){
-    //     $("#seeMore").css("display","none");
-    // }
-    // if($scope.itemComment.body.length <= 120 && $scope.itemComment.body.split('\n').length <= 3){
-    //     $("#seeMore").css("display","none");
-    // }
-    $scope.moreFlg = (index) => {
-        if($scope.dottedFlg){
-            $scope.dottedFlg = false;
-            $scope.closeFlg = true;
-        } else {
-            $scope.dottedFlg = true;
-            $scope.closeFlg = false;
-        }
-    };
-    $scope.roopMoreFlg = (index) => {
-        if($scope.roopDottedFlg){
-            $scope.roopDottedFlg = false;
-            $scope.roopCloseFlg = true;
-        } else {
-            $scope.roopDottedFlg[index] = true;
-            $scope.roopCloseFlg[index] = false;
-        }
-    };
+
 
 // ---------------------------------------------- GoogleMaps -------------------------------------------------//
 
