@@ -4,9 +4,6 @@
 <div id="bg_black"> </div>
 <div id="main_contents">
     <p class="settled_store">登録可能件数10件中{{items.length}}件登録済み</p>
-    <div ng-show="items.length==0">
-        現在、推薦店舗に登録されている店舗がございません。
-    </div>
         <div ng-repeat="item in items | filter: {'sceneNames' : sceneName} as results">
             <div class="recommend_list" style="margin-bottom:20px;">
                 <div class="store_img">
@@ -28,7 +25,7 @@
             </div>
         </div>
         <div ng-show="results == 0">
-            現在、推薦店舗に登録されている店舗がございません。
+            ご指定の条件に該当する店舗が見つかりませんでした。
         </div>
         </div>
     </div>

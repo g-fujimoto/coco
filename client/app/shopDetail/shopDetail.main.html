@@ -57,7 +57,7 @@
         </div>
     </div>
     <div id="shopDetail_main_reviews">
-        <div ng-repeat="itemComment in itemComments | filter: {type: goFlg}">
+        <div ng-repeat="itemComment in itemComments | filter: {type: goFlg} as results">
             <div class="shopDetail_main_reviews_list">
                 <div class="top_person_info">
                     <div ng-repeat="image in itemComment.user.images | limitTo: 1">
@@ -98,6 +98,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div ng-show="results == 0">
+            口コミ・評価が見つかりませんでした。
         </div>
     </div>
     <p class="reviews_more"><a ui-sref="shopDetail.reviews({item: item})">口コミをもっと見る>>></a></p>

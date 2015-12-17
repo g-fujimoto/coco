@@ -4,7 +4,7 @@
     <div id="bg_black"></div>
     <div id="main_contents">
 
-    <div ng-repeat="comment in wantgo_comments | filter: {'item' : {'area' : area, 'sceneNames' : sceneName, 'genreName' : genreName}} | limitTo:10:(currentPage-1)*10">
+    <div ng-repeat="comment in wantgo_comments | filter: {'item' : {'area' : area, 'sceneNames' : sceneName, 'genreName' : genreName}} | limitTo:10:(currentPage-1)*10 as results">
             <div class="want_go_store_list" style="margin-bottom:20px;">
                 <div class="store_img">
                     <image class="store_img" src="./assets/./images/items/sample.jpg">
@@ -19,8 +19,8 @@
                     </div>
                 </div>
             </div>
-            <div ng-show="wantgo_comments.length==0">
-                現在、推薦店舗に登録されている店舗がございません。
+            <div ng-show="results == 0">
+                ご指定の条件に該当する店舗が見つかりませんでした。
             </div>
         </div>
     </div>
