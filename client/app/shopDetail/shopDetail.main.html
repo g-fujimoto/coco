@@ -1,3 +1,6 @@
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
 <div id="shopDetail_main">
     <div id="shopDetail_top">
         <div ng-repeat="image in item.images | limitTo :1 | orderBy: 'created'">
@@ -32,8 +35,8 @@
                 <h3>{{item.title}}</h3>
                 <div class="fontSize12 top_reviews_impressions">
                     <p ng-class="{'max_text':!more}">{{item.introduce}}</p>
-                    <p ng-click="more=true" ng-model="more" ng-show="!more" id="seeMore"><a href="">もっと見る</a></p>
-                    <p ng-click="more=false" ng-show="more"><a href="">閉じる</a></p>
+                    <p ng-click="more=true" ng-model="more" ng-show="!more" id="seeMore"><a href="#">もっと見る</a></p>
+                    <p ng-click="more=false" ng-show="more"><a href="#">閉じる</a></p>
                 </div>
             </div>
             <div ng-repeat="image in item.images | limitTo :1 | orderBy: 'created': reverse">
@@ -49,8 +52,8 @@
     <div id="item_title">
         <div id="title_background">
             <h3>口コミ・評価</h3>
-            <p class="white_btn shopDetail_btn" ng-click="wantGoFilter();"><a href="#"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
-            <p class="white_btn shopDetail_btn" ng-click="wentFilter();"><a href="#"><i class="fa fa-star"></i>&nbsp;行った(口コミ)</a></p>
+            <p class="white_btn shopDetail_btn" ng-click="wantGoFilter();"><a><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
+            <p class="white_btn shopDetail_btn" ng-click="wentFilter();"><a><i class="fa fa-star"></i>&nbsp;行った(口コミ)</a></p>
         </div>
     </div>
     <div id="shopDetail_main_reviews">

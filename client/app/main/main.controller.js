@@ -33,8 +33,19 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
                 newData,
                 (data) => {
                     $scope.comments = $Comments.query();
+                    if(data.type === true) {
+                        $scope.pop = {
+                            show : true,
+                            message : '「行った」コメントを登録しました。'
+                        };
+                    } else {
+                        $scope.pop = {
+                            show : true,
+                            message : '「行きたい」コメントを登録しました。'
+                        };
+                    }
 
-                  　if (scope.files) {
+                    if (scope.files) {
                         upload(scope.files, data._id);
                     } else {
                         getComments();
@@ -176,7 +187,19 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
                 getComments();
             },1000);
         };
+
+        const modPop = () =>  {
+            $timeout(() => {
+                if ($scope.pop.show) {
+                  $scope.pop.show =false;
+                } else {
+                    modPop();
+                }
+            },3000);
+        };
 // ----------------------------------------------- Immediately Function -----------------------------------------------//
         getItem();
+
+
 
 }]);

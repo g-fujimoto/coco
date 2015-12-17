@@ -1,5 +1,5 @@
 
-    <div id="main_top">
+    <div id="main_top" style="margin: 0!important">
         <h3>{{item.name}}</h3>
         <ul class="header_list">
             <li class="narrowing_title">最寄駅</li>
@@ -7,19 +7,22 @@
             <li class="narrowing_title">ジャンル</li>
             <li style="width:150px;">{{item.genreName}}</li>
             <li class="narrowing_title">利用用途</li>
-            <span ng-repeat="sceneName in item.sceneNames">
+            <span ng-repeat="sceneName in item.sceneNames | filter: ''">
                 <li style="width:60px;">{{sceneName}}</li>
             </span>
         </ul>
-        <p class="white_btn shopDetail_header_btn"><a href="#" want-go-modal="{{item}}"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
-        <p class="white_btn shopDetail_header_btn"><a href="#" went-modal="{{item}}"><i class="fa fa-star"></i>&nbsp;行った</a></p>
         <div class="box_header">
            <ul>
-                <li><h4><b>ジャンル</b>{{sum_ave.genreAve || 0.0 | number: 1}}</h4></li>
-                <li><h4><b>シーン</b>{{sum_ave.sceneAve || 0.0 | number: 1}}</h4></li>
+                <li><h4><b>ジャンル</b>{{allGenreAve || 0.0 | number: 1}}</h4></li>
+                <li><h4><b>シーン</b>{{allSceneAve || 0.0 | number: 1}}</h4></li>
             </ul>
+            <div id="wantWent" style="position:relative; top:-50px; left: 500px;">
+                <p class="white_btn shopDetail_header_btn" style="margin-top:10px;"><a href="#" want-go-modal="{{item}}"><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
+                <p class="white_btn shopDetail_header_btn" style="margin-top:10px;"><a href="#" went-modal="{{item}}"><i class="fa fa-star"></i>&nbsp;行った</a></p>
+            </div>
         </div>
     </div>
+    {{sum_ave[0] | json}}
     <div id="main_contents_main">
         <ul>
             <li><a ui-sref=".main" ui-sref-active="current_sub_now" class="current_sub">店舗TOP</a></li>

@@ -22,10 +22,23 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
         if(editData.updateFlg) {
             $Comments.update(
                 editData,
-                () => {
+                (data) => {
+                    if(editData.type === true) {
+                        $scope.pop = {
+                            show : true,
+                            message : '「行った」コメントを更新しました。'
+                        };
+                    } else {
+                        $scope.pop = {
+                            show : true,
+                            message : '「行きたい」コメントを更新しました。'
+                        };
+                    }
                     $timeout(() => {
-                        scope.comments = $Comments.query();
-                        $state.go('main');
+                        console.log(scope.comment);
+                        console.log(data.body);
+                        scope.comment.body = data.body;
+                        scope.$dismiss();
                     });
                 }
             );

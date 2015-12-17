@@ -87,6 +87,7 @@ angular.module('webApp')
                 scope.editData = {};
                 scope.editData = angular.fromJson(attr.wentEditModal);
                 scope.editData.updateFlg = true;
+
                 $uibModal.open({
                     scope,
                     controller  : 'ModalController',
