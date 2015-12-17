@@ -7,7 +7,7 @@
     <div ng-show="items.length==0">
         現在、推薦店舗に登録されている店舗がございません。
     </div>
-        <div ng-repeat="item in items | filter: {'sceneNames' : sceneName}">
+        <div ng-repeat="item in items | filter: {'sceneNames' : sceneName} as results">
             <div class="recommend_list" style="margin-bottom:20px;">
                 <div class="store_img">
                     <image class="store_img" src="./assets/./images/items/sample.jpg">
@@ -26,6 +26,9 @@
                     <button type="button" class="blue_btn circle delete" ng-click="recommendDelete(item._id);"><i class="fa fa-times"></i>&nbsp;削除する</button>
                 </div>
             </div>
+        </div>
+        <div ng-show="results == 0">
+            現在、推薦店舗に登録されている店舗がございません。
         </div>
         </div>
     </div>
