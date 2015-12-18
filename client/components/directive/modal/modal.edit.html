@@ -2,10 +2,36 @@
     <h4 class="modal-title">編集</h4>
 </div>
 <div class="modal-body">
-
     <div class="row">
         <form class="form-horizontal" name="myForm" novalidate>
             <div class="container-fluid">
+                <div class="form-group">
+                    <div class="col-sm-4 text-left">
+                        <label for="">画像登録</label>
+                    </div>
+                    <div class="col-sm-11 text-sm">
+                        <div class="upload-area" ngf-drop ng-model="files" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+                            <div clss="upload-drop">アップロードする画像をドラッグしてください。</div>
+                        </div>
+                        <div ng-repeat="image in files track by $index | limitTo: 5" style="float:left;">
+                             <div>
+                                 <img ngf-src="image" ngf-accept="'image/*'" class="upload-show-image">
+                              </div>
+                              <div style="text-align: center;">
+                                  <button ng-click="files.splice($index, 1)">削除</button>
+                              </div>
+                        </div>
+                        <span ngf-no-file-drop>
+                            <div class="upload-button">
+                                  ファイルを選択
+                                  <input type="file" onchange="uv.style.display='inline-block'; uv.value = this.value;" />
+                            </div>
+                            <div class="upload-value">
+                                <input class="upload-text" type="text" id="uv"/>
+                            </div>
+                         </span>
+                     </div>
+                </div>
                 <div class="form-group">
                     <div class="col-sm-4 text-left">
                         <label for="editData.lastName" class="control-label">名前(姓)&nbsp;<span class="text-danger text-xs">※</span></label>

@@ -80,7 +80,45 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 .success(() => {
                     console.log('OK');
                 });
+
+            if (scope.files[0]) {
+                Upload.upload({
+                    url: 'api/upload/user',
+                    file: scope.files[0]
+                })
+                .success(() => {
+                    console.log('OK');
+                });
             }
+        }
+    };
+
+// ----------------------------------------------- $scope(function) --------------------------------------------//
+
+        $scope.recommendAdd = function(item) {
+            $Recommend.add(item)
+            .success((data) => {
+                if (data.ok === 1) {
+                    $scope.pop = {
+                        show : true,
+                        message : '推薦店舗を追加しました。'
+                    };
+                }
+            });
+        };
+
+        $scope.recommendDelete = function(item) {
+
+            $Recommend.delete(item)
+            .success((data) => {
+                if (data.ok === 1) {
+                    $scope.pop = {
+                        show : true,
+                        message : '推薦店舗を削除しました。'
+                    };
+                    $scope.getRecommendItem();
+                }
+            });
         };
 
         $scope.getRecommendItem = function() {

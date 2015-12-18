@@ -18,14 +18,7 @@
             </ul>
         </div>
         <div class="profile_img_box" ngf-drop ng-model="files" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
-            <image class="profile_img" src="./assets/./images/users/sample.jpg">
-<!-- TODO 後で実装
-            アップロードする画像をドラッグしてください。
-            <div ng-repeat="file in files">
-                <img ngf-src="file" ngf-accept="'image/*'"  class="profile_img">
-            </div>
-        </div>
--->
+            <image class="profile_img" src="{{loginUser.images[0].path}}">
         <span ngf-no-file-drop style="float:right;">
             <div class="upload-button">
                 ファイルを選択
@@ -73,6 +66,6 @@
             </div>
         </div>
     </div>
-        <p class="profile_btn white_btn"><a edit-profile-modal="{{loginUser}}" href="#">編集する</a></p>
-        <p class="profile_btn white_btn"><a edit-password-modal href="#">パスワード変更</a></p>
+        <p class="profile_btn white_btn"><a edit-profile-modal="{{loginUser}}">編集する</a></p>
+        <p class="profile_btn white_btn"><a edit-password-modal>パスワード変更</a></p>
 </div>
