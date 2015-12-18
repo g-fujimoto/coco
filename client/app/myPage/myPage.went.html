@@ -3,7 +3,7 @@
 </div>
 <div id="bg_black"> </div>
 <div id="main_contents">
-    <div ng-repeat="comment in went_comments | filter: {'genre' : {'name' : genreName}, 'scene' : {'name' : sceneName}, 'item' : {'area' : area}} | limitTo:10:(currentPage-1)*10 as results">
+    <div ng-repeat="comment in went_comments | filter: {'genre' : {'name' : genreName}, 'scene' : {'name' : sceneName}, 'item' : {'area' : area}} | limitTo: len: start as results">
         <div id="went_list">
             <div class="went_list">
                 <div class="went_list_main">
@@ -20,7 +20,7 @@
                                 <li><h3><b>シーン</b>{{comment.sceneAve | number: 1}}</h3></li>
                             </ul>
                         </div>
-                    <button class="blue_btn recommendation" type="button"  ng-click="recommendAdd(comment.item._id);"><i class="fa fa-star-o"></i>&nbsp;推薦する</button>
+                    <button class="blue_btn recommendation" ng-click="recommendAdd(comment.item._id);"><i class="fa fa-star-o"></i>&nbsp;推薦する</button>
                     <p class="edit white_btn"><a went-edit-modal="{{comment}}">編集する</a></p>
                     </div>
                     <p class="gradation_thin_border"></p>
@@ -40,6 +40,9 @@
     </div>
     <div ng-show="results == 0">
         ご指定の条件に該当する店舗が見つかりませんでした。
+    </div>
+    <div id="pagerCenter">
+        <pagination total-items="went_comments.length" items-per-page="len" ng-model="current" ng-change="pager()" previous-text="◀︎" next-text="▶︎" class="center-block"></pagination>
     </div>
 </div><!-- #main -->
 <coco-sidebar></coco-sidebar>

@@ -928,3 +928,54 @@ li {
 .no-photo {
     opacity: .6;
 }
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+    background: none!important;
+    border: none!important;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+    background: none!important;
+    border: none!important;
+}
+
+.pagination > li > a, .pagination > li > span {
+    background: none!important;
+    border: none!important;
+    color: #1d2087!important;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    color: #353B6E!important;
+    font-weight: bold;
+}
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+    color: #DBD8E3!important;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+    background: none!important;
+    border: none!important;
+}
+
+#pagerCenter {
+    position: relative!important;
+    left: 275px!important;
+}
+
+#pagerCenterDetail {
+    position:relative!important;
+    left: 320px!important;
+    padding-bottom: 20px;
+}
+
+#pagerCenterReviews {
+    position: relative!important;
+    left: 400px!important;
+}
+
+#pagerCenterPhotos {
+    position: relative!important;
+    left: 411px!important;
+    top: 55px!important;
+}

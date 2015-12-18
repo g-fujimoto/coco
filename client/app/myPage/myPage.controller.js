@@ -1,12 +1,11 @@
 var app = angular.module('webApp');
 
-app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Recommend', '$state', '$$Scenes',
-    function($scope, $http, $uibModal, $timeout, $Users, $Comments, Upload, $Recommend, $state, $$Scenes) {
+app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', '$Users', '$Comments', 'Upload', '$Recommend', '$state', '$$Scenes', '$anchorScroll',
+    function($scope, $http, $uibModal, $timeout, $Users, $Comments, Upload, $Recommend, $state, $$Scenes, $anchorScroll) {
 // ----------------------------------------------- $scope ----------------------------------------------------//
 
     $scope.global_menu = 'myPage';
     $scope.apiName     = 'users';
-    $scope.pages       = [];
     $scope.type        = [
                             {label: '行きたい', type: false},
                             {label: '行った', type: true}
@@ -23,10 +22,18 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
         $scope.went_comments[$index].moreFlg = false;
     };
 
+    $scope.len     = 10;
+    $scope.start   = 0;
+    $scope.current = 1;
+
+    $scope.pager = () => {
+        $scope.start = $scope.len * ($scope.current - 1);
+        $anchorScroll();
+    };
+
 // ----------------------------------------------- RestfulAPI ------------------------------------------------//
 
     $scope.comments = $Comments.query();
-
 
     //データ更新
     $scope.updateAPI = (editData, scope) => {
@@ -46,7 +53,6 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                         };
                     }
                     $timeout(() => {
-
                         scope.comment.body = data.body;
                         modPop();
                         scope.$dismiss();
@@ -68,6 +74,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 modPop();
                 scope.$dismiss();
             });
+
         } else {
             editData.updateFlg = true;
             $Users.update(
@@ -182,15 +189,6 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
     $scope.$watch('item_comments', (newValue) => {
         if (!newValue) return;
         $scope.show_loading = false;
-    });
-
-    // ページャー処理
-    $scope.$watch('currentPage', (newValue) => {
-        if (!newValue) {
-            $scope.currentPage = 1;
-        } else if (newValue != 1 && newValue > $scope.pages.length) {
-            $scope.currentPage = $scope.pages.length;
-        }
     });
 
     // 通知

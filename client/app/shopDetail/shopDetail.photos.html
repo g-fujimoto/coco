@@ -3,7 +3,7 @@
 </div>
 <div id="shopDetail_main">
     <div id="shopDetail_photo_list">
-        <div ng-repeat="image in item.images">
+        <div ng-repeat="image in item.images | limitTo: len: start">
             <div class="shopDetail_photo">
                 <p class="photo_img">
                     <img class="withParent" ng-src="image.path">
@@ -26,11 +26,7 @@
         </div>
     </div>
 </div>
-<div class="pager_box">
-    <ul>
-        <li><a href="" ng-click="currentPage=currentPage-1"><</a></li>
-        <li ng-repeat="page in pages" ng-class="{current:$parent.currentPage==page}"><a href="" ng-click="$parent.currentPage=page">{{page}}</a></li>
-        <li><a href="" ng-click="currentPage=currentPage+1">></a></li>
-    </ul>
+<div id="pagerCenterPhotos">
+    <pagination total-items="item.images.length" items-per-page="len" ng-model="current" ng-change="pager()" previous-text="◀︎" next-text="▶︎" class="center-block"></pagination>
 </div>
 <p class="white_btn img_posting"><a href="#"><i class="fa fa-camera"></i>&nbsp;画像を投稿する</a></p>

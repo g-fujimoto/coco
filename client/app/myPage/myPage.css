@@ -62,3 +62,8 @@
 .profile_ditail_multi{
     margin-bottom: 40px;
 }
+
+.no-click {
+    opacity: 0.5!important;
+    cursor: not-allowed!important;
+}

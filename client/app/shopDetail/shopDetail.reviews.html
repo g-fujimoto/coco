@@ -3,7 +3,7 @@
 </div>
 <div id="shopDetail_main">
     <div id="shopDetail_top">
-        <div ng-repeat="itemComment in itemComments | filter: {'type': goFlg} as results">
+        <div ng-repeat="itemComment in itemComments | filter: {'type': goFlg} | limitTo: len: start as results">
             <div ng-class="['reviews_list_blue', {'reviews_list_gray': !itemComment.type}]">
                 <div class="reviews_list_main">
                     <div class="reviews_top">
@@ -58,10 +58,7 @@
         </div>
     </div>
 </div>
-<div class="pager_box">
-    <ul>
-        <li><a href="" ng-click="currentPage=currentPage-1"><</a></li>
-        <li ng-repeat="page in pages" ng-class="{current:$parent.currentPage==page}"><a href="" ng-click="$parent.currentPage=page">{{page}}</a></li>
-        <li><a href="" ng-click="currentPage=currentPage+1">></a></li>
-    </ul>
+<div id="pagerCenterReviews">
+    <pagination total-items="itemComments.length" items-per-page="len" ng-model="current" ng-change="pager()" previous-text="◀︎" next-text="▶︎" class="center-block"></pagination>
+</div>
 </div>
