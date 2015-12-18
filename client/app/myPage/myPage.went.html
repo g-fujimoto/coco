@@ -4,15 +4,11 @@
 <div id="bg_black"> </div>
 <div id="main_contents">
     <div ng-repeat="comment in went_comments | filter: {'genre' : {'name' : genreName}, 'scene' : {'name' : sceneName}, 'item' : {'area' : area}} | limitTo: len: start as results">
-        <pre>
-            {{loginUser | json}}
-        </pre>
         <div id="went_list">
             <div class="went_list">
                 <div class="went_list_main">
                     <div class="went_top">
                         <h4 class="went_title">{{comment.item.name}}&nbsp;<span class="item_area">({{comment.item.area}})</span></h4>
-                        <p class="store_attribute">({{comment.item.genreName}})&nbsp;(<span ng-repeat="sceneName in comment.item.sceneNames">{{sceneName}}&nbsp;</span>)</p>
                     </div>
                     <p class="gradation_thick_border"></p>
                     <div class="wentTitle_box">
@@ -23,7 +19,7 @@
                                 <li><h3><b>シーン</b>{{comment.sceneAve | number: 1}}</h3></li>
                             </ul>
                         </div>
-                    <button class="blue_btn recommendation" ng-click="recommendAdd(comment.item._id);" ng-class="{noClick: comment.alreadyAdd}" ng-disabled="comment.alreadyAdd"><i class="fa fa-star-o"></i>&nbsp;推薦する</button>
+                    <button class="blue_btn recommendation" ng-click="recommendAdd(comment);" check-added="{{comment}}" ng-disabled="checkRecommend || comment.checkRecommend" ng-class="{noClick: comment.checkRecommend || checkRecommend}"><i class="fa fa-star-o"></i>&nbsp;推薦する</button>
                     <p class="edit white_btn"><a went-edit-modal="{{comment}}">編集する</a></p>
                     </div>
                     <p class="gradation_thin_border"></p>

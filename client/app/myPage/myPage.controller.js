@@ -40,17 +40,19 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
             $anchorScroll();
         };
 
-        $scope.recommendAdd = function(item) {
-            $Recommend.add(item)
+
+
+        $scope.recommendAdd = function(comment) {
+
+            $Recommend.add(comment.item._id)
             .success((data) => {
                 if (data.ok === 1) {
                     $scope.pop = {
                         show : true,
                         message : '推薦店舗を追加しました。'
                     };
-                    $scope.item.alreadyAdd = true;
+                    comment.checkRecommend = true;
                 }
-                console.log(data);
             });
         };
 
@@ -148,6 +150,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 modPop();
             }
         });
+
 
     // ----------------------------------------------- RESTfulAPI ------------------------------------------------//
 

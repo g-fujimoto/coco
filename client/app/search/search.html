@@ -103,7 +103,7 @@
                     <div class="footer_box">
                         <ul>
                             <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikeCounter.count}}人がいいねといっています</h6></li>
-                            <li><button class="blue_btn recommendation margin-top-xs" type="button"  ng-click="recommendAdd(item);" ng-class="recommendDisabled()"><i class="fa fa-star-o"></i>&nbsp;推薦する</button></li>
+                            <li><button class="blue_btn recommendation margin-top-xs" type="button"  ng-click="recommendAdd(item);" check-added="{{item}}"  ng-disabled="checkRecommend || item.checkRecommend" ng-class="{noClick: item.checkRecommend || checkRecommend}"><i class="fa fa-star-o"></i>&nbsp;推薦する</button></li>
                         </ul>
                     </div>
                   </div>

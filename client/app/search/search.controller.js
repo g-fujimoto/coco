@@ -17,13 +17,11 @@ app.controller('SearchController', ['$scope', '$http', '$uibModal', '$timeout', 
                     show : true,
                     message : '推薦店舗を追加しました。'
                 }
+                item.checkRecommend = true;
             }
         });
     };
-    // $scope.recommendDisabled = function() {
-    //     alert($scope.item.itemRecommendCounter.count)
-    //     //return "disabled" : "";
-    // };
+
     $scope.findAddScene = function(value) {
         $scope.sceneName = ($scope.sceneName == value) ? null : value;
         getItem();

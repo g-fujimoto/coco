@@ -49,8 +49,8 @@
                 </div>
             </div>
             <div ng-class="['reviews_list_footer_blue', {'reviews_list_footer_gray': !itemComment.type}]">
-                <p class="go_button white_btn" want-go-modal="{{itemComment.item}}"><a ><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
-                <p class="nice_button blue_btn" ng-click="like(itemComment)"><a ><i class="fa fa-thumbs-o-up"></i>&nbsp;いいね</a></p>
+                <p class="go_button white_btn" want-go-modal="{{itemComment.item}}"><a><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
+                <p class="nice_button blue_btn" ng-click="like(itemComment)" ><a class="noClick" href="javascrip:void(0)"><i class="fa fa-thumbs-o-up"></i>&nbsp;いいね</a></p>
             </div>
         </div>
         <div ng-show="results == 0">

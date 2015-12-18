@@ -8,7 +8,7 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
         $scope.pages       = [];
         $scope.genres = $$Genres;
         $scope.scenes = $$Scenes;
-        $scope.fromLogin = $stateParams.fromLogin;
+        $scope.fromLogin = $stateParams.fromLogin || false;
 
 // ----------------------------------------------- $scope(funciton) ----------------------------------------------------//
 
@@ -212,14 +212,14 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
                 angular.element(panelElem).on('webkitAnimationEnd mozAnimationeEnd MSAnimationEnd oanimationend animationend', () => {
                     angular.element(panelElem).removeClass('animated fadeInRight loginAnimated');
                     $timeout(() => {
-                        angular.element(panelElem).addClass('animated hinge loginAnimate');
+                        angular.element(panelElem).addClass('animated zoomOutUp loginAnimate');
                         $timeout(() => {
                             $scope.onceAnimate = false;
                             $scope.fromLogin = false;
-                        }, 2000);
-                    }, 1600);
+                        }, 800);
+                    }, 1500);
                 });
-            }, 1000);
+            }, 1200);
         }
 
 }]);

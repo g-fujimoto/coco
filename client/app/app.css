@@ -128,6 +128,7 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 #main #shopDetail_main .go_button {  width: auto; float: left; font-size: 12px; margin-left: 20px;}
 #main #shopDetail_main .nice_button{ width: auto; float: right; text-align: right; margin-right: 20px; }
 #main #shopDetail_main .nice_button a{ color: #fff;}
+#main #shopDetail_main .nice_button a:hover{ cursor: pointer;}
 #main .reviews_list_blue{ background-color: #335ad0; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);}
 #main .reviews_list_gray{ background-color: #ccc; padding: 5px; border-radius: 2px; box-shadow: 2px 2px 2px rgba(0,0,0,0.4);}
 #main .reviews_list_main{ background-color: #fff; padding: 30px 50px;}

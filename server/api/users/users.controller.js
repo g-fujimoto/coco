@@ -67,10 +67,14 @@ exports.logout = function(req, res) {
 };
 
 exports.stateCheck = function(req, res) {
+
     if(req.session.adminLoginUser) {
         return res.json({session: req.session.adminLoginUser});
     } else if(req.session.loginUser) {
-        return res.json({session: req.session.loginUser});
+        Users.findOne({'_id': req.session.loginUser._id}, function(err, data) {
+            console.log(data);
+            return res.json({session: data});
+        });
     } else {
         return res.json({session: false});
     }
