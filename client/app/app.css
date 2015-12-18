@@ -998,3 +998,8 @@ animation-duration: 1s;
 -webkit-animation-delay: 0.4s;
 animation-delay:0.4s;
 }
+
+#loginUser {
+    font-size: 18px;
+    color: #002C6A;
+}

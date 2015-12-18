@@ -13,7 +13,7 @@
                     </ul>
                 </div>
                 </form>
-                <p style="position:relative;left: 780px;top: -20px;" ng-show="isLogin && onceAnimate && fromLogin" id="loginUser" class="animated fadeInRight loginAnimated">
+                <p style="position:relative;left: 780px;top: -20px;" ng-hide="!isLogin" ng-show="onceAnimate && fromLogin && isLogin" id="loginUser" ng-class="{animated: isLogin, fadeInRight: isLogin, loginAnimated: isLogin}">
                     ようこそ、{{loginUser.lastName}} {{loginUser.firstName}} 様
                 </p>
             </div>

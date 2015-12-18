@@ -210,9 +210,9 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
                 angular.element(panelElem).on('webkitAnimationEnd mozAnimationeEnd MSAnimationEnd oanimationend animationend', () => {
                     angular.element(panelElem).removeClass('animated fadeInRight loginAnimated');
                     $timeout(() => {
-                        angular.element(panelElem).addClass('animated fadeOutRight loginAnimate');
+                        angular.element(panelElem).addClass('animated hinge loginAnimate');
                         $scope.onceAnimate = false;
-                    }, 1800);
+                    }, 1600);
                 });
             }, 1000);
         }

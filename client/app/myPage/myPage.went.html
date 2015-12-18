@@ -4,6 +4,9 @@
 <div id="bg_black"> </div>
 <div id="main_contents">
     <div ng-repeat="comment in went_comments | filter: {'genre' : {'name' : genreName}, 'scene' : {'name' : sceneName}, 'item' : {'area' : area}} | limitTo: len: start as results">
+        <pre>
+            {{loginUser | json}}
+        </pre>
         <div id="went_list">
             <div class="went_list">
                 <div class="went_list_main">
