@@ -985,6 +985,16 @@ li {
     border-style: dashed;
     border-width: thick;
 }
+
 #uploadBox:hover {
     color: #EE0E51;
+}
+
+.loginAnimated {
+
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+
+-webkit-animation-delay: 0.4s;
+animation-delay:0.4s;
 }

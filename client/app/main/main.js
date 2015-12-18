@@ -10,7 +10,8 @@ angular.module('webApp')
                 }
             },
             params: {
-                login: true
+                login: true,
+                fromLogin: null
             }
         });
 }]);

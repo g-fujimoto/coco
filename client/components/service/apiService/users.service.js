@@ -34,7 +34,9 @@ angular.module('webApp')
                         if(data) {
                             $rootScope.isLogin   = true;
                             $rootScope.loginUser = data;
-                            $state.go('main');
+                            $state.go('main', {
+                                fromLogin: true
+                            });
                         } else {
                             scope.$root.error = true;
                             var panel = document.getElementById('login_box');
@@ -82,7 +84,7 @@ angular.module('webApp')
                             $rootScope.isLogin   = false;
                             $rootScope.loginUser = '';
                             $state.go('login');
-                        }                        
+                        }
                     }
                 }
             });

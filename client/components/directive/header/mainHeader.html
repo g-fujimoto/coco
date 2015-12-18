@@ -13,6 +13,9 @@
                     </ul>
                 </div>
                 </form>
+                <p style="position:relative;left: 780px;top: -20px;" ng-show="isLogin && onceAnimate && fromLogin" id="loginUser" class="animated fadeInRight loginAnimated">
+                    ようこそ、{{loginUser.lastName}} {{loginUser.firstName}} 様
+                </p>
             </div>
             <coco-navbar class="animate"></coco-navbar>
 
