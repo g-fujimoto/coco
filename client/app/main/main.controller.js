@@ -3,12 +3,14 @@ var app = angular.module('webApp');
 app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Users', '$Comments', '$$Scenes', '$$Genres', '$timeout', '$stateParams',
     function($scope, $http, $uibModal, Upload, $Users, $Comments, $$Scenes, $$Genres, $timeout, $stateParams) {
 
-// ----------------------------------------------- $scope ----------------------------------------------------//
+// ----------------------------------------------- $scope(variable) ----------------------------------------------------//
         $scope.global_menu = 'main';
         $scope.pages       = [];
         $scope.genres = $$Genres;
         $scope.scenes = $$Scenes;
         $scope.fromLogin = $stateParams.fromLogin;
+
+// ----------------------------------------------- $scope(funciton) ----------------------------------------------------//
 
         $scope.findAddArea = function(value) {
             $scope.area = ($scope.area == value) ? null : value;
@@ -211,7 +213,10 @@ app.controller('MainController', ['$scope', '$http', '$uibModal', 'Upload', '$Us
                     angular.element(panelElem).removeClass('animated fadeInRight loginAnimated');
                     $timeout(() => {
                         angular.element(panelElem).addClass('animated hinge loginAnimate');
-                        $scope.onceAnimate = false;
+                        $timeout(() => {
+                            $scope.onceAnimate = false;
+                            $scope.fromLogin = false;
+                        }, 2000);
                     }, 1600);
                 });
             }, 1000);

@@ -929,6 +929,15 @@ li {
     opacity: .6;
 }
 
+.noClick {
+    opacity: .4;
+    cursor: not-allowed;
+}
+.noClick:hover {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
 .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
     background: none!important;
     border: none!important;
