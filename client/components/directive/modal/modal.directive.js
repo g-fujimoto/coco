@@ -115,20 +115,16 @@ angular.module('webApp')
             });
         };
     })
-    // 「行きたい店」モーダル表示属性
-    .directive('wantGoModalEdit', ($uibModal) => {
-        return (scope, element, attr) => {
+    // 画像投稿モーダル表示属性
+    .directive('photoModal', ($uibModal) => {
+        return (scope, element) => {
             element.on('click', () => {
-                scope.editData = angular.fromJson(attr.wantGoModalEdit);
-
-                scope.editData.type = false;
-                scope.editData.updateFlg = true;
 
                 $uibModal.open({
                     scope,
                     controller  : 'ModalController',
                     backdrop    : 'static',
-                    templateUrl : './components/directive/modal/modal.wantGo.edit.html'
+                    templateUrl : './components/directive/modal/modal.photo.html'
                 });
             });
         };

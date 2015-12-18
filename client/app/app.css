@@ -979,3 +979,12 @@ li {
     left: 411px!important;
     top: 55px!important;
 }
+
+#uploadBox {
+    height: 150px;
+    border-style: dashed;
+    border-width: thick;
+}
+#uploadBox:hover {
+    color: #EE0E51;
+}
