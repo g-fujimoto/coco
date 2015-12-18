@@ -88,6 +88,16 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                     modPop();
                     scope.$dismiss();
                 });
+
+            if (scope.files[0]) {
+                Upload.upload({
+                    url: 'api/upload/user',
+                    file: scope.files[0]
+                })
+                .success(() => {
+                    console.log('OK');
+                });
+            }
         }
     };
 
@@ -117,18 +127,6 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 $scope.getRecommendItem();
             }
         });
-    };
-
-    $scope.saveUser = function () {
-        if ($scope.files[0]) {
-            Upload.upload({
-                url: 'api/upload/user',
-                file: $scope.files[0]
-            })
-            .success(() => {
-                console.log('OK');
-            });
-        }
     };
 
     $scope.getRecommendItem = function() {

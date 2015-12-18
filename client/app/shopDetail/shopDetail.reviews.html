@@ -13,10 +13,10 @@
                     <p class="gradation_thick_border"></p>
                     <div ng-repeat="image in itemComment.user.images">
                         <p class="reviews_thumbnail">
-                            <img class="withParent" ng-src="image.path">
+                            <img class="withParent" src="{{image.path}}">
                         </p>
                     </div>
-                    <p class="reviews_thumbnail no-photo text-muted">
+                    <p class="reviews_thumbnail no-photo text-muted" ng-show="itemComment.user.images.length == 0">
                         No Photo
                     </p>
                     <div class="person_info">
@@ -40,7 +40,7 @@
 
                     <div class="reviews_img">
                         <ul ng-repeat="image in itemComment.images">
-                            <img ng-src="image.path" alt="" />
+                            <img src="{{image.path}}" alt="" />
                         </ul>
                     </div>
                     <div class="reviews_img text-muted no-photo" ng-show="itemComment.images.length == 0">

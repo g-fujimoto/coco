@@ -86,11 +86,11 @@
                       </div>
 
                       <div class="left">
-<!--
-                          <div class="img_box"><img src="./assets/./images/users/{{item_comments[item._id].comment.user._id}}.jpg" /></div>
--->
-                          <div class="img_box"><img src="./assets/./images/users/sample.jpg" /></div>
-                          <p>{{item_comments[item._id].comment.user.firsName}} {{item_comments[item._id].comment.user.lastName}}</p>
+                          <div ng-repeat="image in item_comments[item._id].comment.user.images"><img src="{{image.path}}" /></div>
+                          <p class="loop_thumbnail no-photo text-muted" ng-show="!item_comments[item._id].comment.user.images[0]">
+                              No Photo
+                          </p>
+                          <p class="name">{{item_comments[item._id].comment.user.lastName}} {{item_comments[item._id].comment.user.firstName}}</p>
                       </div>
                       <div class="right">
                           <h6>最新コメント</h6>
