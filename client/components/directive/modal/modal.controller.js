@@ -57,4 +57,17 @@ angular.module('webApp')
                 $scope.files.splice(0, $scope.files.length - 5);
             }
         });
+
+        $scope.$watch('userfile', (newValue, oldValue) => {
+
+            if (oldValue) {
+                for (var i in oldValue) {
+                  $scope.userfile.push(oldValue[i]);
+                }
+            }
+
+            if ($scope.userfile && $scope.userfile.length > 1) {
+                $scope.userfile.splice(0, $scope.userfile.length - 1);
+            }
+        });
 }]);
