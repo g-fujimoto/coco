@@ -18,9 +18,18 @@ angular.module('webApp', [
             });
 
     }])
-    .run(['$rootScope', '$state', '$http', '$Users', '$timeout', ($rootScope, $state, $http, $Users, $timeout) => {
+    .run(['$rootScope', '$state', '$http', '$Users', '$timeout', '$location', '$window', ($rootScope, $state, $http, $Users, $timeout, $location, $window) => {
         $rootScope.logout = $Users.logout;
+
+
         $rootScope.$on('$stateChangeStart', (e, toState, toParams, fromState, fromParams) => {
+            //shopDetailでitem._idがundefinedの場合 -> searchに飛ばす
+            if(toState.name === 'shopDetail.main' || toState.name === 'shopDetail.photos' || toState.name === 'shopDetail.reviews' || toState.name === 'shopDetail.map') {
+                if(!toParams.item) {
+                    $window.location.href = '/#/search';
+                }
+            }
+
             if(toState.name === 'admin') {
                 $rootScope.isLogin        = false;
                 $rootScope.loginUser      = false;
@@ -45,5 +54,7 @@ angular.module('webApp', [
                     $Users.stateCheck(false, stateName);
                 }
             }
+
+
         });
     }]);
