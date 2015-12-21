@@ -19,7 +19,7 @@
                                 <li><h3><b>シーン</b>{{comment.sceneAve | number: 1}}</h3></li>
                             </ul>
                         </div>
-                    <button class="blue_btn recommendation" ng-click="recommendAdd(comment);" check-added="{{comment}}" ng-disabled="checkRecommend || comment.checkRecommend" ng-class="{noClick: comment.checkRecommend || checkRecommend}"><i class="fa fa-star-o"></i>&nbsp;推薦する</button>
+                    <button class="blue_btn recommendation" ng-click="wentRecommendAdd(comment);" check-added="{{comment}}" ng-disabled="checkRecommend || comment.checkRecommend" ng-class="{noClick: comment.checkRecommend || checkRecommend}"><i class="fa fa-star-o"></i>&nbsp;推薦する</button>
                     <p class="edit white_btn"><a went-edit-modal="{{comment}}">編集する</a></p>
                     </div>
                     <p class="gradation_thin_border"></p>
@@ -41,7 +41,7 @@
         ご指定の条件に該当する店舗が見つかりませんでした。
     </div>
     <div id="pagerCenter">
-        <pagination total-items="went_comments.length" items-per-page="len" ng-model="current" ng-change="pager()" previous-text="◀︎" next-text="▶︎" class="center-block"></pagination>
+        <uib-pagination total-items="went_comments.length" items-per-page="len" ng-model="current" ng-change="pager()" previous-text="◀︎" next-text="▶︎" class="center-block"></uib-pagination>
     </div>
 </div><!-- #main -->
 <coco-sidebar></coco-sidebar>

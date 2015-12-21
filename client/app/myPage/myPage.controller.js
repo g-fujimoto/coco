@@ -17,87 +17,58 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
 
     // ----------------------------------------------- $scope(function) --------------------------------------------//
 
-        /**
-         * もっと読む関連処理
-         * @author [t.fujimoto]
-         */
-        $scope.moreRead = ($index) => {
-            $scope.went_comments[$index].more    = true;
-            $scope.went_comments[$index].moreFlg = true;
-        };
+            /**
+             * もっと読む関連処理
+             * @author [t.fujimoto]
+             */
+            $scope.moreRead = ($index) => {
+                $scope.went_comments[$index].more    = true;
+                $scope.went_comments[$index].moreFlg = true;
+            };
 
-        $scope.closeRead = ($index) => {
-            $scope.went_comments[$index].more    = false;
-            $scope.went_comments[$index].moreFlg = false;
-        };
+            $scope.closeRead = ($index) => {
+                $scope.went_comments[$index].more    = false;
+                $scope.went_comments[$index].moreFlg = false;
+            };
 
-        /**
-         * ページング処理
-         * @author [t.fujimoto]
-         */
-        $scope.pager = () => {
-            $scope.start = $scope.len * ($scope.current - 1);
-            $anchorScroll();
-        };
+            /**
+             * ページング処理
+             * @author [t.fujimoto]
+             */
+            $scope.pager = () => {
+                $scope.start = $scope.len * ($scope.current - 1);
+                $anchorScroll();
+            };
 
+            $scope.RecommendAdd = function(comment) {
+                console.log('hello');
+                $Recommend.add(comment.item._id)
+                .success((data) => {
+                    if (data.ok === 1) {
+                        $scope.pop = {
+                            show : true,
+                            message : '推薦店舗を追加しました。'
+                        };
+                        comment.checkRecommend = true;
+                    }
+                });
+            };
 
+            $scope.recommendDelete = function(item) {
 
-        $scope.recommendAdd = function(comment) {
+                $Recommend.delete(item)
+                .success((data) => {
+                    if (data.ok === 1) {
+                        $scope.pop = {
+                            show : true,
+                            message : '推薦店舗を削除しました。'
+                        };
+                        $scope.getRecommendItem();
+                    }
+                    $scope.item.alreadyAdd = false;
+                });
+            };
 
-            $Recommend.add(comment.item._id)
-            .success((data) => {
-                if (data.ok === 1) {
-                    $scope.pop = {
-                        show : true,
-                        message : '推薦店舗を追加しました。'
-                    };
-                    comment.checkRecommend = true;
-                }
-            });
-        };
-
-        $scope.recommendDelete = function(item) {
-
-            $Recommend.delete(item)
-            .success((data) => {
-                if (data.ok === 1) {
-                    $scope.pop = {
-                        show : true,
-                        message : '推薦店舗を削除しました。'
-                    };
-                    $scope.getRecommendItem();
-                }
-                $scope.item.alreadyAdd = false;
-            });
-        };
-
-// ----------------------------------------------- $scope(function) --------------------------------------------//
-
-        $scope.recommendAdd = function(item) {
-            $Recommend.add(item)
-            .success((data) => {
-                if (data.ok === 1) {
-                    $scope.pop = {
-                        show : true,
-                        message : '推薦店舗を追加しました。'
-                    };
-                }
-            });
-        };
-
-        $scope.recommendDelete = function(item) {
-
-            $Recommend.delete(item)
-            .success((data) => {
-                if (data.ok === 1) {
-                    $scope.pop = {
-                        show : true,
-                        message : '推薦店舗を削除しました。'
-                    };
-                    $scope.getRecommendItem();
-                }
-            });
-        };
 
         $scope.getRecommendItem = function() {
 
@@ -117,6 +88,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
 
             });
         };
+
         $scope.getWentComments = () => {
             $http.post('/api/comments/went')
             .success((data) => {
