@@ -19,5 +19,9 @@ angular.module('webApp')
             return $http.post('/api/comments/itemComments', item);
         };
 
+        this.Comments.like = (itemComment) => {
+            return $http.post('/api/like/add', itemComment);
+        };
+
         return this.Comments;
     }]);

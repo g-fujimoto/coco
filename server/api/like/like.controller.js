@@ -8,6 +8,7 @@ var Items    = require('./../items/items.model');
 var Comments = require('./../comments/comments.model');
 
 exports.add = function(req, res) {
+    console.log(req.body);
     Comments.update(
         {
             _id: req.body._id,
@@ -21,10 +22,16 @@ exports.add = function(req, res) {
             }
         },
         function(err, data) {
+        if (err) {
+            return res.json(data);
+        }
+        if(!err && data.n === 0) {
+            return res.json(data);
+        }
         if (!err && data.n > 0) {
             Items.update({_id : req.body.item._id}, {$inc : {"itemLikeCounter.count" : 1}}, function(err, data) {
                 // 例外処理
-                res.json(data);
+                return res.json(data);
             });
         }
     });

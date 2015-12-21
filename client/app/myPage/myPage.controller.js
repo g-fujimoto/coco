@@ -40,8 +40,7 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 $anchorScroll();
             };
 
-            $scope.RecommendAdd = function(comment) {
-                console.log('hello');
+            $scope.wentRecommendAdd = function(comment) {
                 $Recommend.add(comment.item._id)
                 .success((data) => {
                     if (data.ok === 1) {
