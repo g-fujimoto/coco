@@ -1,26 +1,40 @@
 <div class="modal-header">
     <h4 class="modal-title">画像投稿</h4>
 </div>
-<div class="modal-body">
-    <div class="text-center text-muted" id="uploadBox" ngf-drop ng-model="onefile" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
-        <div class="padding-top-sm">
-            <i class="fa fa-cloud-upload fa-5x"></i>
+<div class="row">
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="text-center text-muted col-sm-6" id="uploadBox" ngf-drop ng-model="onefile" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+                <div class="padding-top-sm">
+                    <i class="fa fa-cloud-upload fa-5x"></i>
+                </div>
+                <br>
+                <p>
+                    ファイルをアップロードする
+                </p>
+            </div>
+            <div ng-repeat="image in onefile track by $index | limitTo: 5">
+                <div class="col-sm-4">
+                    <img ngf-src="image" ngf-accept="'image/*'" width="220" height="130">
+                </div>
+                <div style="text-align: center;">
+                    <button ng-click="onefile.splice($index, 1)" class="btn btn-danger margin-left-sm" style="width: 203px">削除</button>
+                </div>
+            </div>
+            <div ng-show="!onefile" class="margin-left-md col-sm-4 text-center" style="width:180px;height:130px;background:whitesmoke;">
+                <i class="fa fa-camera fa-2x padding-top-sm padding-top-lg"></i>
+                <p class="text-center">
+                    No Photo
+                </p>
+            </div>
         </div>
-        <br>
-        <p>
-            ファイルをアップロードする
-        </p>
-        <div ng-repeat="image in onefile track by $index | limitTo: 5">
-            <div>
-              <img ngf-src="image" ngf-accept="'image/*'" class="upload-show-image">
-            </div>
-            <div style="text-align: center;">
-              <button ng-click="onefile.splice($index, 1)">削除</button>
-            </div>
+    </div><!-- /modal-body -->
+</div>
+<div class="row">
+    <div class="container-fluid">
+        <div class="modal-footer">
+            <button class="btn" type="button" ng-click="cancel()">戻る</button>
+            <button class="btn" type="button" ng-click="update(newData)" ng-disabled="myForm.$invalid">登録する</button>
         </div>
     </div>
-</div><!-- /modal-body -->
-<div class="modal-footer">
-    <button class="btn" type="button" ng-click="cancel()">戻る</button>
-    <button class="btn" type="button" ng-click="update(newData)" ng-disabled="myForm.$invalid">登録する</button>
 </div>
