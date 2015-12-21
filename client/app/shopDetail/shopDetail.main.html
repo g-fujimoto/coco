@@ -5,11 +5,11 @@
     <div id="shopDetail_top">
         <div ng-repeat="image in item.images | limitTo :1 | orderBy: 'created'">
             <p class="main_photo">
-                <img class="withParent" src="{{image.path}}">
+                <img class="withParent" src="{{image.path}}" width="744" height="400">
             </p>
         </div>
         <p class="main_photo no-photo text-muted" ng-show="item.images.length == 0">
-            No Photo
+            <i class="fa fa-camera fa-4x" style="padding-top:150px;"></i>
         </p>
         <div ng-repeat="image in itemComments.images">
             <ul class="sub_photo">
@@ -23,7 +23,7 @@
                 <p class="fontSize12">登録者</p>
                 <div ng-repeat="image in itemComment.user.images">
                     <p class="top_thumbnail">
-                        <img class="withParent" src="{{image.path}}">
+                        <img class="withParent" src="{{image.path}}" width="60" height="72">
                     </p>
                 </div>
                 <p class="top_thumbnail no-photo text-muted">
@@ -43,11 +43,11 @@
             </div>
             <div ng-repeat="image in item.images | limitTo :1 | orderBy: 'created': reverse">
                 <p class="person_reviews_img">
-                    <img class="withParent" src="{{image.path}}">
+                    <img class="withParent" src="{{image.path}}" width="134" height="120">
                 </p>
             </div>
             <p class="person_reviews_img no-photo text-muted" ng-show="item.images.length == 0">
-                No Photo
+                <i class="fa fa-camera fa-2x padding-top-lg"></i>
             </p>
         </div>
     </div>
@@ -64,7 +64,7 @@
                 <div class="top_person_info">
                     <div ng-repeat="image in itemComment.user.images | limitTo: 1">
                         <p class="top_thumbnail">
-                            <img src="{{image.path}}" alt="" />
+                            <img src="{{image.path}}" width="50" height="60"/>
                         </p>
                     </div>
                     <p class="top_thumbnail" ng-show="itemComment.user.images.length == 0">
@@ -87,11 +87,11 @@
                             </span>
                             <div ng-repeat="image in itemComment.images | limitTo: 1">
                                 <p class="top_reviews_img">
-                                    <img src="{{image.path}}" alt="" />
+                                    <img src="{{image.path}}" width="58" height="55"/>
                                 </p>
                             </div>
-                            <p class="top_reviews_img no-photo text-muted" ng-show="itemComment.images.length == 0">
-                                No Photo
+                            <p class="top_reviews_img no-photo text-muted" ng-show="itemComment.images.length == 0 && itemComment.type">
+                                <i class="fa fa-camera fa-2x padding-top-sm"></i>
                             </p>
 
                         </div>
