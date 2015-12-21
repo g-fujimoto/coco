@@ -183,6 +183,7 @@ app.controller('ShopDetailController', [
     // データ登録
     $scope.saveAPI = (newData, scope) => {
         newData.item = newData.item._id;
+        if (newData.type) calcAve(newData);
         $Comments.save(
             newData,
             (data) => {
@@ -197,6 +198,11 @@ app.controller('ShopDetailController', [
                         message : '「行きたい」コメントを登録しました。'
                     };
                 }
+
+                if (scope.files) {
+                    upload(scope.files, data._id);
+                }
+
                 modPop();
                 scope.$dismiss();
             }
@@ -221,6 +227,43 @@ app.controller('ShopDetailController', [
     };
 
     // ----------------------------------------------- OtherFunction ---------------------------------------------------//
+
+    const calcAve = (newData) => {
+        //ジャンル平均点
+        const genreRate = _.map(newData.genre.options, (element) => {
+            return element.rate;
+        });
+        const genreRateSum = genreRate.reduce((x, y) => {
+            return parseInt(x) + parseInt(y);
+        });
+        newData.genreAve = (genreRateSum / 5).toFixed(1);
+
+        //シーン平均点
+        const sceneRate = _.map(newData.scene.options, (element) => {
+            return element.rate;
+        });
+        const sceneRateSum = sceneRate.reduce((x, y) => {
+            return parseInt(x) + parseInt(y);
+        });
+        newData.sceneAve = (sceneRateSum / 5).toFixed(1);
+    };
+
+    const upload = (files, comment_id) => {
+
+        if(files && files.length) {
+            for(var sortNo = 0; sortNo < files.length; sortNo++) {
+                var file = files[sortNo];
+                var data = {file, comment_id, sortNo};
+                Upload.upload({
+                    url: '/api/upload/comment',
+                    data
+                })
+                .success((data, status, header, config) => {
+                    // TODO
+                });
+            }
+        }
+    };
 
     const modPop = () =>  {
         $timeout(() => {

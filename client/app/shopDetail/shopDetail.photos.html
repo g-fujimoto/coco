@@ -6,18 +6,18 @@
         <div ng-repeat="image in item.images | limitTo: len: start">
             <div class="shopDetail_photo">
                 <p class="photo_img">
-                    <img class="withParent" ng-src="image.path" width="170" height="150">
+                    <img class="withParent" src="{{image.path}}" width="170" height="150">
                 </p>
-                <p>{{item.registerUser}}(投稿者)</p>
+                <p style="text-align:center;">{{item.registerUser}}(投稿者)</p>
             </div>
         </div>
         <div ng-repeat="itemComment in itemComments">
             <div ng-repeat="image in itemComment.images">
                 <div class="shopDetail_photo">
                     <p class="photo_img">
-                        <img class="withParent" ng-src="image.path">
+                        <img class="withParent" src="{{image.path}}">
                     </p>
-                    <p>{{image.title || 'No Title'}}({{image.registerUser || '名無しさん'}})</p>
+                    <p style="text-align:center;">{{itemComment.user.lastName}} {{itemComment.user.firstName}}(投稿者)</p>
                 </div>
                 <p class="text-muted no-photo h3" ng-show="item.images.length == 0 && itemComment.images == 0">
                     No Photo
