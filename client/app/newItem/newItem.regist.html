@@ -53,25 +53,25 @@
                             <th><label for="">郵便番号※</label></th>
                             <td>
                                 <input type="text" id="" class="" name="zip" value="" placeholder="350-0001" ng-model="newData.address.postalCode" required>
-                                <button class="button_zipcode" name="" value="" onclick="AjaxZip3.zip2addr('zip','','address1','address2','address3');">住所検索>></button></label><br/>
+                                <button class="button_zipcode" name="" value="" ng-click="getAddress(newData.address.postalCode)">住所検索>></button></label><br/>
                                 <label class="label_zipcode">住所が自動で入力されます。</label>
                             </td>
                         </tr>
                         <tr>
                             <th><label for="">店舗住所(都道府県)※</label></th>
                             <td>
-                                <select name="address1" ng-model="newData.address.pref" ng-options="pref.label as pref.label for pref in prefs" required>
+                                <select name="" ng-model="newData.address.pref" ng-options="pref.label as pref.label for pref in prefs" required>
                                     <option value="">選択してください</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <th><label for="">店舗住所(市区町村)※</label></th>
-                            <td><input type="text" class="input_address" id="" name="address2" value="" placeholder="例：千代田区" ng-model="newData.address.city" required></td>
+                            <td><input type="text" class="input_address" id="city" name="address2" value="" placeholder="例：千代田区" ng-model="newData.address.city" required></td>
                         </tr>
                         <tr>
                             <th><label for="">店舗住所(町番地)※</label></th>
-                            <td><input type="text" class="input_address" id="" name="address3" value="" placeholder="例：有楽町 1-2-2" ng-model="newData.address.town" required></td>
+                            <td><input type="text" class="input_address" id="town" name="address3" value="" placeholder="例：有楽町 1-2-2" ng-model="newData.address.town"></td>
                         </tr>
                         <tr>
                             <th><label for="">店舗住所(ビル名)※</label></th>
