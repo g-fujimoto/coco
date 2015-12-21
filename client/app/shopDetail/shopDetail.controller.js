@@ -214,14 +214,18 @@ app.controller('ShopDetailController', [
           if (scope.onefile[0]) {
               var file = scope.onefile[0];
               var item_id = scope.item._id;
-              console.log(item_id);
               var data = {file, item_id};
               Upload.upload({
                   url: '/api/upload/item',
                   data
               })
               .success((data, status, header, config) => {
-                  // TODO
+                  $scope.pop = {
+                      show : true,
+                      message : '画像を登録しました。'
+                  };
+                  modPop();
+                  scope.$dismiss();
               });
           }
     };
