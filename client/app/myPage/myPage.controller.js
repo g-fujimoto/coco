@@ -215,6 +215,15 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
 
             } else {
                 editData.updateFlg = true;
+                if (scope.userfile[0]) {
+                    Upload.upload({
+                        url: 'api/upload/user',
+                        file: scope.userfile[0]
+                    })
+                    .success(() => {
+                        console.log('OK');
+                    });
+                }
                 $Users.update(
                     editData,
                     (data) => {
@@ -226,15 +235,6 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                         modPop();
                         scope.$dismiss();
                     });
-                if (scope.userfile[0]) {
-                    Upload.upload({
-                        url: 'api/upload/user',
-                        file: scope.userfile[0]
-                    })
-                    .success(() => {
-                        console.log('OK');
-                    });
-                }
             }
         };
 
