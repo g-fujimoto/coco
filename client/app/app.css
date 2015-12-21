@@ -370,13 +370,13 @@ body.home #header #header_bg { background-image: url(../assets/images/header/top
 
 /*******************　shopDetail.photo.htmlでの変更点　******************/
 #shopDetail_photo_list{
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     font-size: 14px;
 }
 #shopDetail_photo_list .shopDetail_photo{
     width: 22.75%;
-    margin-right: 3%;
+    margin-right: 15px;
     float: left;
     margin-bottom: 30px;
 }

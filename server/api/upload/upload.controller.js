@@ -28,7 +28,7 @@ exports.comment = function(req, res) {
 
 exports.item = function(req, res) {
 
-  　var mkdirp = require('mkdirp');
+    var mkdirp = require('mkdirp');
     var upload_dir = 'assets/images/items/' + req.body.item_id;
 
     mkdirp('client/' + upload_dir, function (err) {
@@ -38,14 +38,18 @@ exports.item = function(req, res) {
 
             var upload_file = start_upload(req, upload_dir);
 
-            var image = {path: upload_file, sortNo: req.body.sortNo};
+            var image = {
+                    path: upload_file,
+                    sortNo: req.body.sortNo,
+                    registerUser: req.session.loginUser.lastName + ' ' + req.session.loginUser.firstName
+            };
 
             Items.update({_id: req.body.item_id},
                 {$push : {images : image}}, function(err, data) {
                 // 例外処理
+                return res.json(image);
             });
 
-            res.json(true);
         }
     });
 };

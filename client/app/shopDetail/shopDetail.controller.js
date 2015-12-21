@@ -1,8 +1,8 @@
 var app = angular.module('webApp');
 
 app.controller('ShopDetailController', [
-    '$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams', '$Users', '$Comments', '$timeout', '$state', '$Items', '$anchorScroll',
-      function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users, $Comments, $timeout, $state, $Items, $anchorScroll) {
+    '$scope', '$http', '$$Scenes', '$$Genres', '$uibModal', 'Upload', '$stateParams', '$Users', '$Comments', '$timeout', '$state', '$Items', '$anchorScroll', '$window',
+      function($scope, $http, $$Scenes, $$Genres, $uibModal, Upload, $stateParams, $Users, $Comments, $timeout, $state, $Items, $anchorScroll, $window) {
 
     // ----------------------------------------------- $scope(value) ----------------------------------------------------//
         $scope.scenes      = $$Scenes;
@@ -225,6 +225,8 @@ app.controller('ShopDetailController', [
                       message : '画像を登録しました。'
                   };
                   modPop();
+                  $scope.item.images.push(data);
+                  $stateParams.item = $scope.item;
                   scope.$dismiss();
               });
           }

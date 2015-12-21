@@ -1,7 +1,8 @@
 var app = angular.module('webApp');
 
-app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout', '$Users', '$Areas', '$$Prefs', '$stateParams', '$Items', '$state', '$rootScope', '$Comments', 'Upload',
-    function($scope, $$Scenes, $$Genres, $timeout, $Users, $Areas, $$Prefs, $stateParams, $Items, $state, $rootScope, $Comments, Upload) {
+app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout', '$Users', '$Areas', '$$Prefs', '$stateParams',
+ '$Items', '$state', '$rootScope', '$Comments', 'Upload', '$http',
+    function($scope, $$Scenes, $$Genres, $timeout, $Users, $Areas, $$Prefs, $stateParams, $Items, $state, $rootScope, $Comments, Upload, $http) {
 /* ----------------------------------------- $scope(value) -------------------------------- */
         $scope.global_menu = 'newItem';
         $scope.newData     = $stateParams.confirmData || {};
@@ -9,7 +10,7 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
         $scope.genres      = $$Genres;
         $scope.prefs       = $$Prefs;
         $scope.confirmData = $stateParams.newData || {};
-        $scope.newData  = $stateParams.registData || {};
+        $scope.newData     = $stateParams.registData || {};
 
 /* ----------------------------------------- $scope(function) ----------------------------- */
 
@@ -61,10 +62,23 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
             );
         };
 
-/* ----------------------------------------- $watch --------------------------------------- */
+        $scope.getAddress = (postalCode) => {
+            var prevCode = postalCode.substr(0, 3);
+            var nextCode = postalCode.substr(4, 4);
+            $http({
+                method: 'get',
+                url: `https://yubinbango.github.io/yubinbango-data/data/${prevCode}.js`
+            })
+            .success((data) => {
+                var removeData = data.substr(7);
+                var correctData  = removeData.substr(0, (removeData.length - 3));
+                var addressObj = angular.fromJson(correctData);
+                var postalCodePlus = prevCode + nextCode;
 
-
-/* ----------------------------------------- modal ---------------------------------------- */
+                $scope.newData.address.city = addressObj[postalCodePlus][1];
+                $scope.newData.address.town = addressObj[postalCodePlus][2];
+            });
+        };
 
 // ----------------------------------------------- LocalFunction -----------------------------------------------//
 

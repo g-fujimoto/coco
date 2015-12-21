@@ -2,14 +2,14 @@
 var mongoose = require('mongoose');
 
 var ItemsSchema = mongoose.Schema({
-    name      : String,
-    kana      : String,
-    branch    : String,
-    otherName : String,
-    tel       : String,
-    area      : String,
-    introduce : String,
-    registerUser  : String,
+    name         : String,
+    kana         : String,
+    branch       : String,
+    otherName    : String,
+    tel          : String,
+    area         : String,
+    introduce    : String,
+    registerUser : String,
     registerId: mongoose.Schema.ObjectId,
     address   : {
         postalCode : String,
@@ -30,11 +30,12 @@ var ItemsSchema = mongoose.Schema({
     },
     images : [
         {
-            path      : String,
-            sortNo    : String,
-            created   : {type: Date, default: Date.now()},
-            modified  : {type: Date, default: Date.now()},
-            deleteFlg : {type: Number, default: 0}
+            path         : String,
+            registerUser : String,
+            sortNo       : String,
+            created      : {type: Date, default: Date.now()},
+            modified     : {type: Date, default: Date.now()},
+            deleteFlg    : {type: Number, default: 0}
         }
     ],
     created   : {type: Date, default : Date.now()},
