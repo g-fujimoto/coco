@@ -9,7 +9,7 @@ var Users = require('./../users/users.model');
 
 
 exports.userRecommend = function(req, res) {
-    console.log(req.body);
+
     Items.find({_id: {$in: req.body}}, function(err, data) {
         res.json(data);
     });
@@ -17,6 +17,12 @@ exports.userRecommend = function(req, res) {
 
 //index
 exports.add = function(req, res) {
+
+    Users.findOne({_id: req.session.loginUser._id}, function(err, data) {
+        if(data.recommendItems.length >= 10) {
+            return res.json({message: 'over'});
+        }
+    });
 
     Users.update({_id: req.session.loginUser._id, recommendItems : {$nin : [req.body._itemid]}},
         {$push : {recommendItems : req.body._itemid}}, function(err, data) {
@@ -35,7 +41,6 @@ exports.add = function(req, res) {
 // delete
 exports.delete = function(req, res) {
 
-console.log(req.body._itemid);
 
     Users.update({_id: req.session.loginUser._id, recommendItems : {$in : [req.body._itemid]}},
         {$pull : {recommendItems : req.body._itemid}}, function(err, data) {

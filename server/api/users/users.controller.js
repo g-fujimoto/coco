@@ -72,7 +72,6 @@ exports.stateCheck = function(req, res) {
         return res.json({session: req.session.adminLoginUser});
     } else if(req.session.loginUser) {
         Users.findOne({'_id': req.session.loginUser._id}, function(err, data) {
-            console.log(data);
             return res.json({session: data});
         });
     } else {
@@ -121,7 +120,6 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
     Users.findOne({_id: req.params._id}, function(err, data) {
         if(req.body.updateFlg) {
-            console.log('update');
             var email    = data.email;
             var password = data.password;
             data = _.extend(data, req.body);
@@ -185,7 +183,6 @@ exports.checkPassword = function(req, res) {
 };
 
 exports.check = function(req, res) {
-    console.log(req.body);
     Users.findOne({'_id': req.session.loginUser._id}, function(err, data) {
         data.password = req.body.newPassword;
         data.save(function(err, data) {

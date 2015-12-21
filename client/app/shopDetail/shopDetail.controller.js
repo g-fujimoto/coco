@@ -89,18 +89,22 @@ app.controller('ShopDetailController', [
         };
 
         $scope.like = (itemComment) => {
-            $http({
-                method: 'POST',
-                url: '/api/like/add',
-                data: itemComment
-            })
-            .success((data) => {
-                console.log(data);
-                $scope.pop = {
-                    show : true,
-                    message : '「いいね」しました。'
-                };
-                modPop();
+            $Comments.like(itemComment)
+                .success((data) => {
+                if(data.nModified === 0) {
+                    $scope.pop = {
+                        show : true,
+                        message : '「いいね」に失敗しました。'
+                    };
+                    modPop();
+                } else {
+                    $scope.pop = {
+                        show : true,
+                        message : '「いいね」しました。'
+                    };
+                    itemComment.checkRecommend = true;
+                    modPop();
+                }
             });
         };
 

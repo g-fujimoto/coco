@@ -166,7 +166,6 @@ exports.update = function(req, res) {
                 if(err) {
                     console.log(err.message);
                 }
-                console.log(data);
                 res.json(data);
             });
         });

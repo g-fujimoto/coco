@@ -40,16 +40,22 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                 $anchorScroll();
             };
 
-            $scope.RecommendAdd = function(comment) {
-                console.log('hello');
+            $scope.wentRecommendAdd = function(comment) {
                 $Recommend.add(comment.item._id)
                 .success((data) => {
-                    if (data.ok === 1) {
+                    if(data.message === 'over') {
                         $scope.pop = {
-                            show : true,
-                            message : '推薦店舗を追加しました。'
+                            show: true,
+                            message: '推薦店舗が10件に達しています。'
                         };
-                        comment.checkRecommend = true;
+                    } else {
+                        if (data.ok === 1) {
+                            $scope.pop = {
+                                show : true,
+                                message : '推薦店舗を追加しました。'
+                            };
+                            comment.checkRecommend = true;
+                        }
                     }
                 });
             };

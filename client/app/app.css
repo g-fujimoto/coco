@@ -828,42 +828,7 @@ body.home #main { margin: -50px auto 94px; }
     0%, 100% { -moz-transform: translateY(-50px); }
     10%, 90% { -moz-transform: translateY(0px); }
 }
-
-/* -------------------------------- ngAnimate -------------------------------- */
-
-/* ---------------- All ----------------- */
-/*全体の移動スピード*/
-.animate.ng-enter,
-.animate.ng-leave,
-.animate.ng-move {
-  -webkit-transition: opacity 1s linear;
-  transition: opacity 1s linear;
-}
-/*表示モーション時の透明度*/
-.animate.ng-enter {
-  opacity: 0.2;
-}
-
-/*表示モーション終了時の透明度*/
-.animate.ng-enter.ng-enter-active {
-  opacity: 1;
-}
-
-/*非表示モーション時の透明度*/
-.animate.ng-leave {
-  opacity: 0;
-}
-
-/*非表示モーション終了時の透明度*/
-.animate.ng-leave.ng-leave-active {
-  opacity: 0;
-}
-.animate.ng-move {
-  opacity: .3;
-}
-.animate.ng-move.ng-move-active {
-  opacity: 1;
-}
+
 
 /* ---------------- Alert ----------------- */
 .alertAnimate.ng-leave {
@@ -1013,4 +978,40 @@ animation-delay:0.4s;
 #loginUser {
     font-size: 18px;
     color: #002C6A;
+}
+
+/* -------------------------------- ngAnimate -------------------------------- */
+
+/* ---------------- All ----------------- */
+/*全体の移動スピード*/
+.animate.ng-enter,
+.animate.ng-leave,
+.animate.ng-move {
+  -webkit-transition: opacity 0.9s linear;
+  transition: opacity 0.9s linear;
+}
+/*表示モーション時の透明度*/
+.animate.ng-enter {
+  opacity: 0.3;
+}
+
+/*表示モーション終了時の透明度*/
+.animate.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+/*非表示モーション時の透明度*/
+.animate.ng-leave {
+  opacity: 0;
+}
+
+/*非表示モーション終了時の透明度*/
+.animate.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.animate.ng-move {
+  opacity: .3;
+}
+.animate.ng-move.ng-move-active {
+  opacity: 1;
 }
