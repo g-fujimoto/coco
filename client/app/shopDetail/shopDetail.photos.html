@@ -6,7 +6,7 @@
         <div ng-repeat="image in item.images | limitTo: len: start">
             <div class="shopDetail_photo">
                 <p class="photo_img">
-                    <img class="withParent" ng-src="image.path">
+                    <img class="withParent" ng-src="image.path" width="170" height="150">
                 </p>
                 <p>{{item.registerUser}}(投稿者)</p>
             </div>
