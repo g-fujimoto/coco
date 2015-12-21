@@ -18,6 +18,12 @@ exports.userRecommend = function(req, res) {
 //index
 exports.add = function(req, res) {
 
+    Users.findOne({_id: req.session.loginUser._id}, function(err, data) {
+        if(data.recommendItems.length >= 10) {
+            return res.json({message: 'over'});
+        }
+    });
+
     Users.update({_id: req.session.loginUser._id, recommendItems : {$nin : [req.body._itemid]}},
         {$push : {recommendItems : req.body._itemid}}, function(err, data) {
 

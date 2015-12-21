@@ -76,10 +76,10 @@
                         {{data.itemLikesCounter.count}}&nbsp;いいね!
                     </td>
                     <td>
-                        {{data.genreAve | number: 1}}&nbsp;点
+                        {{data.genreAve || 0 | number: 1}}&nbsp;点
                     </td>
                     <td>
-                        {{data.scenesAve | number: 1}}&nbsp;点
+                        {{data.sceneAve || 0| number: 1 }}&nbsp;点
                     </td>
                     <td>
                         {{data.created | date: 'yyyy-MM-dd HH:mm:dd'}}
@@ -97,5 +97,5 @@
             </table>
         </div>
     </div>
-    
+
 </div>
