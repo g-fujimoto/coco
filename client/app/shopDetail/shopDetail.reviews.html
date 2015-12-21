@@ -7,7 +7,7 @@
             <div ng-class="['reviews_list_blue', {'reviews_list_gray': !itemComment.type}]">
                 <div class="reviews_list_main">
                     <div class="reviews_top">
-                        <h4 class="reviews_title">{{itemComment.item.name}}</h4>
+                        <h4 class="reviews_title padding-top-sm">{{itemComment.item.name}}</h4>
                         <p class="reviews_date">{{itemComment.create | date: 'yyyy-MM-dd'}}</p>
                     </div>
                     <p class="gradation_thick_border"></p>
@@ -32,7 +32,7 @@
                         </ul>
                     </div>
                     <p class="gradation_thin_border"></p>
-                    <p class="max_text" ng-class="{'max_text': !itemComment.more}">{{itemComment.body}}</p>
+                    <p class="max_text padding-top-sm" ng-class="{'max_text': !itemComment.more}">{{itemComment.body}}</p>
                     <div ng-show="itemComment.body.length > 100">
                         <p><a ng-show="!itemComment.more && !itemComment.moreFlg" ng-click="moreRead($index)" href="javascript:void(0)">もっと見る</a></p>
                         <p><a ng-show="itemComment.more && itemComment.moreFlg" ng-click="closeRead($index)" href="javascript:void(0)">閉じる</a></p>

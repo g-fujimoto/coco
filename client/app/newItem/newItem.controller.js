@@ -38,7 +38,6 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
                     );
                 },
                 () => {
-                    console.log('error');
                 }
             );
         };

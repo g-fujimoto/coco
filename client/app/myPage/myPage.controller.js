@@ -203,7 +203,6 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
                         file: scope.userfile[0]
                     })
                     .success(() => {
-                        console.log('OK');
                     });
                 }
             }
