@@ -2,7 +2,7 @@
     <h4 class="modal-title">画像投稿</h4>
 </div>
 <div class="modal-body">
-    <div class="text-center text-muted" id="uploadBox">
+    <div class="text-center text-muted" id="uploadBox" ngf-drop ng-model="onefile" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
         <div class="padding-top-sm">
             <i class="fa fa-cloud-upload fa-5x"></i>
         </div>
@@ -10,9 +10,17 @@
         <p>
             ファイルをアップロードする
         </p>
+        <div ng-repeat="image in onefile track by $index | limitTo: 5">
+            <div>
+              <img ngf-src="image" ngf-accept="'image/*'" class="upload-show-image">
+            </div>
+            <div style="text-align: center;">
+              <button ng-click="onefile.splice($index, 1)">削除</button>
+            </div>
+        </div>
     </div>
 </div><!-- /modal-body -->
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="cancel()">戻る</button>
-    <button class="btn" type="button" ng-click="save(newData)" ng-disabled="myForm.$invalid">登録する</button>
+    <button class="btn" type="button" ng-click="update(newData)" ng-disabled="myForm.$invalid">登録する</button>
 </div>

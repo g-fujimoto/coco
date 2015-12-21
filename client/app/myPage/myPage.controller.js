@@ -187,10 +187,10 @@ app.controller('MyPageController', ['$scope', '$http', '$uibModal', '$timeout', 
 
             } else {
                 editData.updateFlg = true;
-                if (scope.userfile[0]) {
+                if (scope.onefile[0]) {
                     Upload.upload({
                         url: 'api/upload/user',
-                        file: scope.userfile[0]
+                        file: scope.onefile[0]
                     })
                     .success(() => {
                         console.log('OK');

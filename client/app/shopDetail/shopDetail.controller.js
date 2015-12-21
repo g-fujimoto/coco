@@ -8,7 +8,6 @@ app.controller('ShopDetailController', [
         $scope.scenes      = $$Scenes;
         $scope.genres      = $$Genres;
         $scope.item        = $stateParams.item;
-        $scope.items       = $Items.query();
         $scope.moreMain    = true;
         $scope.moreMainFlg = false;
         $scope.len         = 10;
@@ -198,6 +197,23 @@ app.controller('ShopDetailController', [
                 scope.$dismiss();
             }
         );
+    };
+
+    // データ更新
+    $scope.updateAPI = (editData, scope) => {
+          if (scope.onefile[0]) {
+              var file = scope.onefile[0];
+              var item_id = scope.item._id;
+              console.log(item_id);
+              var data = {file, item_id};
+              Upload.upload({
+                  url: '/api/upload/item',
+                  data
+              })
+              .success((data, status, header, config) => {
+                  // TODO
+              });
+          }
     };
 
     // ----------------------------------------------- OtherFunction ---------------------------------------------------//

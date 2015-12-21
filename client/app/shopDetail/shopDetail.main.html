@@ -3,7 +3,7 @@
 </div>
 <div id="shopDetail_main">
     <div id="shopDetail_top">
-        <div ng-repeat="image in item.images | limitTo :1 | orderBy: 'created'">
+        <div ng-repeat="image in items.images | limitTo :1 | orderBy: 'created'">
             <p class="main_photo">
                 <img class="withParent" src="{{image.path}}">
             </p>
