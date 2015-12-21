@@ -7,4 +7,5 @@ var router = express.Router();
 router.post('/user', controller.user);
 router.post('/comment', controller.comment);
 router.post('/item', controller.item);
+router.post('/pre', controller.pre);
 module.exports = router;

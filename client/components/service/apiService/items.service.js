@@ -16,7 +16,15 @@ angular.module('webApp')
             }) ;
         };
 
-
+        this.Items.fiximage =  (data) => {
+            $http.post(
+                '/api/items/fiximage',
+                data
+            )
+            .success((data) => {
+                console.log(data);
+            }) ;
+        };
 
         return this.Items;
     }]);

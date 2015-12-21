@@ -9,9 +9,30 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
         $scope.genres      = $$Genres;
         $scope.prefs       = $$Prefs;
         $scope.confirmData = $stateParams.newData || {};
+        $scope.confirmData.pre = $scope.confirmData.pre || [];
         $scope.newData  = $stateParams.registData || {};
 
 /* ----------------------------------------- $scope(function) ----------------------------- */
+
+        // データ更新
+        $scope.preUpload = (files) => {
+
+            if(files && files.length) {
+                $scope.confirmData.images = true;
+                for(var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    Upload.upload({
+                        url: '/api/upload/pre',
+                        file
+                    })
+                    .success((data, status, header, config) => {
+                        $scope.confirmData.pre.push(data);
+                    });
+                }
+            } else {
+                $scope.confirmData.images = false;
+            }
+        };
 
 /* ----------------------------------------- RestfulAPI ----------------------------------- */
         //getAll API
@@ -36,6 +57,8 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
                             });
                         }
                     );
+
+                    $Items.fiximage(JSON.stringify(registData.pre));
                 },
                 () => {
                 }
@@ -62,6 +85,19 @@ app.controller('NewItemController', ['$scope', '$$Scenes', '$$Genres', '$timeout
         };
 
 /* ----------------------------------------- $watch --------------------------------------- */
+
+        $scope.$watch('newData.images', (newValue, oldValue) => {
+
+            if (oldValue) {
+                for (var i in oldValue) {
+                  $scope.newData.images.push(oldValue[i]);
+                }
+            }
+
+            if ($scope.newData.images && $scope.newData.images.length > 3) {
+                $scope.newData.images.splice(0, $scope.newData.images.length - 3);
+            }
+        });
 
 
 /* ----------------------------------------- modal ---------------------------------------- */

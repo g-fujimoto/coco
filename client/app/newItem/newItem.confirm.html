@@ -86,17 +86,17 @@
                             <th><label for="">紹介文※</label></th>
                             <td>{{confirmData.introduce}}</td>
                         </tr>
-
-
+                        <tr>
+                            <th><label for="">登録画像</label></th>
+                            <td ng-show="confirmData.images">あり</td>
+                            <td ng-show="!confirmData.images">なし</td>
+                        </tr>
                     </table>
-
                     <div id="button">
                         <button id="" class="button_submit" name="" value="" ui-sref="newItem.regist({confirmData: confirmData})">戻る</button>
                         <button id="" class="button_submit" name="" value="" ng-click="saveItemAPI()">登録する</button>
                     </div>
-
                 </form>
-
             </div>
         </div>
 

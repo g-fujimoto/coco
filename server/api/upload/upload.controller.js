@@ -69,9 +69,14 @@ exports.user = function(req, res) {
     res.json(true);
 };
 
+exports.pre = function(req, res) {
+    var pre_uploadfile = req.file.filename + '.' + req.file.originalname.match(/(.*)(?:\.([^.]+$))/)[2];
+    res.json(pre_uploadfile);
+};
+
 const start_upload = function (req, upload_dir) {
     var fs = require('fs');
     var upload_file = upload_dir + '/' + req.file.filename + '.' + req.file.originalname.match(/(.*)(?:\.([^.]+$))/)[2];
     fs.createReadStream(req.file.path).pipe(fs.createWriteStream('client/' + upload_file));
     return upload_file;
-}
+};
