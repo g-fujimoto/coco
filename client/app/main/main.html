@@ -84,7 +84,7 @@
                           </div>
 
                           <div class="left">
-                              <div ng-repeat="image in item_comments[item._id].comment.user.images"><img src="{{image.path}}" /></div>
+                              <div ng-repeat="image in item_comments[item._id].comment.user.images"><img src="{{image.path}}" width="57" height="64"/></div>
                               <p class="loop_thumbnail no-photo text-muted" ng-show="!item_comments[item._id].comment.user.images[0]">
                                   No Photo
                               </p>

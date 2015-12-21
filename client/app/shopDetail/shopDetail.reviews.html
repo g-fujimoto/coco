@@ -24,7 +24,7 @@
                         <p class="person_state">{{itemComment.type ? '行った' : '行きたい'}}</p>
                     </div>
                     <p class="gradation_thin_border"></p>
-                    <h5>{{itemComment.title}}</h5>
+                    <h5 class="padding-bottom-xs">{{itemComment.title}}</h5>
                     <div class="box_header" ng-show="itemComment.type">
                         <ul>
                             <li><h4><b>ジャンル</b>{{itemComment.genreAve | number: 1}}</h4></li>
@@ -43,7 +43,7 @@
                             <img src="{{image.path}}" alt="" />
                         </ul>
                     </div>
-                    <div class="reviews_img text-muted no-photo" ng-show="itemComment.images.length == 0">
+                    <div class="reviews_img text-muted no-photo" ng-show="itemComment.images.length == 0 && itemComment.type">
                             No Photo
                     </div>
                 </div>

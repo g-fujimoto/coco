@@ -708,6 +708,24 @@ body.home #main { margin: -50px auto 94px; }
     padding-top: 45px!important;
 }
 
+/* -------------------------------- padding-bottom -------------------------------- */
+
+.padding-bottom-xs {
+    padding-bottom: 5px!important;
+}
+
+.padding-bottom-sm {
+    padding-bottom: 15px!important;
+}
+
+.padding-bottom-md {
+    padding-bottom: 30px!important;
+}
+
+.padding-bottom-lg {
+    padding-bottom: 45px!important;
+}
+
 /* -------------------------------- font-size -------------------------------- */
 
 .text-xs {
