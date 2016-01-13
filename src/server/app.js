@@ -38,7 +38,7 @@ db.once('open', function(callback) {
 
 // MiddleWare
     app.use(multer({dest:'./uploads/'}).single('file'));
-    app.use(express.static('client'));
+    app.use(express.static('dist'));
     app.use(morgan('dev'));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
