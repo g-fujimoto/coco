@@ -1,0 +1,64 @@
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
+<div id="shopDetail_main">
+    <div id="shopDetail_top">
+        <div ng-repeat="itemComment in itemComments | filter: {'type': goFlg} | limitTo: len: start as results">
+            <div ng-class="['reviews_list_blue', {'reviews_list_gray': !itemComment.type}]">
+                <div class="reviews_list_main">
+                    <div class="reviews_top">
+                        <h4 class="reviews_title padding-top-sm">{{itemComment.item.name}}</h4>
+                        <p class="reviews_date">{{itemComment.create | date: 'yyyy-MM-dd'}}</p>
+                    </div>
+                    <p class="gradation_thick_border"></p>
+                    <div ng-repeat="image in itemComment.user.images">
+                        <p class="reviews_thumbnail">
+                            <img class="withParent" src="{{image.path}}">
+                        </p>
+                    </div>
+                    <p class="reviews_thumbnail no-photo text-muted" ng-show="itemComment.user.images.length == 0">
+                        No Photo
+                    </p>
+                    <div class="person_info">
+                        <p class="person_name">{{itemComment.user.lastName}}&nbsp;{{itemComment.user.firstName}}さんの口コミ</p>
+                        <p class="person_state">{{itemComment.type ? '行った' : '行きたい'}}</p>
+                    </div>
+                    <p class="gradation_thin_border"></p>
+                    <h5 class="padding-bottom-xs">{{itemComment.title}}</h5>
+                    <div class="box_header" ng-show="itemComment.type">
+                        <ul>
+                            <li><h4><b>ジャンル</b>{{itemComment.genreAve | number: 1}}</h4></li>
+                            <li><h4><b>シーン</b>{{itemComment.sceneAve | number: 1}}</h4></li>
+                        </ul>
+                    </div>
+                    <p class="gradation_thin_border"></p>
+                    <p class="max_text padding-top-sm" ng-class="{'max_text': !itemComment.more}">{{itemComment.body}}</p>
+                    <div ng-show="itemComment.body.length > 100">
+                        <p><a ng-show="!itemComment.more && !itemComment.moreFlg" ng-click="moreRead($index)" href="javascript:void(0)">もっと見る</a></p>
+                        <p><a ng-show="itemComment.more && itemComment.moreFlg" ng-click="closeRead($index)" href="javascript:void(0)">閉じる</a></p>
+                    </div>
+
+                    <div class="reviews_img">
+                        <ul ng-repeat="image in itemComment.images">
+                            <img src="{{image.path}}" alt="" />
+                        </ul>
+                    </div>
+                    <div class="reviews_img text-muted no-photo" ng-show="itemComment.images.length == 0 && itemComment.type">
+                            No Photo
+                    </div>
+                </div>
+            </div>
+            <div ng-class="['reviews_list_footer_blue', {'reviews_list_footer_gray': !itemComment.type}]">
+                <p class="go_button white_btn" want-go-modal="{{itemComment.item}}"><a><i class="fa fa-map-marker"></i>&nbsp;行きたい</a></p>
+                <button class="nice_button blue_btn" ng-click="like(itemComment)" check-liked="{{itemComment}}" ng-disabled="checkRecommend || itemComment.checkRecommend" ng-class="{noClick: checkRecommend || itemComment.checkRecommend}"><i class="fa fa-thumbs-o-up"></i>&nbsp;いいね</button>
+            </div>
+        </div>
+        <div ng-show="results == 0">
+            口コミ・評価が見つかりませんでした。
+        </div>
+    </div>
+</div>
+<div id="pagerCenterReviews">
+    <pagination total-items="itemComments.length" items-per-page="len" ng-model="current" ng-change="pager()" previous-text="◀︎" next-text="▶︎" class="center-block"></pagination>
+</div>
+</div>

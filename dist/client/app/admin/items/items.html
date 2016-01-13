@@ -1,0 +1,89 @@
+<!-- CSS -->
+<link rel="stylesheet" href="./bower/bootswatch-dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+
+<!-- BODY -->
+<div ng-show="isAdminLogin">
+    <ng-navbar></ng-navbar>
+    <div class="container-fluid">
+        <h1 class="page-header margin-top-sm">店舗一覧</h1>
+        <div class="row">
+            <div ng-controller="AlertController">
+                <div class="container-fluid">
+                    <div class="col-sm-offset-4 col-sm-4">
+                        <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="alert animate alertAnimate">{{alert.msg}}</uib-alert>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <button type="button" ui-sref="adminNewItem" class="btn btn-primary">新規登録</button>
+            </div>
+            <br>
+        </div>
+        <!-- テーブル -->
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr class="warning">
+                    <th>
+                        店舗名
+                    </th>
+                    <th>
+                        支店名
+                    </th>
+                    <th>
+                        エリア
+                    </th>
+                    <th>
+                        電話番号
+                    </th>
+                    <th>
+                        ジャンル名
+                    </th>
+                    <th>
+                        登録日
+                    </th>
+                    <th>
+                        更新日
+                    </th>
+                    <th>
+                        編集
+                    </th>
+                    <th>
+                        削除
+                    </th>
+                </tr>
+                <tr ng-repeat="data in datas | orderBy: 'created'">
+                    <td>
+                        {{data.name}}
+                    </td>
+                    <td>
+                        {{data.branch || '-'}}
+                    </td>
+                    <td>
+                        {{data.area}}
+                    </td>
+                    <td>
+                        {{data.tel}}
+                    </td>
+                    <td>
+                        {{data.genreName}}
+                    </td>
+                    <td>
+                        {{data.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+                    </td>
+                    <td>
+                        {{data.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
+                    </td>
+                    <td>
+                        <button class="btn btn-xs btn-success width-lg" edit-modal="{{data}}">編集</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-xs btn-danger width-lg" delete-modal="{{data}}">削除</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

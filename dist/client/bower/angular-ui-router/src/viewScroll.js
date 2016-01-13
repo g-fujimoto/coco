@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc object
  * @name ui.router.state.$uiViewScrollProvider

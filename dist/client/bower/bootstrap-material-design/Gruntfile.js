@@ -1,12 +1,10 @@
-"use strict";
-
 module.exports = function (grunt) {
   "use strict";
 
   require("load-grunt-tasks")(grunt);
 
   var path = require('path');
-  var configBridge = grunt.file.readJSON('./grunt/configBridge.json', { encoding: 'utf8' });
+  var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
   var generateIconsData = require('./grunt/bmd-icons-data-generator.js');
 
   Object.keys(configBridge.paths).forEach(function (key) {
@@ -20,6 +18,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     jqueryCheck: configBridge.config.jqueryCheck.join('\n'),
     jqueryVersionCheck: configBridge.config.jqueryVersionCheck.join('\n'),
+
 
     // Task configuration.
     clean: {
@@ -52,7 +51,10 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '_gh_pages',
         dest: '_gh_pages',
-        src: ['**/*.html', '!examples/**/*.html']
+        src: [
+          '**/*.html',
+          '!examples/**/*.html'
+        ]
       }
     },
 
@@ -69,6 +71,7 @@ module.exports = function (grunt) {
         src: ["*.html"]
       }
     },
+
 
     // Make sure we are structurally correct for bootstrap
     bootlint: {
@@ -92,130 +95,131 @@ module.exports = function (grunt) {
         options: {
           replacements: [
 
-          // convert bootstrap imports
-          { // https://regex101.com/r/bM6cP0/2
-            pattern: /bower_components\/(bootstrap\/less\/)/gi,
-            replacement: "bower_components\/bootstrap-sass\/assets\/stylesheets\/bootstrap\/",
-            order: 2
-          },
+            // convert bootstrap imports
+            { // https://regex101.com/r/bM6cP0/2
+              pattern: /bower_components\/(bootstrap\/less\/)/gi,
+              replacement: "bower_components\/bootstrap-sass\/assets\/stylesheets\/bootstrap\/",
+              order: 2
+            },
 
-          // convert conditional when not
-          { // https://regex101.com/r/cX6uF4/1
-            pattern: /& when not \(isstring\(\$parent\)\)/gi,
-            replacement: "@if not $parent",
-            order: 2
-          },
+            // convert conditional when not
+            { // https://regex101.com/r/cX6uF4/1
+              pattern: /& when not \(isstring\(\$parent\)\)/gi,
+              replacement: "@if not $parent",
+              order: 2
+            },
 
-          // convert conditional when
-          { // https://regex101.com/r/gH0jP0/2
-            pattern: /& when \(isstring\(\$parent\)\)/gi,
-            replacement: "@else",
-            order: 2
-          },
+            // convert conditional when
+            { // https://regex101.com/r/gH0jP0/2
+              pattern: /& when \(isstring\(\$parent\)\)/gi,
+              replacement: "@else",
+              order: 2
+            },
 
-          // convert conditional when
-          { // https://regex101.com/r/dL1lI8/2
-            pattern: /& when /gi,
-            replacement: "@if ",
-            order: 2
-          },
+            // convert conditional when
+            { // https://regex101.com/r/dL1lI8/2
+              pattern: /& when /gi,
+              replacement: "@if ",
+              order: 2
+            },
 
-          // convert all shadow mixins
-          { // https://regex101.com/r/sJ2lH4/1
-            pattern: /.shadow-z-(\d+)((?:-hover)?) {/gi,
-            replacement: "@mixin shadow-z-$1$2 {",
-            order: 2
-          },
-          // bad conversions of .shadow-z-*
-          { // https://regex101.com/r/pV0yB0/3
-            pattern: /\.shadow-z-(\d+)((?:-hover)?)(?:\(\))?;/gi,
-            replacement: "@include shadow-z-$1$2;",
-            order: 2
-          },
+            // convert all shadow mixins
+            { // https://regex101.com/r/sJ2lH4/1
+              pattern: /.shadow-z-(\d+)((?:-hover)?) {/gi,
+              replacement: "@mixin shadow-z-$1$2 {",
+              order: 2
+            },
+            // bad conversions of .shadow-z-*
+            { // https://regex101.com/r/pV0yB0/3
+              pattern: /\.shadow-z-(\d+)((?:-hover)?)(?:\(\))?;/gi,
+              replacement: "@include shadow-z-$1$2;",
+              order: 2
+            },
 
-          // bad conversions to @include instead of @extend
-          {
-            pattern: /@include (foo1|foo2)\(\);/gi,
-            replacement: "@extend .$1;",
-            order: 2
-          },
+            // bad conversions to @include instead of @extend
+            {
+              pattern: /@include (foo1|foo2)\(\);/gi,
+              replacement: "@extend .$1;",
+              order: 2
+            },
 
-          // hack - (no conditional replacements)
-          { // https://regex101.com/r/pV0yB0/2
-            pattern: /@extend @extend/gi,
-            replacement: "@extend",
-            order: 10
-          },
+            // hack - (no conditional replacements)
+            { // https://regex101.com/r/pV0yB0/2
+              pattern: /@extend @extend/gi,
+              replacement: "@extend",
+              order: 10
+            },
 
-          // button variations mixin replacement(s)
-          { // https://regex101.com/r/qD9qB8/4
-            pattern: /.generic-variations\(unquote\(".btn", ~("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
-            replacement: "@include button-variations(unquote(\".btn\"), $1, $3);\n",
-            order: 20
-          },
+            // button variations mixin replacement(s)
+            { // https://regex101.com/r/qD9qB8/4
+              pattern: /.generic-variations\(unquote\(".btn", ~("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
+              replacement: "@include button-variations(unquote(\".btn\"), $1, $3);\n",
+              order: 20
+            },
 
-          //// background-color generic-variations
-          //{ // Multi-line replacement - https://regex101.com/r/cW6pH8/2
-          //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-color[\s\S]+?(?!\r|\n)(\(\d+\/\d+\))[\s\S]+?(?!\r|\n)}\);$\n/mg,
-          //  replacement: "@include bg-color-variations(unquote($1), $2, $3);\n",
-          //  order: 21
-          //},
+            //// background-color generic-variations
+            //{ // Multi-line replacement - https://regex101.com/r/cW6pH8/2
+            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-color[\s\S]+?(?!\r|\n)(\(\d+\/\d+\))[\s\S]+?(?!\r|\n)}\);$\n/mg,
+            //  replacement: "@include bg-color-variations(unquote($1), $2, $3);\n",
+            //  order: 21
+            //},
 
-          //// bg-box-shadow generic-variations
-          //{ // Multi-line replacement - https://regex101.com/r/jW8kR1/1
-          //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)box-shadow[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-          //  replacement: "@include bg-box-shadow-variations(unquote($1), $2);\n",
-          //  order: 22
-          //},
+            //// bg-box-shadow generic-variations
+            //{ // Multi-line replacement - https://regex101.com/r/jW8kR1/1
+            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)box-shadow[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
+            //  replacement: "@include bg-box-shadow-variations(unquote($1), $2);\n",
+            //  order: 22
+            //},
 
-          //// bg-img generic-variations
-          //{ // Multi-line replacement - https://regex101.com/r/aP2hH2/1
-          //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-image[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-          //  replacement: "@include bg-img-variations(unquote($1), $2);\n",
-          //  order: 23
-          //},
+            //// bg-img generic-variations
+            //{ // Multi-line replacement - https://regex101.com/r/aP2hH2/1
+            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-image[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
+            //  replacement: "@include bg-img-variations(unquote($1), $2);\n",
+            //  order: 23
+            //},
 
-          // material-placeholder
-          { // Multi-line replacement - https://regex101.com/r/eS2vQ3/2
-            pattern: /.material-placeholder\({$\n([\s\S]+?)}\);$\n/mg,
-            replacement: "@include material-placeholder {\n$1\n}\n",
-            order: 24
-          },
+            // material-placeholder
+            { // Multi-line replacement - https://regex101.com/r/eS2vQ3/2
+              pattern: /.material-placeholder\({$\n([\s\S]+?)}\);$\n/mg,
+              replacement: "@include material-placeholder {\n$1\n}\n",
+              order: 24
+            },
 
-          // navbar generic-variations
-          { // Multi-line replacement - https://regex101.com/r/lX1hH1/4
-            pattern: /.generic-variations\(unquote\((".navbar"), ~("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$/mg,
-            replacement: "@include navbar-variations(unquote($1), unquote($2), $4);\n",
-            order: 25
-          },
+            // navbar generic-variations
+            { // Multi-line replacement - https://regex101.com/r/lX1hH1/4
+              pattern: /.generic-variations\(unquote\((".navbar"), ~("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$/mg,
+              replacement: "@include navbar-variations(unquote($1), unquote($2), $4);\n",
+              order: 25
+            },
 
-          // fix calc references
-          { // https://regex101.com/r/aZ8iI5/1
-            pattern: /calc\(unquote\("([^"]+)"\)\)/gi,
-            replacement: "calc($1)",
-            order: 100
-          },
+            // fix calc references
+            { // https://regex101.com/r/aZ8iI5/1
+              pattern: /calc\(unquote\("([^"]+)"\)\)/gi,
+              replacement: "calc($1)",
+              order: 100
+            },
 
-          // fix unquote("", ~"")
-          { //  https://regex101.com/r/vX4nO9/6
-            pattern: /\(unquote\(("([^"]+)?"), ~("([^"]+)?")\),/gi,
-            replacement: "(unquote($1), unquote($3),",
-            order: 101
-          },
+            // fix unquote("", ~"")
+            { //  https://regex101.com/r/vX4nO9/6
+              pattern: /\(unquote\(("([^"]+)?"), ~("([^"]+)?")\),/gi,
+              replacement: "(unquote($1), unquote($3),",
+              order: 101
+            },
 
-          // alert generic-variations (convert this one last - very broad search)
-          { // Multi-line replacement - https://regex101.com/r/jB1uL1/3
-            pattern: /.generic-variations\(unquote\(".alert"\), unquote\(("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
-            replacement: "@include alert-variations(unquote(\".alert\"), unquote($1), $3);\n",
-            order: 250 // very broad search, do this last
-          },
+            // alert generic-variations (convert this one last - very broad search)
+            { // Multi-line replacement - https://regex101.com/r/jB1uL1/3
+              pattern: /.generic-variations\(unquote\(".alert"\), unquote\(("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
+              replacement: "@include alert-variations(unquote(\".alert\"), unquote($1), $3);\n",
+              order: 250 // very broad search, do this last
+            },
 
-          // auto generated notice
-          { // Multi-line replacement - https://regex101.com/r/aR2kT5/1
-            pattern: /([\s\S]+)/mg,
-            replacement: "\/\/ This file has been autogenerated by grunt task lessToSass. Any changes will be overwritten.\n\n$1",
-            order: 1000 // very broad search, do this last
-          }]
+            // auto generated notice
+            { // Multi-line replacement - https://regex101.com/r/aR2kT5/1
+              pattern: /([\s\S]+)/mg,
+              replacement: "\/\/ This file has been autogenerated by grunt task lessToSass. Any changes will be overwritten.\n\n$1",
+              order: 1000 // very broad search, do this last
+            }
+          ]
         }
       }
     },
@@ -223,8 +227,8 @@ module.exports = function (grunt) {
     // Test compile sass
     sass: {
       compile: {
-        options: {
-          loadPath: "bower_components/bootstrap-sass/assets/stylesheets"
+        options:{
+          loadPath: "bower_components/bootstrap-sass/assets/stylesheets",
         },
         files: [{
           expand: true,
@@ -249,7 +253,7 @@ module.exports = function (grunt) {
           sourceMapURL: "bootstrap-material-design.css.map"
         },
         files: {
-          "dist/css/bootstrap-material-design.css": "less/bootstrap-material-design.less"
+          "dist/css/bootstrap-material-design.css": "less/bootstrap-material-design.less",
         }
       },
       ripples: {
@@ -262,7 +266,7 @@ module.exports = function (grunt) {
           outputSourceFiles: true
         },
         files: {
-          "dist/css/ripples.css": "less/ripples.less"
+          "dist/css/ripples.css": "less/ripples.less",
         }
       },
       docs: {
@@ -274,7 +278,7 @@ module.exports = function (grunt) {
           sourceMapURL: "docs.css.map"
         },
         files: {
-          "docs/assets/css/src/docs.css": "docs/assets/css/src/docs.less"
+          "docs/assets/css/src/docs.css": "docs/assets/css/src/docs.less",
         }
       }
     },
@@ -311,9 +315,17 @@ module.exports = function (grunt) {
       options: {
         csslintrc: 'less/.csslintrc'
       },
-      dist: ['dist/css/bootstrap-material-design.css', 'dist/css/ripples.css'],
-      distmin: ['dist/css/bootstrap-material-design.min.css', 'dist/css/ripples.min.css'],
-      examples: ['docs/examples/**/*.css'],
+      dist: [
+        'dist/css/bootstrap-material-design.css',
+        'dist/css/ripples.css',
+      ],
+      distmin: [
+        'dist/css/bootstrap-material-design.min.css',
+        'dist/css/ripples.min.css',
+      ],
+      examples: [
+        'docs/examples/**/*.css'
+      ],
       docs: {
         options: {
           ids: false,
@@ -342,7 +354,11 @@ module.exports = function (grunt) {
         dest: "dist/css/ripples.min.css"
       },
       docs: {
-        src: ['docs/assets/css/ie10-viewport-bug-workaround.css', 'docs/assets/css/src/pygments-manni.css', 'docs/assets/css/src/docs.css'],
+        src: [
+          'docs/assets/css/ie10-viewport-bug-workaround.css',
+          'docs/assets/css/src/pygments-manni.css',
+          'docs/assets/css/src/docs.css'
+        ],
         dest: 'docs/assets/css/docs.min.css'
       }
     },
@@ -368,7 +384,9 @@ module.exports = function (grunt) {
       docs: {
         expand: true,
         cwd: 'dist/',
-        src: ['**/*'],
+        src: [
+          '**/*'
+        ],
         dest: 'docs/dist/'
       }
     },
@@ -425,7 +443,10 @@ module.exports = function (grunt) {
         build: true,
         specs: "test/*Spec.js",
         helpers: "test/*Helper.js",
-        vendor: ["https://code.jquery.com/jquery-1.10.2.min.js", "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"]
+        vendor: [
+          "https://code.jquery.com/jquery-1.10.2.min.js",
+          "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+        ]
       }
     },
     jshint: {
@@ -495,7 +516,13 @@ module.exports = function (grunt) {
         options: {
           livereload: "<%= connect.options.livereload %>"
         },
-        files: ["index.html", "bootstrap-elements.html", "dist/js/**/*.js", "dist/css/**/*.css", "demo/**/*.{png,jpg,jpeg,gif,webp,svg}"]
+        files: [
+          "index.html",
+          "bootstrap-elements.html",
+          "dist/js/**/*.js",
+          "dist/css/**/*.css",
+          "demo/**/*.{png,jpg,jpeg,gif,webp,svg}"
+        ]
       }
     },
 
@@ -507,24 +534,27 @@ module.exports = function (grunt) {
           level: 9,
           pretty: true
         },
-        files: [{
-          expand: true,
-          cwd: 'dist/',
-          src: ['**'],
-          dest: 'bootstrap-material-design-<%= pkg.version %>-dist'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/',
+            src: ['**'],
+            dest: 'bootstrap-material-design-<%= pkg.version %>-dist'
+          }
+        ]
       }
     },
 
     exec: {
       "meteor-init": {
         command: [
-        // Make sure Meteor is installed, per https://meteor.com/install.
-        // The curl'ed script is safe; takes 2 minutes to read source & check.
-        "type meteor >/dev/null 2>&1 || { curl https://install.meteor.com/ | sh; }",
-        // Meteor expects package.js to be in the root directory of
-        // the checkout, so copy it there temporarily
-        "cp meteor/package.js ."].join(";")
+          // Make sure Meteor is installed, per https://meteor.com/install.
+          // The curl'ed script is safe; takes 2 minutes to read source & check.
+          "type meteor >/dev/null 2>&1 || { curl https://install.meteor.com/ | sh; }",
+          // Meteor expects package.js to be in the root directory of
+          // the checkout, so copy it there temporarily
+          "cp meteor/package.js ."
+        ].join(";")
       },
       "meteor-cleanup": {
         // remove build files and package.js
@@ -534,17 +564,27 @@ module.exports = function (grunt) {
         command: "node_modules/.bin/spacejam --mongo-url mongodb:// test-packages ./"
       },
       "meteor-publish": {
-        command: ["ALL_EXIT_CODE=0; for PACKAGE_FILE in meteor/package*.js", "do cp $PACKAGE_FILE ./package.js && meteor publish $@", "ALL_EXIT_CODE=$(echo $ALL_EXIT_CODE + $? | bc); done", "exit $ALL_EXIT_CODE"].join(";")
+        command: [
+          "ALL_EXIT_CODE=0; for PACKAGE_FILE in meteor/package*.js",
+          "do cp $PACKAGE_FILE ./package.js && meteor publish $@",
+          "ALL_EXIT_CODE=$(echo $ALL_EXIT_CODE + $? | bc); done",
+          "exit $ALL_EXIT_CODE"
+        ].join(";")
       }
     }
 
   });
 
-  require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
+
+  require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
   //require('time-grunt')(grunt);
 
   grunt.registerTask('test-js', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
-  grunt.registerTask("test", ["dist", "jasmine:scripts:build", "connect:test:keepalive"]);
+  grunt.registerTask("test", [
+    "dist",
+    "jasmine:scripts:build",
+    "connect:test:keepalive"
+  ]);
 
   // Docs HTML validation task
   grunt.registerTask('validate-html', ['jekyll:docs', 'htmllint']);
@@ -552,38 +592,81 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-less-to-sass");
 
   // CSS distribution tasks
-  grunt.registerTask("dist-sass", ["lessToSass:convert", "sass:compile"]);
+  grunt.registerTask("dist-sass", [
+    "lessToSass:convert",
+    "sass:compile"
+  ]);
 
-  grunt.registerTask('less-compile', ["less:material", "less:ripples"]);
+  grunt.registerTask('less-compile', [
+    "less:material",
+    "less:ripples"
+  ]);
 
-  grunt.registerTask("dist-less", ["less-compile", "autoprefixer:material", "autoprefixer:ripples", "csslint:dist", "cssmin:material", "cssmin:ripples", "csslint:distmin"]);
+  grunt.registerTask("dist-less", [
+    "less-compile",
 
-  grunt.registerTask("dist-js", ["jshint", "copy:material", "uglify:material", "copy:ripples", "uglify:ripples"]);
+    "autoprefixer:material",
+    "autoprefixer:ripples",
+    "csslint:dist",
+    "cssmin:material",
+    "cssmin:ripples",
+    "csslint:distmin"
+  ]);
 
-  grunt.registerTask("dist-fonts", ["copy:fonts"]);
+  grunt.registerTask("dist-js", [
+    "jshint",
+    "copy:material",
+    "uglify:material",
+    "copy:ripples",
+    "uglify:ripples"
+  ]);
+
+  grunt.registerTask("dist-fonts", [
+    "copy:fonts"
+  ]);
 
   // Full distribution
-  grunt.registerTask("dist", ["clean:dist", "htmllint", "bootlint", "dist-less", "dist-js", "dist-fonts", "dist-sass"]);
+  grunt.registerTask("dist", [
+    "clean:dist",
+
+    "htmllint",
+    "bootlint",
+
+    "dist-less",
+    "dist-js",
+    "dist-fonts",
+    "dist-sass"
+  ]);
 
   // Default task.
   grunt.registerTask('default', ['dist']); // test as well when it works?
 
-  grunt.registerTask("serve", ["htmllint", "bootlint", "dist-less", "dist-js", "dist-fonts", "connect:livereload", "watch"]);
+
+  grunt.registerTask("serve", [
+    "htmllint",
+    "bootlint",
+    "dist-less",
+    "dist-js",
+    "dist-fonts",
+    "connect:livereload",
+    "watch"
+  ]);
 
   // Meteor tasks
   grunt.registerTask("meteor-test", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-cleanup"]);
   grunt.registerTask("meteor-publish", ["exec:meteor-init", "exec:meteor-publish", "exec:meteor-cleanup"]);
   grunt.registerTask("meteor", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-publish", "exec:meteor-cleanup"]);
 
+
   // Docs task.
-  grunt.registerTask('build-icons-data', function () {
-    generateIconsData.call(this, grunt);
-  });
-  grunt.registerTask('docs-css', ['less:docs', 'autoprefixer:docs', 'autoprefixer:examples', 'cssmin:docs']);
+  grunt.registerTask('build-icons-data', function () { generateIconsData.call(this, grunt); });
+  grunt.registerTask('docs-css', ['less:docs','autoprefixer:docs', 'autoprefixer:examples', 'cssmin:docs']);
   grunt.registerTask('lint-docs-css', ['csslint:docs', 'csslint:examples']);
   grunt.registerTask('docs-js', ['uglify:docsJs', 'uglify:customize']);
   grunt.registerTask('lint-docs-js', ['jshint:assets', 'jscs:assets']);
-  grunt.registerTask('docs', ['docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-icons-data']);
+  grunt.registerTask('docs', [
+    'docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-icons-data'
+  ]);
 
   grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin']); //, 'compress']);
 };

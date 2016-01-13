@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
@@ -12,7 +10,7 @@ module.exports = function (grunt) {
 
     concat: {
       dist: {
-        src: ['source/_base.css', 'source/**/*.css'], // _base.css required for .animated helper class
+        src: [ 'source/_base.css', 'source/**/*.css' ], // _base.css required for .animated helper class
         dest: 'animate.css'
       }
     },
@@ -29,13 +27,13 @@ module.exports = function (grunt) {
     cssmin: {
       minify: {
         src: ['animate.css'],
-        dest: 'animate.min.css'
+        dest: 'animate.min.css',
       }
     },
 
     watch: {
       css: {
-        files: ['source/**/*', 'animate-config.json'],
+        files: [ 'source/**/*', 'animate-config.json' ],
         tasks: ['default']
       }
     }
@@ -43,20 +41,18 @@ module.exports = function (grunt) {
   });
 
   // fuction to perform custom task
-  concatAnim = function concatAnim() {
+  concatAnim = function () {
 
     var categories = grunt.file.readJSON('animate-config.json'),
-        category,
-        files,
-        file,
-        target = ['source/_base.css'],
-        count = 0;
+      category, files, file,
+      target = [ 'source/_base.css' ],
+      count = 0;
 
-    for (category in categories) {
-      if (categories.hasOwnProperty(category)) {
-        files = categories[category];
+    for ( category in categories ) {
+      if ( categories.hasOwnProperty(category) ) {
+        files = categories[category]
         for (file in files) {
-          if (files.hasOwnProperty(file) && files[file]) {
+          if ( files.hasOwnProperty(file) && files[file] ) {
             target.push('source/' + category + '/' + file + '.css');
             count += 1;
           }
@@ -72,10 +68,12 @@ module.exports = function (grunt) {
 
     grunt.config('concat', { 'animate.css': target });
     grunt.task.run('concat');
+
   };
 
   // register task
   grunt.registerTask('concat-anim', 'Concatenates activated animations', concatAnim); // custom task
   grunt.registerTask('default', ['concat-anim', 'autoprefixer', 'cssmin']);
   grunt.registerTask('dev', ['watch']);
+
 };

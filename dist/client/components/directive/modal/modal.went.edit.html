@@ -1,0 +1,111 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{editData.item.name}}の「行った」を登録</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="container-fluid text-sm">
+            <div class="row">
+                <div class="container-fluid">
+                    ジャンル：{{editData.genre.name}}
+                    &nbsp;<span class="text-danger text-xs">※</span>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="container-fluid">
+                    <div ng-repeat="option in editData.genre.options">
+                        <div class="row">
+                            <div class="form-group form-inline">
+                                <div class="col-sm-5">
+                                    <label for="name" style="padding-top:10px;">{{option.label}}の評価基準</label>
+                                </div>
+                                <div class="col-sm-7" id="sample">
+                                    <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="option.rate">
+                                    <label for="rate1">1</label>
+                                    <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate2">2</label>
+                                    <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate3">3</label>
+                                    <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate4">4</label>
+                                    <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="option.rate">
+                                    <label for="rate5">5</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>
+        <hr>
+    </p>
+    <div class="row">
+        <div class="container-fluid text-sm">
+            <div class="row">
+                <div class="container-fluid">
+                    <label>シーン：</label>
+                    <select class="" name="" ng-model="editData.scene" ng-options="scene as scene.name for scene in scenes" required>
+                        <option value="">以下のシーンから選択して下さい</option>
+                    </select>
+                    &nbsp;<span class="text-danger text-xs">※</span>
+                    <div ng-show="editData.scene" ng-repeat="option in editData.scene.options">
+                        <div class="col-sm-5">
+                            <label for="name" style="padding-top:10px;">{{option.label}}の評価基準</label>
+                        </div>
+                        <div class="col-sm-7" id="sample">
+                            <input type="radio" name="{{option.label}}" value="1" id="rate1" class="margin-left-md" ng-model="option.rate">
+                            <label for="rate1" checked>1</label>
+                            <input type="radio" name="{{option.label}}" value="2" id="rate2" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate2">2</label>
+                            <input type="radio" name="{{option.label}}" value="3" id="rate3" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate3">3</label>
+                            <input type="radio" name="{{option.label}}" value="4" id="rate4" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate4">4</label>
+                            <input type="radio" name="{{option.label}}" value="5" id="rate5" class="margin-left-sm" ng-model="option.rate">
+                            <label for="rate5">5</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>
+        <hr>
+    </p>
+    <form novalidate name="myForm">
+    <div class="row">
+        <div class="col-sm-5">
+            <label for="name" class="text-sm">タイトル&nbsp;<span class="text-danger text-xs">※</span></label>
+        </div>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="col-sm-8">
+                <input type="text" class="form-control" ng-model="editData.title" required>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-5">
+            <label for="name" class="text-sm">コメント&nbsp;<span class="text-danger text-xs">※</span></label>
+        </div>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="col-sm-8">
+                <textarea name="name" rows="4" class="form-control" ng-model="editData.body" required></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div><!-- /modal-body -->
+<div class="modal-footer">
+    <button class="btn" type="button" ng-click="cancel()">戻る</button>
+    <button class="btn" type="button" ng-click="update(editData)" ng-disabled="myForm.$invalid">登録する</button>
+</div>
+</form>

@@ -1,0 +1,36 @@
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
+<div id="main" ng-show="isLogin">
+    <div id="main_header">
+        <h2><img src="./assets/./images/main/parts/title.svg" alt="" /></h2>
+        <h3>新規店舗登録</h3>
+    </div>
+    <div id="main_search_box">
+
+
+        <div id="item_registration">
+
+            <div id="item_title">
+                <div id="title_background">
+                    <h4>登録の手順</h4>
+                </div>
+            </div>
+            <div id="item_navigation">
+                <li><a class="navigation_aft">登録内容入力</a></li>
+                <li><a class="navigation_aft">登録内容確認</a></li>
+                <li class="navigation_end_aft_li"><a class="navigation_end_aft">完了</a></li>
+            </div>
+
+            <div id="item_form">
+                <div id="message"><p>店舗登録が完了しました。</p></div>
+                <div id="button">
+                    <button class="button_submit" went-modal="{{newData}}">「行った」登録を行う</button>
+                    <button class="button_submit" ui-sref="main">閉じる</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

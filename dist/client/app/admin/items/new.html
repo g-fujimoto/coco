@@ -1,0 +1,433 @@
+<ng-navbar></ng-navbar>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="container-fluid">
+            <h1 class="page-header margin-top-sm">新規登録</h1>
+        </div>
+    <div class="row">
+        <div class="container">
+            <form class="form-horizontal" name="myForm" novalidate>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.name" class="control-label">店舗名&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.name" value="" ng-model="newData.name" id="newData.name" class="form-control" placeholder="店舗名" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.branch" class="control-label">支店名</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.branch" value="" ng-model="newData.branch" id="newData.branch" class="form-control" placeholder="支店名">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.area" class="control-label">エリア&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select  name="newData.area" ng-model="newData.area" class="form-control" ng-options="area.name as area.name for area in areas" required>
+                            <option value="" class="">以下のエリアから選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.tel" class="control-label">電話番号&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.tel" value="" ng-model="newData.tel" id="newData.tel" class="form-control" placeholder="電話番号" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.tel" class="control-label">ジャンル名&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select  name="newData.genreName" ng-model="newData.genreName" class="form-control" ng-options="genre.name as genre.name for genre in genres" required>
+                            <option value="" class="">以下のジャンルから選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.kana" class="control-label">店舗名(カナ)&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.kana" value="" ng-model="newData.kana" id="newData.kana" class="form-control" placeholder="店舗名(カナ)" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.otherName" class="control-label">店舗名(別称)</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.otherName" value="" ng-model="newData.otherName" id="newData.otherName" class="form-control" placeholder="店舗名(別称)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.address.postalCode" class="control-label">郵便番号</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.address.postalCode" value="" ng-model="newData.address.postalCode" id="newData.address.postalCode" class="form-control" placeholder="郵便番号">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.address.pref" class="control-label">都道府県&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select  name="newData.address.pref" ng-model="newData.address.pref" class="form-control" ng-options="pref.label as pref.label for pref in prefs" required>
+                            <option value="" class="">以下の都道府県から選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.address.city" class="control-label">市区町村&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.address.city" value="" ng-model="newData.address.city" id="newData.address.city" class="form-control" placeholder="市区町村" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.address.town" class="control-label" >町番地&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.address.town" value="" ng-model="newData.address.town" id="newData.address.town" class="form-control" placeholder="町番地" required="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.address.building" class="control-label">ビル名</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.address.building" value="" ng-model="newData.address.building" id="newData.address.building" class="form-control" placeholder="ビル名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.title" class="control-label">紹介文タイトル&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.title" value="" ng-model="newData.title" id="newData.title" class="form-control" placeholder="紹介文タイトル" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.introduce" class="control-label">紹介文内容&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <textarea name="newData.introduce" rows="8" cols="40" class="form-control" placeholder="紹介文内容" ng-model="newData.introduce" required=""></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.images.path" class="control-label">画像パス</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.images.path" value="" ng-model="newData.images.path" id="newData.images.path" class="form-control" placeholder="画像パス">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.station" class="control-label">最寄駅</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.station" value="" ng-model="newData.station" id="newData.station" class="form-control" placeholder="最寄駅">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.access" class="control-label">アクセス</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.access" value="" ng-model="newData.access" id="newData.access" class="form-control" placeholder="アクセス">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.feature" class="control-label">特徴・関連情報</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.feature.location" class="control-label">ロケーション</label>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-1 ">
+                        <input type="text" name="newData.feature.location" value="" ng-model="newData.feature.location" id="newData.feature.location" class="form-control" placeholder="ロケーション">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.feature.service" class="control-label">サービス</label>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-1 ">
+                        <input type="text" name="newData.feature.service" value="" ng-model="newData.feature.service" id="newData.feature.service" class="form-control" placeholder="サービス">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-1 text-left">
+                        <label for="newData.feature.url" class="control-label">ホームページ</label>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-1 ">
+                        <input type="text" name="newData.feature.url" value="" ng-model="newData.feature.url" id="newData.feature.url" class="form-control" placeholder="ホームページ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.menu" class="control-label">メニュー</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.menu.cuisine" class="control-label">料理</label>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-1 ">
+                        <input type="text" name="newData.menu.cuisine" value="" ng-model="newData.menu.cuisine" id="newData.menu.cuisine" class="form-control" placeholder="料理">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.menu.drink" class="control-label">ドリンク</label>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-1 ">
+                        <input type="text" name="newData.menu.drink" value="" ng-model="newData.menu.drink" id="newData.menu.drink" class="form-control" placeholder="ドリンク">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-1 text-left">
+                        <label for="newData.menu.cource" class="control-label">コース</label>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-1 ">
+                        <input type="text" name="newData.menu.cource" value="" ng-model="newData.menu.cource" id="newData.menu.cource" class="form-control" placeholder="コース">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.fundation" class="control-label">店舗基礎情報</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.fundation.lunch" class="control-label">ランチタイム</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-2 text-left">
+                        <label for="newData.fundation.lunch.start" class="control-label">開始時間</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.lunch.start" value="" ng-model="newData.fundation.lunch.start" id="newData.fundation.lunch.start" class="form-control" placeholder="開始時間">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-2 text-left">
+                        <label for="newData.fundation.lunch.finish" class="control-label">終了時間</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.lunch.finish" value="" ng-model="newData.fundation.lunch.finish" id="newData.fundation.lunch.finish" class="form-control" placeholder="終了時間">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-2 text-left">
+                        <label for="newData.fundation.lunch.last" class="control-label">ラストオーダー</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.lunch.last" value="" ng-model="newData.fundation.lunch.last" id="newData.fundation.lunch.last" class="form-control" placeholder="ラストオーダー">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.fundation.diner" class="control-label">ディナータイム</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-2 text-left">
+                        <label for="newData.fundation.diner.start" class="control-label">開始時間</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.diner.start" value="" ng-model="newData.fundation.diner.start" id="newData.fundation.diner.start" class="form-control" placeholder="開始時間">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-2 text-left">
+                        <label for="newData.fundation.diner.finish" class="control-label">終了時間</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.diner.finish" value="" ng-model="newData.fundation.diner.finish" id="newData.fundation.diner.finish" class="form-control" placeholder="終了時間">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-2 text-left">
+                        <label for="newData.fundation.diner.last" class="control-label">ラストオーダー</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.diner.last" value="" ng-model="newData.fundation.diner.last" id="newData.fundation.diner.last" class="form-control" placeholder="ラストオーダー">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.fundation.holiday" class="control-label">土日祝</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-2 text-left">
+                        <label for="newData.fundation.holiday.start" class="control-label">開始時間</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.holiday.start" value="" ng-model="newData.fundation.holiday.start" id="newData.fundation.holiday.start" class="form-control" placeholder="開始時間">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-2 text-left">
+                        <label for="newData.fundation.holiday.finish" class="control-label">終了時間</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.holiday.finish" value="" ng-model="newData.fundation.holiday.finish" id="newData.fundation.holiday.finish" class="form-control" placeholder="終了時間">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2  col-sm-offset-2 text-left">
+                        <label for="newData.fundation.holiday.last" class="control-label">ラストオーダー</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.holiday.last" value="" ng-model="newData.fundation.holiday.last" id="newData.fundation.holiday.last" class="form-control" placeholder="ラストオーダー">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.fundation.feature" class="control-label">店舗特徴</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.fundation.feature" value="" ng-model="newData.fundation.feature" id="newData.fundation.feature" class="form-control" placeholder="店舗特徴">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.feature.fundation.regularHoliday" class="control-label">定休日</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="newData.fundation.regularHoliday" ng-options="week.label as week.label for week in weeks">
+                            <option value="">定休日無し</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.fundation.creditCard" class="control-label">クレジットカード</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="newData.fundation.creditCard" ng-options="exist.value as exist.label for exist in exists">
+                            <option value="">有・無を選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.images.path" class="control-label">席・設備</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.sheat.count" class="control-label">座席数</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.sheat.count" value="" ng-model="newData.sheat.count" id="newData.sheat.count" class="form-control" placeholder="座席数">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.sheat.sofa" class="control-label">ソファー</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="newData.sheat.sofa" ng-options="exist.value as exist.label for exist in exists">
+                            <option value="">有・無を選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.sheat.privateRoom" class="control-label">個室</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="newData.sheat.privateRoom" ng-options="exist.value as exist.label for exist in exists">
+                            <option value="">有・無を選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.sheat.charter" class="control-label">貸切</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="newData.sheat.charter" ng-options="exist.value as exist.label for exist in exists">
+                            <option value="">有・無を選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.sheat.smoke" class="control-label">禁煙・喫煙・分煙</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="newData.sheat.smoke" ng-options="smoke.value as smoke.label for smoke in smokes">
+                            <option value="">以下の選択肢から選んで下さい。</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.sheat.parking" class="control-label">駐車場</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select class="form-control" ng-model="newData.sheat.parking" ng-options="exist.value as exist.label for exist in exists">
+                            <option value="">有・無を選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.sheat.spaceFeature" class="control-label">空間・設備</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.sheat.spaceFeature" value="" ng-model="newData.sheat.spaceFeature" id="newData.sheat.spaceFeature" class="form-control" placeholder="空間・設備">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 col-sm-offset-1 text-left">
+                        <label for="newData.sheat.mobilePhone" class="control-label">携帯電話</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.sheat.mobilePhone" value="" ng-model="newData.sheat.mobilePhone" id="newData.sheat.mobilePhone" class="form-control" placeholder="携帯電話">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-warning btn-lg" ng-disabled="myForm.$invalid" ng-click="saveAPI()">登録</button>
+                        <button type="button" class="btn btn-default btn-lg" ui-sref="items">戻る</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.row2 -->
+</div><!-- /.firstContainer -->

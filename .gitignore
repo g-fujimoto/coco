@@ -1,4 +1,4 @@
 node_modules
-client/bower
+src/client/bower
 .DS_Store
 uploads/*

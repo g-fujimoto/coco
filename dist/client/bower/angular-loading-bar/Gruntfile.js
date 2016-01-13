@@ -1,13 +1,15 @@
-'use strict';
-
 /*global module:false*/
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   grunt.initConfig({
 
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! \n * <%= pkg.title || pkg.name %> v<%= pkg.version %>\n' + ' * <%= pkg.homepage %>\n' + ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' + ' * License: <%= pkg.license %>\n' + ' */\n',
+    banner: '/*! \n * <%= pkg.title || pkg.name %> v<%= pkg.version %>\n' +
+      ' * <%= pkg.homepage %>\n' +
+      ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+      ' * License: <%= pkg.license %>\n' +
+      ' */\n',
 
     // Task configuration.
     uglify: {
@@ -52,7 +54,7 @@ module.exports = function (grunt) {
       watch: {
         configFile: 'test/karma-angular-1.2.conf.js',
         singleRun: false,
-        reporters: ['progress'] // Don't display coverage
+        reporters: ['progress']  // Don't display coverage
       }
     },
 
@@ -73,7 +75,7 @@ module.exports = function (grunt) {
         },
         files: {
           'build/loading-bar.css': 'src/loading-bar.css',
-          'build/loading-bar.js': 'src/loading-bar.js'
+          'build/loading-bar.js':  'src/loading-bar.js',
         }
       }
     }
@@ -88,4 +90,5 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['jshint', 'karma:unit', 'karma:unit13', 'uglify', 'cssmin', 'concat:build']);
   grunt.registerTask('test', ['karma:watch']);
   grunt.registerTask('build', ['default']);
+
 };

@@ -12,13 +12,13 @@ var isDefined = angular.isDefined,
     copy = angular.copy;
 
 function inherit(parent, extra) {
-  return extend(new (extend(function () {}, { prototype: parent }))(), extra);
+  return extend(new (extend(function() {}, { prototype: parent }))(), extra);
 }
 
 function merge(dst) {
-  forEach(arguments, function (obj) {
+  forEach(arguments, function(obj) {
     if (obj !== dst) {
-      forEach(obj, function (value, key) {
+      forEach(obj, function(value, key) {
         if (!dst.hasOwnProperty(key)) dst[key] = value;
       });
     }
@@ -55,7 +55,7 @@ function objectKeys(object) {
   }
   var result = [];
 
-  forEach(object, function (val, key) {
+  forEach(object, function(val, key) {
     result.push(key);
   });
   return result;
@@ -72,9 +72,8 @@ function indexOf(array, value) {
   if (Array.prototype.indexOf) {
     return array.indexOf(value, Number(arguments[2]) || 0);
   }
-  var len = array.length >>> 0,
-      from = Number(arguments[2]) || 0;
-  from = from < 0 ? Math.ceil(from) : Math.floor(from);
+  var len = array.length >>> 0, from = Number(arguments[2]) || 0;
+  from = (from < 0) ? Math.ceil(from) : Math.floor(from);
 
   if (from < 0) from += len;
 
@@ -94,10 +93,7 @@ function indexOf(array, value) {
  * @param {Object} $to Internal definition of object representing state to transition to.
  */
 function inheritParams(currentParams, newParams, $current, $to) {
-  var parents = ancestors($current, $to),
-      parentParams,
-      inherited = {},
-      inheritList = [];
+  var parents = ancestors($current, $to), parentParams, inherited = {}, inheritList = [];
 
   for (var i in parents) {
     if (!parents[i].params) continue;
@@ -125,12 +121,10 @@ function inheritParams(currentParams, newParams, $current, $to) {
 function equalForKeys(a, b, keys) {
   if (!keys) {
     keys = [];
-    for (var n in a) {
-      keys.push(n);
-    } // Used instead of Object.keys() for IE8 compatibility
+    for (var n in a) keys.push(n); // Used instead of Object.keys() for IE8 compatibility
   }
 
-  for (var i = 0; i < keys.length; i++) {
+  for (var i=0; i<keys.length; i++) {
     var k = keys[i];
     if (a[k] != b[k]) return false; // Not '===', values aren't necessarily normalized
   }
@@ -157,7 +151,7 @@ function filterByKeys(keys, values) {
 // when you know that your index values will be unique, or you want last-one-in to win
 function indexBy(array, propName) {
   var result = {};
-  forEach(array, function (item) {
+  forEach(array, function(item) {
     result[item[propName]] = item;
   });
   return result;
@@ -168,7 +162,7 @@ function indexBy(array, propName) {
 function pick(obj) {
   var copy = {};
   var keys = Array.prototype.concat.apply(Array.prototype, Array.prototype.slice.call(arguments, 1));
-  forEach(keys, function (key) {
+  forEach(keys, function(key) {
     if (key in obj) copy[key] = obj[key];
   });
   return copy;
@@ -188,7 +182,7 @@ function omit(obj) {
 function pluck(collection, key) {
   var result = isArray(collection) ? [] : {};
 
-  forEach(collection, function (val, i) {
+  forEach(collection, function(val, i) {
     result[i] = isFunction(key) ? key(val) : val[key];
   });
   return result;
@@ -197,7 +191,7 @@ function pluck(collection, key) {
 function filter(collection, callback) {
   var array = isArray(collection);
   var result = array ? [] : {};
-  forEach(collection, function (val, i) {
+  forEach(collection, function(val, i) {
     if (callback(val, i)) {
       result[array ? result.length : i] = val;
     }
@@ -208,7 +202,7 @@ function filter(collection, callback) {
 function map(collection, callback) {
   var result = isArray(collection) ? [] : {};
 
-  forEach(collection, function (val, i) {
+  forEach(collection, function(val, i) {
     result[i] = callback(val, i);
   });
   return result;

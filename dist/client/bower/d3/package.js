@@ -1,5 +1,3 @@
-"use strict";
-
 // Package metadata for Meteor.js.
 
 Package.describe({
@@ -9,7 +7,7 @@ Package.describe({
   git: "https://github.com/mbostock/d3.git"
 });
 
-Package.onUse(function (api) {
+Package.onUse(function(api) {
   api.versionsFrom(["METEOR@1.0"]);
   api.addFiles("d3.js", "client");
 });

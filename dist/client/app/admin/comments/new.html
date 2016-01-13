@@ -1,0 +1,146 @@
+<ng-navbar></ng-navbar>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="container-fluid">
+            <h1 class="page-header margin-top-sm">新規登録</h1>
+        </div>
+    <div class="row">
+        <div class="container">
+            <form class="form-horizontal" name="myForm" novalidate>
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.user" class="control-label">ユーザーID&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.user" value="" ng-model="newData.user" id="newData.user" class="form-control" placeholder="ユーザーID" required
+                                uib-typeahead="user as user.lastName + ' ' + user.firstName for user in users | filter: $viewValue"
+                                uib-typeahead-focus-first>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.item" class="control-label">店舗ID&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.item" value="" ng-model="newData.item" id="newData.item" class="form-control" placeholder="店舗ID" required
+                                uib-typeahead="item as item.name for item in items | filter: $viewValue"
+                                uib-typeahead-focus-first>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.title" class="control-label">タイトル&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.title" value="" ng-model="newData.title" id="newData.title" class="form-control" placeholder="タイトル" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.body" class="control-label">内容&nbsp;<span class="text-danger text-xs">※</span></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <textarea name="newData.body" rows="8" cols="40" ng-model="newData.body" id="newData.body" class="form-control" placeholder="内容"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.type" class="control-label">コメントタイプ</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select  name="newData.type" ng-model="newData.type" class="form-control" ng-options="type.value as type.label for type in types" required>
+                            <option value="" class="">以下のジャンルから選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.images.path" class="control-label">画像パス</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" name="newData.images.path" value="" ng-model="newData.images.path" id="newData.images.path" class="form-control" placeholder="画像パス">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 text-left">
+                        <label for="newData.genre" class="control-label">ジャンル</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <select  name="newData.genre" ng-model="newData.genre" class="form-control" ng-options="genre as genre.name for genre in genres" required>
+                            <option value="" class="">以下のジャンルから選択して下さい</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div ng-repeat="option in newData.genre.options">
+                    <div class="form-group">
+                        <div class="col-sm-3 col-sm-offset-2 text-left">
+                            <label for="newData.genre" class="control-label" ng-model="option.label">{{option.label}}</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <select  name="newData.genre" ng-model="option.rate" class="form-control" ng-options="rate.value as rate.value for rate in rates" required>
+                                <option value="" class="">以下のレートから選択して下さい</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="newData.scene" class="control-label">シーン</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <select  name="newData.scene" ng-model="newData.scene" class="form-control" ng-options="scene as scene.name for scene in scenes" required>
+                                    <option value="" class="">以下のシーンから選択して下さい</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div ng-repeat="option in newData.scene.options">
+                            <div class="form-group">
+                                <div class="col-sm-6 col-sm-offset-4 text-left">
+                                    <label for="newData.scene" class="control-label" ng-model="option.label">{{option.label}}</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select  name="newData.scene" ng-model="option.rate" class="form-control" ng-options="rate.value as rate.value for rate in rates" required>
+                                        <option value="" class="">以下のレートから選択して下さい</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <span ng-hide="noSelectScene" class="text-danger text-sm">
+                                ※シーンが選択されていません
+                            </span>
+                            <ul ng-repeat="scene in newData.scenes" ng-show="noSelectScene">
+                                <li class="text-warning text-sm">{{$index + 1}}:{{scene.name}}</li>
+                            </ul>
+                        </div>
+                        <button type="button" ng-click="addScenes()" class="btn btn-warning btn-xs" ng-disabled="newData.disabled">シーンを追加する</button>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-success btn-lg" ng-click="saveAPI()" ng-disabled="myForm.$invalid || !noSelectScene">登録</button>
+                        <button type="button" class="btn btn-default btn-lg" ui-sref="comments">戻る</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.row2 -->
+</div><!-- /.firstContainer -->

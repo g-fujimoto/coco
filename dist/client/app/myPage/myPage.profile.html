@@ -1,0 +1,62 @@
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
+<div id="bg_black"> </div>
+<div id="profile">
+    <div class="profile_main">
+        <div class="profile">
+            <h4 class="profile_header">プロフィール</h4>
+            <ul>
+                <li ng-show="loginUser.birthYear">{{loginUser.birthYear}}年&nbsp;{{loginUser.birthPref}}&nbsp;生まれ</li>
+                <li ng-show="loginUser.highSchoolYear">{{loginUser.highSchoolYear}}年&nbsp;{{loginUser.highSchoolName}}高等学校&nbsp;卒業</li>
+                <li ng-show="loginUser.universityYear">{{loginUser.universityYear}}年&nbsp;{{loginUser.universityName}}高等学校&nbsp;卒業</li>
+            </ul>
+            <ul>
+                <li>その他のプロフィールその他のプロフィール</li>
+                <li>その他のプロフィールその他のプロフィール</li>
+                <li>その他のプロフィールその他のプロフィール</li>
+            </ul>
+        </div>
+        <div class="profile_img_box" ngf-drop ng-model="files" ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="false" ngf-accept="'.jpg, .png, .gif'">
+            <image class="profile_img" src="{{loginUser.images[0].path}}">
+        </div>
+    </div>
+    <div class="profile_detail">
+        <h5>会社概要</h5>
+        <div class="profile_detail_main">
+            <ul>
+                <li>社名&nbsp;{{loginUser.company.name}}</li>
+                <li>所在地&nbsp;〒{{loginUser.company.postalCode}}&nbsp;{{loginUser.company.address}}</li>
+                <li>TEL&nbsp;{{loginUser.company.tel}}</li>
+                <li ng-show="loginUser.company.fax">FAX&nbsp;{{loginUser.company.fax}}</li>
+                <li ng-show="loginUser.company.url">URL&nbsp;{{loginUser.company.url}}&nbsp;メール&nbsp;{{loginUser.company.email}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="profile_detail" ng-show="loginUser.specialized">
+        <h5>専門分野</h5>
+        <div class="profile_detail_main">
+            <p>{{loginUser.specialized}}</p>
+        </div>
+    </div>
+    <div class="profile_detail" ng-show="loginUser.aboutWorks">
+        <h5>仕事について</h5>
+        <div ng-repeat="aboutWork in loginUser.aboutWorks">
+            <div class="profile_detail_main">
+                <h6 ng-show="aboutWork.title">{{aboutWork.title}}</h6>
+                <p ng-show="aboutWork.body" class="profile_ditail_multi">{{aboutWork.body}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="profile_detail" ng-show="loginUser.others">
+        <h5>その他</h5>
+        <div ng-repeat="other in loginUser.others">
+            <div class="profile_detail_main">
+                <h6 ng-show="other.title">{{other.title}}</h6>
+                <p ng-show="other.body">{{other.body}}</p>
+            </div>
+        </div>
+    </div>
+        <p class="profile_btn white_btn"><a edit-profile-modal="{{loginUser}}">編集する</a></p>
+        <p class="profile_btn white_btn"><a edit-password-modal>パスワード変更</a></p>
+</div>

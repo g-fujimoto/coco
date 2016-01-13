@@ -1,0 +1,47 @@
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
+<div id="bg_black"> </div>
+<div id="main_contents">
+    <div ng-repeat="comment in went_comments | filter: {'genre' : {'name' : genreName}, 'scene' : {'name' : sceneName}, 'item' : {'area' : area}} | limitTo: len: start as results">
+        <div id="went_list">
+            <div class="went_list">
+                <div class="went_list_main">
+                    <div class="went_top">
+                        <h4 class="went_title padding-top-sm">{{comment.item.name}}&nbsp;<span class="item_area">({{comment.item.area}})</span></h4>
+                    </div>
+                    <p class="gradation_thick_border"></p>
+                    <div class="wentTitle_box">
+                        <h5>【{{comment.title}}】</h5>
+                        <div class="box_header">
+                           <ul>
+                                <li><h3><b>ジャンル</b>{{comment.genreAve | number: 1}}</h3></li>
+                                <li><h3><b>シーン</b>{{comment.sceneAve | number: 1}}</h3></li>
+                            </ul>
+                        </div>
+                    <button class="blue_btn recommendation" ng-click="wentRecommendAdd(comment);" check-added="{{comment}}" ng-disabled="checkRecommend || comment.checkRecommend" ng-class="{noClick: comment.checkRecommend || checkRecommend}"><i class="fa fa-star-o"></i>&nbsp;推薦する</button>
+                    <p class="edit white_btn"><a went-edit-modal="{{comment}}">編集する</a></p>
+                    </div>
+                    <p class="gradation_thin_border"></p>
+                    <p class="impressions" ng-class="{'max_text': !comment.more}">{{comment.body}}</p>
+                    <div ng-show="comment.body.length > 100">
+                        <p class="see_more"><a ng-show="!comment.more && !comment.moreFlg" ng-click="moreRead($index)" href="javascript:void(0)">もっと見る</a></p>
+                        <p class="see_more"><a ng-show="comment.more && comment.moreFlg" ng-click="closeRead($index)" href="javascript:void(0)">閉じる</a></p>
+                    </div>
+                    <div class="went_img">
+                        <ul>
+                            <li ng-repeat="image in comment.images | limitTo:5:0"><img src="{{image.path}}" style="height:100px;width:100px"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="results == 0">
+        ご指定の条件に該当する店舗が見つかりませんでした。
+    </div>
+    <div id="pagerCenter">
+        <uib-pagination total-items="went_comments.length" items-per-page="len" ng-model="current" ng-change="pager()" previous-text="◀︎" next-text="▶︎" class="center-block"></uib-pagination>
+    </div>
+</div><!-- #main -->
+<coco-sidebar></coco-sidebar>

@@ -1,0 +1,213 @@
+<div class="modal-header">
+    <h4 class="modal-title">編集</h4>
+</div>
+<div class="modal-body">
+
+    <div class="row">
+        <form class="form-horizontal" name="myForm" novalidate>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="container-fluid">
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.email" class="control-label">E-mail</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.email" value="" ng-model="editData.email" id="editData.email" class="form-control" placeholder="E-mail" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.password" class="control-label">パスワード</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="password" name="editData.password" value="" ng-model="editData.password" id="editData.password" class="form-control" placeholder="パスワード" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.lastName" class="control-label">名前(姓)</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.lastName" value="" ng-model="editData.lastName" id="editData.lastName" class="form-control" placeholder="名前(姓)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.firstName" class="control-label">名前(名)</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.firstName" value="" ng-model="editData.firstName" id="editData.firstName" class="form-control" placeholder="名前(名)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.birthYear" class="control-label">誕生年</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.birthYear" value="" ng-model="editData.birthYear" id="editData.birthYear" class="form-control" placeholder="誕生年">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.birthPref" class="control-label">生まれた都道府県</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.birthPref" value="" ng-model="editData.birthPref" id="editData.birthPref" class="form-control" placeholder="生まれた都道府県">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.highSchoolYear" class="control-label">高校卒業年</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.highSchoolYear" value="" ng-model="editData.highSchoolYear" id="editData.highSchoolYear" class="form-control" placeholder="高校卒業年">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.highSchoolName" class="control-label">高校名</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.highSchoolName" value="" ng-model="editData.highSchoolName" id="editData.highSchoolName" class="form-control" placeholder="高校名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.universityYear" class="control-label">大学卒業年</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.universityYear" value="" ng-model="editData.universityYear" id="editData.universityYear" class="form-control" placeholder="大学卒業年">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.universityName" class="control-label">大学名</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.universityName" value="" ng-model="editData.universityName" id="editData.universityName" class="form-control" placeholder="大学名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.oAuthName" class="control-label">外部認証名</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.oAuthName" value="" ng-model="editData.oAuthName" id="editData.oAuthName" class="form-control" placeholder="外部認証名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.oAuthKey" class="control-label">外部認証キー</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.oAuthKey" value="" ng-model="editData.oAuthKey" id="editData.oAuthKey" class="form-control" placeholder="外部認証キー">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.specialized" class="control-label">専門分野</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.specialized" value="" ng-model="editData.specialized" id="editData.specialized" class="form-control" placeholder="専門分野">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 text-left">
+                                <label for="editData.company.name" class="control-label">会社名</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="editData.company.name" value="" ng-model="editData.company.name" id="editData.company.name" class="form-control" placeholder="会社名" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="editData.company.postalCode" class="control-label">郵便番号(会社)</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="editData.company.postalCode" value="" ng-model="editData.company.postalCode" id="editData.company.postalCode" class="form-control" placeholder="郵便番号(会社)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="editData.company.address" class="control-label">住所(会社)</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="editData.company.address" value="" ng-model="editData.company.address" id="editData.company.address" class="form-control" placeholder="住所(会社)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="editData.company.tel" class="control-label">電話番号(会社)</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="editData.company.tel" value="" ng-model="editData.company.tel" id="editData.company.tel" class="form-control" placeholder="電話番号(会社)" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="editData.company.fax" class="control-label">FAX番号(会社)</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="editData.company.fax" value="" ng-model="editData.company.fax" id="editData.company.fax" class="form-control" placeholder="FAX番号(会社)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="editData.company.url" class="control-label">ホームページ</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="editData.company.url" value="" ng-model="editData.company.url" id="editData.company.url" class="form-control" placeholder="ホームページ(会社)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-4 text-left">
+                                <label for="editData.company.email" class="control-label">E-mail(会社)</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" name="editData.company.email" value="" ng-model="editData.company.email" id="editData.company.email" class="form-control" placeholder="E-mail(会社)" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="container-fluid">
+                        <div class="form-group">
+                            <div ng-repeat="aboutWork in editData.aboutWorks">
+                                <div class="col-sm-4 text-left">
+                                    <div ng-show="{{$index === 0}}">
+                                        <label for="editData.aboutWork.title" class="control-label">仕事について</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" name="editData.aboutWork.title" value="" class="form-control" ng-model="aboutWork.title" placeholder="タイトル">
+                                    <br>
+                                    <textarea name="editData.aboutWork.body" rows="8" cols="40" ng-model="aboutWork.body" id="" class="form-control" placeholder="本文"></textarea>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div ng-repeat="other in editData.others">
+                                <div class="col-sm-4 text-left">
+                                    <div ng-show="{{$index === 0}}">
+                                        <label for="editData.other.title" class="control-label">その他</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" name="editData.other.title" value="" class="form-control" ng-model="other.title" placeholder="タイトル">
+                                    <br>
+                                    <textarea name="editData.other.body" rows="8" cols="40" ng-model="other.body" id="" class="form-control" placeholder="本文"></textarea>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="update(editData)">更新</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">キャンセル</button>
+</div>

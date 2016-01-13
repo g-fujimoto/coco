@@ -12,7 +12,8 @@ module.exports = function generateGlyphiconsData(grunt) {
 
   // Use any line that starts with ".glyphicon-" and capture the class name
   var iconClassRegex = /^\.(mdi-[a-zA-Z0-9-]+):before/;
-  var iconsData = '# This file is generated via Grunt task. **Do not edit directly.**\n' + '# See the \'build-icons-data\' task in Gruntfile.js.\n\n';
+  var iconsData = '# This file is generated via Grunt task. **Do not edit directly.**\n' +
+                       '# See the \'build-icons-data\' task in Gruntfile.js.\n\n';
   var iconsYml = 'docs/_data/icons.yml';
   for (var i = 0, len = iconsLines.length; i < len; i++) {
     var match = iconsLines[i].match(iconClassRegex);

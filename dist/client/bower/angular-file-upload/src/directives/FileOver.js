@@ -1,19 +1,14 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 
-var _config = require('./../config.json');
+import CONFIG from './../config.json';
 
-var _config2 = _interopRequireDefault(_config);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+export default (FileUploader, FileOver) => {
 
-exports.default = function (FileUploader, FileOver) {
 
     return {
-        link: function link(scope, element, attributes) {
+        link: (scope, element, attributes) => {
             var uploader = scope.$eval(attributes.uploader);
 
             if (!(uploader instanceof FileUploader)) {
@@ -25,11 +20,15 @@ exports.default = function (FileUploader, FileOver) {
                 element: element
             });
 
-            object.getOverClass = function () {
-                return attributes.overClass || object.overClass;
-            };
+            object.getOverClass = () => attributes.overClass || object.overClass;
         }
     };
-};
 
-module.exports.$inject = ['FileUploader', 'FileOver'];
+
+}
+
+
+module.exports.$inject = [
+    'FileUploader',
+    'FileOver'
+];

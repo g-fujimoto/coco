@@ -1,92 +1,84 @@
-'use strict';
-
 /*! angular-google-maps 2.2.1 2015-09-11
  *  AngularJS directives for Google Maps
  *  git: https://github.com/angular-ui/angular-google-maps.git
  */
 ;
-(function (window, angular, undefined) {
+(function( window, angular, undefined ){
   'use strict';
+/*
+!
+The MIT License
+
+Copyright (c) 2010-2013 Google, Inc. http://angularjs.org
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the 'Software'), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+angular-google-maps
+https://github.com/angular-ui/angular-google-maps
+
+@authors
+Nicolas Laplante - https://plus.google.com/108189012221374960701
+Nicholas McCready - https://twitter.com/nmccready
+ */
+
+(function() {
+  angular.module('uiGmapgoogle-maps.providers', ['nemLogging']);
+
+  angular.module('uiGmapgoogle-maps.wrapped', []);
+
+  angular.module('uiGmapgoogle-maps.extensions', ['uiGmapgoogle-maps.wrapped', 'uiGmapgoogle-maps.providers']);
+
+  angular.module('uiGmapgoogle-maps.directives.api.utils', ['uiGmapgoogle-maps.extensions']);
+
+  angular.module('uiGmapgoogle-maps.directives.api.managers', []);
+
+  angular.module('uiGmapgoogle-maps.directives.api.options', ['uiGmapgoogle-maps.directives.api.utils']);
+
+  angular.module('uiGmapgoogle-maps.directives.api.options.builders', []);
+
+  angular.module('uiGmapgoogle-maps.directives.api.models.child', ['uiGmapgoogle-maps.directives.api.utils', 'uiGmapgoogle-maps.directives.api.options', 'uiGmapgoogle-maps.directives.api.options.builders']);
+
+  angular.module('uiGmapgoogle-maps.directives.api.models.parent', ['uiGmapgoogle-maps.directives.api.managers', 'uiGmapgoogle-maps.directives.api.models.child', 'uiGmapgoogle-maps.providers']);
+
+  angular.module('uiGmapgoogle-maps.directives.api', ['uiGmapgoogle-maps.directives.api.models.parent']);
+
+  angular.module('uiGmapgoogle-maps', ['uiGmapgoogle-maps.directives.api', 'uiGmapgoogle-maps.providers']);
+
+}).call(this);
+;angular.module('uiGmapgoogle-maps.wrapped')
+.service('uiGmapuuid', function() {
+  //BEGIN REPLACE
   /*
-  !
-  The MIT License
-  
-  Copyright (c) 2010-2013 Google, Inc. http://angularjs.org
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the 'Software'), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-  
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-  
-  THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-  THE SOFTWARE.
-  
-  angular-google-maps
-  https://github.com/angular-ui/angular-google-maps
-  
-  @authors
-  Nicolas Laplante - https://plus.google.com/108189012221374960701
-  Nicholas McCready - https://twitter.com/nmccready
-   */
+ Version: core-1.0
+ The MIT License: Copyright (c) 2012 LiosK.
+*/
+function UUID(){}UUID.generate=function(){var a=UUID._gri,b=UUID._ha;return b(a(32),8)+"-"+b(a(16),4)+"-"+b(16384|a(12),4)+"-"+b(32768|a(14),4)+"-"+b(a(48),12)};UUID._gri=function(a){return 0>a?NaN:30>=a?0|Math.random()*(1<<a):53>=a?(0|1073741824*Math.random())+1073741824*(0|Math.random()*(1<<a-30)):NaN};UUID._ha=function(a,b){for(var c=a.toString(16),d=b-c.length,e="0";0<d;d>>>=1,e+=e)d&1&&(c=e+c);return c};
 
-  (function () {
-    angular.module('uiGmapgoogle-maps.providers', ['nemLogging']);
-
-    angular.module('uiGmapgoogle-maps.wrapped', []);
-
-    angular.module('uiGmapgoogle-maps.extensions', ['uiGmapgoogle-maps.wrapped', 'uiGmapgoogle-maps.providers']);
-
-    angular.module('uiGmapgoogle-maps.directives.api.utils', ['uiGmapgoogle-maps.extensions']);
-
-    angular.module('uiGmapgoogle-maps.directives.api.managers', []);
-
-    angular.module('uiGmapgoogle-maps.directives.api.options', ['uiGmapgoogle-maps.directives.api.utils']);
-
-    angular.module('uiGmapgoogle-maps.directives.api.options.builders', []);
-
-    angular.module('uiGmapgoogle-maps.directives.api.models.child', ['uiGmapgoogle-maps.directives.api.utils', 'uiGmapgoogle-maps.directives.api.options', 'uiGmapgoogle-maps.directives.api.options.builders']);
-
-    angular.module('uiGmapgoogle-maps.directives.api.models.parent', ['uiGmapgoogle-maps.directives.api.managers', 'uiGmapgoogle-maps.directives.api.models.child', 'uiGmapgoogle-maps.providers']);
-
-    angular.module('uiGmapgoogle-maps.directives.api', ['uiGmapgoogle-maps.directives.api.models.parent']);
-
-    angular.module('uiGmapgoogle-maps', ['uiGmapgoogle-maps.directives.api', 'uiGmapgoogle-maps.providers']);
-  }).call(this);
-  ;angular.module('uiGmapgoogle-maps.wrapped').service('uiGmapuuid', function () {
-    //BEGIN REPLACE
-    /*
-    Version: core-1.0
-    The MIT License: Copyright (c) 2012 LiosK.
-    */
-    function UUID() {}UUID.generate = function () {
-      var a = UUID._gri,
-          b = UUID._ha;return b(a(32), 8) + "-" + b(a(16), 4) + "-" + b(16384 | a(12), 4) + "-" + b(32768 | a(14), 4) + "-" + b(a(48), 12);
-    };UUID._gri = function (a) {
-      return 0 > a ? NaN : 30 >= a ? 0 | Math.random() * (1 << a) : 53 >= a ? (0 | 1073741824 * Math.random()) + 1073741824 * (0 | Math.random() * (1 << a - 30)) : NaN;
-    };UUID._ha = function (a, b) {
-      for (var c = a.toString(16), d = b - c.length, e = "0"; 0 < d; d >>>= 1, e += e) {
-        d & 1 && (c = e + c);
-      }return c;
-    };
-
-    //END REPLACE
-    return UUID;
-  });
-  ;(function () {
-    angular.module('uiGmapgoogle-maps.providers').factory('uiGmapMapScriptLoader', ['$q', 'uiGmapuuid', function ($q, uuid) {
+  //END REPLACE
+return UUID;
+});
+;(function() {
+  angular.module('uiGmapgoogle-maps.providers').factory('uiGmapMapScriptLoader', [
+    '$q', 'uiGmapuuid', function($q, uuid) {
       var getScriptUrl, includeScript, isGoogleMapsLoaded, scriptId;
       scriptId = void 0;
-      getScriptUrl = function getScriptUrl(options) {
+      getScriptUrl = function(options) {
         if (options.china) {
           return 'http://maps.google.cn/maps/api/js?';
         } else {
@@ -97,13 +89,13 @@
           }
         }
       };
-      includeScript = function includeScript(options) {
+      includeScript = function(options) {
         var omitOptions, query, script;
         omitOptions = ['transport', 'isGoogleMapsForWork', 'china'];
         if (options.isGoogleMapsForWork) {
           omitOptions.push('key');
         }
-        query = _.map(_.omit(options, omitOptions), function (v, k) {
+        query = _.map(_.omit(options, omitOptions), function(v, k) {
           return k + '=' + v;
         });
         if (scriptId) {
@@ -111,16 +103,16 @@
         }
         query = query.join('&');
         script = document.createElement('script');
-        script.id = scriptId = "ui_gmap_map_load_" + uuid.generate();
+        script.id = scriptId = "ui_gmap_map_load_" + (uuid.generate());
         script.type = 'text/javascript';
         script.src = getScriptUrl(options) + query;
         return document.body.appendChild(script);
       };
-      isGoogleMapsLoaded = function isGoogleMapsLoaded() {
+      isGoogleMapsLoaded = function() {
         return angular.isDefined(window.google) && angular.isDefined(window.google.maps);
       };
       return {
-        load: function load(options) {
+        load: function(options) {
           var deferred, randomizedFunctionName;
           deferred = $q.defer();
           if (isGoogleMapsLoaded()) {
@@ -128,12 +120,12 @@
             return deferred.promise;
           }
           randomizedFunctionName = options.callback = 'onGoogleMapsReady' + Math.round(Math.random() * 1000);
-          window[randomizedFunctionName] = function () {
+          window[randomizedFunctionName] = function() {
             window[randomizedFunctionName] = null;
             deferred.resolve(window.google.maps);
           };
           if (window.navigator.connection && window.Connection && window.navigator.connection.type === window.Connection.NONE) {
-            document.addEventListener('online', function () {
+            document.addEventListener('online', function() {
               if (!isGoogleMapsLoaded()) {
                 return includeScript(options);
               }
@@ -144,42 +136,50 @@
           return deferred.promise;
         }
       };
-    }]).provider('uiGmapGoogleMapApi', function () {
-      this.options = {
-        transport: 'https',
-        isGoogleMapsForWork: false,
-        china: false,
-        v: '3',
-        libraries: '',
-        language: 'en',
-        sensor: 'false'
-      };
-      this.configure = function (options) {
-        angular.extend(this.options, options);
-      };
-      this.$get = ['uiGmapMapScriptLoader', function (_this) {
-        return function (loader) {
+    }
+  ]).provider('uiGmapGoogleMapApi', function() {
+    this.options = {
+      transport: 'https',
+      isGoogleMapsForWork: false,
+      china: false,
+      v: '3',
+      libraries: '',
+      language: 'en',
+      sensor: 'false'
+    };
+    this.configure = function(options) {
+      angular.extend(this.options, options);
+    };
+    this.$get = [
+      'uiGmapMapScriptLoader', (function(_this) {
+        return function(loader) {
           return loader.load(_this.options);
         };
-      }(this)];
-      return this;
-    });
-  }).call(this);
-  ;(function () {
-    angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapLogger', ['nemSimpleLogger', function (nemSimpleLogger) {
+      })(this)
+    ];
+    return this;
+  });
+
+}).call(this);
+;(function() {
+  angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapLogger', [
+    'nemSimpleLogger', function(nemSimpleLogger) {
       return nemSimpleLogger.spawn();
-    }]);
-  }).call(this);
-  ;(function () {
-    angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapGmapUtil', ['uiGmapLogger', '$compile', function (Logger, $compile) {
+    }
+  ]);
+
+}).call(this);
+;(function() {
+  angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapGmapUtil', [
+    'uiGmapLogger', '$compile', function(Logger, $compile) {
       var _isFalse, _isTruthy, getCoords, getLatitude, getLongitude, validateCoords;
-      _isTruthy = function _isTruthy(value, bool, optionsArray) {
+      _isTruthy = function(value, bool, optionsArray) {
         return value === bool || optionsArray.indexOf(value) !== -1;
       };
-      _isFalse = function _isFalse(value) {
+      _isFalse = function(value) {
         return _isTruthy(value, false, ['false', 'FALSE', 0, 'n', 'N', 'no', 'NO']);
       };
-      getLatitude = function getLatitude(value) {
+      getLatitude = function(value) {
         if (Array.isArray(value) && value.length === 2) {
           return value[1];
         } else if (angular.isDefined(value.type) && value.type === 'Point') {
@@ -188,7 +188,7 @@
           return value.latitude;
         }
       };
-      getLongitude = function getLongitude(value) {
+      getLongitude = function(value) {
         if (Array.isArray(value) && value.length === 2) {
           return value[0];
         } else if (angular.isDefined(value.type) && value.type === 'Point') {
@@ -197,7 +197,7 @@
           return value.longitude;
         }
       };
-      getCoords = function getCoords(value) {
+      getCoords = function(value) {
         if (!value) {
           return;
         }
@@ -209,7 +209,7 @@
           return new google.maps.LatLng(value.latitude, value.longitude);
         }
       };
-      validateCoords = function validateCoords(coords) {
+      validateCoords = function(coords) {
         if (angular.isUndefined(coords)) {
           return false;
         }
@@ -217,7 +217,7 @@
           if (coords.length === 2) {
             return true;
           }
-        } else if (coords != null && (coords != null ? coords.type : void 0)) {
+        } else if ((coords != null) && (coords != null ? coords.type : void 0)) {
           if (coords.type === 'Point' && _.isArray(coords.coordinates) && coords.coordinates.length === 2) {
             return true;
           }
@@ -228,7 +228,7 @@
         return false;
       };
       return {
-        setCoordsFromEvent: function setCoordsFromEvent(prevValue, newLatLon) {
+        setCoordsFromEvent: function(prevValue, newLatLon) {
           if (!prevValue) {
             return;
           }
@@ -244,7 +244,7 @@
           }
           return prevValue;
         },
-        getLabelPositionPoint: function getLabelPositionPoint(anchor) {
+        getLabelPositionPoint: function(anchor) {
           var xPos, yPos;
           if (anchor === void 0) {
             return void 0;
@@ -252,19 +252,21 @@
           anchor = /^([-\d\.]+)\s([-\d\.]+)$/.exec(anchor);
           xPos = parseFloat(anchor[1]);
           yPos = parseFloat(anchor[2]);
-          if (xPos != null && yPos != null) {
+          if ((xPos != null) && (yPos != null)) {
             return new google.maps.Point(xPos, yPos);
           }
         },
-        createWindowOptions: function createWindowOptions(gMarker, scope, content, defaults) {
+        createWindowOptions: function(gMarker, scope, content, defaults) {
           var options;
-          if (content != null && defaults != null && $compile != null) {
+          if ((content != null) && (defaults != null) && ($compile != null)) {
             options = angular.extend({}, defaults, {
               content: this.buildContent(scope, defaults, content),
               position: defaults.position != null ? defaults.position : angular.isObject(gMarker) ? gMarker.getPosition() : getCoords(scope.coords)
             });
-            if (gMarker != null && (options != null ? options.pixelOffset : void 0) == null) {
-              if (options.boxClass == null) {} else {
+            if ((gMarker != null) && ((options != null ? options.pixelOffset : void 0) == null)) {
+              if (options.boxClass == null) {
+
+              } else {
                 options.pixelOffset = {
                   height: 0,
                   width: -2
@@ -283,7 +285,7 @@
             }
           }
         },
-        buildContent: function buildContent(scope, defaults, content) {
+        buildContent: function(scope, defaults, content) {
           var parsed, ret;
           if (defaults.content != null) {
             ret = defaults.content;
@@ -301,19 +303,19 @@
           return ret;
         },
         defaultDelay: 50,
-        isTrue: function isTrue(value) {
+        isTrue: function(value) {
           return _isTruthy(value, true, ['true', 'TRUE', 1, 'y', 'Y', 'yes', 'YES']);
         },
         isFalse: _isFalse,
-        isFalsy: function isFalsy(value) {
+        isFalsy: function(value) {
           return _isTruthy(value, false, [void 0, null]) || _isFalse(value);
         },
         getCoords: getCoords,
         validateCoords: validateCoords,
-        equalCoords: function equalCoords(coord1, coord2) {
+        equalCoords: function(coord1, coord2) {
           return getLatitude(coord1) === getLatitude(coord2) && getLongitude(coord1) === getLongitude(coord2);
         },
-        validatePath: function validatePath(path) {
+        validatePath: function(path) {
           var array, i, polygon, trackMaxVertices;
           i = 0;
           if (angular.isUndefined(path.type)) {
@@ -321,7 +323,7 @@
               return false;
             }
             while (i < path.length) {
-              if (!(angular.isDefined(path[i].latitude) && angular.isDefined(path[i].longitude) || typeof path[i].lat === 'function' && typeof path[i].lng === 'function')) {
+              if (!((angular.isDefined(path[i].latitude) && angular.isDefined(path[i].longitude)) || (typeof path[i].lat === 'function' && typeof path[i].lng === 'function'))) {
                 return false;
               }
               i++;
@@ -341,7 +343,7 @@
                 max: 0,
                 index: 0
               };
-              _.forEach(path.coordinates, function (polygon, index) {
+              _.forEach(path.coordinates, function(polygon, index) {
                 if (polygon[0].length > this.max) {
                   this.max = polygon[0].length;
                   return this.index = index;
@@ -369,7 +371,7 @@
             return true;
           }
         },
-        convertPathPoints: function convertPathPoints(path) {
+        convertPathPoints: function(path) {
           var array, i, latlng, result, trackMaxVertices;
           i = 0;
           result = new google.maps.MVCArray();
@@ -393,7 +395,7 @@
                 max: 0,
                 index: 0
               };
-              _.forEach(path.coordinates, function (polygon, index) {
+              _.forEach(path.coordinates, function(polygon, index) {
                 if (polygon[0].length > this.max) {
                   this.max = polygon[0].length;
                   return this.index = index;
@@ -410,43 +412,46 @@
           }
           return result;
         },
-        getPath: function getPath(object, key) {
+        getPath: function(object, key) {
           var obj;
-          if (key == null || !_.isString(key)) {
+          if ((key == null) || !_.isString(key)) {
             return key;
           }
           obj = object;
-          _.each(key.split('.'), function (value) {
+          _.each(key.split('.'), function(value) {
             if (obj) {
               return obj = obj[value];
             }
           });
           return obj;
         },
-        validateBoundPoints: function validateBoundPoints(bounds) {
+        validateBoundPoints: function(bounds) {
           if (angular.isUndefined(bounds.sw.latitude) || angular.isUndefined(bounds.sw.longitude) || angular.isUndefined(bounds.ne.latitude) || angular.isUndefined(bounds.ne.longitude)) {
             return false;
           }
           return true;
         },
-        convertBoundPoints: function convertBoundPoints(bounds) {
+        convertBoundPoints: function(bounds) {
           var result;
           result = new google.maps.LatLngBounds(new google.maps.LatLng(bounds.sw.latitude, bounds.sw.longitude), new google.maps.LatLng(bounds.ne.latitude, bounds.ne.longitude));
           return result;
         },
-        fitMapBounds: function fitMapBounds(map, bounds) {
+        fitMapBounds: function(map, bounds) {
           return map.fitBounds(bounds);
         }
       };
-    }]);
-  }).call(this);
-  ;(function () {
-    angular.module("uiGmapgoogle-maps.directives.api.utils").service("uiGmapEventsHelper", ["uiGmapLogger", function ($log) {
+    }
+  ]);
+
+}).call(this);
+;(function() {
+  angular.module("uiGmapgoogle-maps.directives.api.utils").service("uiGmapEventsHelper", [
+    "uiGmapLogger", function($log) {
       var _getEventsObj, _hasEvents;
-      _hasEvents = function _hasEvents(obj) {
-        return angular.isDefined(obj.events) && obj.events != null && angular.isObject(obj.events);
+      _hasEvents = function(obj) {
+        return angular.isDefined(obj.events) && (obj.events != null) && angular.isObject(obj.events);
       };
-      _getEventsObj = function _getEventsObj(scope, model) {
+      _getEventsObj = function(scope, model) {
         if (_hasEvents(scope)) {
           return scope;
         }
@@ -455,19 +460,19 @@
         }
       };
       return {
-        setEvents: function setEvents(gObject, scope, model, ignores) {
+        setEvents: function(gObject, scope, model, ignores) {
           var eventObj;
           eventObj = _getEventsObj(scope, model);
           if (eventObj != null) {
-            return _.compact(_.map(eventObj.events, function (eventHandler, eventName) {
+            return _.compact(_.map(eventObj.events, function(eventHandler, eventName) {
               var doIgnore;
               if (ignores) {
                 doIgnore = _(ignores).contains(eventName);
               }
               if (eventObj.events.hasOwnProperty(eventName) && angular.isFunction(eventObj.events[eventName]) && !doIgnore) {
-                return google.maps.event.addListener(gObject, eventName, function () {
+                return google.maps.event.addListener(gObject, eventName, function() {
                   if (!scope.$evalAsync) {
-                    scope.$evalAsync = function () {};
+                    scope.$evalAsync = function() {};
                   }
                   return scope.$evalAsync(eventHandler.apply(scope, [gObject, eventName, model, arguments]));
                 });
@@ -475,7 +480,7 @@
             }));
           }
         },
-        removeEvents: function removeEvents(listeners) {
+        removeEvents: function(listeners) {
           var key, l;
           if (!listeners) {
             return;
@@ -488,20 +493,24 @@
           }
         }
       };
-    }]);
-  }).call(this);
-  ;
-  /*
-  @authors:
-  - Nicholas McCready - https://twitter.com/nmccready
-   */
+    }
+  ]);
 
-  /*
-  StreetViewPanorama Directive to care of basic initialization of StreetViewPanorama
-   */
+}).call(this);
+;
+/*
+@authors:
+- Nicholas McCready - https://twitter.com/nmccready
+ */
 
-  (function () {
-    angular.module('uiGmapgoogle-maps').directive('uiGmapStreetViewPanorama', ['uiGmapGoogleMapApi', 'uiGmapLogger', 'uiGmapGmapUtil', 'uiGmapEventsHelper', function (GoogleMapApi, $log, GmapUtil, EventsHelper) {
+
+/*
+StreetViewPanorama Directive to care of basic initialization of StreetViewPanorama
+ */
+
+(function() {
+  angular.module('uiGmapgoogle-maps').directive('uiGmapStreetViewPanorama', [
+    'uiGmapGoogleMapApi', 'uiGmapLogger', 'uiGmapGmapUtil', 'uiGmapEventsHelper', function(GoogleMapApi, $log, GmapUtil, EventsHelper) {
       var name;
       name = 'uiGmapStreetViewPanorama';
       return {
@@ -517,9 +526,9 @@
           povoptions: '=?',
           imagestatus: '='
         },
-        link: function link(scope, element, attrs) {
-          return GoogleMapApi.then(function (_this) {
-            return function (maps) {
+        link: function(scope, element, attrs) {
+          return GoogleMapApi.then((function(_this) {
+            return function(maps) {
               var clean, create, didCreateOptionsFromDirective, firstTime, handleSettings, listeners, opts, pano, povOpts, sv;
               pano = void 0;
               sv = void 0;
@@ -527,7 +536,7 @@
               listeners = void 0;
               opts = null;
               povOpts = null;
-              clean = function clean() {
+              clean = function() {
                 EventsHelper.removeEvents(listeners);
                 if (pano != null) {
                   pano.unbind('position');
@@ -540,7 +549,7 @@
                   return sv = void 0;
                 }
               };
-              handleSettings = function handleSettings(perspectivePoint, focalPoint) {
+              handleSettings = function(perspectivePoint, focalPoint) {
                 var heading;
                 heading = google.maps.geometry.spherical.computeHeading(perspectivePoint, focalPoint);
                 didCreateOptionsFromDirective = true;
@@ -560,7 +569,7 @@
                 }, scope.options || {});
                 return didCreateOptionsFromDirective = false;
               };
-              create = function create() {
+              create = function() {
                 var focalPoint;
                 if (!scope.focalcoord) {
                   $log.error(name + ": focalCoord needs to be defined");
@@ -578,7 +587,7 @@
                   listeners = EventsHelper.setEvents(sv, scope, scope);
                 }
                 focalPoint = GmapUtil.getCoords(scope.focalcoord);
-                return sv.getPanoramaByLocation(focalPoint, scope.radius, function (streetViewPanoramaData, status) {
+                return sv.getPanoramaByLocation(focalPoint, scope.radius, function(streetViewPanoramaData, status) {
                   var ele, perspectivePoint, ref;
                   if (scope.imagestatus != null) {
                     scope.imagestatus = status;
@@ -595,27 +604,27 @@
                 });
               };
               if (scope.control != null) {
-                scope.control.getOptions = function () {
+                scope.control.getOptions = function() {
                   return opts;
                 };
-                scope.control.getPovOptions = function () {
+                scope.control.getPovOptions = function() {
                   return povOpts;
                 };
-                scope.control.getGObject = function () {
+                scope.control.getGObject = function() {
                   return sv;
                 };
-                scope.control.getGPano = function () {
+                scope.control.getGPano = function() {
                   return pano;
                 };
               }
-              scope.$watch('options', function (newValue, oldValue) {
+              scope.$watch('options', function(newValue, oldValue) {
                 if (newValue === oldValue || newValue === opts || didCreateOptionsFromDirective) {
                   return;
                 }
                 return create();
               });
               firstTime = true;
-              scope.$watch('focalcoord', function (newValue, oldValue) {
+              scope.$watch('focalcoord', function(newValue, oldValue) {
                 if (newValue === oldValue && !firstTime) {
                   return;
                 }
@@ -625,14 +634,16 @@
                 firstTime = false;
                 return create();
               });
-              return scope.$on('$destroy', function () {
+              return scope.$on('$destroy', function() {
                 return clean();
               });
             };
-          }(this));
+          })(this));
         }
       };
-    }]);
-  }).call(this);
-})(window, angular);
+    }
+  ]);
+
+}).call(this);
+}( window,angular));
 //# sourceMappingURL=angular-google-maps-street-view_dev_mapped.js.map

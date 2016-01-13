@@ -1,0 +1,16 @@
+
+    <h2 class="main_title">REGISTRANT INFORMATION<span class="customer_info">登録者情報</span></h2>
+    <div id="customer_state_frame">
+        <div class="customer_state">
+            <h3>{{loginUser.lastName}}&nbsp;{{loginUser.firstName}}&nbsp;様<span class="customer_company">{{loginUser.company.name}}</span><span class="customer_position">取締役</span></h3>
+            <h4>登録店舗数：<span class="stores_number">{{loginUser.itemRegisterCounter.count}}</span>店舗</h4>
+        </div>
+    </div>
+    <div id="main_contents_main">
+        <ul>
+            <li><a ui-sref=".profile" ui-sref-active="current_sub_now" class="current_sub">プロフィール</a></li>
+            <li><a ui-sref=".went" ui-sref-active="current_sub_now" class="current_sub" ng-click="getWentComments()">行った店(口コミ)</a></li>
+            <li><a ui-sref=".wantGo" ui-sref-active="current_sub_now" class="current_sub" ng-click="getWantGoComments()">行きたい店</a></li>
+            <li><a ui-sref=".recommend" ui-sref-active="current_sub_now" class="current_sub" ng-click="getRecommendItem()">推薦店舗</a></li>
+        </ul>
+    </div>

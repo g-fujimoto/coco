@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc filter
  * @name ui.router.state.filter:isState
@@ -11,7 +9,7 @@
  */
 $IsStateFilter.$inject = ['$state'];
 function $IsStateFilter($state) {
-  var isFilter = function isFilter(state) {
+  var isFilter = function (state) {
     return $state.is(state);
   };
   isFilter.$stateful = true;
@@ -29,11 +27,13 @@ function $IsStateFilter($state) {
  */
 $IncludedByStateFilter.$inject = ['$state'];
 function $IncludedByStateFilter($state) {
-  var includesFilter = function includesFilter(state) {
+  var includesFilter = function (state) {
     return $state.includes(state);
   };
   includesFilter.$stateful = true;
-  return includesFilter;
+  return  includesFilter;
 }
 
-angular.module('ui.router.state').filter('isState', $IsStateFilter).filter('includedByState', $IncludedByStateFilter);
+angular.module('ui.router.state')
+  .filter('isState', $IsStateFilter)
+  .filter('includedByState', $IncludedByStateFilter);

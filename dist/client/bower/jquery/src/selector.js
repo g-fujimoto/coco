@@ -1,3 +1,1 @@
-"use strict";
-
-define(["./selector-sizzle"]);
+define([ "./selector-sizzle" ]);

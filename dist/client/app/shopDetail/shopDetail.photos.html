@@ -1,0 +1,33 @@
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
+<div id="shopDetail_main">
+    <div id="shopDetail_photo_list">
+        <div ng-repeat="image in item.images | limitTo: len: start">
+            <div class="shopDetail_photo">
+                <p class="photo_img">
+                    <img class="withParent" src="{{image.path}}" width="100" height="100">
+                </p>
+
+                <p style="text-align:center;">{{image.registerUser}}(投稿者)</p>
+            </div>
+        </div>
+        <div ng-repeat="itemComment in itemComments">
+            <div ng-repeat="image in itemComment.images">
+                <div class="shopDetail_photo">
+                    <p class="photo_img">
+                        <img class="withParent" src="{{image.path}}">
+                    </p>
+                    <p style="text-align:center;">{{itemComment.user.lastName}} {{itemComment.user.firstName}}(投稿者)</p>
+                </div>
+                <p class="text-muted no-photo h3" ng-show="item.images.length == 0 && itemComment.images == 0">
+                    No Photo
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="pagerCenterPhotos">
+    <pagination total-items="item.images.length" items-per-page="len" ng-model="current" ng-change="pager()" previous-text="◀︎" next-text="▶︎" class="center-block"></pagination>
+</div>
+<p class="white_btn img_posting"><a href="javascript:void(0)" photo-modal={{item}}><i class="fa fa-camera"></i>&nbsp;画像を投稿する</a></p>

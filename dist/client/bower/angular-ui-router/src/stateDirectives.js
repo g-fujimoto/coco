@@ -1,8 +1,5 @@
-'use strict';
-
 function parseStateRef(ref, current) {
-  var preparsed = ref.match(/^\s*({[^}]*})\s*$/),
-      parsed;
+  var preparsed = ref.match(/^\s*({[^}]*})\s*$/), parsed;
   if (preparsed) ref = current + '(' + preparsed[1] + ')';
   parsed = ref.replace(/\n/g, " ").match(/^([^(]+?)\s*(\((.*)\))?$/);
   if (!parsed || parsed.length !== 4) throw new Error("Invalid state ref '" + ref + "'");
@@ -86,29 +83,26 @@ function $StateRefDirective($state, $timeout) {
   return {
     restrict: 'A',
     require: ['?^uiSrefActive', '?^uiSrefActiveEq'],
-    link: function link(scope, element, attrs, uiSrefActive) {
+    link: function(scope, element, attrs, uiSrefActive) {
       var ref = parseStateRef(attrs.uiSref, $state.current.name);
-      var params = null,
-          url = null,
-          base = stateContext(element) || $state.$current;
+      var params = null, url = null, base = stateContext(element) || $state.$current;
       // SVGAElement does not use the href attribute, but rather the 'xlinkHref' attribute.
-      var hrefKind = Object.prototype.toString.call(element.prop('href')) === '[object SVGAnimatedString]' ? 'xlink:href' : 'href';
-      var newHref = null,
-          isAnchor = element.prop("tagName").toUpperCase() === "A";
+      var hrefKind = Object.prototype.toString.call(element.prop('href')) === '[object SVGAnimatedString]' ?
+                 'xlink:href' : 'href';
+      var newHref = null, isAnchor = element.prop("tagName").toUpperCase() === "A";
       var isForm = element[0].nodeName === "FORM";
-      var attr = isForm ? "action" : hrefKind,
-          nav = true;
+      var attr = isForm ? "action" : hrefKind, nav = true;
 
       var options = { relative: base, inherit: true };
       var optionsOverride = scope.$eval(attrs.uiSrefOpts) || {};
 
-      angular.forEach(allowedOptions, function (option) {
+      angular.forEach(allowedOptions, function(option) {
         if (option in optionsOverride) {
           options[option] = optionsOverride[option];
         }
       });
 
-      var update = function update(newVal) {
+      var update = function(newVal) {
         if (newVal) params = angular.copy(newVal);
         if (!nav) return;
 
@@ -126,7 +120,7 @@ function $StateRefDirective($state, $timeout) {
       };
 
       if (ref.paramExpr) {
-        scope.$watch(ref.paramExpr, function (newVal, oldVal) {
+        scope.$watch(ref.paramExpr, function(newVal, oldVal) {
           if (newVal !== params) update(newVal);
         }, true);
         params = angular.copy(scope.$eval(ref.paramExpr));
@@ -135,19 +129,20 @@ function $StateRefDirective($state, $timeout) {
 
       if (isForm) return;
 
-      element.bind("click", function (e) {
+      element.bind("click", function(e) {
         var button = e.which || e.button;
-        if (!(button > 1 || e.ctrlKey || e.metaKey || e.shiftKey || element.attr('target'))) {
+        if ( !(button > 1 || e.ctrlKey || e.metaKey || e.shiftKey || element.attr('target')) ) {
           // HACK: This is to allow ng-clicks to be processed before the transition is initiated:
-          var transition = $timeout(function () {
+          var transition = $timeout(function() {
             $state.go(ref.state, params, options);
           });
           e.preventDefault();
 
           // if the state has no URL, ignore one preventDefault from the <a> directive.
-          var ignorePreventDefaultCount = isAnchor && !newHref ? 1 : 0;
-          e.preventDefault = function () {
-            if (ignorePreventDefaultCount-- <= 0) $timeout.cancel(transition);
+          var ignorePreventDefaultCount = isAnchor && !newHref ? 1: 0;
+          e.preventDefault = function() {
+            if (ignorePreventDefaultCount-- <= 0)
+              $timeout.cancel(transition);
           };
         }
       });
@@ -231,11 +226,10 @@ function $StateRefDirective($state, $timeout) {
  */
 $StateRefActiveDirective.$inject = ['$state', '$stateParams', '$interpolate'];
 function $StateRefActiveDirective($state, $stateParams, $interpolate) {
-  return {
+  return  {
     restrict: "A",
     controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
-      var states = [],
-          activeClass;
+      var states = [], activeClass;
 
       // There probably isn't much point in $observing this
       // uiSrefActive and uiSrefActiveEq share the same directive object with some
@@ -285,4 +279,7 @@ function $StateRefActiveDirective($state, $stateParams, $interpolate) {
   };
 }
 
-angular.module('ui.router.state').directive('uiSref', $StateRefDirective).directive('uiSrefActive', $StateRefActiveDirective).directive('uiSrefActiveEq', $StateRefActiveDirective);
+angular.module('ui.router.state')
+  .directive('uiSref', $StateRefDirective)
+  .directive('uiSrefActive', $StateRefActiveDirective)
+  .directive('uiSrefActiveEq', $StateRefActiveDirective);

@@ -1,0 +1,30 @@
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
+    <div id="bg_black"></div>
+    <div id="main_contents">
+
+    <div ng-repeat="comment in wantgo_comments | filter: {'item' : {'area' : area, 'sceneNames' : sceneName, 'genreName' : genreName}} | limitTo: len: start as results">
+            <div class="want_go_store_list" style="margin-bottom:20px;">
+                <div class="store_img">
+                    <image class="store_img" src="./assets/./images/items/sample.jpg">
+                </div>
+                    <div class="store_info">
+                        <h5>{{comment.item.name}}<span class="item_area">&nbsp;({{comment.item.area}})</span></h5>
+                        <p class="store_attribute">({{comment.item.genreName}})&nbsp;(<span ng-repeat="sceneName in comment.item.sceneNames">{{sceneName}}&nbsp;</span>)</p>
+                        <p class="gradation_thin_border"></p>
+                        <p class="impressions">{{comment.body}}</p>
+                        <p class="see_store_info black_btn"><a ui-sref="shopDetail.main({item:comment.item})">店舗情報を見る</a></p>
+                        <p class="edit white_btn"><a want-go-modal-edit="{{comment}}">編集する</a></p>
+                    </div>
+            </div>
+    </div>
+    <div ng-show="results == 0">
+        ご指定の条件に該当する店舗が見つかりませんでした。
+    </div>
+    <div id="pagerCenter">
+        <pagination total-items="wantgo_comments.length" items-per-page="len" ng-model="current" ng-change="pager()" previous-text="◀︎" next-text="▶︎" class="center-block"></pagination>
+    </div>
+
+    </div>
+<coco-sidebar></coco-sidebar>

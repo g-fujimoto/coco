@@ -1,0 +1,8 @@
+<div class="mainmenu_main" ng-show="isLogin">
+    <ul>
+        <li ng-click="global_menu='main'"><a ui-sref="main" ng-class="{current:global_menu=='main'}" ng-click="global_menu='main'">トップページ</a></li>
+        <li><a ui-sref="myPage.profile" ng-class="{current:global_menu=='myPage'}">マイページ</a></li>
+        <li><a ui-sref="search" ng-class="{current:global_menu=='search'}" ng-click="global_menu='search'">店舗検索</a></li>
+        <li><a ui-sref="newItem.regist" ng-class="{current:global_menu=='newItem'}" ng-click="global_menu='newItem'">新規店舗登録</a></li>
+    </ul>
+</div>

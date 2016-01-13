@@ -1,7 +1,11 @@
-"use strict";
+define([
+	"./core",
+	"./attributes/attr",
+	"./attributes/prop",
+	"./attributes/classes",
+	"./attributes/val"
+], function( jQuery ) {
 
-define(["./core", "./attributes/attr", "./attributes/prop", "./attributes/classes", "./attributes/val"], function (jQuery) {
-
-	// Return jQuery for attributes-only inclusion
-	return jQuery;
+// Return jQuery for attributes-only inclusion
+return jQuery;
 });

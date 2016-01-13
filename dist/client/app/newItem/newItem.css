@@ -1,0 +1,262 @@
+/*背景色および余白設定*/
+#item_registration {
+    background-color: #fff;
+    padding: 50px 65px 50px 65px;
+}
+
+/*登録完了ページ設定*/
+#resultmessagemessage {
+    width: 800px;
+    height: 200px;
+    text-indent: 20px;
+}
+
+/*タイトル設定*/
+#item_title {
+    width: 800px;
+    margin: 20px auto 20px auto;
+    font-size: 14px;
+}
+#item_title h3{
+    width: 400px;
+    float: left;
+}
+
+/*パン屑リスト設定*/
+#item_navigation {
+    width: 800px;
+    margin: 20px auto 20px auto;
+    list-style: none;
+    overflow: hidden;
+    color: #aaa;
+    font: 20px Verdana, sans-serif;
+    background: #fff;
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    background: #fafafa;
+}
+
+#item_navigation a {
+    cursor: default;
+}
+
+#item_navigation li {
+        float: left;
+        line-height: 60px;
+        text-shadow: 0 1px 1px white;
+}
+
+#item_navigation li:first-child a {
+    padding-left: 10px;
+}
+
+#item_navigation li:last-child {
+    padding-left: 40px;
+}
+
+/*遷移前*/
+#item_navigation li .navigation_def {
+    color: #aaa;
+    text-decoration: none;
+    padding: 0 10px 0 30px;
+    display: block;
+    float: left;
+    background: #fafafa;
+    text-align: center;
+    width: 230px;
+}
+
+#item_navigation li .navigation_def::after {
+        position: relative;
+        display: block;
+        margin-top: -30px;
+        margin-left: auto;
+        margin-right: -25px;
+        height: 30px;
+        width: 30px;
+        content: " ";
+        -webkit-transform: skew(-40deg);
+        background: #fafafa;
+        border-right: 1px solid #d6d6d6;
+}
+
+#item_navigation li .navigation_def::before {
+        float: right;
+        display: block;
+        margin-bottom: -30px;
+        margin-left: auto;
+        margin-right: -25px;
+        height: 30px;
+        width: 30px;
+        content: " ";
+        -webkit-transform: skew(40deg);
+        background: #fafafa;
+        border-right: 1px solid #d6d6d6;
+}
+
+/*遷移後*/
+#item_navigation li .navigation_aft {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px 0 30px;
+    display: block;
+    float: left;
+    background: #777;
+    text-align: center;
+    width: 230px;
+}
+
+#item_navigation li .navigation_aft::after {
+    position: relative;
+    display: block;
+    margin-top: -30px;
+    margin-left: auto;
+    margin-right: -25px;
+    height: 30px;
+    width: 30px;
+    content: " ";
+    -webkit-transform: skew(-40deg);
+    background: #777;
+    border-right: 1px solid #d6d6d6;
+}
+
+#item_navigation li .navigation_aft::before {
+    float: right;
+    display: block;
+    margin-bottom: -30px;
+    margin-left: auto;
+    margin-right: -25px;
+    height: 30px;
+    width: 30px;
+    content: " ";
+    -webkit-transform: skew(40deg);
+    background: #777;
+    border-right: 1px solid #d6d6d6;
+}
+
+/*遷移前(末尾)*/
+#item_navigation li .navigation_end_def {
+    color: #aaa;
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+    display: block;
+    float: left;
+    background: #fafafa;
+    text-align: center;
+    width: 220px;
+}
+
+/*遷移後(末尾)*/
+#item_navigation li .navigation_end_aft {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+    display: block;
+    float: left;
+    background: #777;
+    text-align: center;
+    width: 220px;
+}
+
+#item_navigation .navigation_end_aft_li {
+    background: #777;
+}
+
+/*テーブル設定*/
+#item_form table {
+    width: 800px;
+    margin: 0 auto;
+    border-collapse:collapse;
+}
+
+#item_form tr {
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+}
+
+#item_form th,td{
+    padding: 10px;
+    text-align:left;
+}
+
+#item_form th {
+    width: 200px;
+}
+
+#item_form td{
+    padding: 10px 10px 0px 10px;
+}
+
+/*テキストボックスの設定*/
+#item_form input{
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+    line-height: 30px;
+    text-indent: 10px;
+}
+
+/*郵便番号用メッセージラベル設定*/
+#item_form .label_zipcode {
+    margin-bottom: 10px;
+    text-indent: 25px;
+}
+
+/*郵便番号のテキストボックス設定*/
+#item_form .input_zipcode {
+    width: 90px;
+    margin-right: 20px;
+}
+
+/*郵便番号ボタン設定*/
+#item_form .button_zipcode {
+    height: 35px;
+    margin:0px;
+    box-shadow:2px 2px #555;
+}
+
+/*住所のテキストボックス設定*/
+#item_form .input_address {
+    width: 500px;
+}
+
+/*セレクトボックス設定*/
+#item_form select {
+    width: 250px;
+    height: 35px;
+    margin-bottom: 10px;
+    text-indent: 10px;
+}
+
+/*テキストエリア設定*/
+#item_form textarea {
+    width: 550px;
+    height: 200px;
+    margin-bottom: 10px;
+    text-indent: 10px;
+    vertical-align:top;
+    resize: none;
+}
+
+/*ボタン設定*/
+#button {
+   text-align: center;
+}
+
+#button button {
+    width:200px;
+    height: 50px;
+    margin: 20px auto 0px auto;
+    box-shadow:2px 2px #555;
+}
+
+#button button:hover {
+    opacity: 0.8;
+}
+
+/*無効時ボタン設定*/
+#button button:disabled {
+    opacity:0.6;
+    box-shadow:0px 0px #fff;
+}

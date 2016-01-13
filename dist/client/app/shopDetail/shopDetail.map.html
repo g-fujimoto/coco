@@ -1,0 +1,38 @@
+<div id="shopDetail_main">
+    <div class="shopDetail_access">
+        <!-- <p class="shopDetail_map"> -->
+            <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+                <ui-gmap-markers models="map.markers" coords="'self'">
+                    <ui-gmap-windows>
+                        <div>
+                            <br>
+                            {{map.markers[0].title}}
+                            <hr>
+                            {{map.markers[0].content}}
+                        </div>
+                    </ui-gmap-windows>
+                </ui-gmap-markers>
+            </ui-gmap-google-map>
+        <!-- </p> -->
+        <div class="shopDetail_info">
+            <table>
+                <tr>
+                    <th>
+                        住所
+                    </th>
+                    <td>
+                        {{item.address.postalCode}}&nbsp;{{item.address.pref}}&nbsp;{{item.address.city}}&nbsp;{{item.address.town}}&nbsp;{{item.address.building}}</br>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        アクセス
+                    </th>
+                    <td>
+                        {{item.access || '-'}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

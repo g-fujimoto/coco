@@ -1,0 +1,105 @@
+
+
+<div id="main" ng-show="!islogin">
+    <div id="main_header">
+        <h2><img src="./assets/./images/main/parts/title.svg" alt="" /></h2>
+        <h3>新規店舗登録</h3>
+    </div>
+    <div id="main_search_box">
+
+
+        <div id="item_registration">
+
+            <div id="item_title">
+                <div id="title_background">
+                    <h4>登録の手順</h4>
+                </div>
+            </div>
+
+            <div id="item_navigation">
+                <li><a class="navigation_aft">登録内容入力</a></li>
+                <li><a class="navigation_aft">登録内容確認</a></li>
+                <li><a class="navigation_end_def">完了</a></li>
+            </div>
+
+            <div id="item_form">
+                <form name="tableform">
+                    <p>※は必須項目です</p>
+                    <table>
+                        <tr>
+                            <th><label for="">店舗名※</label></th>
+                            <td>{{confirmData.name}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗名（フリガナ）※</label></th>
+                            <td>{{confirmData.kana}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">支店名</label></th>
+                            <td>{{confirmData.branch}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">別表記</label></th>
+                            <td>{{confirmData.otherName}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">電話番号※</label></th>
+                            <td>{{confirmData.tel}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">郵便番号※</label></th>
+                            <td>〒 {{confirmData.address.postalCode}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">エリア※</label></th>
+                            <td>{{confirmData.area}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗住所(都道府県)※</label></th>
+                            <td>{{confirmData.address.pref}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗住所(市区町村)※</label></th>
+                            <td>{{confirmData.address.city}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗住所(町番地)※</label></th>
+                            <td>{{confirmData.address.town}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">店舗住所(ビル名)※</label></th>
+                            <td>{{confirmData.address.building}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">ジャンル</label></th>
+                            <td>{{confirmData.genreName}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">シーン</label></th>
+                            <td>{{confirmData.sceneName}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">タイトル※</label></th>
+                            <td>{{confirmData.title}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">紹介文※</label></th>
+                            <td>{{confirmData.introduce}}</td>
+                        </tr>
+                        <tr>
+                            <th><label for="">登録画像</label></th>
+                            <td ng-show="confirmData.images">あり</td>
+                            <td ng-show="!confirmData.images">なし</td>
+                        </tr>
+                    </table>
+                    <div id="button">
+                        <button id="" class="button_submit" name="" value="" ui-sref="newItem.regist({confirmData: confirmData})">戻る</button>
+                        <button id="" class="button_submit" name="" value="" ng-click="saveItemAPI()">登録する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

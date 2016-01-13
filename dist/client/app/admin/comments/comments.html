@@ -1,0 +1,101 @@
+<!-- CSS -->
+<link rel="stylesheet" href="./bower/bootswatch-dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+<!-- BODY -->
+<div ng-show="isAdminLogin">
+    <ng-navbar></ng-navbar>
+    <div class="container-fluid">
+        <h1 class="page-header margin-top-sm">コメント一覧</h1>
+        <div class="row">
+            <div ng-controller="AlertController">
+                <div class="container-fluid">
+                    <div class="col-sm-offset-4 col-sm-4">
+                        <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="alert animate alertAnimate">{{alert.msg}}</uib-alert>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <button type="button" ui-sref="adminNewComment" class="btn btn-primary">新規登録</button>
+            </div>
+            <br>
+        </div>
+        <!-- テーブル -->
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr class="danger">
+                    <th>
+                        名前
+                    </th>
+                    <th>
+                        店舗
+                    </th>
+                    <th>
+                        タイトル
+                    </th>
+                    <th>
+                        コメントタイプ
+                    </th>
+                    <th>
+                        いいね!数
+                    </th>
+                    <th>
+                        ジャンル平均点
+                    </th>
+                    <th>
+                        シーン平均点
+                    </th>
+                    <th>
+                        登録日
+                    </th>
+                    <th>
+                        更新日
+                    </th>
+                    <th>
+                        編集
+                    </th>
+                    <th>
+                        削除
+                    </th>
+                </tr>
+                <tr ng-repeat="data in datas | orderBy: 'created'">
+
+                    <td>
+                        {{data.user.lastName}}&nbsp;{{data.user.firstName}}
+                    </td>
+                    <td>
+                        {{data.item.name}}
+                    </td>
+                    <td>
+                        {{data.title}}
+                    </td>
+                    <td>
+                        {{data.type ? '「行った」': '「行きたい」'}}
+                    </td>
+                    <td>
+                        {{data.itemLikesCounter.count}}&nbsp;いいね!
+                    </td>
+                    <td>
+                        {{data.genreAve || 0 | number: 1}}&nbsp;点
+                    </td>
+                    <td>
+                        {{data.sceneAve || 0| number: 1 }}&nbsp;点
+                    </td>
+                    <td>
+                        {{data.created | date: 'yyyy-MM-dd HH:mm:dd'}}
+                    </td>
+                    <td>
+                        {{data.modified | date: 'yyyy-MM-dd HH:mm:dd'}}
+                    </td>
+                    <td>
+                        <button class="btn btn-xs btn-success width-lg" edit-modal="{{data}}">編集</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-xs btn-danger width-lg" delete-modal="{{data}}">削除</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

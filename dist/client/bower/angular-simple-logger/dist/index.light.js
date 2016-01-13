@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  *  angular-simple-logger
  *
@@ -9,29 +7,26 @@
  * @license: MIT
  */
 
-(function (window, angular) {
+(function (window, angular){
   angular.module('nemLogging', []);
 
-  angular.module('nemLogging').provider('nemDebug', function () {
-    var ourDebug = null;
-
-    this.$get = function () {
-      //avail as service
-      return ourDebug;
-    };
-
-    //avail at provider, config time
-    this.debug = ourDebug;
-
-    return this;
-  });
-  var bind = function bind(fn, me) {
-    return function () {
-      return fn.apply(me, arguments);
-    };
+angular.module('nemLogging').provider('nemDebug', function (){
+  var ourDebug = null;
+  
+  this.$get =  function(){
+    //avail as service
+    return ourDebug;
   };
 
-  angular.module('nemLogging').provider('nemSimpleLogger', ['nemDebugProvider', function (nemDebugProvider) {
+  //avail at provider, config time
+  this.debug = ourDebug;
+
+  return this;
+});
+var bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+angular.module('nemLogging').provider('nemSimpleLogger', [
+  'nemDebugProvider', function(nemDebugProvider) {
     var LEVELS, Logger, _fns, _isValidLogObject, _maybeExecLevel, _wrapDebug, i, key, len, nemDebug, val;
     nemDebug = nemDebugProvider.debug;
     _fns = ['debug', 'info', 'warn', 'error', 'log'];
@@ -40,12 +35,12 @@
       val = _fns[key];
       LEVELS[val] = key;
     }
-    _maybeExecLevel = function _maybeExecLevel(level, current, fn) {
+    _maybeExecLevel = function(level, current, fn) {
       if (level >= current) {
         return fn();
       }
     };
-    _isValidLogObject = function _isValidLogObject(logObject) {
+    _isValidLogObject = function(logObject) {
       var isValid, j, len1;
       isValid = false;
       if (!logObject) {
@@ -53,7 +48,7 @@
       }
       for (j = 0, len1 = _fns.length; j < len1; j++) {
         val = _fns[j];
-        isValid = logObject[val] != null && typeof logObject[val] === 'function';
+        isValid = (logObject[val] != null) && typeof logObject[val] === 'function';
         if (!isValid) {
           break;
         }
@@ -65,7 +60,7 @@
       Overide logeObject.debug with a nemDebug instance
       see: https://github.com/visionmedia/debug/blob/master/Readme.md
      */
-    _wrapDebug = function _wrapDebug(debugStrLevel, logObject) {
+    _wrapDebug = function(debugStrLevel, logObject) {
       var debugInstance, j, len1, newLogger;
       debugInstance = nemDebug(debugStrLevel);
       newLogger = {};
@@ -75,7 +70,7 @@
       }
       return newLogger;
     };
-    Logger = function () {
+    Logger = (function() {
       function Logger($log1) {
         var fn1, j, len1, level, logFns;
         this.$log = $log1;
@@ -88,18 +83,18 @@
         }
         this.doLog = true;
         logFns = {};
-        fn1 = function (_this) {
-          return function (level) {
-            logFns[level] = function (msg) {
+        fn1 = (function(_this) {
+          return function(level) {
+            logFns[level] = function(msg) {
               if (_this.doLog) {
-                return _maybeExecLevel(LEVELS[level], _this.currentLevel, function () {
+                return _maybeExecLevel(LEVELS[level], _this.currentLevel, function() {
                   return _this.$log[level](msg);
                 });
               }
             };
             return _this[level] = logFns[level];
           };
-        }(this);
+        })(this);
         for (j = 0, len1 = _fns.length; j < len1; j++) {
           level = _fns[j];
           fn1(level);
@@ -108,7 +103,7 @@
         this.currentLevel = LEVELS.error;
       }
 
-      Logger.prototype.spawn = function (newInternalLogger) {
+      Logger.prototype.spawn = function(newInternalLogger) {
         if (typeof newInternalLogger === 'string') {
           if (!_isValidLogObject(this.$log)) {
             throw '@$log is invalid';
@@ -122,16 +117,23 @@
       };
 
       return Logger;
-    }();
-    this.decorator = ['$log', function ($delegate) {
-      var log;
-      log = new Logger($delegate);
-      log.currentLevel = LEVELS.debug;
-      return log;
-    }];
-    this.$get = ['$log', function ($log) {
-      return new Logger($log);
-    }];
+
+    })();
+    this.decorator = [
+      '$log', function($delegate) {
+        var log;
+        log = new Logger($delegate);
+        log.currentLevel = LEVELS.debug;
+        return log;
+      }
+    ];
+    this.$get = [
+      '$log', function($log) {
+        return new Logger($log);
+      }
+    ];
     return this;
-  }]);
+  }
+]);
+
 })(window, angular);

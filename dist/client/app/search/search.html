@@ -1,0 +1,130 @@
+<coco-header></coco-header>
+<div ng-class="{note : pop.show}" ng-show="pop.show" class="cssanimations csstransforms">
+    {{pop.message}}
+</div>
+<div id="main" class="search" ng-show="!islogin">
+
+    <div id="main_header">
+        <h2><img src="./assets/./images/main/parts/title.svg" alt="" /></h2>
+        <h3>店舗検索</h3>
+    </div>
+
+    <div id="main_search_box">
+
+        <div class="main_search_box_header">
+            <ul>
+                <li><h6>フリーワードで絞り込む</h6></li>
+                <li><input type="text" value="Freeword" ng-model="word" ng-model-options="{debounce: 750}"/></li>
+            </ul>
+        </div>
+
+        <div class="main_search_box_main">
+            <ul>
+                <li>
+                    <h6>検索中の条件：新着順</h6>
+                    <p>1~10件を表示/全{{items.length}}件</p>
+                </li>
+                <li class="right"><h5>{{items.length}}件 お店が見つかりました</h5></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="main_side_wrap">
+
+          <div id="main_contents" >
+
+            <div class="loop_contents_box" ng-repeat="item in items | limitTo:10:(currentPage-1)*10 as results">
+
+                <div class="left_box">
+                    <ul>
+<!-- TODO データが入ってから確認
+                        <li ng-repeat="image in item_comments[item._id].comment.images | limitTo:2:0"><img src="{{image.path}}" ng-class="{top:$first}"/></li>
+-->
+                        <li><img src="./assets/./images/main/top/test01.jpg" class="top"/></li>
+                        <li><img src="./assets/./images/main/top/test02.jpg" /></li>
+                        <li><img src="./assets/./images/main/top/test03.jpg" /></li>
+                    </ul>
+                </div>
+
+                <div class="right_box">
+                    <h2>{{item.name}}<span class="item_area">（{{item.area}}）</span></h2>
+                    <ul class="category_list">
+                        <li>（{{item.genreName}}）</li>
+                        <li>（{{item.sceneNames.join(" ")}}）</li>
+                    </ul>
+                    <hr />
+                    <div class="button_box">
+                        <div class="left">
+                            <div class="box_header">
+                               <ul>
+                                    <li><h3><b>ジャンル</b>{{item_comments[item._id].genreAve | number:1}}</h3></li>
+                                    <li><h3><b>シーン</b>{{item_comments[item._id].sceneAve | number:1}}</h3></li>
+                                </ul>
+                            </div>
+                            <div class="box_main" ng-show="debug">
+                                <ul>
+                                    <li><span>味</span>0.0</li>
+                                    <li><span>盛付</span>0.0</li>
+                                    <li><span>品質</span>0.0</li>
+                                    <li><span>創作</span>0.0</li>
+                                    <li><span>ドリンク</span>0.0</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <p class="see_store_info black_btn"><a ui-sref="shopDetail.main({item: item})">店舗詳細を見る</p></a>
+                        </div>
+                    </div>
+
+                    <div class="text_box" ng-init="$parent.show_loading=true;" ng-show="item_comments[item._id].comment">
+
+                      <div class="sk-three-bounce" ng-show="show_loading">
+                          <div class="sk-child sk-bounce1"></div>
+                          <div class="sk-child sk-bounce2"></div>
+                          <div class="sk-child sk-bounce3"></div>
+                      </div>
+
+                      <div class="left">
+                          <div ng-repeat="image in item_comments[item._id].comment.user.images"><img src="{{image.path}}" /></div>
+                          <p class="loop_thumbnail no-photo text-muted" ng-show="!item_comments[item._id].comment.user.images[0]">
+                              No Photo
+                          </p>
+                          <p class="name">{{item_comments[item._id].comment.user.lastName}} {{item_comments[item._id].comment.user.firstName}}</p>
+                      </div>
+                      <div class="right">
+                          <h6>最新コメント</h6>
+                          <p>{{item_comments[item._id].comment.body}}</p>
+                          <a ui-sref="shopDetail.reviews({item:item})">もっと詳しく見る</a>
+                      </div>
+
+                    </div>
+
+                    <div class="footer_box">
+                        <ul>
+                            <li><h5>{{item.itemRecommendCounter.count}}人が推薦しています</h5><h6>{{item.itemLikeCounter.count}}人がいいねといっています</h6></li>
+                            <li><button class="blue_btn recommendation margin-top-xs" type="button"  ng-click="recommendAdd(item);" check-added="{{item}}"  ng-disabled="checkRecommend || item.checkRecommend" ng-class="{noClick: item.checkRecommend || checkRecommend}"><i class="fa fa-star-o"></i>&nbsp;推薦する</button></li>
+                        </ul>
+                    </div>
+                  </div>
+              </div>
+              <!--------->
+              <div ng-show="results == 0">
+                  ご指定の条件に該当する店舗が見つかりませんでした。<br>
+              </div>
+          </div>
+
+        <coco-sidebar-min></coco-sidebar-min>
+
+    </div>
+
+    <div class="pager_box">
+        <ul>
+            <li><a href="" ng-click="currentPage=currentPage-1"><</a></li>
+            <li ng-repeat="page in pages" ng-class="{current:$parent.currentPage==page}"><a href="" ng-click="$parent.currentPage=page">{{page}}</a></li>
+            <li><a href="" ng-click="currentPage=currentPage+1">></a></li>
+        </ul>
+    </div>
+
+</div><!-- #main -->
+<coco-footer></coco-footer>

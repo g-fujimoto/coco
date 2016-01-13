@@ -16,7 +16,7 @@ angular.module('webApp')
         };
 
         // 削除
-        this.Like.delete = function(itemid, itemid) {
+        this.Like.delete = function(commentid, itemid) {
 
             var data = {};
             data._commentid = commentid;

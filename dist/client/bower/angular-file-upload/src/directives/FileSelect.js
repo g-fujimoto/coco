@@ -1,19 +1,14 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 
-var _config = require('./../config.json');
+import CONFIG from './../config.json';
 
-var _config2 = _interopRequireDefault(_config);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+export default  ($parse, FileUploader, FileSelect) => {
 
-exports.default = function ($parse, FileUploader, FileSelect) {
 
     return {
-        link: function link(scope, element, attributes) {
+        link: (scope, element, attributes) => {
             var uploader = scope.$eval(attributes.uploader);
 
             if (!(uploader instanceof FileUploader)) {
@@ -26,11 +21,16 @@ exports.default = function ($parse, FileUploader, FileSelect) {
             });
 
             object.getOptions = $parse(attributes.options).bind(object, scope);
-            object.getFilters = function () {
-                return attributes.filters;
-            };
+            object.getFilters = () => attributes.filters;
         }
     };
-};
 
-module.exports.$inject = ['$parse', 'FileUploader', 'FileSelect'];
+
+}
+
+
+module.exports.$inject = [
+    '$parse',
+    'FileUploader',
+    'FileSelect'
+];

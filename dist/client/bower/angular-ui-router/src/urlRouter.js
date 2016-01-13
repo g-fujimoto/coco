@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc object
  * @name ui.router.router.$urlRouterProvider
@@ -17,16 +15,13 @@
  * in your module config.
  */
 $UrlRouterProvider.$inject = ['$locationProvider', '$urlMatcherFactoryProvider'];
-function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
-  var rules = [],
-      otherwise = null,
-      interceptDeferred = false,
-      listener;
+function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
+  var rules = [], otherwise = null, interceptDeferred = false, listener;
 
   // Returns a string that is a prefix of all strings matching the RegExp
   function regExpPrefix(re) {
     var prefix = /^\^((?:\\[^a-zA-Z0-9]|[^\\\[\]\^$*+?.()|{}]+)*)/.exec(re.source);
-    return prefix != null ? prefix[1].replace(/\\(.)/g, "$1") : '';
+    return (prefix != null) ? prefix[1].replace(/\\(.)/g, "$1") : '';
   }
 
   // Interpolates matched values into a String.replace()-style pattern
@@ -107,13 +102,13 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
   this.otherwise = function (rule) {
     if (isString(rule)) {
       var redirect = rule;
-      rule = function rule() {
-        return redirect;
-      };
-    } else if (!isFunction(rule)) throw new Error("'rule' must be a function");
+      rule = function () { return redirect; };
+    }
+    else if (!isFunction(rule)) throw new Error("'rule' must be a function");
     otherwise = rule;
     return this;
   };
+
 
   function handleIfMatch($injector, handler, match) {
     if (!match) return false;
@@ -159,19 +154,17 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
    * @param {string|object} handler The path you want to redirect your user to.
    */
   this.when = function (what, handler) {
-    var redirect,
-        handlerIsString = isString(handler);
+    var redirect, handlerIsString = isString(handler);
     if (isString(what)) what = $urlMatcherFactory.compile(what);
 
-    if (!handlerIsString && !isFunction(handler) && !isArray(handler)) throw new Error("invalid 'handler' in when()");
+    if (!handlerIsString && !isFunction(handler) && !isArray(handler))
+      throw new Error("invalid 'handler' in when()");
 
     var strategies = {
-      matcher: function matcher(what, handler) {
+      matcher: function (what, handler) {
         if (handlerIsString) {
           redirect = $urlMatcherFactory.compile(handler);
-          handler = ['$match', function ($match) {
-            return redirect.format($match);
-          }];
+          handler = ['$match', function ($match) { return redirect.format($match); }];
         }
         return extend(function ($injector, $location) {
           return handleIfMatch($injector, handler, what.exec($location.path(), $location.search()));
@@ -179,14 +172,12 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
           prefix: isString(what.prefix) ? what.prefix : ''
         });
       },
-      regex: function regex(what, handler) {
+      regex: function (what, handler) {
         if (what.global || what.sticky) throw new Error("when() RegExp must not be global or sticky");
 
         if (handlerIsString) {
           redirect = handler;
-          handler = ['$match', function ($match) {
-            return interpolate(redirect, $match);
-          }];
+          handler = ['$match', function ($match) { return interpolate(redirect, $match); }];
         }
         return extend(function ($injector, $location) {
           return handleIfMatch($injector, handler, what.exec($location.path()));
@@ -272,11 +263,9 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
    */
   this.$get = $get;
   $get.$inject = ['$location', '$rootScope', '$injector', '$browser'];
-  function $get($location, $rootScope, $injector, $browser) {
+  function $get(   $location,   $rootScope,   $injector,   $browser) {
 
-    var baseHref = $browser.baseHref(),
-        location = $location.url(),
-        lastPushedUrl;
+    var baseHref = $browser.baseHref(), location = $location.url(), lastPushedUrl;
 
     function appendBasePath(url, isHtml5, absolute) {
       if (baseHref === '/') return url;
@@ -300,8 +289,7 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
         if (isString(handled)) $location.replace().url(handled);
         return true;
       }
-      var n = rules.length,
-          i;
+      var n = rules.length, i;
 
       for (i = 0; i < n; i++) {
         if (check(rules[i])) return;
@@ -310,12 +298,12 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
       if (otherwise) check(otherwise);
     }
 
-    function _listen() {
+    function listen() {
       listener = listener || $rootScope.$on('$locationChangeSuccess', update);
       return listener;
     }
 
-    if (!interceptDeferred) _listen();
+    if (!interceptDeferred) listen();
 
     return {
       /**
@@ -344,15 +332,15 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
        * });
        * </pre>
        */
-      sync: function sync() {
+      sync: function() {
         update();
       },
 
-      listen: function listen() {
-        return _listen();
+      listen: function() {
+        return listen();
       },
 
-      update: function update(read) {
+      update: function(read) {
         if (read) {
           location = $location.url();
           return;
@@ -363,12 +351,12 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
         $location.replace();
       },
 
-      push: function push(urlMatcher, params, options) {
-        var url = urlMatcher.format(params || {});
+      push: function(urlMatcher, params, options) {
+         var url = urlMatcher.format(params || {});
 
         // Handle the special hash param, if needed
         if (url !== null && params && params['#']) {
-          url += '#' + params['#'];
+            url += '#' + params['#'];
         }
 
         $location.url(url);
@@ -401,14 +389,14 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
        *
        * @returns {string} Returns the fully compiled URL, or `null` if `params` fail validation against `urlMatcher`
        */
-      href: function href(urlMatcher, params, options) {
+      href: function(urlMatcher, params, options) {
         if (!urlMatcher.validates(params)) return null;
 
         var isHtml5 = $locationProvider.html5Mode();
         if (angular.isObject(isHtml5)) {
           isHtml5 = isHtml5.enabled;
         }
-
+        
         var url = urlMatcher.format(params);
         options = options || {};
 
@@ -427,9 +415,8 @@ function $UrlRouterProvider($locationProvider, $urlMatcherFactory) {
           return url;
         }
 
-        var slash = !isHtml5 && url ? '/' : '',
-            port = $location.port();
-        port = port === 80 || port === 443 ? '' : ':' + port;
+        var slash = (!isHtml5 && url ? '/' : ''), port = $location.port();
+        port = (port === 80 || port === 443 ? '' : ':' + port);
 
         return [$location.protocol(), '://', $location.host(), port, slash, url].join('');
       }
