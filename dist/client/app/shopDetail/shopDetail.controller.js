@@ -152,11 +152,11 @@ app.controller('ShopDetailController', ['$scope', '$http', '$$Scenes', '$$Genres
         return;
     };
 
-    angular.forEach('$scope.map.markers', function (marker) {
-        marker.onclick = function () {
-            marker.show = !marker.show;
-        };
-    });
+    // angular.forEach('$scope.map.markers', function (marker) {
+    //     marker.clickMark = function () {
+    //         marker.show = !marker.show;
+    //     };
+    // });
 
     // ----------------------------------------------- $watch ----------------------------------------------------//
 
