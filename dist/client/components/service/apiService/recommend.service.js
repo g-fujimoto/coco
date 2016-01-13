@@ -2,15 +2,15 @@
 
 angular.module('webApp').service('$Recommend', ['$resource', '$http', function ($resource, $http) {
 
-    undefined.Recommend = $resource('/api/recommend/:_id', { _id: '@_id' });
+    this.Recommend = $resource('/api/recommend/:_id', { _id: '@_id' });
 
     // ユーザーの推薦店舗検索
-    undefined.Recommend.userRecommend = function (data) {
+    this.Recommend.userRecommend = function (data) {
         return $http.post('/api/recommend/userRecommend', data);
     };
 
     // 追加
-    undefined.Recommend.add = function (itemid) {
+    this.Recommend.add = function (itemid) {
 
         var data = {};
         data._itemid = itemid;
@@ -19,7 +19,7 @@ angular.module('webApp').service('$Recommend', ['$resource', '$http', function (
     };
 
     // 削除
-    undefined.Recommend.delete = function (itemid) {
+    this.Recommend.delete = function (itemid) {
 
         var data = {};
         data._itemid = itemid;
@@ -27,5 +27,5 @@ angular.module('webApp').service('$Recommend', ['$resource', '$http', function (
         return $http.post('/api/recommend/delete', JSON.stringify(data));
     };
 
-    return undefined.Recommend;
+    return this.Recommend;
 }]);

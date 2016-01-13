@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('webApp').service('$Users', ['$resource', '$http', '$state', '$rootScope', '$timeout', function ($resource, $http, $state, $rootScope, $timeout) {
-    undefined.Users = $resource('/api/users/:_id', { _id: '@_id' }, { update: { method: 'PUT' } });
+    this.Users = $resource('/api/users/:_id', { _id: '@_id' }, { update: { method: 'PUT' } });
 
-    undefined.Users.login = function (scope, adminFlg) {
+    this.Users.login = function (scope, adminFlg) {
         var data = {};
         data.email = scope.email;
         data.password = scope.password;
@@ -44,7 +44,7 @@ angular.module('webApp').service('$Users', ['$resource', '$http', '$state', '$ro
         }
     };
 
-    undefined.Users.stateCheck = function (adminFlg, stateName) {
+    this.Users.stateCheck = function (adminFlg, stateName) {
         $http.post('/api/users/stateCheck', {}).success(function (data) {
             if (adminFlg) {
                 if (data.session) {
@@ -81,7 +81,7 @@ angular.module('webApp').service('$Users', ['$resource', '$http', '$state', '$ro
         });
     };
 
-    undefined.Users.logout = function (adminFlg) {
+    this.Users.logout = function (adminFlg) {
         $http.post('/api/users/logout', {}).success(function () {
             if (adminFlg) {
                 $rootScope.adminLoginUser = false;
@@ -95,5 +95,5 @@ angular.module('webApp').service('$Users', ['$resource', '$http', '$state', '$ro
         });
     };
 
-    return undefined.Users;
+    return this.Users;
 }]);
